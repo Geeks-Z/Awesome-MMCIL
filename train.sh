@@ -7,4 +7,5 @@ python main.py --config=./exps/cub.json
 python main.py --config=./exps/ucf.json
 python main.py --config=./exps/sun.json
 python main.py --config=./exps/food.json
+python main.py --config=./exps/obj.json
 

@@ -16,4 +16,4 @@ nohup ./train.sh > ./res/B0-alldataset-mlp-1layer-0001.out 2>&1 &
 
 # temp
 
-nohup ./train.sh > ./res/proof-B0-alldataset.out 2>&1 &
+nohup ./train.sh > ./res/2nd-proof-B0-alldataset.out 2>&1 &
