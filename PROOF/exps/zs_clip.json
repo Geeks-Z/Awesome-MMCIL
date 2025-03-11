@@ -9,7 +9,7 @@
     "increment": 10,
     "model_name": "zs_clip",
     "convnet_type": "clip",
-    "device": ["7"],
+    "device": ["2"],
     "seed": [1993]
 }
 

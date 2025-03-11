@@ -1,5 +1,5 @@
 cd Code/Research/Awesome-MMCL/PROOF &&
-conda activate cil
+conda activate peft
 
 nohup ./train.sh > ./res/3rd-stdout.res 2> ./res/3rd-stderr.res &
 
@@ -16,4 +16,4 @@ nohup ./train.sh > ./res/B0-alldataset-mlp-1layer-0001.out 2>&1 &
 
 # temp
 
-nohup ./train.sh > ./res/1st-proof-B0-alldataset.out 2>&1 &
+nohup ./train.sh > ./res/3rd-proof-B0-alldataset.out 2>&1 &

@@ -1,6 +1,6 @@
 
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+os.environ["CUDA_VISIBLE_DEVICES"] = "6"
 import json
 import pdb
 import random
@@ -27,7 +27,7 @@ def seed_everything(seed=0):
     torch.cuda.manual_seed_all(seed)
     torch.backends.cudnn.deterministic = True
     os.environ['PYTHONHASHSEED'] = str(seed)
-
+    os.environ['CUDA_VISIBLE_DEVICES'] = '6'
 
 def run_class_incremental(cfg, device):
 
@@ -172,11 +172,7 @@ def run_class_incremental(cfg, device):
             'avg': round(statistics.mean(acc_list), 2)
         }) + '\n')
 
-
-
-
-
-@hydra.main(config_path=None, config_name=None, version_base="1.1") 
+@hydra.main(config_path=None, config_name=None, version_base="1.1")
 def continual_clip(cfg: DictConfig) -> None:
     seed_everything(cfg.seed)
     cfg.workdir = utils.get_workdir(path=os.getcwd())
@@ -189,28 +185,6 @@ def continual_clip(cfg: DictConfig) -> None:
 
     if cfg.scenario == "class":
         run_class_incremental(cfg, device)
-
-
-
-
-    
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if __name__ == "__main__":
     continual_clip()

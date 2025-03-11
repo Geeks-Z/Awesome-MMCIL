@@ -10,15 +10,15 @@ hydra:
       simple:
         format: '%(message)s'
 
-class_order: ""
-dataset_root: ""
+class_order: "class_orders/imagenet_R_order.yaml"
+dataset_root: "/home/team/zhaohongwei/Dataset/imagenet-r"
 workdir: ""
 log_path: "metric.json"
 model_name: "ViT-B/16"
 prompt_template: "a good photo of a {}."
 
 batch_size: 64
-initial_increment: 20  
+initial_increment: 10
 increment: ${initial_increment}
 scenario: "class"
 dataset: "imagenet_R"
