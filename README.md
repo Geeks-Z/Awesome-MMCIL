@@ -24,11 +24,11 @@
 
 ## 🌟 Papers
 
-| Title | Method | Venue | Year | Type | Code |
-| ----- | ------ | ----- | ---- | ---- | ---- |
-|       |        |       |      |      |      |
-|       |        |       |      |      |      |
-|       |        |       |      |      |      |
+| Title                                                        | Method | Venue | Year | Type   | Code                                                         |
+| ------------------------------------------------------------ | ------ | ----- | ---- | ------ | ------------------------------------------------------------ |
+| [Learning Without Forgetting for  Vision-Language Models](https://ieeexplore.ieee.org/document/10882940/) | PROOF  | TPAMI | 2025 | Prompt | [LAMDA-CL](https://github.com/LAMDA-CL)[PROOF](https://github.com/LAMDA-CL/PROOF) |
+|                                                              |        |       |      |        |                                                              |
+|                                                              |        |       |      |        |                                                              |
 
 ---
 
@@ -52,11 +52,53 @@
 
 - ### Dataset split
 
-  - `B-$m$ Inc-$n$' ：$m$代表初始增量阶段类别数量，$n$ 代表后续每个增量阶段的类别数量；
+  - B-$m$ Inc-$n$ ：$m$代表初始增量阶段类别数量，$n$ 代表后续每个增量阶段的类别数量；
   - LFH(learning from half)，表示在模型训练的初始阶段先用一半的类别进行训练，然后剩下一半的类别均匀分为 $N$ 个阶段进行训练；
   - LFS(learning from scratch)，表示所有的类别均匀地分为 $N$ 个阶段进行训练
 
-- ### Backbone:`ViT-B/16-IN21K`
+- ### Backbone
+
+  | 模型                   | 训练数据                               | 发布方             | 特点                                 | 模型规模                       | 创建方式                                                     |
+  | ---------------------- | -------------------------------------- | ------------------ | ------------------------------------ | ------------------------------ | ------------------------------------------------------------ |
+  | **OpenAI CLIP**        | OpenAI 内部收集的 4 亿图文对数据集     | OpenAI             | 官方版本，性能稳定，但训练数据不公开 | ViT-B/32, ViT-B/16, ViT-L/14等 | `model, preprocess = clip.load("ViT-B/32", device=device)`   |
+  | **OpenCLIP LAION400M** | 公开的 LAION-400M 数据集（4 亿图文对） | LAION 组织开源项目 | 完全开源，训练数据公开可获取，可复现 | 多种架构和规模选择             | `model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion400m_e32')` |
+
+### 🔧 网络问题解决方案（中国大陆地区）
+
+#### 方案1: 使用镜像源
+```bash
+# 设置 HuggingFace 镜像
+export HF_ENDPOINT=https://hf-mirror.com
+# 或者
+pip install -U huggingface_hub
+huggingface-cli download --resume-download --local-dir-use-symlinks False
+```
+
+#### 方案2: 手动下载模型
+```python
+# 先手动下载模型到本地，然后加载
+import open_clip
+# 下载到指定路径后
+model, _, preprocess = open_clip.create_model_and_transforms(
+    'ViT-B-16', 
+    pretrained='/path/to/local/model.pt'
+)
+```
+
+#### 方案3: 使用代理
+```bash
+# 设置代理
+export http_proxy=http://your-proxy:port
+export https_proxy=https://your-proxy:port
+```
+
+#### 方案4: 使用本地缓存
+```python
+# 如果之前下载过，检查缓存目录
+import os
+cache_dir = os.path.expanduser("~/.cache/huggingface/hub")
+print(f"Cache directory: {cache_dir}")
+```
 
 - ### Memory
 

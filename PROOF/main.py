@@ -1,9 +1,11 @@
 import json
 import argparse
 from trainer import train
+import os
 
 
 def main():
+    os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
     args = setup_parser().parse_args()
     param = load_json(args.config)
     args = vars(args)  # Converting argparse Namespace to a dict.
@@ -19,7 +21,7 @@ def load_json(settings_path):
 
 def setup_parser():
     parser = argparse.ArgumentParser(description='Reproduce of multiple continual learning algorthms.')
-    parser.add_argument('--config', type=str, default='./exps/obj.json',
+    parser.add_argument('--config', type=str, default='./exps/cub.json',
                         help='Json file of settings.')
     return parser
 

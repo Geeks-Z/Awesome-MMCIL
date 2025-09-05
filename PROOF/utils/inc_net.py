@@ -16,13 +16,14 @@ def get_convnet(args, pretrained=False):
         print('Using CLIP model as the backbone')
         import open_clip
         if backbone_name == 'clip':
-            model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='/home/team/zhaohongwei/chkpt/open_clip_pytorch_model_laion400m_e32.bin')
+            model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin')
             # model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion400m_e32')
             tokenizer = open_clip.get_tokenizer('ViT-B-16')
             model.out_dim = 512
             return model, preprocess, tokenizer
         elif backbone_name=='clip_laion2b':
-            model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='/home/team/zhaohongwei/chkpt/open_clip_pytorch_model_laion2b_s34b_b88k.bin')
+            model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion2b_s34b_b88k.bin')
+            # model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion2b_s34b_b88k')
             tokenizer = open_clip.get_tokenizer('ViT-B-16')
             model.out_dim = 512
             return model, preprocess, tokenizer

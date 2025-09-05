@@ -9,7 +9,7 @@
     "increment": 10,
     "model_name": "simplecil",
     "convnet_type": "clip",
-    "device": ["2"],
+    "device": ["0"],
     "seed": [1993]
 }
 
