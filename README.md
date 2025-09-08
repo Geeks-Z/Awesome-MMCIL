@@ -24,25 +24,26 @@
 
 ## 🌟 Papers
 
-| Title                                                        | Method | Venue | Year | Type   | Code                                                         |
-| ------------------------------------------------------------ | ------ | ----- | ---- | ------ | ------------------------------------------------------------ |
-| [Learning Without Forgetting for  Vision-Language Models](https://ieeexplore.ieee.org/document/10882940/) | PROOF  | TPAMI | 2025 | Prompt | [LAMDA-CL](https://github.com/LAMDA-CL)[PROOF](https://github.com/LAMDA-CL/PROOF) |
-|                                                              |        |       |      |        |                                                              |
-|                                                              |        |       |      |        |                                                              |
+| Title                                                        | Method       | Venue | Year | Type    | Code                                                         |
+| ------------------------------------------------------------ | ------------ | ----- | ---- | ------- | ------------------------------------------------------------ |
+| [Learning Without Forgetting for  Vision-Language Models](https://ieeexplore.ieee.org/document/10882940/) | PROOF        | TPAMI | 2025 | Prompt  | [LAMDA-CL/PROOF](https://github.com/LAMDA-CL/PROOF) |
+| [Class-incremental learning with CLIP: adaptive representation adjustment and parameter fusion](https://link.springer.com/10.1007/978-3-031-72949-2_13) | RAPF         | ECCV  | 2024 | Adapter | [linlany/RAPF](https://github.com/linlany/RAPF)              |
+| [Boosting Continual Learning of Vision-Language Models via Mixture-of-Experts Adapters](http://arxiv.org/abs/2403.11549) | MoE-Adapters | CVPR  | 2024 | Adapter | [MoE-Adapters4CL](https://github.com/JiazuoYu/MoE-Adapters4CL) |
+|                                                              |              |       |      |         |                                                              |
 
 ---
 
 ## 📚 Datasets
 
-| Dataset            | training instances | testing instances | Classes | Link                                                         | Abstract                                 |
-| ------------------ | ------------------ | ----------------- | ------- | ------------------------------------------------------------ | ---------------------------------------- |
-| CIFAR100           | 50,000             | 10,000            | 100     |                                                              |                                          |
-| CUB（CUB200-2011） | 9,430              | 2,358             | 200     |                                                              | 加州理工学院2010年提出的鸟类细粒度数据集 |
-| ImageNet-R         | 24,000             | 6,000             | 200     |                                                              |                                          |
-| ImageNet-A         | 5,981              | 1,519             | 200     |                                                              |                                          |
-| ObjectNet          | 26,509             | 6,628             | 200     | [https://objectnet.dev/download.html](https://objectnet.dev/download.html) |                                          |
-| Omnibenchmark      | 89,697             | 5,983             | 300     |                                                              |                                          |
-| VTAB               | 1,796              | 8,619             | 50      |                                                              |                                          |
+| Dataset       | training instances | testing instances | Classes | Link                                                         | Abstract                                 |
+| ------------- | ------------------ | ----------------- | ------- | ------------------------------------------------------------ | ---------------------------------------- |
+| CIFAR100      | 50,000             | 10,000            | 100     |                                                              |                                          |
+| CUB200-2011   | 9,430              | 2,358             | 200     |                                                              | 加州理工学院2010年提出的鸟类细粒度数据集 |
+| ImageNet-R    | 24,000             | 6,000             | 200     |                                                              |                                          |
+| ImageNet-A    | 5,981              | 1,519             | 200     |                                                              |                                          |
+| ObjectNet     | 26,509             | 6,628             | 200     | [https://objectnet.dev/download.html](https://objectnet.dev/download.html) |                                          |
+| Omnibenchmark | 89,697             | 5,983             | 300     |                                                              |                                          |
+| VTAB          | 1,796              | 8,619             | 50      |                                                              |                                          |
 
 ---
 
@@ -63,52 +64,15 @@
   | **OpenAI CLIP**        | OpenAI 内部收集的 4 亿图文对数据集     | OpenAI             | 官方版本，性能稳定，但训练数据不公开 | ViT-B/32, ViT-B/16, ViT-L/14等 | `model, preprocess = clip.load("ViT-B/32", device=device)`   |
   | **OpenCLIP LAION400M** | 公开的 LAION-400M 数据集（4 亿图文对） | LAION 组织开源项目 | 完全开源，训练数据公开可获取，可复现 | 多种架构和规模选择             | `model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion400m_e32')` |
 
-### 🔧 网络问题解决方案（中国大陆地区）
-
-#### 方案1: 使用镜像源
-```bash
-# 设置 HuggingFace 镜像
-export HF_ENDPOINT=https://hf-mirror.com
-# 或者
-pip install -U huggingface_hub
-huggingface-cli download --resume-download --local-dir-use-symlinks False
-```
-
-#### 方案2: 手动下载模型
-```python
-# 先手动下载模型到本地，然后加载
-import open_clip
-# 下载到指定路径后
-model, _, preprocess = open_clip.create_model_and_transforms(
-    'ViT-B-16', 
-    pretrained='/path/to/local/model.pt'
-)
-```
-
-#### 方案3: 使用代理
-```bash
-# 设置代理
-export http_proxy=http://your-proxy:port
-export https_proxy=https://your-proxy:port
-```
-
-#### 方案4: 使用本地缓存
-```python
-# 如果之前下载过，检查缓存目录
-import os
-cache_dir = os.path.expanduser("~/.cache/huggingface/hub")
-print(f"Cache directory: {cache_dir}")
-```
-
 - ### Memory
 
   For exemplar parameters, DER, iCaRL and FOSTER set the `fixed_memory` option to false and retain the `memory_size` of 2000 for CIFAR100, while setting `fixed_memory` option to true and retaining the `memory_per_class` of 20 for ImageNet-R. On the contrary, other models are exemplar-free.
 
 - **Dependencies**
 
-  - pytorch 2.0.1
-  - torchvision 0.15.2
-  - timm 0.6.12
+  - pytorch 2.2.1
+  - torchvision 0.17.1
+  - timm 0.6.7
   - tqdm  4.65.0
   - numpy 1.21.5
   - scipy 1.10.1
@@ -116,27 +80,18 @@ print(f"Cache directory: {cache_dir}")
 
 ### Results
 
-> 实验结果：平均准确率（Accuracy）± 标准差（Std）/ 原文结果
+> 平均准确率：**OpenAI CLIP**/**OpenCLIP**
 
 #### CIFAR-100
 
 |           | B0 Inc5     | B0 Inc10     | B0 Inc20    | B50 Inc5    | B100 Inc10   |
 | --------- | ----------- | ------------ | ----------- | ------------ | ------------ |
-|      |         |          |          |          |            |
-|      |         |          |          |          |            |
-|      |         |          |          |          |            |
+| PROOF |         |          |          |          |            |
+| RAPF |         |          |          |          |            |
+| MoE-Adapters |         |          |          |          |            |
 |      |         |          |          |          |            |
 
----
-
-## 👨‍🏫 TODO
-
-| Title | Venue | Year | Type | Code |
-| ----- | ----- | ---- | ---- | ---- |
-|       |       |      |      |      |
-|       |       |      |      |      |
-|       |       |      |      |      |
-|       |       |      |      |      |
+## 
 
 ### Different PTMs
 

@@ -11,8 +11,8 @@ hydra:
         format: '%(message)s'
 
 class_order: ""
-dataset_root: ""
-workdir: ""
+dataset_root: "/home/team/zhaohongwei/Dataset/imagenet100"
+workdir: "class_orders/imagenet100.yaml"
 log_path: "metrics.json"
 model_name: "ViT-B/16"
 prompt_template: "a good photo of a {}."

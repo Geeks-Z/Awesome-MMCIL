@@ -15,6 +15,7 @@ def get_convnet(args, pretrained=False):
     if 'clip' in backbone_name:
         print('Using CLIP model as the backbone')
         import open_clip
+        import clip
         if backbone_name == 'clip':
             model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin')
             # model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion400m_e32')
@@ -28,7 +29,8 @@ def get_convnet(args, pretrained=False):
             model.out_dim = 512
             return model, preprocess, tokenizer
         elif backbone_name=='openai_clip':
-            model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='openai')
+            # model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='openai')
+            model, preprocess = clip.load("ViT-B/16")
             tokenizer = open_clip.get_tokenizer('ViT-B-16')
             model.out_dim = 512
             return model, preprocess, tokenizer
