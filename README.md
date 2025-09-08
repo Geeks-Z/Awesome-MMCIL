@@ -26,7 +26,8 @@
 
 | Title                                                        | Method       | Venue | Year | Type    | Code                                                         |
 | ------------------------------------------------------------ | ------------ | ----- | ---- | ------- | ------------------------------------------------------------ |
-| [Learning Without Forgetting for  Vision-Language Models](https://ieeexplore.ieee.org/document/10882940/) | PROOF        | TPAMI | 2025 | Prompt  | [LAMDA-CL/PROOF](https://github.com/LAMDA-CL/PROOF) |
+| [External knowledge injection for CLIP-based class-incremental learning](http://arxiv.org/abs/2503.08510) | ENGINE       | ICCV  | 2025 |         | [ICCV25-ENGINE-main](https://github.com/LAMDA-CL/ICCV25-ENGINE) |
+| [Learning Without Forgetting for  Vision-Language Models](https://ieeexplore.ieee.org/document/10882940/) | PROOF        | TPAMI | 2025 | Prompt  | [LAMDA-CL/PROOF](https://github.com/LAMDA-CL/PROOF)          |
 | [Class-incremental learning with CLIP: adaptive representation adjustment and parameter fusion](https://link.springer.com/10.1007/978-3-031-72949-2_13) | RAPF         | ECCV  | 2024 | Adapter | [linlany/RAPF](https://github.com/linlany/RAPF)              |
 | [Boosting Continual Learning of Vision-Language Models via Mixture-of-Experts Adapters](http://arxiv.org/abs/2403.11549) | MoE-Adapters | CVPR  | 2024 | Adapter | [MoE-Adapters4CL](https://github.com/JiazuoYu/MoE-Adapters4CL) |
 |                                                              |              |       |      |         |                                                              |
@@ -54,8 +55,8 @@
 - ### Dataset split
 
   - B-$m$ Inc-$n$ ：$m$代表初始增量阶段类别数量，$n$ 代表后续每个增量阶段的类别数量；
-  - LFH(learning from half)，表示在模型训练的初始阶段先用一半的类别进行训练，然后剩下一半的类别均匀分为 $N$ 个阶段进行训练；
-  - LFS(learning from scratch)，表示所有的类别均匀地分为 $N$ 个阶段进行训练
+  - LFH(learning from half)：模型训练的初始阶段先用一半的类别进行训练，然后剩下一半的类别均匀分为 $N$ 个阶段进行训练；
+    - LFS(learning from scratch)：表示所有的类别均匀地分为 $N$ 个阶段进行训练
 
 - ### Backbone
 
@@ -86,6 +87,7 @@
 
 |           | B0 Inc5     | B0 Inc10     | B0 Inc20    | B50 Inc5    | B100 Inc10   |
 | --------- | ----------- | ------------ | ----------- | ------------ | ------------ |
+| ENGINE |  |  |  |  |  |
 | PROOF |         |          |          |          |            |
 | RAPF |         |          |          |          |            |
 | MoE-Adapters |         |          |          |          |            |
