@@ -1,9 +1,9 @@
 {
   "prefix": "-",
-  "dataset": "ucf101",
+  "dataset": "imagenetr",
   "shuffle": true,
-  "init_cls": 50,
-  "increment": 10,
+  "init_cls": 20,
+  "increment": 20,
   "model_name": "engine",
   "convnet_type": "clip",
   "device": ["5"],

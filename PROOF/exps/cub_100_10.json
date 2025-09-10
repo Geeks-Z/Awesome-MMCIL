@@ -1,11 +1,11 @@
 {
   "prefix": "-",
-  "dataset": "aircraft",
+  "dataset": "cub",
   "memory_size": 2000,
   "memory_per_class": 20,
-  "fixed_memory": false,
+  "fixed_memory": true,
   "shuffle": true,
-  "init_cls": 50,
+  "init_cls": 100,
   "increment": 10,
   "model_name": "proof",
   "convnet_type": "clip",
@@ -18,5 +18,5 @@
   "batch_size": 64,
   "weight_decay": 0.05,
   "min_lr": 0,
-  "optimizer": "adam"
+  "optimizer": "sgd"
 }
