@@ -7,8 +7,8 @@
 ## 🎉 Introduction
 
 - **多模态增量学习**：Multimodal Continual Learning (MMCL)
-
 - **汇总**多模态增量学习的资源、代码和论文，并对部分方法进行复现
+- [论文阅读博客](https://www.zhihu.com/column/c_1860408728035147776)
 
 ---
 
@@ -24,13 +24,14 @@
 
 ## 🌟 Papers
 
-| Title                                                        | Method       | Venue | Year | Type    | Code                                                         |
-| ------------------------------------------------------------ | ------------ | ----- | ---- | ------- | ------------------------------------------------------------ |
-| [External knowledge injection for CLIP-based class-incremental learning](http://arxiv.org/abs/2503.08510) | ENGINE       | ICCV  | 2025 |         | [ICCV25-ENGINE-main](https://github.com/LAMDA-CL/ICCV25-ENGINE) |
-| [Learning Without Forgetting for  Vision-Language Models](https://ieeexplore.ieee.org/document/10882940/) | PROOF        | TPAMI | 2025 | Prompt  | [LAMDA-CL/PROOF](https://github.com/LAMDA-CL/PROOF)          |
-| [Class-incremental learning with CLIP: adaptive representation adjustment and parameter fusion](https://link.springer.com/10.1007/978-3-031-72949-2_13) | RAPF         | ECCV  | 2024 | Adapter | [linlany/RAPF](https://github.com/linlany/RAPF)              |
-| [Boosting Continual Learning of Vision-Language Models via Mixture-of-Experts Adapters](http://arxiv.org/abs/2403.11549) | MoE-Adapters | CVPR  | 2024 | Adapter | [MoE-Adapters4CL](https://github.com/JiazuoYu/MoE-Adapters4CL) |
-|                                                              |              |       |      |         |                                                              |
+| Title                                                        | Method       | Venue | Year | Code                                                         |
+| ------------------------------------------------------------ | ------------ | ----- | ---- | ------------------------------------------------------------ |
+| [Mind the gap: preserving and compensating for the modality gap in CLIP-based continual learning](http://arxiv.org/abs/2507.09118) | MG-CLIP      | ICCV  | 2025 | [MindtheGap](https://github.com/linlany/MindtheGap)          |
+| [External knowledge injection for CLIP-based class-incremental learning](http://arxiv.org/abs/2503.08510) | ENGINE       | ICCV  | 2025 | [ICCV25-ENGINE-main](https://github.com/LAMDA-CL/ICCV25-ENGINE) |
+| [Learning Without Forgetting for  Vision-Language Models](https://ieeexplore.ieee.org/document/10882940/) | PROOF        | TPAMI | 2025 | [LAMDA-CL/PROOF](https://github.com/LAMDA-CL/PROOF)          |
+| [Class-incremental learning with CLIP: adaptive representation adjustment and parameter fusion](https://link.springer.com/10.1007/978-3-031-72949-2_13) | RAPF         | ECCV  | 2024 | [linlany/RAPF](https://github.com/linlany/RAPF)              |
+| [Boosting Continual Learning of Vision-Language Models via Mixture-of-Experts Adapters](http://arxiv.org/abs/2403.11549) | MoE-Adapters | CVPR  | 2024 | [MoE-Adapters4CL](https://github.com/JiazuoYu/MoE-Adapters4CL) |
+|                                                              |              |       |      |                                                              |
 
 ---
 
@@ -56,7 +57,7 @@
 
   - B-$m$ Inc-$n$ ：$m$代表初始增量阶段类别数量，$n$ 代表后续每个增量阶段的类别数量；
   - LFH(learning from half)：模型训练的初始阶段先用一半的类别进行训练，然后剩下一半的类别均匀分为 $N$ 个阶段进行训练；
-    - LFS(learning from scratch)：表示所有的类别均匀地分为 $N$ 个阶段进行训练
+  - LFS(learning from scratch)：表示所有的类别均匀地分为 $N$ 个阶段进行训练
 
 - ### Backbone
 
@@ -81,34 +82,35 @@
 
 ### Results
 
-> 平均准确率：**OpenAI CLIP**/**OpenCLIP**
-
 #### CIFAR-100
 
-|           | B0 Inc5     | B0 Inc10     | B0 Inc20    | B50 Inc5    | B100 Inc10   |
-| --------- | ----------- | ------------ | ----------- | ------------ | ------------ |
-| ENGINE |  |  |  |  |  |
-| PROOF |         |          |          |          |            |
-| RAPF |         |          |          |          |            |
-| MoE-Adapters |         |          |          |          |            |
-|      |         |          |          |          |            |
+|           | Backbone | B0 Inc5     | B0 Inc10     | B0 Inc20    | B50 Inc5    | B50 Inc10   |
+| --------- | ----------- | ------------ | ----------- | ------------ | ------------ | ------------ |
+| ENGINE |  |  | 86.92 |  |  |  |
+| PROOF | OpenCLIP_LAION400M |  | 86.76 |          |          |            |
+| RAPF | OpenAI_CLIP | 86.76 | 86.09 | 85.6 | 83.06 | 82.89 |
+| MoE-Adapters | OpenAI_CLIP | 84.16 | 85.2 | 85.71 |          |           |
+| MG-CLIP | OpenAI_CLIP | 85.72 | 86.98 | 87.28 | 81.0 | 83.27 |
 
-## 
+### CUB200
 
-### Different PTMs
+|              | Backbone    | B0 Inc5 | B0 Inc10 | B0 Inc20 | B100 Inc10 | B100 Inc20 |
+| ------------ | ----------- | ------- | -------- | -------- | ---------- | ---------- |
+| ENGINE       |             |         |          | 86.66    |            |            |
+| PROOF        |             |         |          | 84.55    |            |            |
+| RAPF         | OpenAI_CLIP |         |          |          |            |            |
+| MoE-Adapters | OpenAI_CLIP |         |          |          |            |            |
+| MG-CLIP      | OpenAI_CLIP |         |          |          |            |            |
 
-| PTM             | Pre-Trained Dataset               | Finetuned Dataset          | Description                                                                 |
-| --------------- | --------------------------------- | -------------------------- | --------------------------------------------------------------------------- |
-| ViT-B/16-IN1K   | ImageNet21K                      | ImageNet1K                | Vision Transformer trained on ImageNet21K and fine-tuned on ImageNet1K.    |
-| ViT-B/16-IN21K  | ImageNet21K                      | ImageNet1K                | Vision Transformer trained on ImageNet21K without fine-tuning.             |
-| ViT-L/16-IN1K   | ImageNet21K                      | ImageNet1K                | Large Vision Transformer trained on ImageNet21K and fine-tuned on ImageNet1K. |
-| ViT-B/16-DINO   | ImageNet                         | ImageNet1K                | Self-supervised Vision Transformer trained with DINO on ImageNet.          |
-| ViT-B/16-SAM    | SA-1B (Segment Anything Dataset) | COCO, ADE20K              | Vision Transformer trained on a large-scale segmentation dataset.          |
-| ViT-B/16-MAE    | ImageNet21K                      | ImageNet1K                | Vision Transformer trained with Masked Autoencoder on ImageNet21K.         |
-| ViT-B/16-CLIP   | OpenAI CLIP Dataset              | COCO, Flickr30K           | Vision Transformer trained on a large corpus of text-image pairs by OpenAI.|
-| ResNet18/50/152 | ImageNet1K                       | CIFAR-10, CIFAR-100       | ResNet models trained on ImageNet1K.                                       |
+### ImagerNet-R
 
-
+|              | Backbone    | B0 Inc10 | B0 Inc20 | B0 Inc40 | B100 Inc10 | B100 Inc20 |
+| ------------ | ----------- | -------- | -------- | -------- | ---------- | ---------- |
+| ENGINE       |             |          | 86.22    |          |            |            |
+| PROOF        |             |          | 83.56    |          |            |            |
+| RAPF         | OpenAI_CLIP | 86.27    | 85.97    | 84.96    | 82.24      | 82.74      |
+| MoE-Adapters | OpenAI_CLIP |          |          |          |            |            |
+| MG-CLIP      | OpenAI_CLIP | 87.32    | 87.61    |          | 83.77      |            |
 
 ---
 

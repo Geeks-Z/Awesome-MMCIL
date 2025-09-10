@@ -140,7 +140,7 @@ class BaseLearner(object):
         with torch.no_grad():
             for l in total_labels:
                 texts = [t.format(l) for t in templates]
-                texts = self._network.tokenizer(texts).cuda()
+                texts = self._network.tokenizer(texts).to(self._device)
                 class_embeddings = self._network.encode_text(texts)
                 class_embeddings = class_embeddings / class_embeddings.norm(dim=-1, keepdim=True)
                 class_embeddings = class_embeddings.mean(dim=0)

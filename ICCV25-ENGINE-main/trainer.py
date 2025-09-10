@@ -75,19 +75,19 @@ def _train(args):
     else:
         clip_type = 'OpenCLIP_LAION2B'
         
-    print(f"\n{'=' * 80}")
+    print(f"\n{'=' * 40}")
     print(
-        "Finished {}_init{}_inc{}: {}  ".format(
+        "Finished {}_init{}_inc{}".format(
             args["dataset"],
             args["init_cls"],
-            args["increment"],
-            clip_type,
+            args["increment"]
         )
     )
+    print("Backbone: {}".format(clip_type))
     print("Base Accuracy: {}".format(round(cnn_curve["top1"][0], 2)))
     print("Last Accuracy: {}".format(round(cnn_curve["top1"][-1], 2)))
     print("Average Accuracy (Top1): {}".format(round(sum(cnn_curve["top1"]) / len(cnn_curve["top1"]), 2)))
-    print(f"{'=' * 80}\n")
+    print(f"{'=' * 40}\n")
     
 def _set_device(args):
     device_type = args["device"]

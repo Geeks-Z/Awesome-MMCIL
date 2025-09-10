@@ -296,10 +296,10 @@ class ResidualAttentionBlock(nn.Module):
         self.adaptmlp_list = nn.ModuleList()
         self.text_or_image = text_or_image
         if text_or_image == 'text':
-            print('text transformer')
+            # print('text transformer')
             self.choose_map_text = torch.zeros([ self.experts_num])
         else:
-            print('image transformer')
+            # print('image transformer')
             self.choose_map_image = torch.zeros([ self.experts_num])
         self.router_list = nn.ParameterList()
         self.w_noise_list = nn.ParameterList()

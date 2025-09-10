@@ -279,7 +279,7 @@ class SimpleCosineIncrementalNet(BaseNet):
         super().__init__(args, pretrained)
 
     def update_fc(self, nb_classes, nextperiod_initialization=None):
-        fc = self.generate_fc(self.feature_dim, nb_classes).cuda()
+        fc = self.generate_fc(self.feature_dim, nb_classes).to(self._device)
         if self.fc is not None:
             nb_output = self.fc.out_features
             weight = copy.deepcopy(self.fc.weight.data)
@@ -287,7 +287,7 @@ class SimpleCosineIncrementalNet(BaseNet):
             if nextperiod_initialization is not None:
                 weight = torch.cat([weight, nextperiod_initialization])
             else:
-                weight = torch.cat([weight, torch.zeros(nb_classes - nb_output, self.feature_dim).cuda()])
+                weight = torch.cat([weight, torch.zeros(nb_classes - nb_output, self.feature_dim).to(self._device)])
             fc.weight = nn.Parameter(weight)
         del self.fc
         self.fc = fc
@@ -303,7 +303,7 @@ class SimpleVitNet(BaseNet):
         self.convnet, self.preprocess, self.tokenizer = get_convnet(args, pretrained)
 
     def update_fc(self, nb_classes, nextperiod_initialization=None):
-        fc = self.generate_fc(self.feature_dim, nb_classes).cuda()
+        fc = self.generate_fc(self.feature_dim, nb_classes).to(self._device)
         if self.fc is not None:
             nb_output = self.fc.out_features
             weight = copy.deepcopy(self.fc.weight.data)
@@ -311,7 +311,7 @@ class SimpleVitNet(BaseNet):
             if nextperiod_initialization is not None:
                 weight = torch.cat([weight, nextperiod_initialization])
             else:
-                weight = torch.cat([weight, torch.zeros(nb_classes - nb_output, self.feature_dim).cuda()])
+                weight = torch.cat([weight, torch.zeros(nb_classes - nb_output, self.feature_dim).to(self._device)])
             fc.weight = nn.Parameter(weight)
         del self.fc
         self.fc = fc
@@ -346,7 +346,7 @@ class SimpleClipNet(BaseNet):
 
 
     def update_fc(self, nb_classes, nextperiod_initialization=None):
-        fc = self.generate_fc(self.feature_dim, nb_classes).cuda()
+        fc = self.generate_fc(self.feature_dim, nb_classes).to(self._device)
         if self.fc is not None:
             nb_output = self.fc.out_features
             weight = copy.deepcopy(self.fc.weight.data)
@@ -354,7 +354,7 @@ class SimpleClipNet(BaseNet):
             if nextperiod_initialization is not None:
                 weight = torch.cat([weight, nextperiod_initialization])
             else:
-                weight = torch.cat([weight, torch.zeros(nb_classes - nb_output, self.feature_dim).cuda()])
+                weight = torch.cat([weight, torch.zeros(nb_classes - nb_output, self.feature_dim).to(self._device)])
             fc.weight = nn.Parameter(weight)
         del self.fc
         self.fc = fc
@@ -421,14 +421,14 @@ class Engine(BaseNet):
             mu = torch.cat([vecs[labels == i].mean(dim=0, keepdim=True) for i in range(known_classes, total_classes)], dim=0)
             center_vecs = torch.cat([vecs[labels == i] - mu[i - known_classes] for i in range(known_classes, total_classes)], dim=0)
             cov_inv = center_vecs.T @ center_vecs /(center_vecs.shape[0] - 1)
-            cov_inv =  center_vecs.shape[1] * torch.linalg.pinv((center_vecs.shape[0] - 1) * center_vecs.T.cov() + center_vecs.T.cov().trace() * torch.eye(center_vecs.shape[1]).cuda())    
+            cov_inv =  center_vecs.shape[1] * torch.linalg.pinv((center_vecs.shape[0] - 1) * center_vecs.T.cov() + center_vecs.T.cov().trace() * torch.eye(center_vecs.shape[1]).to(device))
             if not hasattr(self, 'mu'):
                 self.mu = mu
                 self.cov_inv = cov_inv
             else:
                 self.cov_inv = (known_classes/total_classes)*self.cov_inv + (total_classes-known_classes)/total_classes*cov_inv + ((known_classes/total_classes)*(total_classes-known_classes)/total_classes**2)*(self.mu.T.mean(dim=1).unsqueeze(1) - mu.T.mean(dim=1).unsqueeze(1)) @ (self.mu.T.mean(dim=1).unsqueeze(1) - mu.T.mean(dim=1).unsqueeze(1)).T
                 self.mu = torch.cat([self.mu, mu])
-            ps = torch.ones(self.mu.shape[0]).cuda() * 1. / self.mu.shape[0]
+            ps = torch.ones(self.mu.shape[0]).to(device) * 1. / self.mu.shape[0]
             self.W = torch.einsum('nd, dc -> cn', self.mu, self.cov_inv)
             self.b = ps.log() - torch.einsum('nd, dc, nc -> n', self.mu, self.cov_inv, self.mu) / 2
 

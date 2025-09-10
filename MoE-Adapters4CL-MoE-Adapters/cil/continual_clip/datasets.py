@@ -35,7 +35,8 @@ class ImageNet1000(ImageFolderDataset):
 
 def get_dataset(cfg, is_train, transforms=None):
     if cfg.dataset == "cifar100":
-        data_path = os.path.join(cfg.dataset_root, cfg.dataset)
+        # data_path = os.path.join(cfg.dataset_root, cfg.dataset)
+        data_path = cfg.dataset_root
         dataset = CIFAR100(
             data_path=data_path, 
             download=True, 
