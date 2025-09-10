@@ -1,0 +1,1 @@
+nohup ./train.sh > ../../results/MoE-Adapters-B0-A40.out 2>&1 &
