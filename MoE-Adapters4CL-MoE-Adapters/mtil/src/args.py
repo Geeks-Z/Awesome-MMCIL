@@ -17,7 +17,7 @@ def parse_arguments():
     parser.add_argument("--beta2", type=float, default=0.999)
 
     # logging setting
-    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--seed", type=int, default=1993)
     parser.add_argument("--epochs", type=int, default=None)
     parser.add_argument("--iterations", type=int, default=None)
     parser.add_argument("--eval-interval", type=int, default=None)

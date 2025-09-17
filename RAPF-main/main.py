@@ -1,6 +1,5 @@
 
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "6"
 import json
 import pdb
 import random
@@ -27,7 +26,6 @@ def seed_everything(seed=0):
     torch.cuda.manual_seed_all(seed)
     torch.backends.cudnn.deterministic = True
     os.environ['PYTHONHASHSEED'] = str(seed)
-    os.environ['CUDA_VISIBLE_DEVICES'] = '6'
 
 def run_class_incremental(cfg, device):
 
@@ -171,6 +169,21 @@ def run_class_incremental(cfg, device):
             'last': round(acc_list[-1], 2), 
             'avg': round(statistics.mean(acc_list), 2)
         }) + '\n')
+
+    clip_type = 'OpenAI CLIP'
+    print(f"\n{'=' * 40}")
+    print(
+        "Finished {}_init{}_inc{}".format(
+            cfg.dataset,
+            cfg.initial_increment,
+            cfg.increment
+        )
+    )
+    print("Backbone: {}".format(clip_type))
+    print("Base Accuracy: {}".format(round(acc_list[0], 2)))
+    print("Last Accuracy: {}".format(round(acc_list[-1], 2)))
+    print("Average Accuracy (Top1): {}".format(round(statistics.mean(acc_list), 2)))
+    print(f"{'=' * 40}\n")
 
 @hydra.main(config_path=None, config_name=None, version_base="1.1")
 def continual_clip(cfg: DictConfig) -> None:

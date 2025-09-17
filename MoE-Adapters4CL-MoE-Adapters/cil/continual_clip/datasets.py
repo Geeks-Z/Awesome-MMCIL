@@ -5,9 +5,10 @@ import torch.nn as nn
 
 from continuum import ClassIncremental, InstanceIncremental
 from continuum.datasets import (
-    CIFAR100, ImageNet100, TinyImageNet200, ImageFolderDataset, Core50
+    CIFAR100, ImageNet100, TinyImageNet200, ImageFolderDataset, Core50,CUB200
 )
 from .utils import get_dataset_class_names
+from torchvision import transforms
 
 
 class ImageNet1000(ImageFolderDataset):
@@ -31,7 +32,35 @@ class ImageNet1000(ImageFolderDataset):
         else:
             self.data_path = os.path.join(self.data_path, "val")
         return super().get_data()
+class ImageNet_R(ImageFolderDataset):
+    """Continuum dataset for datasets with tree-like structure.
+    :param train_folder: The folder of the train data.
+    :param test_folder: The folder of the test data.
+    :param download: Dummy parameter.
+    """
 
+    def __init__(
+            self,
+            data_path: str,
+            train: bool = True,
+            download: bool = False,
+    ):
+        super().__init__(data_path=data_path, train=train, download=download)
+    @property
+    def transformations(self):
+        """Default transformations if nothing is provided to the scenario."""
+        return [
+            transforms.Resize((224, 224)),
+            transforms.ToTensor(),
+            transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
+        ]
+
+    def get_data(self):
+        if self.train:
+            self.data_path = os.path.join(self.data_path, "train")
+        else:
+            self.data_path = os.path.join(self.data_path, "test")
+        return super().get_data()
 
 def get_dataset(cfg, is_train, transforms=None):
     if cfg.dataset == "cifar100":
@@ -44,6 +73,21 @@ def get_dataset(cfg, is_train, transforms=None):
             # transforms=transforms
         )
         classes_names = dataset.dataset.classes
+    elif cfg.dataset == "imagenet_R":
+        data_path = cfg.dataset_root
+        dataset = ImageNet_R(
+            data_path,
+            train=is_train
+        )
+        classes_names = get_dataset_class_names(cfg.workdir, cfg.dataset)
+
+    elif cfg.dataset == "cub200":
+        data_path = cfg.dataset_root
+        dataset = CUB200(
+            data_path,
+            train=is_train
+        )
+        classes_names = get_dataset_class_names(cfg.workdir, cfg.dataset)
 
     elif cfg.dataset == "tinyimagenet":
         data_path = os.path.join(cfg.dataset_root, cfg.dataset)

@@ -7,6 +7,7 @@ from omegaconf import DictConfig
 import clip
 import torch
 import torch.nn as nn
+import open_clip
 
 from .utils import get_class_ids_per_task, get_class_names
 
@@ -55,7 +56,11 @@ class ClassIncrementalCLIP(nn.Module):
         self.prompt_template = cfg.prompt_template
         self.device = device
         self.classes_names = None
+        # openai_clip
         model, self.transforms = clip.load(cfg.model_name, device=device, jit=jit)
+        # model, _, self.transforms = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion400m_e32')
+        # model, _, self.transforms = open_clip.create_model_and_transforms('ViT-B-16',
+        #                                                              pretrained='/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin')
         self.visual = model.visual
         self.transformer = model.transformer
         self.positional_embedding = model.positional_embedding
@@ -70,7 +75,7 @@ class ClassIncrementalCLIP(nn.Module):
         self.dtype = torch.float16 if cfg.fp16 else torch.float32
         self.adapter = nn.Linear(512, 512, bias=False ,device=device)
         self.clip_type = model.dtype
-
+        # self.clip_type = next(model.parameters()).dtype
 
         # old adapter
         self.old_adapter = None

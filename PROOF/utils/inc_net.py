@@ -30,7 +30,8 @@ def get_convnet(args, pretrained=False):
             return model, preprocess, tokenizer
         elif backbone_name=='openai_clip':
             # model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='openai')
-            model, preprocess = clip.load("ViT-B/16")
+            model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16',
+                                                                         pretrained='/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model.bin')
             tokenizer = open_clip.get_tokenizer('ViT-B-16')
             model.out_dim = 512
             return model, preprocess, tokenizer

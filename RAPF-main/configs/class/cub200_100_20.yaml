@@ -19,35 +19,19 @@ prompt_template: "a good photo of a {}."
 
 batch_size: 32
 initial_increment: 100
-increment: 10
+increment: 20
 scenario: "class"
-dataset: "imagenet_R"
-task_num: 11
-
-epochs: 2
-# 64
-train_batch_size: 64
-num_workers: 8
-lora_rank: 8
-lora_mode: "vision+only_kv+text"
+dataset: "cub200"
+# add conig
+num_workers: 16
+train_batch_size: 32
+epochs: 15
 lr: 0.001
-reset: False
-only_reset_B: False
-freeze_A: False
-all_test: False
-weight_decay: 1e-4
-momentum: 0.9
-seed: 0
-
-
-visual_clsf: true
-visual_clsf_lr: 0.0005
-visual_clsf_batch_size: 32
-visual_clsf_epochs: 3
-
-real_replay: false
-
-
-balance_ft: False
-balance_epochs: 1
-
+fp16: false
+seed: 1993
+margin: 0.2
+milestones: [4,10]
+beta: 1
+mix_bias: 0.8
+threshold: 0.65
+shrinkage: True

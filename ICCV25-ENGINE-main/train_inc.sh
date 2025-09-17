@@ -14,3 +14,4 @@ python main.py --config=./exps/cub_20_20.json
 python main.py --config=./exps/cub_40_40.json
 python main.py --config=./exps/cub_100_10.json
 python main.py --config=./exps/cub_100_20.json
+

@@ -425,6 +425,21 @@ def run_class_incremental(cfg, device):
             'avg': round(statistics.mean(acc_list), 2)
         }) + '\n')
 
+    clip_type = 'OpenAI CLIP'
+    print(f"\n{'=' * 40}")
+    print(
+        "Finished {}_init{}_inc{}".format(
+            cfg.dataset,
+            cfg.initial_increment,
+            cfg.increment
+        )
+    )
+    print("Backbone: {}".format(clip_type))
+    print("Base Accuracy: {}".format(round(acc_list[0], 2)))
+    print("Last Accuracy: {}".format(round(acc_list[-1], 2)))
+    print("Average Accuracy (Top1): {}".format(round(statistics.mean(acc_list), 2)))
+    print(f"{'=' * 40}\n")
+
 
 
 def run_domain_incremental(cfg, device):

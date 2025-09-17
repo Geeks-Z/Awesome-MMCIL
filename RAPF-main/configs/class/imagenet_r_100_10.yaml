@@ -27,7 +27,7 @@ train_batch_size: 64
 epochs: 15
 lr: 0.001
 fp16: false
-seed: 2
+seed: 1993
 milestones: [4,10]
 beta: 1 
 mix_bias: 0.7

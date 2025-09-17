@@ -1,4 +1,3 @@
 
-nohup ./train.sh > ../results/MG-CLIP-OpenAI_CLIP-B0-A40-1.out 2>&1 &
 
-nohup ./train.sh > ../results/MG-CLIP-OpenAI_CLIP-B0-supp.out 2>&1 &
+nohup ./train.sh > ../results/MG-CLIP-OpenAI_CLIP-CIFAR-INR-CUB-SEED_1993-A40.out 2>&1 &

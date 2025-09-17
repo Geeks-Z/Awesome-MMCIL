@@ -13,10 +13,11 @@ from utils.toolkit import get_attribute
 import difflib
 from PIL import Image
 import random
+
 random.seed(1993)
 
-def get_convnet(args, pretrained=False):
 
+def get_convnet(args, pretrained=False):
     backbone_name = args["convnet_type"].lower()
     algorithm_name = args["model_name"].lower()
 
@@ -28,25 +29,25 @@ def get_convnet(args, pretrained=False):
             model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16',
                                                                          pretrained='/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin')
             tokenizer = open_clip.get_tokenizer('ViT-B-16')
-            model.out_dim=512
+            model.out_dim = 512
             return model, preprocess, tokenizer
-        elif backbone_name=='clip_laion2b':
+        elif backbone_name == 'clip_laion2b':
             # model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion2b_s34b_b88k')
             model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16',
                                                                          pretrained='/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion2b_s34b_b88k.bin')
             tokenizer = open_clip.get_tokenizer('ViT-B-16')
-            model.out_dim=512
+            model.out_dim = 512
             return model, preprocess, tokenizer
-        elif backbone_name=='openai_clip':
-            model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='openai')
-            # model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16',
-            #                                                              pretrained='/home/team/zhaohongwei/pretrained_models/openai_clip_pytorch_model_vit_b_16.bin')
+        elif backbone_name == 'openai_clip':
+            # model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='openai')
+            model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16',
+                                                                         pretrained='/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model.bin')
             tokenizer = open_clip.get_tokenizer('ViT-B-16')
-            model.out_dim=512
+            model.out_dim = 512
             return model, preprocess, tokenizer
         else:
             raise NotImplementedError("Unknown type {}".format(backbone_name))
-    
+
     else:
         raise NotImplementedError("Unknown type {}".format(backbone_name))
 
@@ -165,7 +166,6 @@ class IncrementalNet(BaseNet):
         )
 
 
-
 class CosineIncrementalNet(BaseNet):
     def __init__(self, args, pretrained, nb_proxy=1):
         super().__init__(args, pretrained)
@@ -208,7 +208,7 @@ class BiasLayer(nn.Module):
     def forward(self, x, low_range, high_range):
         ret_x = x.clone()
         ret_x[:, low_range:high_range] = (
-            self.alpha * x[:, low_range:high_range] + self.beta
+                self.alpha * x[:, low_range:high_range] + self.beta
         )
         return ret_x
 
@@ -273,7 +273,6 @@ class IncrementalNetWithBias(BaseNet):
             param.requires_grad = True
 
 
-
 class SimpleCosineIncrementalNet(BaseNet):
     def __init__(self, args, pretrained):
         super().__init__(args, pretrained)
@@ -325,15 +324,14 @@ class SimpleVitNet(BaseNet):
 
     def encode_image(self, x):
         return self.convnet.encode_image(x)
-    
+
     def encode_text(self, x):
         return self.convnet.encode_text(x)
-        
+
     def forward(self, x):
         x = self.convnet.encode_image(x)
         out = self.fc(x)
         return out
-
 
 
 class SimpleClipNet(BaseNet):
@@ -341,9 +339,8 @@ class SimpleClipNet(BaseNet):
         super().__init__(args, pretrained)
 
         self.convnet, self.preprocess, self.tokenizer = get_convnet(args, pretrained)
-        self.class_name='SimpleClipNet'
-        self.args=args
-
+        self.class_name = 'SimpleClipNet'
+        self.args = args
 
     def update_fc(self, nb_classes, nextperiod_initialization=None):
         fc = self.generate_fc(self.feature_dim, nb_classes).to(self._device)
@@ -368,18 +365,19 @@ class SimpleClipNet(BaseNet):
 
     def encode_image(self, x):
         return self.convnet.encode_image(x)
-    
+
     def encode_text(self, x):
         return self.convnet.encode_text(x)
 
     def forward(self, img, text):
 
-        image_features, text_features, logit_scale=self.convnet(img, text)
+        image_features, text_features, logit_scale = self.convnet(img, text)
         return image_features, text_features, logit_scale
 
     def re_initiate(self):
         print('re-initiate model')
         self.convnet, self.preprocess, self.tokenizer = get_convnet(self.args, True)
+
 
 class Engine(BaseNet):
     def __init__(self, args, pretrained=None):
@@ -387,18 +385,18 @@ class Engine(BaseNet):
         self.model, self.preprocess, self.tokenizer = get_convnet(args, pretrained)
         self.visual = self.model.visual
         self.visual_proj = self.visual.proj
-        self.args=args
+        self.args = args
         self.freeze(self.model)
         self.Image_Adapter = nn.ModuleList()
         self.Text_Adapter = nn.ModuleList()
         self.beta = 1
         self.decay = 1
-        
+
         self.class_mean_list = []
         self.class_cov_list = []
         self.class_edge_distance = []
-        
-    def update_stat(self, known_classes, total_classes, train_loader,device):
+
+    def update_stat(self, known_classes, total_classes, train_loader, device):
         print("updating stat")
         with torch.no_grad():
             vecs = []
@@ -409,7 +407,7 @@ class Engine(BaseNet):
                 image_features = self.visual_forward_(inputs)
                 # image_features_512 = image_features @ self.visual_proj
                 image_features = image_features / image_features.norm(dim=-1, keepdim=True)
-                
+
                 vecs.append(image_features)
                 # vecs_512.append(image_features_512)
                 labels.append(targets)
@@ -417,16 +415,25 @@ class Engine(BaseNet):
             vecs = torch.cat(vecs)
             # vecs_512 = torch.cat(vecs_512)
             labels = torch.cat(labels)
-            
-            mu = torch.cat([vecs[labels == i].mean(dim=0, keepdim=True) for i in range(known_classes, total_classes)], dim=0)
-            center_vecs = torch.cat([vecs[labels == i] - mu[i - known_classes] for i in range(known_classes, total_classes)], dim=0)
-            cov_inv = center_vecs.T @ center_vecs /(center_vecs.shape[0] - 1)
-            cov_inv =  center_vecs.shape[1] * torch.linalg.pinv((center_vecs.shape[0] - 1) * center_vecs.T.cov() + center_vecs.T.cov().trace() * torch.eye(center_vecs.shape[1]).to(device))
+
+            mu = torch.cat([vecs[labels == i].mean(dim=0, keepdim=True) for i in range(known_classes, total_classes)],
+                           dim=0)
+            center_vecs = torch.cat(
+                [vecs[labels == i] - mu[i - known_classes] for i in range(known_classes, total_classes)], dim=0)
+            cov_inv = center_vecs.T @ center_vecs / (center_vecs.shape[0] - 1)
+            cov_inv = center_vecs.shape[1] * torch.linalg.pinv(
+                (center_vecs.shape[0] - 1) * center_vecs.T.cov() + center_vecs.T.cov().trace() * torch.eye(
+                    center_vecs.shape[1]).to(device))
             if not hasattr(self, 'mu'):
                 self.mu = mu
                 self.cov_inv = cov_inv
             else:
-                self.cov_inv = (known_classes/total_classes)*self.cov_inv + (total_classes-known_classes)/total_classes*cov_inv + ((known_classes/total_classes)*(total_classes-known_classes)/total_classes**2)*(self.mu.T.mean(dim=1).unsqueeze(1) - mu.T.mean(dim=1).unsqueeze(1)) @ (self.mu.T.mean(dim=1).unsqueeze(1) - mu.T.mean(dim=1).unsqueeze(1)).T
+                self.cov_inv = (known_classes / total_classes) * self.cov_inv + (
+                            total_classes - known_classes) / total_classes * cov_inv + (
+                                           (known_classes / total_classes) * (
+                                               total_classes - known_classes) / total_classes ** 2) * (
+                                           self.mu.T.mean(dim=1).unsqueeze(1) - mu.T.mean(dim=1).unsqueeze(1)) @ (
+                                           self.mu.T.mean(dim=1).unsqueeze(1) - mu.T.mean(dim=1).unsqueeze(1)).T
                 self.mu = torch.cat([self.mu, mu])
             ps = torch.ones(self.mu.shape[0]).to(device) * 1. / self.mu.shape[0]
             self.W = torch.einsum('nd, dc -> cn', self.mu, self.cov_inv)
@@ -473,46 +480,46 @@ class Engine(BaseNet):
         return pooled
 
     def update_task(self):
-        from convs.linears import Adapter,MLP_Adapter
-        if len(self.Image_Adapter)>0:
+        from convs.linears import Adapter, MLP_Adapter
+        if len(self.Image_Adapter) > 0:
             self.freeze(self.Image_Adapter[-1])
             self.freeze(self.Text_Adapter[-1])
         self.Image_Adapter.append(MLP_Adapter(512, 512))
         self.Text_Adapter.append(MLP_Adapter(512, 512))
-    
+
     def Image_encode(self, image_features):
         image_res = []
         for i in range(len(self.Image_Adapter)):
             image_res.append(self.Image_Adapter[i](image_features))
         image_res = torch.sum(torch.stack(image_res), dim=0)
         return image_res
-    
+
     def Text_encode(self, text_features):
         text_res = []
         for i in range(len(self.Text_Adapter)):
             text_res.append(self.Text_Adapter[i](text_features))
         text_res = torch.sum(torch.stack(text_res), dim=0)
         return text_res
-    
+
     @property
     def feature_dim(self):
         return self.model.out_dim
-    
+
     def extract_vector(self, x):
         return self.model.encode_image(x)
 
     def encode_image(self, x):
-        imag_features =  self.model.encode_image(x)
+        imag_features = self.model.encode_image(x)
         imag_res = self.Image_encode(imag_features)
         return imag_res
-    
+
     def encode_text(self, x):
         text_features = self.model.encode_text(x)
         text_res = self.Text_encode(text_features)
         return text_res
 
     def forward(self, img, text):
-        image_features, text_features, logit_scale=self.model(img, text)
+        image_features, text_features, logit_scale = self.model(img, text)
         return image_features, text_features, logit_scale
 
     def rerank(self, des_dict, outputs, image_features_raw, class_to_label, device, topk=5):
@@ -527,25 +534,26 @@ class Engine(BaseNet):
                         for second_label in top5_predict_labels[batch]:
                             if main_label == second_label:
                                 continue
-                            texts.append(main_label + ' with ' + random.choice(des_dict[main_label][second_label]).lower())
+                            texts.append(
+                                main_label + ' with ' + random.choice(des_dict[main_label][second_label]).lower())
                 texts = self.tokenizer(texts).to(device)
                 texts = self.model.encode_text(texts)
-                texts = texts.reshape(image_features_raw.shape[0], topk, topk-1, -1)
+                texts = texts.reshape(image_features_raw.shape[0], topk, topk - 1, -1)
                 texts = torch.mean(texts, dim=2)
                 texts = texts / texts.norm(dim=-1, keepdim=True)
                 logits = [image_features_raw[i] @ texts[i].T for i in range(image_features_raw.shape[0])]
                 logits = torch.stack(logits)
                 logi += logits
-            logits = logi/3
+            logits = logi / 3
             new_logits = torch.zeros_like(outputs)
             for i in range(image_features_raw.shape[0]):
                 new_logits[i, top5_predict[i]] = logits[i]
             return new_logits
-        
+
     def freeze(self, model):
         for param in model.parameters():
             param.requires_grad = False
-            
+
     def activate_old_adapter(self):
         for item in self.Image_Adapter:
             for param in item.parameters():
@@ -554,4 +562,3 @@ class Engine(BaseNet):
         for item in self.Text_Adapter:
             for param in item.parameters():
                 param.requires_grad = True
-                

@@ -117,6 +117,15 @@ class ClassIncremental(nn.Module):
             elif cfg.dataset == "imagenet100" and task_id != 0:
                 shift = cfg.initial_increment + (task_id - 1) * cfg.increment
                 targets -= shift
+            elif cfg.dataset == "imagenet_R" and task_id != 0:
+                shift = cfg.initial_increment + (task_id - 1) * cfg.increment
+                targets -= shift
+            elif cfg.dataset == "cifar100" and task_id != 0 and cfg.initial_increment == 50:
+                shift = cfg.initial_increment + (task_id - 1) * cfg.increment
+                targets -= shift
+            elif cfg.dataset == "cub200" and task_id != 0:
+                shift = cfg.initial_increment + (task_id - 1) * cfg.increment
+                targets -= shift
             else:
                 shift = task_id * cfg.increment
                 targets -= shift

@@ -3,6 +3,8 @@ import numpy as np
 from PIL import Image
 from torch.utils.data import Dataset
 from torchvision import transforms
+
+import utils
 from utils.data import iCIFAR10, iCIFAR100, iImageNet100, iImageNet1000, iCIFAR224, \
     iImageNetR,iImageNetA,CUB, objectnet, omnibenchmark, vtab, Caltech101, Food101, Flowers, \
     Aircraft,UCF101,StanfordCars, SUN
@@ -156,7 +158,10 @@ class DataManager(object):
         order = [i for i in range(len(np.unique(self._train_targets)))]
         if shuffle:
             np.random.seed(seed)
-            order = np.random.permutation(len(order)).tolist()
+            if seed == 1993:
+                order = np.random.permutation(len(order)).tolist()
+            else:
+                order = utils.toolkit.get_class_order('./class_orders/'+dataset_name+'.yaml')
         else:
             order = idata.class_order
         self._class_order = order

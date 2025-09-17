@@ -3,6 +3,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import yaml
 
 def count_parameters(model, trainable=False):
     if trainable:
@@ -23,6 +24,12 @@ def target2onehot(targets, n_classes):
 def makedirs(path):
     if not os.path.exists(path):
         os.makedirs(path)
+
+def get_class_order(file_name: str) -> list:
+    r"""TO BE DOCUMENTED"""
+    with open(file_name, "r+") as f:
+        data = yaml.safe_load(f)
+        return data["class_order"]
 
 
 def accuracy(y_pred, y_true, nb_old, increment=10):
