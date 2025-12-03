@@ -1,0 +1,2 @@
+dataset_sequence: ["stanford_cars", "aircraft", "oxford_pets", "food101", "sun397", "mnist", "flowers", "dtd", "caltech101", "eurosat"]
+root: "/home/team/zhaohongwei/Dataset/X-TAIL"
