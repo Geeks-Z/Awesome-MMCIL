@@ -48,14 +48,14 @@ More details can refer to [datasets.md](mtil%2Fdatasets.md) of [ZSCL](https://gi
 Example:
 1. Move the checkpoints to MoE-Adapters4CL/ckpt
 2. ```cd MoE-Adapters4CL/mtil```
-3. Run the script ```bash srcipts/test/Full_Shot_order1.sh ```
+3. Run the script ```bash scripts/test/Few_Shot_order1.sh ```
 
 
 ### Train stage
 Example:
 1. Move the checkpoints to MoE-Adapters4CL/ckpt
 2. ```cd MoE-Adapters4CL/mtil```
-3. Run the script ```bash srcipts/train/train_full_shot_router11_experts22_1000iters.sh```
+3. Run the script ```bash scripts/train/train_full_shot_router11_experts22_1000iters.sh```
 
 ## Class Incremental Learning
 

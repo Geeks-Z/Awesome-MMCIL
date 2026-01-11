@@ -4,7 +4,7 @@ set -v
 set -e
 set -x
 
-GPU=3,4
+GPU=5,6
 dataset=(Aircraft Caltech101 CIFAR100 DTD EuroSAT Flowers Food MNIST OxfordPet StanfordCars SUN397)
 chooser=(Aircraft_autochooser Caltech101_autochooser CIFAR100_autochooser DTD_autochooser EuroSAT_autochooser Flowers_autochooser Food_autochooser MNIST_autochooser OxfordPet_autochooser StanfordCars_autochooser SUN397_autochooser)
 threshold=(600e-4 600e-4 600e-4 600e-4 600e-4 600e-4 600e-4 600e-4 600e-4 600e-4 600e-4 600e-4)
@@ -23,7 +23,7 @@ for ((j = 0; j < 11; j++)); do
         --eval-datasets=${dataset_cur} \
         --load ${model_ckpt_path}/${dataset[i]}.pth \
         --load_autochooser ${model_ckpt_path}/${chooser[i]}.pth \
-        --data-location /home/dhw/yjz_workspace/data/data \
+        --data-location /home/team/zhaohongwei/Dataset \
         --ffn_adapt_where AdapterDoubleEncoder \
         --ffn_adapt \
         --apply_moe \

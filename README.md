@@ -50,6 +50,8 @@
 
 ---
 
+
+
 ## 📊 Evaluation Metrics
 
 > 来源：[Continual learning for VLMs: a survey and taxonomy beyond forgetting](http://arxiv.org/abs/2508.04227)
@@ -212,3 +214,64 @@ seed = 1993
 | MG-CLIP      | 72.25    | 74.41    | 75.74    | 68.65      | 71.40      |
 
 ## 
+
+## 多任务域增量
+
+> - Cross-domain Task-Agnostic Incremental Learning (X-TAIL): [LADA: scalable label-specific CLIP adapter for continual learning](http://arxiv.org/abs/2505.23271)
+> - Multi-domain Task Incremental Learning (MTIL): [Preventing zero-shot transfer degradation in continual learning of vision-language models](http://arxiv.org/abs/2303.06628)
+
+### Dataset
+
+You can directly **download the prepared datasets** from: 👉 [https://www.modelscope.cn/datasets/ForestLuo/X-TAIL](https://www.modelscope.cn/datasets/ForestLuo/X-TAIL),
+organized according to [CoOp](https://github.com/KaiyangZhou/CoOp/blob/main/DATASETS.md).
+
+Put files in the following locations and change the path in the data configure files [TAIL.yaml](configs/data/TAIL.yaml) and [TAIL_order2](configs/data/TAIL_order2.yaml).
+
+```sh
+Path/To/Dataset/Folder
+ ├─ Aircraft
+ │  ├─ images
+ │  ├─ families.txt
+ │  ├─ ...
+ │  └─ variants.txt
+ ├─ Caltech101
+ │  ├─ 101_ObjectCategories
+ │  └─ split_zhou_Caltech101.json
+ ├─ DTD
+ │  ├─ images
+ │  ├─ imbd
+ │  ├─ labels
+ │  └─ split_zhou_DescribableTextures.json
+ ├─ EuroSAT
+ │  ├─ 2750
+ │  └─ split_zhou_EuroSAT.json
+ ├─ Flowers
+ │  ├─ jpg
+ │  ├─ imagelabels.mat
+ │  ├─ setid.mat
+ │  └─ split_zhou_OxfordFlowers.json
+ ├─ Food
+ │  ├─ images
+ │  ├─ meta
+ │  └─ split_zhou_Food101.json
+ ├─ MNIST/MNIST/raw
+ │  ├─ t10k-images-idx3-ubyte
+ │  ├─ t10k-labels-idx1-ubyte
+ │  ├─ train-images-idx3-ubyte
+ │  └─ train-labels-idx1-ubyte
+ ├─ Pets
+ │  ├─ annotations
+ │  ├─ images
+ │  └─ split_zhou_OxfordPets.json
+ ├─ StanfordCars
+ │  ├─ cars_test
+ │  ├─ cars_train
+ │  ├─ devkit
+ │  ├─ cars_test_annos_withlabels.mat
+ │  └─ split_zhou_StanfordCars.json
+ └─ Sun397
+    ├─ SUN397
+    ├─ ClassName.txt
+    └─ split_zhou_SUN397.json
+```
+

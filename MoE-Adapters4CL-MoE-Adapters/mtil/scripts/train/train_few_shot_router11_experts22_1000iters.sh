@@ -26,7 +26,7 @@ CUDA_VISIBLE_DEVICES=${GPU} python -m src.main \
     --iterations 1000 \
     --method finetune \
     --save ckpt/exp_${exp_no} \
-    --data-location /home/dhw/yjz_workspace/data/data \
+    --data-location /home/team/zhaohongwei/Dataset \
     --task_id ${j} \
     --few_shot=5 \
     --is_train \
@@ -45,7 +45,7 @@ for ((i = 1; i < ${#chooser_dataset[@]}; i++)); do
         --save ckpt/exp_${exp_no} \
         --few_shot=5 \
         --load ckpt/exp_${exp_no}/${dataset_pre}_autochooser.pth \
-        --data-location /home/dhw/yjz_workspace/data/data \
+        --data-location /home/team/zhaohongwei/Dataset \
         --is_train \
         --task_id ${i} \
         --train_chooser
@@ -62,7 +62,7 @@ CUDA_VISIBLE_DEVICES=${GPU} python -m src.main \
     --iterations 500 \
     --method finetune \
     --save ckpt/exp_${exp_no} \
-    --data-location /home/dhw/yjz_workspace/data/data \
+    --data-location /home/team/zhaohongwei/Dataset \
     --ffn_adapt_where AdapterDoubleEncoder\
     --ffn_adapt \
     --task_id ${j} \
@@ -90,7 +90,7 @@ for ((i = 1; i < 11; i++)); do
         --iterations 500 \
         --save ckpt/exp_${exp_no} \
         --load ckpt/exp_${exp_no}/${dataset_pre}.pth \
-        --data-location /home/dhw/yjz_workspace/data/data \
+        --data-location /home/team/zhaohongwei/Dataset \
         --ffn_adapt_where AdapterDoubleEncoder \
         --ffn_adapt \
         --apply_moe \
@@ -116,7 +116,7 @@ for ((j = 0; j < 11; j++)); do
         --eval-datasets=${dataset_cur} \
         --load ${model_ckpt_path}/${dataset[i]}.pth \
         --load_autochooser ${model_ckpt_path}/${chooser[i]}.pth \
-        --data-location /home/dhw/yjz_workspace/data/data \
+        --data-location /home/team/zhaohongwei/Dataset \
         --ffn_adapt_where AdapterDoubleEncoder \
         --ffn_adapt \
         --apply_moe \

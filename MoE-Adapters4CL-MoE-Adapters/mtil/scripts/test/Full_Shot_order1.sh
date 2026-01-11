@@ -23,7 +23,7 @@ for ((j = 0; j < 11; j++)); do
         --eval-datasets=${dataset_cur} \
         --load ${model_ckpt_path}/${dataset[i]}.pth \
         --load_autochooser ${model_ckpt_path}/${chooser[i]}.pth \
-        --data-location /home/dhw/yjz_workspace/data/data \
+        --data-location /home/team/zhaohongwei/Dataset \
         --ffn_adapt_where AdapterDoubleEncoder \
         --ffn_adapt \
         --apply_moe \
