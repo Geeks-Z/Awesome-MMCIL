@@ -50,17 +50,79 @@
 
 ---
 
+## 📊 评估指标
 
+> - [Continual learning for VLMs: a survey and taxonomy beyond forgetting](http://arxiv.org/abs/2508.04227)
+> - [Recent advances of multimodal continual learning: a comprehensive survey](http://arxiv.org/abs/2410.05352)
 
-## 📊 Evaluation Metrics
-
-> 来源：[Continual learning for VLMs: a survey and taxonomy beyond forgetting](http://arxiv.org/abs/2508.04227)
-
-Regarding the detailed evaluation metrics (such as average accuracy, forgetting rate, zero-shot capability degradation, etc.), we provide a clear and intuitive diagram (as shown below) in the paper for comprehensive explanation. The diagram details how each metric is calculated.
 
 <div align=center><img src="https://markdownimg-hw.oss-cn-beijing.aliyuncs.com/20251203104009.png" style="zoom: 60%;" /></div>
 
-<div align=center><img src="https://markdownimg-hw.oss-cn-beijing.aliyuncs.com/20251203103112.png" style="zoom: 60%;" /></div>
+> 记 $p^j_i$ 为“模型在完成第 $i$ 个任务训练后（$i=0$ 表示预训练状态），在第 $j$ 个任务上的性能/准确率”。
+
+
+
+**Average Accuracy** remains fundamental, measuring mean task performance over all learning stages to gauge overall proficiency.
+
+> For conventional continual learning, only scores above the diagonal are meaningful, since they cannot give zero-shot predictions on unseen tasks. $\bar{\mathcal{A}} = \frac{1}{T}\sum_{i=1}^{T}\mathcal( \frac{1}{i} \sum_{j=1}^{i}p_i^j)$
+
+$$
+Avg=\frac{1}{T} \sum_{t=1}^{T} \left(\frac{1}{T} \sum_{i=1}^{T} p_t^{(i)}\right)
+$$
+
+**Last Accuracy** evaluates the model’s retained competence after full training, reflecting practical deployability.
+$$
+\textbf{Last} = \frac{1}{T} \sum_{t=1}^{T}p^t_T
+$$
+
+**Forgetting Ratio** quantifies the maximum performance drop per task post-initial learning.
+$$
+\textbf{Forget}=\frac{1}{T-1} \sum_{i=1}^{T-1} \max_{i \leq j \leq T-1}\left( p_j^{i} - p_T^{i} \right)
+$$
+
+**Backward Transfer (BWT)** assesses improvements or regressions on earlier tasks induced by later learning.
+
+> <div align=center><img src="https://markdownimg-hw.oss-cn-beijing.aliyuncs.com/20260127095257.png" style="zoom: 80%;" /></div>
+> 
+> 就是使用模型在学习最后一个（第 $T$ 个）task以后对之前第 $i$ 个task的表现减去刚刚学完第i个时候的表现的差值(通常为负数，上图中的蓝色部分)。反应的是记忆能力！
+> - 如果这个差值很大，就意味着模型对于之前学会的知识忘记的很多；
+> - 如果这个差值很小，就意味着模型对于之前学会的知识忘记的很少；
+> - 如果这个差值大于零，就意味着以后学到的知识对于之前学过的是一个促进的作用。
+
+$$
+\textbf{BWT}=\frac{1}{T-1} \sum_{t=1}^{T-1} \left(p_t^{(T)} -p_t^{(t)}  \right)
+$$
+
+**Forward Transfer(FWT)** 
+
+> <div align=center><img src="https://markdownimg-hw.oss-cn-beijing.aliyuncs.com/20260127095811.png" style="zoom: 80%;" /></div>
+>
+> 我们以最后一个任务task $T$ 为例，这个参数反应的是机器还没有学习 $T$，只是学习了 $T$ 之前别的task时候对于 $T$ 的影响。我们用机器学习之前 $T-1$ 个task时候对任务task $T$ 的表现减去初始化参数时候对task $T$ 的表现(下图绿色部分)。用这个参数衡量机器学习之前任务对现在任务的影响。如果这个参数是正的，那么就说明这个机器是会触类旁通的。反应的是**迁移能力**！
+> $$
+> FWT = \frac{1}{T-1}\sum_{i=2}^TR_{i-1,i}-R_{0,i}
+> $$
+
+**Zero-shot Transfer** evaluates generalization to unseen tasks using pre-acquired knowledge.
+$$
+\textbf{Transfer} =\frac{1}{T-1} \sum_{t=2}^{T} \left(\frac{1}{t-1} \sum_{i=1}^{t-1} p_t^{(i)}\right)
+$$
+
+
+
+**Zero-Shot Degradation** explicitly measures erosion of this capability—a critical vulnerability in VLMs.
+$$
+\textbf{ZSD}=\frac{1}{T-1} \sum_{t=2}^{T} \max_{1 \leq i \leq t-1}\left( p_t^{(1)} - p_t^{(i)} \right)
+$$
+
+
+
+**Recall@K and mean Average Precision** 
+$$
+R@K=\frac{|\mathcal{R}_q\cap\{ d_1, d_2,\ldots,d_K\} |}{|\mathcal{R}_q|}\\
+    mAP= \frac{1}{Q} \sum_{i=1}^{Q} \frac{1}{m_q} \sum_{k=1}^{K} P_q(k) \delta_q(k)
+$$
+
+---
 
 ## 论文复现调整
 
@@ -217,6 +279,8 @@ seed = 1993
 
 ## 多任务域增量
 
+> 有两篇文章提到多任务域增量
+>
 > - Cross-domain Task-Agnostic Incremental Learning (X-TAIL): [LADA: scalable label-specific CLIP adapter for continual learning](http://arxiv.org/abs/2505.23271)
 > - Multi-domain Task Incremental Learning (MTIL): [Preventing zero-shot transfer degradation in continual learning of vision-language models](http://arxiv.org/abs/2303.06628)
 
@@ -225,7 +289,7 @@ seed = 1993
 You can directly **download the prepared datasets** from: 👉 [https://www.modelscope.cn/datasets/ForestLuo/X-TAIL](https://www.modelscope.cn/datasets/ForestLuo/X-TAIL),
 organized according to [CoOp](https://github.com/KaiyangZhou/CoOp/blob/main/DATASETS.md).
 
-Put files in the following locations and change the path in the data configure files [TAIL.yaml](configs/data/TAIL.yaml) and [TAIL_order2](configs/data/TAIL_order2.yaml).
+Put files in the following locations and change the path in the data configure files.
 
 ```sh
 Path/To/Dataset/Folder
