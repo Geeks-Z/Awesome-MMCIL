@@ -2,7 +2,7 @@ import os
 import time
 import subprocess
 
-tasks_template = "python main.py --config ./exps/engine/{}"
+tasks_template = "python main.py --config ./configs/engine/{}"
 files = os.listdir('./exps/engine/')
 
 tasks = [tasks_template.format(task) for task in files]
