@@ -62,10 +62,29 @@ def _train(args):
         cnn_curve["top5"].append(cnn_accy["top5"])
 
         logging.info("CNN top1 curve: {}".format(cnn_curve["top1"]))
-        logging.info("CNN top5 curve: {}\n".format(cnn_curve["top5"]))
-
-        print('Average Accuracy (CNN):', sum(cnn_curve["top1"])/len(cnn_curve["top1"]))
+        logging.info("CNN top5 curve: {}".format(cnn_curve["top5"]))
+        # print('Average Accuracy (CNN):', sum(cnn_curve["top1"])/len(cnn_curve["top1"]))
         logging.info("Average Accuracy (CNN): {}".format(sum(cnn_curve["top1"])/len(cnn_curve["top1"])))
+
+    if args['backbone_type'] == 'openai_clip':
+        clip_type = 'OpenAI CLIP'
+    elif args['backbone_type'] == 'clip':
+        clip_type = 'OpenCLIP_LAION400M'
+    else:
+        clip_type = 'OpenCLIP_LAION2B'
+
+    print(f"\n{'=' * 40}")
+    print(
+        "Finished {}_init{}_inc{}".format(
+            args["dataset"],
+            args["init_cls"],
+            args["increment"]
+        )
+    )
+    print("Backbone: {}".format(clip_type))
+    print("Average Accuracy (Top1): {}".format(round(sum(cnn_curve["top1"]) / len(cnn_curve["top1"]), 2)))
+    print("Last Accuracy: {}".format(round(cnn_curve["top1"][-1], 2)))
+    print(f"{'=' * 40}\n")
     
 def _set_device(args):
     device_type = args["device"]

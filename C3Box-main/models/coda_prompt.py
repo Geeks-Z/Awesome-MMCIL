@@ -70,7 +70,7 @@ class Learner(BaseLearner):
         self._train(self.train_loader, self.test_loader)
         if len(self._multiple_gpus) > 1:
             self._network = self._network.module
-        self.build_rehearsal_memory(data_manager, self.samples_per_class)
+        # self.build_rehearsal_memory(data_manager, self.samples_per_class)
 
     def _train(self, train_loader, test_loader):
         self._network.to(self._device)
@@ -124,7 +124,7 @@ class Learner(BaseLearner):
                 logits, prompt_loss = self._network(inputs, train=True)
                 logits = logits[:, :self._total_classes]
 
-             #   logits[:, :self._known_classes] = float('-inf')
+                logits[:, :self._known_classes] = float('-inf')
                 dw_cls = self.dw_k[-1 * torch.ones(targets.size()).long()]
                 loss_supervised = (F.cross_entropy(logits, targets.long()) * dw_cls).mean()
 

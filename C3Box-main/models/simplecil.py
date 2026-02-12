@@ -47,7 +47,7 @@ class Learner(BaseLearner):
 
         class_list=np.unique(self.train_dataset.labels)
         for class_index in class_list:
-            print('Replacing...',class_index)
+            # print('Replacing...',class_index)
             #print(class_index)
             data_index=(label_list==class_index).nonzero().squeeze(-1)
             embedding=embedding_list[data_index]

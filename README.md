@@ -126,6 +126,42 @@ $$
 
 ## 论文复现调整
 
+### C3Box
+
+1. 配置文件注释掉memory（L2P，DualPrompt，CODA-Prompt）
+
+2. `models/l2p.py`注释掉对memory的调用
+
+   ```python
+           if len(self._multiple_gpus) > 1:
+               print('Multiple GPUs')
+               self._network = nn.DataParallel(self._network, self._multiple_gpus)
+           self._train(self.train_loader, self.test_loader)
+           if len(self._multiple_gpus) > 1:
+               self._network = self._network.module
+           # if self.args["memory_size"] > 0:
+           #     self.build_rehearsal_memory(data_manager, self.samples_per_class)
+   ```
+
+3. `models/l2p.py:` `_init_train`方法，取消 `logits[:, :self._known_classes] = float('-inf')`的注释，减少对旧类分类器权重的更改
+
+   ```python
+   def _init_train(self, train_loader, test_loader, optimizer, scheduler):
+           prog_bar = tqdm(range(self.args['tuned_epoch']))
+           for _, epoch in enumerate(prog_bar):
+               self._network.backbone.train()
+               self._network.original_backbone.eval()
+   
+               losses = 0.0
+               correct, total = 0, 0
+               for i, (_, inputs, targets) in enumerate(train_loader):
+                   inputs, targets = inputs.to(self._device), targets.to(self._device)
+   
+                   output = self._network(inputs, task_id=self._cur_task, train=True)
+                   logits = output["logits"][:, :self._total_classes]
+                   logits[:, :self._known_classes] = float('-inf') 
+   ```
+
 ### PromptFusion
 
 - CLIP的获取方式：本地加载改为自动下载 `main.py line70`

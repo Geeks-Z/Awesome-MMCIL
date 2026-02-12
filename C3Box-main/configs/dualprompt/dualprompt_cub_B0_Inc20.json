@@ -1,17 +1,18 @@
 {
-    "prefix": " ",
+    "prefix": "-",
     "dataset": "cub",
-    "memory_size": 2000,
-    "memory_per_class": 20,
-    "fixed_memory": true,
+    "memory_size": 0,
+    "memory_per_class": 0,
+    "fixed_memory": false,
     "shuffle": true,
-    "init_cls": 10,
-    "increment": 10,
+    "init_cls": 20,
+    "increment": 20,
     "model_name": "dualprompt",
     "backbone_type": "clip",
     "get_original_backbone": true,
-    "device": ["0"],
+    "device": ["1"],
     "seed": [1993],
+    "nb_classes": 200,
     "tuned_epoch": 10,
     "init_lr": 0.001,
     "batch_size": 64,
@@ -49,6 +50,5 @@
     "pull_constraint": true,
     "pull_constraint_coeff": 0.1,
     "same_key_value": false,
-    "nb_classes": 100,
-    "total_class_num": 100
+    "total_class_num": 200
 }

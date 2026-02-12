@@ -1,9 +1,9 @@
 {
     "prefix": " ",
-    "dataset": "cars",
-    "memory_size": 2000,
-    "memory_per_class": 20,
-    "fixed_memory": true,
+    "dataset": "food101",
+    "memory_size": 0,
+    "memory_per_class": 0,
+    "fixed_memory": false,
     "shuffle": true,
     "init_cls": 10,
     "increment": 10,

@@ -22,17 +22,23 @@ def get_convnet(args, pretrained=False):
         print('Using CLIP model as the backbone')
         import open_clip
         if backbone_name == 'clip':
-            model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion400m_e32')
+            # model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion400m_e32')
+            model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16',
+                                                                         pretrained='/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin')
             tokenizer = open_clip.get_tokenizer('ViT-B-16')
             model.out_dim = 512
             return model, preprocess, tokenizer
-        elif backbone_name=='clip_laion2b':
-            model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion2b_s34b_b88k')
+        elif backbone_name == 'clip_laion2b':
+            # model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion2b_s34b_b88k')
+            model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16',
+                                                                         pretrained='/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion2b_s34b_b88k.bin')
             tokenizer = open_clip.get_tokenizer('ViT-B-16')
             model.out_dim = 512
             return model, preprocess, tokenizer
-        elif backbone_name=='openai_clip':
-            model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='openai')
+        elif backbone_name == 'openai_clip':
+            # model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='openai')
+            model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16',
+                                                                         pretrained='/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model.bin')
             tokenizer = open_clip.get_tokenizer('ViT-B-16')
             model.out_dim = 512
             return model, preprocess, tokenizer
@@ -94,13 +100,14 @@ class SimpleVitNet(BaseNet):
         # for RanPAC
         self.W_rand = None
         self.RP_dim = None
+        self._device = args["device"][0]
 
     def update_fc(self, nb_classes, nextperiod_initialization=None):
         if self.RP_dim is not None:
             feature_dim = self.RP_dim
         else:
             feature_dim = self.feature_dim
-        fc = self.generate_fc(feature_dim, nb_classes).cuda()
+        fc = self.generate_fc(feature_dim, nb_classes).to(self._device)
         if self.fc is not None:
             nb_output = self.fc.out_features
             weight = copy.deepcopy(self.fc.weight.data)
@@ -112,7 +119,7 @@ class SimpleVitNet(BaseNet):
             if nextperiod_initialization is not None:
                 weight = torch.cat([weight, nextperiod_initialization])
             else:
-                weight = torch.cat([weight, torch.zeros(nb_classes - nb_output, self.feature_dim).cuda()])
+                weight = torch.cat([weight, torch.zeros(nb_classes - nb_output, self.feature_dim).to(self._device)])
             fc.weight = nn.Parameter(weight)
         del self.fc
         self.fc = fc
@@ -400,7 +407,7 @@ class Engine(BaseNet):
             cov_inv = center_vecs.T @ center_vecs / (center_vecs.shape[0] - 1)
             cov_inv = center_vecs.shape[1] * torch.linalg.pinv(
                 (center_vecs.shape[0] - 1) * center_vecs.T.cov() + center_vecs.T.cov().trace() * torch.eye(
-                    center_vecs.shape[1]).cuda())
+                    center_vecs.shape[1]).to(device))
             if not hasattr(self, 'mu'):
                 self.mu = mu
                 self.cov_inv = cov_inv
@@ -412,7 +419,7 @@ class Engine(BaseNet):
                                            self.mu.T.mean(dim=1).unsqueeze(1) - mu.T.mean(dim=1).unsqueeze(1)) @ (
                                            self.mu.T.mean(dim=1).unsqueeze(1) - mu.T.mean(dim=1).unsqueeze(1)).T
                 self.mu = torch.cat([self.mu, mu])
-            ps = torch.ones(self.mu.shape[0]).cuda() * 1. / self.mu.shape[0]
+            ps = torch.ones(self.mu.shape[0]).to(device) * 1. / self.mu.shape[0]
             self.W = torch.einsum('nd, dc -> cn', self.mu, self.cov_inv)
             self.b = ps.log() - torch.einsum('nd, dc, nc -> n', self.mu, self.cov_inv, self.mu) / 2
 
@@ -545,9 +552,7 @@ class CodaPromptVitNet(nn.Module):
     def __init__(self, args, pretrained):
         super(CodaPromptVitNet, self).__init__()
         self.args = args
-        import open_clip
-        basic_model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion400m_e32')
-        basic_model.load_state_dict(torch.load('./c.pth'))
+        basic_model, _, _ = get_convnet(args, pretrained)
         state_dict = basic_model.state_dict()
         vision_width = state_dict["visual.conv1.weight"].shape[0]
         vision_layers = len(
@@ -616,10 +621,7 @@ class CodaPromptVitNet(nn.Module):
 class PromptVitNet(nn.Module):
     def __init__(self, args, pretrained):
         super().__init__()
-        import open_clip
-        basic_model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion400m_e32')
-
-      #  basic_model.load_state_dict(torch.load('./c.pth'))
+        basic_model, _, _ = get_convnet(args, pretrained)
         state_dict = basic_model.state_dict()
         vision_width = state_dict["visual.conv1.weight"].shape[0]
         vision_layers = len(
@@ -676,10 +678,7 @@ class PromptVitNet(nn.Module):
 class DualpromptVitNet(nn.Module):
     def __init__(self, args, pretrained):
         super().__init__()
-        import open_clip
-        basic_model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion400m_e32')
-
-        basic_model.load_state_dict(torch.load('./c.pth'))
+        basic_model, _, _ = get_convnet(args, pretrained)
         state_dict = basic_model.state_dict()
         vision_width = state_dict["visual.conv1.weight"].shape[0]
         vision_layers = len(
@@ -733,10 +732,8 @@ class DualpromptVitNet(nn.Module):
         return x
 
 
-def getbackbone():
-    import open_clip
-    basic_model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion400m_e32')
-    basic_model.load_state_dict(torch.load('./c.pth'))
+def getbackbone(args):
+    basic_model, _, _ = get_convnet(args, True)
     state_dict = basic_model.state_dict()
     vision_width = state_dict["visual.conv1.weight"].shape[0]
     vision_layers = len(
@@ -783,7 +780,7 @@ def getbackbone():
 class AdaptiveNet(nn.Module):
     def __init__(self, args, pretrained):
         super(AdaptiveNet, self).__init__()
-        self.TaskAgnosticExtractor, _ = getbackbone()
+        self.TaskAgnosticExtractor, _ = getbackbone(args)
         self.TaskAgnosticExtractor.train()
         self.AdaptiveExtractors = nn.ModuleList()
         self.pretrained = pretrained
@@ -818,7 +815,7 @@ class AdaptiveNet(nn.Module):
         return out
 
     def update_fc(self,nb_classes):
-        _, _new_extractor = getbackbone()
+        _, _new_extractor = getbackbone(self.args)
         if len(self.AdaptiveExtractors)==0:
             self.AdaptiveExtractors.append(_new_extractor)
         else:

@@ -1,12 +1,12 @@
 {
     "prefix": " ",
     "dataset": "cub",
-    "memory_size": 2000,
-    "memory_per_class": 20,
-    "fixed_memory": true,
+    "memory_size": 0,
+    "memory_per_class": 0,
+    "fixed_memory": false,
     "shuffle": true,
-    "init_cls": 10,
-    "increment": 10,
+    "init_cls": 20,
+    "increment": 20,
     "model_name": "l2p",
     "backbone_type": "clip",
     "get_original_backbone": true,
@@ -41,6 +41,6 @@
     "predefined_key": "",
     "pull_constraint": true,
     "pull_constraint_coeff": 0.1,
-    "nb_classes": 100,
-    "total_class_num": 100
+    "nb_classes": 200,
+    "total_class_num": 200
 }

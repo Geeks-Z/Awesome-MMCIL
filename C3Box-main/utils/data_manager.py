@@ -376,7 +376,7 @@ def _get_idata(dataset_name):
         return iImageNetA()
     elif name=="objectnet":
         return objectnet()
-    elif name=="cub200":
+    elif name=="cub":
         return CUB()
     elif name=="caltech101":
         return Caltech101()

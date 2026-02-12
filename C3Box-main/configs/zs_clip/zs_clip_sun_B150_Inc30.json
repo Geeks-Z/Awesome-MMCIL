@@ -1,0 +1,15 @@
+{
+    "prefix": "-",
+    "dataset": "sun",
+    "memory_size": 0,
+    "memory_per_class": 0,
+    "fixed_memory": false,
+    "shuffle": true,
+    "init_cls": 150,
+    "increment": 30,
+    "model_name": "zs_clip",
+    "backbone_type": "clip",
+    "device": ["1"],
+    "seed": [1993],
+    "total_class_num": 300
+}

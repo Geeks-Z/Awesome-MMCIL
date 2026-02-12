@@ -71,7 +71,7 @@ class Learner(BaseLearner):
         self._train(self.train_loader, self.test_loader)
         if len(self._multiple_gpus) > 1:
             self._network = self._network.module
-        self.build_rehearsal_memory(data_manager, self.samples_per_class)
+        # self.build_rehearsal_memory(data_manager, self.samples_per_class)
 
     def _train(self, train_loader, test_loader):
         self._network.to(self._device)
@@ -181,7 +181,7 @@ class Learner(BaseLearner):
 
                 output = self._network(inputs, task_id=self._cur_task, train=True)
                 logits = output["logits"][:, :self._total_classes]
-              #  logits[:, :self._known_classes] = float('-inf')
+                logits[:, :self._known_classes] = float('-inf')
 
                 loss = F.cross_entropy(logits, targets.long())
                 if self.args["pull_constraint"] and 'reduce_sim' in output:

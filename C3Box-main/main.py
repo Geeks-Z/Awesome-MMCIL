@@ -1,6 +1,6 @@
 import os
+# os.environ['CUDA_VISIBLE_DEVICES'] = "0"
 import torch
-os.environ['CUDA_VISIBLE_DEVICES'] = "1"
 import json
 import argparse
 from trainer import train
@@ -22,7 +22,7 @@ def load_json(settings_path):
 
 def setup_parser():
     parser = argparse.ArgumentParser(description='Reproduce of multiple continual learning algorthms.')
-    parser.add_argument('--config', type=str, default='./configs/l2p/l2p_cifar_B0_Inc5.json',
+    parser.add_argument('--config', type=str, default='./configs/l2p/l2p_cub_B100_Inc20.json',
                         help='Json file of settings.')
     return parser
 

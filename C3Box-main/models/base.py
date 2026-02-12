@@ -21,8 +21,8 @@ class BaseLearner(object):
         self._data_memory, self._targets_memory = np.array([]), np.array([])
         self.topk = 5
 
-        self._memory_size = args["memory_size"]
-        self._memory_per_class = args.get("memory_per_class", None)
+        self._memory_size = args.get("memory_size", 0)
+        self._memory_per_class = args.get("memory_per_class", 0)
         self._fixed_memory = args.get("fixed_memory", False)
         self._device = args["device"][0]
         self._multiple_gpus = args["device"]

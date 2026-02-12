@@ -9,7 +9,7 @@
     "increment": 10,
     "model_name": "finetune",
     "backbone_type": "clip",
-    "device": ["0"],
+    "device": ["7"],
     "seed": [1993],
     "init_epoch": 10,
     "init_lr": 0.001,

@@ -5,11 +5,11 @@
     "memory_per_class": 0,
     "fixed_memory": false,
     "shuffle": true,
-    "init_cls": 50,
-    "increment": 10,
+    "init_cls": 20,
+    "increment": 20,
     "model_name": "finetune",
     "backbone_type": "clip",
-    "device": ["0"],
+    "device": ["7"],
     "seed": [1993],
     "init_epoch": 10,
     "init_lr": 0.001,
@@ -22,5 +22,5 @@
     "lrate_decay": 0.1,
     "batch_size": 128,
     "weight_decay": 0.0002,
-    "total_class_num": 100
+    "total_class_num": 200
 }
