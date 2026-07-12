@@ -1,0 +1,19 @@
+#!/bin/bash
+python main.py --config=./configs/proof/proof_aircraft_B0_Inc10.json
+python main.py --config=./configs/proof/proof_aircraft_B50_Inc10.json
+python main.py --config=./configs/proof/proof_cifar_B0_Inc10.json
+python main.py --config=./configs/proof/proof_cifar_B50_Inc10.json
+python main.py --config=./configs/proof/proof_cars_B0_Inc10.json
+python main.py --config=./configs/proof/proof_cars_B50_Inc10.json
+python main.py --config=./configs/proof/proof_inr_B0_Inc20.json
+python main.py --config=./configs/proof/proof_inr_B100_Inc20.json
+python main.py --config=./configs/proof/proof_cub_B0_Inc20.json
+python main.py --config=./configs/proof/proof_cub_B100_Inc20.json
+python main.py --config=./configs/proof/proof_ucf_B0_Inc10.json
+python main.py --config=./configs/proof/proof_ucf_B50_Inc10.json
+python main.py --config=./configs/proof/proof_sun_B0_Inc30.json
+python main.py --config=./configs/proof/proof_sun_B150_Inc30.json
+python main.py --config=./configs/proof/proof_food_B0_Inc10.json
+python main.py --config=./configs/proof/proof_food_B50_Inc10.json
+python main.py --config=./configs/proof/proof_objectnet_B0_Inc20.json
+python main.py --config=./configs/proof/proof_objectnet_B100_Inc20.json

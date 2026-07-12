@@ -1,0 +1,19 @@
+#!/bin/bash
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_aircraft_B0_Inc10.json
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_aircraft_B50_Inc10.json
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_cifar_B0_Inc10.json
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_cifar_B50_Inc10.json
+python main.py --config=./configs/CLG-CBM/CLG-CBM_cars_B0_Inc10.json
+python main.py --config=./configs/CLG-CBM/CLG-CBM_cars_B50_Inc10.json
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_inr_B0_Inc20.json
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_inr_B100_Inc20.json
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_cub_B0_Inc20.json
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_cub_B100_Inc20.json
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_ucf_B0_Inc10.json
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_ucf_B50_Inc10.json
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_sun_B0_Inc30.json
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_sun_B150_Inc30.json
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_food_B0_Inc10.json
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_food_B50_Inc10.json
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_objectnet_B0_Inc20.json
+#python main.py --config=./configs/CLG-CBM/CLG-CBM_objectnet_B100_Inc20.json

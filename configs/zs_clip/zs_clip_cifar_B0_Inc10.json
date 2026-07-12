@@ -1,0 +1,15 @@
+{
+  "prefix": "-",
+  "dataset": "cifar224",
+  "memory_size": 0,
+  "memory_per_class": 0,
+  "fixed_memory": false,
+  "shuffle": true,
+  "init_cls": 10,
+  "increment": 10,
+  "model_name": "zs_clip",
+  "backbone_type": "clip",
+  "device": ["6"],
+  "seed": [0, 42, 1993, 2026],
+  "total_class_num": 100
+}
