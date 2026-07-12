@@ -1,2 +1,0 @@
-dataset_sequence: ["aircraft", "caltech101", "dtd", "eurosat", "flowers", "food101", "mnist", "oxford_pets", "stanford_cars", "sun397"]
-root: "/home/team/zhaohongwei/Dataset/X-TAIL"
