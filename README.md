@@ -1,7 +1,5 @@
 # 🚀 Awesome-MMCL
 
-[English](README.md) | [简体中文](README.zh-CN.md)
-
 <div align=center><img src="https://markdownimg-hw.oss-cn-beijing.aliyuncs.com/logo.png" style="zoom: 60%;" /></div>
 <p></p>
 <div align=center><img src="https://visitor-badge.laobi.icu/badge?page_id=Awesome-MMCL&left_color=green&right_color=red" /> <img src="https://img.shields.io/github/last-commit/Geeks-Z/Awesome-MMCL" /> <img src="https://img.shields.io/github/license/Geeks-Z/Awesome-MMCL" /></div>
@@ -34,8 +32,6 @@
 - `SimpleCIL`: Revisiting Class-Incremental Learning with Pre-Trained Models: Generalizability and Adaptivity are All You Need. **IJCV 2024** [[paper](https://arxiv.org/abs/2303.07338)]
 - `APER`: Revisiting Class-Incremental Learning with Pre-Trained Models: Generalizability and Adaptivity are All You Need. **IJCV 2024** [[paper](https://arxiv.org/abs/2303.07338)]
 - `RAPF`: Class-incremental learning with CLIP: adaptive representation adjustment and parameter fusion **ECCV 2024** [paper](https://link.springer.com/10.1007/978-3-031-72949-2_13) [code](https://github.com/linlany/RAPF) [reading notes](https://zhuanlan.zhihu.com/p/1959573948623725449)
-- `MoE-Adapters`: Boosting Continual Learning of Vision-Language Models via Mixture-of-Experts Adapters **CVPR 2024** [paper](https://arxiv.org/abs/2403.11549) [code](https://github.com/JiazuoYu/MoE-Adapters4CL) [reading notes](https://zhuanlan.zhihu.com/p/1915756018090119546)
-- `PromptFusion`: PromptFusion: Decoupling Stability and Plasticity for Continual Learning **ECCV 2024** [paper](https://link.zhihu.com/?target=http%3A//arxiv.org/abs/2303.07223) [code](https://github.com/HaoranChen/PromptFusion) [reading notes](https://zhuanlan.zhihu.com/p/1977048983483478476)
 - `TUNA`: Integrating Task-Specific and Universal Adapters for Pre-Trained Model-based Class-Incremental Learning. **ICCV 2025** [[paper](https://arxiv.org/abs/2508.08165)]
 - `LADA`: LADA: Scalable Label-Specific CLIP Adapter for Continual Learning  **ICML 2025** [paper](https://arxiv.org/abs/2505.23271) [code](https://github.com/MaolinLuo/LADA) [reading notes](https://zhuanlan.zhihu.com/p/1959602781133439861)
 - `MG-CLIP`: Mind the gap: preserving and compensating for the modality gap in CLIP-based continual learning **ICCV 2025** [paper](https://arxiv.org/abs/2507.09118) [code](https://github.com/linlany/MindtheGap) [reading notes](https://zhuanlan.zhihu.com/p/1973063939102360605)
@@ -43,6 +39,12 @@
 - `PROOF`: Learning Without Forgetting for Vision-Language Models **TPAMI 2025** [paper](https://ieeexplore.ieee.org/document/10882940/) [code](https://github.com/LAMDA-CL/PROOF) [reading notes](https://zhuanlan.zhihu.com/p/1959573532569768109)
 - `CLG-CBM`: Language Guided Concept Bottleneck Models for Interpretable Continual Learning. **CVPR 2025** [[paper](https://arxiv.org/abs/2503.23283)]
 - `BOFA`: BOFA: Bridge-Layer Orthogonal Low-Rank Fusion for CLIP-Based Class-Incremental Learning. **AAAI 2026** [[paper](https://arxiv.org/abs/2511.11421)]
+
+### TODO
+
+- `MoE-Adapters`: Boosting Continual Learning of Vision-Language Models via Mixture-of-Experts Adapters **CVPR 2024** [paper](https://arxiv.org/abs/2403.11549) [code](https://github.com/JiazuoYu/MoE-Adapters4CL) [reading notes](https://zhuanlan.zhihu.com/p/1915756018090119546)
+- `PromptFusion`: PromptFusion: Decoupling Stability and Plasticity for Continual Learning **ECCV 2024** [paper](https://link.zhihu.com/?target=http%3A//arxiv.org/abs/2303.07223) [code](https://github.com/HaoranChen/PromptFusion) [reading notes](https://zhuanlan.zhihu.com/p/1977048983483478476)
+- `LADA`: LADA: Scalable Label-Specific CLIP Adapter for Continual Learning **ICML 2025** [paper](https://arxiv.org/abs/2505.23271) [code](https://github.com/MaolinLuo/LADA) [reading notes](https://zhuanlan.zhihu.com/p/1959602781133439861)
 
 ---
 
