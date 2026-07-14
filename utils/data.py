@@ -1,6 +1,15 @@
+import os
+
 import numpy as np
 from torchvision import datasets, transforms
 from utils.toolkit import split_images_labels
+
+
+DATA_ROOT = os.environ.get("MMCL_DATA_ROOT", "/home/team/zhaohongwei/Dataset")
+
+
+def data_path(*parts):
+    return os.path.join(DATA_ROOT, *parts)
 
 
 class iData(object):
@@ -124,8 +133,8 @@ class iCIFAR224(iData):
     class_order = np.arange(100).tolist()
 
     def download_data(self):
-        train_dataset = datasets.cifar.CIFAR100("/home/team/zhaohongwei/Dataset", train=True, download=False)
-        test_dataset = datasets.cifar.CIFAR100("/home/team/zhaohongwei/Dataset", train=False, download=False)
+        train_dataset = datasets.cifar.CIFAR100(DATA_ROOT, train=True, download=False)
+        test_dataset = datasets.cifar.CIFAR100(DATA_ROOT, train=False, download=False)
         self.train_data, self.train_targets = train_dataset.data, np.array(
             train_dataset.targets
         )
@@ -204,8 +213,8 @@ class iImageNetR(iData):
 
     def download_data(self):
         # assert 0, "You should specify the folder of your dataset"
-        train_dir = "/home/team/zhaohongwei/Dataset/imagenet-r/train/"
-        test_dir = "/home/team/zhaohongwei/Dataset/imagenet-r/test/"
+        train_dir = data_path("imagenet-r", "train")
+        test_dir = data_path("imagenet-r", "test")
 
         train_dset = datasets.ImageFolder(train_dir)
         test_dset = datasets.ImageFolder(test_dir)
@@ -252,8 +261,8 @@ class objectnet(iData):
 
     def download_data(self):
         # assert 0, "You should specify the folder of your dataset"
-        train_dir = "/home/team/zhaohongwei/Dataset/objectnet/train/"
-        test_dir = "/home/team/zhaohongwei/Dataset/objectnet/test/"
+        train_dir = data_path("objectnet", "train")
+        test_dir = data_path("objectnet", "test")
 
         train_dset = datasets.ImageFolder(train_dir)
         test_dset = datasets.ImageFolder(test_dir)
@@ -275,8 +284,8 @@ class CUB(iData):
 
     def download_data(self):
         # assert 0, "You should specify the folder of your dataset"
-        train_dir = "/home/team/zhaohongwei/Dataset/cub/train/"
-        test_dir = "/home/team/zhaohongwei/Dataset/cub/test/"
+        train_dir = data_path("cub", "train")
+        test_dir = data_path("cub", "test")
 
         train_dset = datasets.ImageFolder(train_dir)
         test_dset = datasets.ImageFolder(test_dir)
@@ -319,8 +328,8 @@ class Food101(iData):
 
     def download_data(self):
         # assert 0, "You should specify the folder of your dataset"
-        train_dir = "/home/team/zhaohongwei/Dataset/food101/train/"
-        test_dir = "/home/team/zhaohongwei/Dataset/food101/test/"
+        train_dir = data_path("food101", "train")
+        test_dir = data_path("food101", "test")
 
         train_dset = datasets.ImageFolder(train_dir)
         test_dset = datasets.ImageFolder(test_dir)
@@ -363,8 +372,8 @@ class Aircraft(iData):
 
     def download_data(self):
         # assert 0, "You should specify the folder of your dataset"
-        train_dir = "/home/team/zhaohongwei/Dataset/aircraft/train/"
-        test_dir = "/home/team/zhaohongwei/Dataset/aircraft/test/"
+        train_dir = data_path("aircraft", "train")
+        test_dir = data_path("aircraft", "test")
 
         train_dset = datasets.ImageFolder(train_dir)
         test_dset = datasets.ImageFolder(test_dir)
@@ -385,8 +394,8 @@ class UCF101(iData):
 
     def download_data(self):
         # assert 0, "You should specify the folder of your dataset"
-        train_dir = "/home/team/zhaohongwei/Dataset/ucf/train/"
-        test_dir = "/home/team/zhaohongwei/Dataset/ucf/test/"
+        train_dir = data_path("ucf", "train")
+        test_dir = data_path("ucf", "test")
 
         train_dset = datasets.ImageFolder(train_dir)
         test_dset = datasets.ImageFolder(test_dir)
@@ -407,8 +416,8 @@ class StanfordCars(iData):
 
     def download_data(self):
         # assert 0, "You should specify the folder of your dataset"
-        train_dir = "/home/team/zhaohongwei/Dataset/cars/train/"
-        test_dir = "/home/team/zhaohongwei/Dataset/cars/test/"
+        train_dir = data_path("cars", "train")
+        test_dir = data_path("cars", "test")
 
         train_dset = datasets.ImageFolder(train_dir)
         test_dset = datasets.ImageFolder(test_dir)
@@ -452,8 +461,8 @@ class SUN(iData):
 
     def download_data(self):
         # assert 0, "You should specify the folder of your dataset"
-        train_dir = "/home/team/zhaohongwei/Dataset/sun/train/"
-        test_dir = "/home/team/zhaohongwei/Dataset/sun/test/"
+        train_dir = data_path("sun", "train")
+        test_dir = data_path("sun", "test")
 
         train_dset = datasets.ImageFolder(train_dir)
         test_dset = datasets.ImageFolder(test_dir)

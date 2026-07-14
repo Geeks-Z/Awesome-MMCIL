@@ -33,3 +33,6 @@ nohup ./scripts/run_bofa.sh > ./results/BOFA-LAION-400M.out 2>&1 &
 
 # CLG-CBM
 nohup ./scripts/run_CLG-CBM.sh > ./results/CLG-CBM-LAION-400M.out 2>&1 &
+
+# AREA
+nohup ./scripts/run_area.sh > ./results/AREA-LAION-400M.out 2>&1 &

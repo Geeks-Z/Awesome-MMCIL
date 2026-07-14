@@ -14,7 +14,6 @@
 #python main.py --config=./configs/engine/engine_sun_B0_Inc30.json
 #python main.py --config=./configs/engine/engine_sun_B150_Inc30.json
 #python main.py --config=./configs/engine/engine_food_B0_Inc10.json
-python main.py --config=./configs/engine/engine_food_B50_Inc10.json
-python main.py --config=./configs/engine/engine_objectnet_B0_Inc20.json
+#python main.py --config=./configs/engine/engine_food_B50_Inc10.json
+#python main.py --config=./configs/engine/engine_objectnet_B0_Inc20.json
 python main.py --config=./configs/engine/engine_objectnet_B100_Inc20.json
-#

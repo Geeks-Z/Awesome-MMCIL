@@ -1,0 +1,3 @@
+- dataset_root=/public/home/hanlida/Dr.1/Dataset/imagenet-r
+- class_order=class_orders/imagenet_R.yaml
+- +seed=0

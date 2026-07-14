@@ -1,0 +1,33 @@
+{
+  "dataset": "cifar224",
+  "shuffle": true,
+  "init_cls": 10,
+  "increment": 10,
+  "model_name": "area",
+  "backbone_type": "clip",
+  "clip_pretrained": "laion400m_e32",
+  "device": [
+    "2"
+  ],
+  "seed": [
+    0,
+    42,
+    1993,
+    2026
+  ],
+  "epochs": 40,
+  "milestones": [
+    15,
+    28
+  ],
+  "init_lr": 0.03,
+  "batch_size": 64,
+  "weight_decay": 0.01,
+  "optimizer": "sgd",
+  "samples_per_class": 4,
+  "K": 16,
+  "vib_lambda": 1,
+  "precomputed_basis_path": "./precomputed_basis/area/cifar100",
+  "g_lambda": 0.2,
+  "num_workers": 8
+}

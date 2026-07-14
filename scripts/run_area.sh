@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Already started on the original server; do not rerun.
+# python main.py --config=./configs/area/area_aircraft_B0_Inc10.json
+python main.py --config=./configs/area/area_aircraft_B50_Inc10.json
+python main.py --config=./configs/area/area_cars_B0_Inc10.json
+python main.py --config=./configs/area/area_cars_B50_Inc10.json
+python main.py --config=./configs/area/area_cifar_B0_Inc10.json
+python main.py --config=./configs/area/area_cifar_B50_Inc10.json
+python main.py --config=./configs/area/area_cub_B0_Inc20.json
+python main.py --config=./configs/area/area_cub_B100_Inc20.json
+python main.py --config=./configs/area/area_inr_B0_Inc20.json
+python main.py --config=./configs/area/area_inr_B100_Inc20.json
+python main.py --config=./configs/area/area_ucf_B0_Inc10.json
+python main.py --config=./configs/area/area_ucf_B50_Inc10.json
+python main.py --config=./configs/area/area_sun_B0_Inc30.json
+python main.py --config=./configs/area/area_sun_B150_Inc30.json
+python main.py --config=./configs/area/area_food_B0_Inc10.json
+python main.py --config=./configs/area/area_food_B50_Inc10.json
+python main.py --config=./configs/area/area_objectnet_B0_Inc20.json
+python main.py --config=./configs/area/area_objectnet_B100_Inc20.json

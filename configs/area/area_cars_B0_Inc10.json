@@ -1,0 +1,33 @@
+{
+  "dataset": "cars",
+  "shuffle": true,
+  "init_cls": 10,
+  "increment": 10,
+  "model_name": "area",
+  "backbone_type": "clip",
+  "clip_pretrained": "laion400m_e32",
+  "device": [
+    "2"
+  ],
+  "seed": [
+    0,
+    42,
+    1993,
+    2026
+  ],
+  "epochs": 20,
+  "milestones": [
+    8,
+    15
+  ],
+  "init_lr": 0.01,
+  "batch_size": 64,
+  "weight_decay": 0.05,
+  "optimizer": "sgd",
+  "samples_per_class": 4,
+  "K": 8,
+  "vib_lambda": 1,
+  "precomputed_basis_path": "./precomputed_basis/area/cars",
+  "g_lambda": 0.5,
+  "num_workers": 8
+}

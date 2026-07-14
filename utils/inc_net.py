@@ -1,5 +1,6 @@
 import copy
 import logging
+import os
 import torch
 from sympy import false
 from torch import nn
@@ -23,22 +24,43 @@ def get_convnet(args, pretrained=False):
         import open_clip
         if backbone_name == 'clip':
             # model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion400m_e32')
+            pretrained_source = os.environ.get(
+                "MMCL_CLIP_PRETRAINED",
+                args.get(
+                    "clip_pretrained",
+                    '/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin',
+                ),
+            )
             model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16',
-                                                                         pretrained='/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin')
+                                                                         pretrained=pretrained_source)
             tokenizer = open_clip.get_tokenizer('ViT-B-16')
             model.out_dim = 512
             return model, preprocess, tokenizer
         elif backbone_name == 'clip_laion2b':
             # model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion2b_s34b_b88k')
+            pretrained_source = os.environ.get(
+                "MMCL_CLIP_PRETRAINED",
+                args.get(
+                    "clip_pretrained",
+                    '/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion2b_s34b_b88k.bin',
+                ),
+            )
             model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16',
-                                                                         pretrained='/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion2b_s34b_b88k.bin')
+                                                                         pretrained=pretrained_source)
             tokenizer = open_clip.get_tokenizer('ViT-B-16')
             model.out_dim = 512
             return model, preprocess, tokenizer
         elif backbone_name == 'openai_clip':
             # model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='openai')
+            pretrained_source = os.environ.get(
+                "MMCL_CLIP_PRETRAINED",
+                args.get(
+                    "clip_pretrained",
+                    '/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model.bin',
+                ),
+            )
             model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16',
-                                                                         pretrained='/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model.bin')
+                                                                         pretrained=pretrained_source)
             tokenizer = open_clip.get_tokenizer('ViT-B-16')
             model.out_dim = 512
             return model, preprocess, tokenizer
@@ -546,6 +568,264 @@ class Engine(BaseNet):
         for item in self.Text_Adapter:
             for param in item.parameters():
                 param.requires_grad = True
+
+# AREA
+class Area(nn.Module):
+    """CLIP backbone and task experts used by AREA."""
+
+    def __init__(self, args, pretrained=None):
+        super().__init__()
+        self.model, self.preprocess, self.tokenizer = get_convnet(args, pretrained)
+        self.class_name = "Area"
+        self.args = args
+        self.K = get_attribute(args, "K", 16)
+        self.embedding_dim = self.model.out_dim
+
+        self.visual_adapter = nn.Linear(self.embedding_dim, self.embedding_dim, bias=False)
+        self.textual_adapter = nn.Linear(self.embedding_dim, self.embedding_dim, bias=False)
+        self.textual_S = nn.ModuleList()
+        self.visual_S = nn.ModuleList()
+
+        self.visual = self.model.visual
+        self.visual_proj = self.visual.proj
+        self.class_mean_list = []
+        self.class_cov_list = []
+        self._freeze_module(self.model)
+
+    @property
+    def feature_dim(self):
+        return self.embedding_dim
+
+    def append_S(self, device):
+        if self.textual_S:
+            self._freeze_module(self.textual_S[-1])
+            self._freeze_module(self.visual_S[-1])
+
+        textual_s = nn.Linear(self.embedding_dim, self.K, bias=False).to(device)
+        visual_s = nn.Linear(self.embedding_dim, self.K, bias=False).to(device)
+        if self.textual_S:
+            textual_s.weight.data.copy_(self.textual_S[-1].weight.data)
+            visual_s.weight.data.copy_(self.visual_S[-1].weight.data)
+        self.textual_S.append(textual_s)
+        self.visual_S.append(visual_s)
+
+    def extract_vector(self, x):
+        return self.model.encode_image(x)
+
+    def encode_image(self, x):
+        return self.model.encode_image(x)
+
+    def encode_text(self, x):
+        return self.model.encode_text(x)
+
+    def _area_logits(
+        self,
+        image,
+        text_embeddings,
+        visual_basis,
+        textual_basis,
+        cur_task,
+        memory_data=None,
+    ):
+        with torch.no_grad():
+            image_features = self.model.encode_image(image)
+        if memory_data is not None:
+            image_features = torch.cat(
+                [image_features, memory_data.to(image.device)], dim=0
+            )
+
+        visual_scores = self.visual_S[cur_task](image_features.detach())
+        image_evidence = torch.einsum("cdk,bk->bcd", visual_basis, visual_scores)
+        image_residual = self.visual_adapter(image_features.detach()).unsqueeze(1)
+        image_features = image_residual + image_evidence
+
+        textual_scores = self.textual_S[cur_task](text_embeddings.detach())
+        textual_evidence = torch.einsum(
+            "cdk,ck->cd", textual_basis, textual_scores
+        )
+        textual_features = (
+            self.textual_adapter(text_embeddings.detach()) + textual_evidence
+        )
+
+        image_features = F.normalize(image_features, dim=-1)
+        textual_features = F.normalize(textual_features, dim=-1)
+        logits = torch.einsum("bcd,cd->bc", image_features, textual_features)
+        return logits * self.model.logit_scale.exp()
+
+    def forward(
+        self,
+        image,
+        text_embeddings,
+        visual_basis,
+        textual_basis,
+        cur_task,
+        memory_data=None,
+    ):
+        return self._area_logits(
+            image,
+            text_embeddings,
+            visual_basis,
+            textual_basis,
+            cur_task,
+            memory_data,
+        )
+
+    def forward_inference(
+        self,
+        image,
+        text_embeddings,
+        visual_basis,
+        textual_basis,
+        cur_task,
+        memory_data=None,
+    ):
+        return self._area_logits(
+            image,
+            text_embeddings,
+            visual_basis,
+            textual_basis,
+            cur_task,
+            memory_data,
+        )
+
+    def _get_visual_score(self, image, cur_task):
+        return self.visual_S[cur_task](self.model.encode_image(image))
+
+    def _get_textual_score(self, text, cur_task):
+        tokenized_text = self.tokenizer(text).to(next(self.model.parameters()).device)
+        return self.textual_S[cur_task](self.model.encode_text(tokenized_text))
+
+    def analyze_mean_cov(self, features, labels):
+        for label in torch.sort(torch.unique(labels))[0]:
+            class_data = features[labels == label]
+            mean = class_data.mean(dim=0)
+            cov = torch.cov(class_data.t())
+            cov = cov + 1e-4 * torch.eye(
+                class_data.shape[-1], device=class_data.device
+            )
+            self.class_mean_list.append(mean)
+            self.class_cov_list.append(cov)
+
+    def update_stat(self, known_classes, total_classes, train_loader, device):
+        """Update the shared-covariance Gaussian classifier used at inference."""
+        with torch.no_grad():
+            vecs, labels = [], []
+            for _, inputs, targets in train_loader:
+                inputs, targets = inputs.to(device), targets.to(device)
+                image_features = F.normalize(self.visual_forward_(inputs), dim=-1)
+                vecs.append(image_features)
+                labels.append(targets)
+
+            vecs = torch.cat(vecs)
+            labels = torch.cat(labels)
+            mu = torch.cat(
+                [
+                    vecs[labels == label].mean(dim=0, keepdim=True)
+                    for label in range(known_classes, total_classes)
+                ],
+                dim=0,
+            )
+            centered = torch.cat(
+                [
+                    vecs[labels == label] - mu[label - known_classes]
+                    for label in range(known_classes, total_classes)
+                ],
+                dim=0,
+            )
+            covariance = centered.t().cov()
+            regularized = (
+                (centered.shape[0] - 1) * covariance
+                + covariance.trace()
+                * torch.eye(centered.shape[1], device=device)
+            )
+            cov_inv = centered.shape[1] * torch.linalg.pinv(
+                regularized.cpu()
+            ).to(device)
+
+            if not hasattr(self, "mu"):
+                self.mu = mu
+                self.cov_inv = cov_inv
+            else:
+                old_weight = known_classes / total_classes
+                new_weight = (total_classes - known_classes) / total_classes
+                mean_delta = self.mu.mean(dim=0) - mu.mean(dim=0)
+                correction = old_weight * new_weight * torch.outer(
+                    mean_delta, mean_delta
+                )
+                self.cov_inv = (
+                    old_weight * self.cov_inv + new_weight * cov_inv + correction
+                )
+                self.mu = torch.cat([self.mu, mu])
+
+            priors = torch.full(
+                (self.mu.shape[0],),
+                1.0 / self.mu.shape[0],
+                device=device,
+            )
+            self.W = torch.einsum("nd,dc->cn", self.mu, self.cov_inv)
+            self.b = priors.log() - torch.einsum(
+                "nd,dc,nc->n", self.mu, self.cov_inv, self.mu
+            ) / 2
+
+    def visual_forward_(self, x):
+        """Run the OpenCLIP visual encoder up to its pre-projection feature."""
+        x = self.visual.conv1(x)
+        x = x.reshape(x.shape[0], x.shape[1], -1).permute(0, 2, 1)
+        x = torch.cat(
+            [self._expand_token(self.visual.class_embedding, x.shape[0]).to(x.dtype), x],
+            dim=1,
+        )
+        x = x + self.visual.positional_embedding.to(x.dtype)
+        x = self.visual.patch_dropout(x)
+        x = self.visual.ln_pre(x)
+        legacy_open_clip = not hasattr(self.visual, "final_ln_after_pool")
+        if legacy_open_clip:
+            # OpenCLIP 2.30 and earlier use sequence-first transformer inputs.
+            x = x.permute(1, 0, 2)
+            x = self.visual.transformer(x)
+            x = x.permute(1, 0, 2)
+        else:
+            x = self.visual.transformer(x)
+
+        if legacy_open_clip:
+            if self.visual.attn_pool is not None:
+                x = self.visual.attn_pool(x)
+                x = self.visual.ln_post(x)
+                pooled, _ = self.visual._global_pool(x)
+            else:
+                pooled, _ = self.visual._global_pool(x)
+                pooled = self.visual.ln_post(pooled)
+            return pooled
+
+        if self.visual.attn_pool is not None:
+            if self.visual.attn_pool_contrastive is not None:
+                x = self.visual.ln_post(x)
+                tokens = self.visual.attn_pool(x)
+                if self.visual.attn_pool_type == "parallel":
+                    pooled = self.visual.attn_pool_contrastive(x)
+                else:
+                    pooled = self.visual.attn_pool_contrastive(tokens)
+            else:
+                x = self.visual.attn_pool(x)
+                x = self.visual.ln_post(x)
+                pooled, _ = self.visual._global_pool(x)
+        elif self.visual.final_ln_after_pool:
+            pooled, _ = self.visual._global_pool(x)
+            pooled = self.visual.ln_post(pooled)
+        else:
+            x = self.visual.ln_post(x)
+            pooled, _ = self.visual._global_pool(x)
+        return pooled
+
+    @staticmethod
+    def _expand_token(token, batch_size):
+        return token.view(1, 1, -1).expand(batch_size, -1, -1)
+
+    @staticmethod
+    def _freeze_module(module):
+        for param in module.parameters():
+            param.requires_grad = False
+
 
 #coda-prompt
 class CodaPromptVitNet(nn.Module):

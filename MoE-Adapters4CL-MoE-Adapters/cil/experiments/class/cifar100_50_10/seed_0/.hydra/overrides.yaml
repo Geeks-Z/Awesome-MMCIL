@@ -1,0 +1,3 @@
+- dataset_root=/public/home/hanlida/Dr.1/Dataset
+- class_order=class_orders/cifar100.yaml
+- +seed=0
