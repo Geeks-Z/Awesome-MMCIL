@@ -49,17 +49,30 @@ def set_log():
     if not os.path.exists(args["output_folder"]):
         os.makedirs(args["output_folder"])
 
-    log_dir = os.path.join(args["file_root"], "logs", "PromptFusion")
+    benchmark_root = os.path.dirname(os.path.abspath(args["file_root"]))
+    log_dir = os.path.join(benchmark_root, "logs", "PromptFusion")
     os.makedirs(log_dir, exist_ok=True)
+    dataset_name = {
+        "Cifar": "cifar224",
+        "ImagenetR": "imagenetr",
+    }.get(args["dataset"], args["dataset"].lower())
+    num_classes = {
+        "Cifar": 100,
+        "ImagenetR": 200,
+    }[args["dataset"]]
+    increment = num_classes // args["step"]
     logfilename = os.path.join(
-        log_dir, "{}_vit_b16_{}.log".format(args["dataset"].lower(), args["seed"])
+        log_dir,
+        "{}_vit_b16_0_{}_{}.log".format(
+            dataset_name, increment, args["seed"]
+        ),
     )
 
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(filename)s] => %(message)s",
         handlers=[
-            logging.FileHandler(filename=logfilename + ".log"),
+            logging.FileHandler(filename=logfilename, mode="w"),
             logging.StreamHandler(sys.stdout),
         ], force=True,
     )
@@ -149,6 +162,25 @@ def main(args):
     else:
         raise Exception("Model type doesn't exist!")
 
+    stage_acc = [
+        round(100 * np.mean(acc_table[: task_id + 1, task_id]), 2)
+        for task_id in range(args["step"])
+    ]
+    average_acc = round(float(np.mean(stage_acc)), 2)
+    last_acc = round(stage_acc[-1], 2)
+    forgetting = round(
+        100 * float(np.mean(np.max(acc_table, axis=1) - acc_table[:, -1])), 2
+    )
+
+    logging.info("CNN top1 curve: %s", stage_acc)
+    logging.info("Average Accuracy (CNN top1): %s", average_acc)
+    logging.info("Last Accuracy: %s", last_acc)
+    logging.info(
+        "Finished %s_inc%s seed=%s",
+        args["dataset"], args["increment"], args["seed"],
+    )
+    logging.info("Backbone: ViT-B/16")
+
     print(f"\n{'=' * 40}")
     print(
         "Finished {}_inc{} seed={}".format(
@@ -156,15 +188,9 @@ def main(args):
             args["increment"], args["seed"]
         )
     )
-    # 计算平均准确率 先按列非零元素取平均,再对所有列的平均值求平均
-    column_avgs = []
-    for col_idx in range(acc_table.shape[1]):
-        col = acc_table[:, col_idx]
-        non_zero_col = col[col > 0]
-        if len(non_zero_col) > 0:
-            column_avgs.append(np.mean(non_zero_col))
-    print("Average Accuracy: {:.2f}".format(np.mean(column_avgs)))
-    forgetting = np.mean((np.max(acc_table, axis=1) - acc_table[:, args["step"] - 1]))
+    print("Backbone: ViT-B/16")
+    print("Average Accuracy (Top1): {:.2f}".format(average_acc))
+    print("Last Accuracy: {:.2f}".format(last_acc))
     print("Forgetting: {:.2f}".format(forgetting))
     print(f'Cost:{time.time() - t:.4f}s')
     # print("Backbone: {}".format(clip_type))
@@ -180,12 +206,19 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser('Training and Evaluation Script')
     parser.add_argument('--config', type=str, default='./config/pf_inr_5_5.json', help='Json file of settings.')
     parser.add_argument('--seed', type=int, default=0, help='Random seed for one benchmark run.')
-    args = parser.parse_args()
+    parser.add_argument('--data-root', type=str, default=None, help='Override the dataset root from the JSON config.')
+    parser.add_argument('--file-root', type=str, default=None, help='Override the PromptFusion source root from the JSON config.')
+    cli_args = parser.parse_args()
 
-    param = load_json(args.config)
+    param = load_json(cli_args.config)
 
-    args = vars(args) 
-    args.update(param) 
+    args = param
+    args["config"] = cli_args.config
+    args["seed"] = cli_args.seed
+    if cli_args.data_root is not None:
+        args["data_root"] = cli_args.data_root
+    if cli_args.file_root is not None:
+        args["file_root"] = cli_args.file_root
 
     set_seed(args["seed"])
 

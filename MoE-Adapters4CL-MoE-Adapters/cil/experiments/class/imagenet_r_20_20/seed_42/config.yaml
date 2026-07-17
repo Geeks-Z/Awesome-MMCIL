@@ -1,6 +1,6 @@
 class_order: class_orders/imagenet_R.yaml
-dataset_root: /public/home/hanlida/Dr.1/Dataset/imagenet-r
-workdir: /public/home/hanlida/Dr.1/Code/Research/Awesome-MMCL/MoE-Adapters4CL-MoE-Adapters/cil
+dataset_root: /home/team/zhaohongwei/Dataset/imagenet-r
+workdir: /home/team/zhaohongwei/Code/Research/Awesome-MMCL/MoE-Adapters4CL-MoE-Adapters/cil
 log_path: metrics.json
 model_name: ViT-B/16
 prompt_template: a bad photo of a {}.

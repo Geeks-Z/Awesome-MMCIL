@@ -1,0 +1,87 @@
+==== PromptFusion config=pf_cifar_20_20.json seed=0 GPU=2 ====
+2026-07-14 03:30:54,875 [main.py] => config: ./config/pf_cifar_20_20.json
+2026-07-14 03:30:54,875 [main.py] => seed: 0
+2026-07-14 03:30:54,875 [main.py] => model_type: PF
+2026-07-14 03:30:54,875 [main.py] => dataset: Cifar
+2026-07-14 03:30:54,876 [main.py] => file_root: /public/home/hanlida/Dr.1/Code/Research/Awesome-MMCL/PromptFusion-main
+2026-07-14 03:30:54,876 [main.py] => data_root: /public/home/hanlida/Dr.1/Dataset
+2026-07-14 03:30:54,876 [main.py] => backbone: ViT-B-16
+2026-07-14 03:30:54,876 [main.py] => herding_method: barycenter
+2026-07-14 03:30:54,876 [main.py] => device: cuda
+2026-07-14 03:30:54,876 [main.py] => ngpus: 1
+2026-07-14 03:30:54,877 [main.py] => batch_size: 32
+2026-07-14 03:30:54,877 [main.py] => memory_size: 5000
+2026-07-14 03:30:54,877 [main.py] => step: 5
+2026-07-14 03:30:54,877 [main.py] => epoch: 3
+2026-07-14 03:30:54,877 [main.py] => learning_rate: 0.002
+2026-07-14 03:30:54,877 [main.py] => weight_decay: 0.0001
+2026-07-14 03:30:54,878 [main.py] => M: 30
+2026-07-14 03:30:54,878 [main.py] => vpt_prompt_length: 30
+2026-07-14 03:30:54,878 [main.py] => clip_image_prompt_length: 30
+2026-07-14 03:30:54,878 [main.py] => output_folder: /public/home/hanlida/Dr.1/Code/Research/Awesome-MMCL/PromptFusion-main/PF/Cifar/ViT-B-16/seed_0
+Files already downloaded and verified
+Files already downloaded and verified
+2026-07-14 03:31:04,800 [vision_transformer.py] => Resized position embedding: torch.Size([1, 197, 768]) to torch.Size([1, 227, 768])
+2026-07-14 03:31:04,801 [vision_transformer.py] => Position embedding grid-size from [14, 14] to (14, 14)
+2026-07-14 03:31:05,798 [train_pf.py] => Start Training Task 1
+2026-07-14 03:31:06,050 [train_pf.py] => number of trainable params: 430821
+2026-07-14 03:31:06,052 [train_pf.py] => total number of params: 210576358
+  0%|          | 0/3 [00:00<?, ?it/s]Task 1, Epoch 1/3 => Loss 0.475:   0%|          | 0/3 [04:31<?, ?it/s]Task 1, Epoch 1/3 => Loss 0.475:  33%|███▎      | 1/3 [04:31<09:03, 271.55s/it]Task 1, Epoch 2/3 => Loss 0.173:  33%|███▎      | 1/3 [08:57<09:03, 271.55s/it]Task 1, Epoch 2/3 => Loss 0.173:  67%|██████▋   | 2/3 [08:57<04:28, 268.26s/it]Task 1, Epoch 3/3 => Loss 0.116:  67%|██████▋   | 2/3 [13:22<04:28, 268.26s/it]Task 1, Epoch 3/3 => Loss 0.116: 100%|██████████| 3/3 [13:22<00:00, 266.92s/it]Task 1, Epoch 3/3 => Loss 0.116: 100%|██████████| 3/3 [13:22<00:00, 267.61s/it]
+2026-07-14 03:46:05,307 [train_pf.py] => Task 1 Average Accuracy is 0.951
+[[0.951 0.    0.    0.    0.   ]
+ [0.    0.    0.    0.    0.   ]
+ [0.    0.    0.    0.    0.   ]
+ [0.    0.    0.    0.    0.   ]
+ [0.    0.    0.    0.    0.   ]]
+2026-07-14 03:46:53,129 [train_pf.py] => Start Training Task 2
+2026-07-14 03:46:53,134 [train_pf.py] => number of trainable params: 431461
+2026-07-14 03:46:53,135 [train_pf.py] => total number of params: 210576998
+  0%|          | 0/3 [00:00<?, ?it/s]Task 2, Epoch 1/3 => Loss 0.264:   0%|          | 0/3 [07:04<?, ?it/s]Task 2, Epoch 1/3 => Loss 0.264:  33%|███▎      | 1/3 [07:04<14:08, 424.32s/it]Task 2, Epoch 2/3 => Loss 0.151:  33%|███▎      | 1/3 [13:18<14:08, 424.32s/it]Task 2, Epoch 2/3 => Loss 0.151:  67%|██████▋   | 2/3 [13:18<06:34, 394.61s/it]Task 2, Epoch 3/3 => Loss 0.111:  67%|██████▋   | 2/3 [20:13<06:34, 394.61s/it]Task 2, Epoch 3/3 => Loss 0.111: 100%|██████████| 3/3 [20:13<00:00, 403.89s/it]Task 2, Epoch 3/3 => Loss 0.111: 100%|██████████| 3/3 [20:13<00:00, 404.36s/it]
+2026-07-14 04:11:17,177 [train_pf.py] => Task 2 Average Accuracy is 0.915
+[[0.951 0.896 0.    0.    0.   ]
+ [0.    0.933 0.    0.    0.   ]
+ [0.    0.    0.    0.    0.   ]
+ [0.    0.    0.    0.    0.   ]
+ [0.    0.    0.    0.    0.   ]]
+2026-07-14 04:12:25,197 [train_pf.py] => Start Training Task 3
+2026-07-14 04:12:25,201 [train_pf.py] => number of trainable params: 432101
+2026-07-14 04:12:25,202 [train_pf.py] => total number of params: 210577638
+  0%|          | 0/3 [00:00<?, ?it/s]Task 3, Epoch 1/3 => Loss 0.388:   0%|          | 0/3 [07:05<?, ?it/s]Task 3, Epoch 1/3 => Loss 0.388:  33%|███▎      | 1/3 [07:05<14:10, 425.09s/it]Task 3, Epoch 2/3 => Loss 0.240:  33%|███▎      | 1/3 [14:07<14:10, 425.09s/it]Task 3, Epoch 2/3 => Loss 0.240:  67%|██████▋   | 2/3 [14:07<07:03, 423.64s/it]Task 3, Epoch 3/3 => Loss 0.180:  67%|██████▋   | 2/3 [21:08<07:03, 423.64s/it]Task 3, Epoch 3/3 => Loss 0.180: 100%|██████████| 3/3 [21:08<00:00, 422.29s/it]Task 3, Epoch 3/3 => Loss 0.180: 100%|██████████| 3/3 [21:08<00:00, 422.80s/it]
+2026-07-14 04:42:03,359 [train_pf.py] => Task 3 Average Accuracy is 0.889
+[[0.951 0.896 0.887 0.    0.   ]
+ [0.    0.933 0.887 0.    0.   ]
+ [0.    0.    0.894 0.    0.   ]
+ [0.    0.    0.    0.    0.   ]
+ [0.    0.    0.    0.    0.   ]]
+2026-07-14 04:43:10,046 [train_pf.py] => Start Training Task 4
+2026-07-14 04:43:10,050 [train_pf.py] => number of trainable params: 432741
+2026-07-14 04:43:10,051 [train_pf.py] => total number of params: 210578278
+  0%|          | 0/3 [00:00<?, ?it/s]Task 4, Epoch 1/3 => Loss 0.515:   0%|          | 0/3 [07:31<?, ?it/s]Task 4, Epoch 1/3 => Loss 0.515:  33%|███▎      | 1/3 [07:31<15:03, 451.91s/it]Task 4, Epoch 2/3 => Loss 0.308:  33%|███▎      | 1/3 [14:55<15:03, 451.91s/it]Task 4, Epoch 2/3 => Loss 0.308:  67%|██████▋   | 2/3 [14:55<07:26, 446.82s/it]Task 4, Epoch 3/3 => Loss 0.224:  67%|██████▋   | 2/3 [22:20<07:26, 446.82s/it]Task 4, Epoch 3/3 => Loss 0.224: 100%|██████████| 3/3 [22:20<00:00, 446.03s/it]Task 4, Epoch 3/3 => Loss 0.224: 100%|██████████| 3/3 [22:20<00:00, 446.75s/it]
+2026-07-14 05:18:49,794 [train_pf.py] => Task 4 Average Accuracy is 0.865
+[[0.951 0.896 0.887 0.872 0.   ]
+ [0.    0.933 0.887 0.853 0.   ]
+ [0.    0.    0.894 0.852 0.   ]
+ [0.    0.    0.    0.884 0.   ]
+ [0.    0.    0.    0.    0.   ]]
+2026-07-14 05:19:59,496 [train_pf.py] => Start Training Task 5
+2026-07-14 05:19:59,502 [train_pf.py] => number of trainable params: 433381
+2026-07-14 05:19:59,503 [train_pf.py] => total number of params: 210578918
+  0%|          | 0/3 [00:00<?, ?it/s]Task 5, Epoch 1/3 => Loss 0.519:   0%|          | 0/3 [07:44<?, ?it/s]Task 5, Epoch 1/3 => Loss 0.519:  33%|███▎      | 1/3 [07:44<15:29, 464.61s/it]Task 5, Epoch 2/3 => Loss 0.310:  33%|███▎      | 1/3 [15:32<15:29, 464.61s/it]Task 5, Epoch 2/3 => Loss 0.310:  67%|██████▋   | 2/3 [15:32<07:46, 466.65s/it]Task 5, Epoch 3/3 => Loss 0.210:  67%|██████▋   | 2/3 [23:17<07:46, 466.65s/it]Task 5, Epoch 3/3 => Loss 0.210: 100%|██████████| 3/3 [23:17<00:00, 465.77s/it]Task 5, Epoch 3/3 => Loss 0.210: 100%|██████████| 3/3 [23:17<00:00, 465.80s/it]
+2026-07-14 06:03:01,843 [train_pf.py] => Task 5 Average Accuracy is 0.856
+[[0.951 0.896 0.887 0.872 0.86 ]
+ [0.    0.933 0.887 0.853 0.835]
+ [0.    0.    0.894 0.852 0.836]
+ [0.    0.    0.    0.884 0.841]
+ [0.    0.    0.    0.    0.906]]
+
+========================================
+Finished Cifar_inc20 seed=0
+Average Accuracy: 0.90
+Forgetting: 0.06
+Cost:9187.1197s
+========================================
+
+
+Backbone: ViT-B/16
+Average Accuracy (Top1): 90.00
+Last Accuracy: 85.60

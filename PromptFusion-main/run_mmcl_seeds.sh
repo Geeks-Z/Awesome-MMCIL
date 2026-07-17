@@ -3,7 +3,8 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DATA_ROOT="${DATA_ROOT:-/public/home/hanlida/Dr.1/Dataset}"
+DATA_ROOT="${DATA_ROOT:-/home/team/zhaohongwei/Dataset}"
+PYTHON_BIN="${PYTHON_BIN:-/home/team/zhaohongwei/anaconda3/envs/mmcl/bin/python}"
 CONFIGS=(
   pf_cifar_5_5.json pf_cifar_10_10.json pf_cifar_20_20.json
   pf_inr_5_5.json pf_inr_10_10.json pf_inr_20_20.json pf_inr_40_40.json
@@ -18,7 +19,10 @@ cd "$ROOT"
 run_experiment() {
   local config="$1" seed="$2"
   echo "==== PromptFusion config=${config} seed=${seed} GPU=${CUDA_VISIBLE_DEVICES:-unset} ===="
-  python main.py --config="./config/${config}" --seed="$seed"
+  local dataset_root="$DATA_ROOT"
+  [[ "$config" == pf_inr_* ]] && dataset_root="${DATA_ROOT}/imagenet-r"
+  "$PYTHON_BIN" main.py --config="./config/${config}" --seed="$seed" \
+    --data-root="$dataset_root" --file-root="$ROOT"
 }
 
 # Completed on the previous server (2026-07-14); retain as comments so they

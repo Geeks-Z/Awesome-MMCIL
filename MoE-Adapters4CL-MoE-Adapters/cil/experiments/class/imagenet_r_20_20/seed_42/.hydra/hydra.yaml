@@ -113,13 +113,13 @@ hydra:
     - hydra.run.dir=./experiments/class/imagenet_r_20_20/seed_42
     - hydra.mode=RUN
     task:
-    - dataset_root=/public/home/hanlida/Dr.1/Dataset/imagenet-r
+    - dataset_root=/home/team/zhaohongwei/Dataset/imagenet-r
     - class_order=class_orders/imagenet_R.yaml
     - +seed=42
   job:
     name: main
     chdir: true
-    override_dirname: +seed=42,class_order=class_orders/imagenet_R.yaml,dataset_root=/public/home/hanlida/Dr.1/Dataset/imagenet-r
+    override_dirname: +seed=42,class_order=class_orders/imagenet_R.yaml,dataset_root=/home/team/zhaohongwei/Dataset/imagenet-r
     id: ???
     num: ???
     config_name: imagenet_r_20_20
@@ -131,20 +131,20 @@ hydra:
         item_sep: ','
         exclude_keys: []
   runtime:
-    version: 1.3.2
+    version: 1.2.0
     version_base: '1.1'
-    cwd: /public/home/hanlida/Dr.1/Code/Research/Awesome-MMCL/MoE-Adapters4CL-MoE-Adapters/cil
+    cwd: /home/team/zhaohongwei/Code/Research/Awesome-MMCL/MoE-Adapters4CL-MoE-Adapters/cil
     config_sources:
     - path: hydra.conf
       schema: pkg
       provider: hydra
-    - path: /public/home/hanlida/Dr.1/Code/Research/Awesome-MMCL/MoE-Adapters4CL-MoE-Adapters/cil/configs/class
+    - path: /home/team/zhaohongwei/Code/Research/Awesome-MMCL/MoE-Adapters4CL-MoE-Adapters/cil/configs/class
       schema: file
       provider: main
     - path: ''
       schema: structured
       provider: schema
-    output_dir: /public/home/hanlida/Dr.1/Code/Research/Awesome-MMCL/MoE-Adapters4CL-MoE-Adapters/cil/experiments/class/imagenet_r_20_20/seed_42
+    output_dir: /home/team/zhaohongwei/Code/Research/Awesome-MMCL/MoE-Adapters4CL-MoE-Adapters/cil/experiments/class/imagenet_r_20_20/seed_42
     choices:
       hydra/env: default
       hydra/callbacks: null

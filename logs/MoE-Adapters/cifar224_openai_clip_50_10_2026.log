@@ -1,0 +1,13 @@
+2026-07-17 09:25:19,987 [main.py] => Evaluation for task 0 has started.
+2026-07-17 09:29:37,041 [main.py] => CNN top1 curve: [89.98]
+2026-07-17 09:29:37,042 [main.py] => Average Accuracy (CNN top1): 89.98
+2026-07-17 09:29:37,047 [main.py] => Evaluation for task 1 has started.
+2026-07-17 09:31:02,932 [main.py] => CNN top1 curve: [89.98, 87.2]
+2026-07-17 09:31:02,933 [main.py] => Average Accuracy (CNN top1): 88.59
+2026-07-17 09:31:02,937 [main.py] => Evaluation for task 2 has started.
+2026-07-17 09:32:41,714 [main.py] => CNN top1 curve: [89.98, 87.2, 85.11]
+2026-07-17 09:32:41,714 [main.py] => Average Accuracy (CNN top1): 87.43
+2026-07-17 09:32:41,718 [main.py] => Evaluation for task 3 has started.
+2026-07-17 09:34:33,611 [main.py] => CNN top1 curve: [89.98, 87.2, 85.11, 82.99]
+2026-07-17 09:34:33,612 [main.py] => Average Accuracy (CNN top1): 86.32
+2026-07-17 09:34:33,616 [main.py] => Evaluation for task 4 has started.

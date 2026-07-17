@@ -1,0 +1,25 @@
+2026-07-14 14:28:20,512 [trainer.py] => config: ./configs/engine/engine_objectnet_B100_Inc20.json
+2026-07-14 14:28:20,512 [trainer.py] => prefix: -
+2026-07-14 14:28:20,512 [trainer.py] => dataset: objectnet
+2026-07-14 14:28:20,512 [trainer.py] => shuffle: True
+2026-07-14 14:28:20,512 [trainer.py] => init_cls: 100
+2026-07-14 14:28:20,512 [trainer.py] => increment: 20
+2026-07-14 14:28:20,512 [trainer.py] => model_name: engine
+2026-07-14 14:28:20,512 [trainer.py] => backbone_type: clip
+2026-07-14 14:28:20,512 [trainer.py] => device: [device(type='cuda', index=1)]
+2026-07-14 14:28:20,512 [trainer.py] => seed: 0
+2026-07-14 14:28:20,512 [trainer.py] => projection_type: pure_mlp
+2026-07-14 14:28:20,512 [trainer.py] => frozen_layers: visual
+2026-07-14 14:28:20,512 [trainer.py] => tuned_epoch: 10
+2026-07-14 14:28:20,512 [trainer.py] => init_lr: 0.05
+2026-07-14 14:28:20,513 [trainer.py] => batch_size: 64
+2026-07-14 14:28:20,513 [trainer.py] => weight_decay: 0.05
+2026-07-14 14:28:20,513 [trainer.py] => min_lr: 0
+2026-07-14 14:28:20,513 [trainer.py] => optimizer: sgd
+2026-07-14 14:28:20,513 [trainer.py] => text_des: 2
+2026-07-14 14:28:20,513 [trainer.py] => image_aug: 2
+2026-07-14 14:28:20,513 [trainer.py] => rerank: 0.5
+2026-07-14 14:28:20,513 [trainer.py] => stat: 0.95
+2026-07-14 14:28:20,513 [trainer.py] => sample_num: 0
+2026-07-14 14:28:20,513 [trainer.py] => sample_noise: 0.25
+2026-07-14 14:28:20,513 [trainer.py] => rerank_top: 5

@@ -10,6 +10,8 @@ from tqdm import tqdm
 
 import torch
 import statistics
+import sys
+from pathlib import Path
 from torch.utils.data import DataLoader
 from continuum.metrics import Logger
 
@@ -29,6 +31,27 @@ def continual_clip(cfg: DictConfig) -> None:
 
     cfg.workdir = utils.get_workdir(path=os.getcwd())
     cfg.dataset_root = os.path.join(cfg.workdir, cfg.dataset_root)
+
+    benchmark_root = Path(cfg.workdir).parent.parent
+    dataset_name = {
+        "cifar100": "cifar224",
+        "imagenet_R": "imagenetr",
+    }.get(cfg.dataset, str(cfg.dataset).lower())
+    init_cls = 0 if cfg.initial_increment == cfg.increment else cfg.initial_increment
+    log_dir = benchmark_root / "logs" / "MoE-Adapters"
+    log_dir.mkdir(parents=True, exist_ok=True)
+    log_path = log_dir / (
+        f"{dataset_name}_openai_clip_{init_cls}_{cfg.increment}_{seed}.log"
+    )
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(filename)s] => %(message)s",
+        force=True,
+        handlers=[
+            logging.FileHandler(log_path, mode="w"),
+            logging.StreamHandler(sys.stdout),
+        ],
+    )
 
     utils.save_config(cfg)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -67,6 +90,10 @@ def continual_clip(cfg: DictConfig) -> None:
             metric_logger.add([outputs.cpu().argmax(dim=1), targets.cpu(), task_ids], subset="test")
 
         acc_list.append(100 * metric_logger.accuracy)
+        logging.info("CNN top1 curve: %s", [round(acc, 2) for acc in acc_list])
+        logging.info(
+            "Average Accuracy (CNN top1): %.2f", statistics.mean(acc_list)
+        )
         with open(cfg.log_path, 'a+') as f:
             f.write(json.dumps({
                 'task': task_id,
@@ -86,6 +113,16 @@ def continual_clip(cfg: DictConfig) -> None:
         }) + '\n')
 
     clip_type = 'OpenAI CLIP'
+    logging.info("CNN top1 curve: %s", [round(acc, 2) for acc in acc_list])
+    logging.info(
+        "Average Accuracy (CNN top1): %.2f", statistics.mean(acc_list)
+    )
+    logging.info("Last Accuracy: %.2f", acc_list[-1])
+    logging.info(
+        "Finished %s_init%s_inc%s seed=%s",
+        cfg.dataset, cfg.initial_increment, cfg.increment, seed,
+    )
+    logging.info("Backbone: %s", clip_type)
     print(f"\n{'=' * 40}")
     print(
         "Finished {}_init{}_inc{} seed={}".format(

@@ -40,11 +40,11 @@
 - `CLG-CBM`: Language Guided Concept Bottleneck Models for Interpretable Continual Learning. **CVPR 2025** [[paper](https://arxiv.org/abs/2503.23283)]
 - `BOFA`: BOFA: Bridge-Layer Orthogonal Low-Rank Fusion for CLIP-Based Class-Incremental Learning. **AAAI 2026** [[paper](https://arxiv.org/abs/2511.11421)]
 - `AREA`: Attribute Extraction and Aggregation for CLIP-Based Class-Incremental Learning. **ICML 2026** [[paper](https://arxiv.org/abs/2605.28809)] [[code](https://github.com/LAMDA-CL/ICML2026-AREA)]
+- `MoE-Adapters`: Boosting Continual Learning of Vision-Language Models via Mixture-of-Experts Adapters. **CVPR 2024** [[paper](https://arxiv.org/abs/2403.11549)] [[code](https://github.com/JiazuoYu/MoE-Adapters4CL)]
+- `PromptFusion`: PromptFusion: Decoupling Stability and Plasticity for Continual Learning. **ECCV 2024** [[paper](https://arxiv.org/abs/2303.07223)] [[code](https://github.com/HaoranChen/PromptFusion)]
 
 ### TODO
 
-- `MoE-Adapters`: Boosting Continual Learning of Vision-Language Models via Mixture-of-Experts Adapters **CVPR 2024** [paper](https://arxiv.org/abs/2403.11549) [code](https://github.com/JiazuoYu/MoE-Adapters4CL) [reading notes](https://zhuanlan.zhihu.com/p/1915756018090119546)
-- `PromptFusion`: PromptFusion: Decoupling Stability and Plasticity for Continual Learning **ECCV 2024** [paper](https://link.zhihu.com/?target=http%3A//arxiv.org/abs/2303.07223) [code](https://github.com/HaoranChen/PromptFusion) [reading notes](https://zhuanlan.zhihu.com/p/1977048983483478476)
 - `LADA`: LADA: Scalable Label-Specific CLIP Adapter for Continual Learning **ICML 2025** [paper](https://arxiv.org/abs/2505.23271) [code](https://github.com/MaolinLuo/LADA) [reading notes](https://zhuanlan.zhihu.com/p/1959602781133439861)
 
 ---
@@ -62,26 +62,30 @@ cd Awesome-MMCIL
 
 ### 🗂️ Dependencies
 
-1. [torch 2.0.1](https://github.com/pytorch/pytorch)
-2. [torchvision 0.15.2](https://github.com/pytorch/vision)
+1. [torch 2.0.1+cu118](https://github.com/pytorch/pytorch)
+2. [torchvision 0.15.2+cu118](https://github.com/pytorch/vision)
 3. [timm 0.6.12](https://github.com/huggingface/pytorch-image-models)
-4. [tqdm](https://github.com/tqdm/tqdm)
-5. [numpy](https://github.com/numpy/numpy)
-6. [scipy](https://github.com/scipy/scipy)
-7. [easydict](https://github.com/makinacorpus/easydict)
+4. [tqdm 4.66.2](https://github.com/tqdm/tqdm)
+5. [numpy 1.26.3](https://github.com/numpy/numpy)
+6. [scipy 1.12.0](https://github.com/scipy/scipy)
+7. [easydict 1.13](https://github.com/makinacorpus/easydict)
 8. [open-clip 2.30.0](https://github.com/mlfoundations/open_clip/releases/tag/v2.30.0)
 
 ### 🔑 Run experiment
 
-1. Edit the `[MODEL NAME].json` file for global settings and hyperparameters.
+The repository has a native MMCL framework and standalone reproductions. Use the matching entry point for the method you want to run.
 
-2. Run:
+#### Native MMCL framework
+
+`FineTune`, `ZS-CLIP`, `FOSTER`, `L2P`, `DualPrompt`, `MEMO`, `CODA-Prompt`, `SimpleCIL`, `APER`, `RAPF`, `TUNA`, `CLG-CBM`, `ENGINE`, `PROOF`, `BOFA`, and `AREA` use the root-level `main.py`, `configs/`, `models/`, and `scripts/` layout. Edit the target JSON configuration, then run a single configuration with:
 
    ```bash
    python main.py --config=./configs/[METHOD]/[CONFIG].json
    ```
 
-3. `hyper-parameters`
+For a method's configured sequence, use its corresponding `scripts/run_[method].sh` launcher.
+
+`hyper-parameters`
 
    - **model_name**: Select one of the implemented methods: `finetune`, `zs_clip`, `foster`, `memo`, `simplecil`, `l2p`, `dualprompt`, `coda`, `aper`, `tuna`, `rapf`, `CLG-CBM`, `mg_clip`, `proof`, `engine`, `bofa` or `area`.
    - **init_cls**: The number of classes in the initial incremental stage. As the configuration of CIL includes different settings with varying class numbers at the outset, our framework accommodates diverse options for defining the initial stage.
@@ -93,31 +97,38 @@ cd Awesome-MMCIL
    - **memory_size**: The total number of exemplars in the incremental learning process. If `fixed_memory` is set to false, assuming there are $K$ classes at the current stage, the model will preserve $\left[\frac{{memory-size}}{K}\right]$ exemplars for each class. **ZS-CLIP, SimpleCIL, TUNA, CLG-CBM, MG-CLIP, ENGINE, BOFA and AREA do not require exemplars.** Therefore, parameters related to exemplars are not used.
    - **memory_per_class**: If `fixed memory` is set to true, the model will preserve a fixed number of `memory_per_class` exemplars for each class.
 
-### AREA resources
+#### Standalone reproductions
 
-AREA is integrated into the native `models`, `utils`, `configs`, and `scripts` layout. Its bundled attribute descriptions are under `utils/area/descriptions`; the supplied configs resolve them automatically. Set `description_root` only when using a custom corpus. Principal-geodesic bases are cached per random seed under `precomputed_basis/area` after the first run.
+`PromptFusion` and `MoE-Adapters` keep their upstream project layouts under `PromptFusion-main/` and `MoE-Adapters4CL-MoE-Adapters/cil/`. Use the root launchers, which set the shared dataset root and select one GPU:
+
+```bash
+GPU_ID=5 bash scripts/run_promptfusion.sh
+GPU_ID=6 bash scripts/run_moe_adapters.sh
+```
+
+`LADA` is also standalone, but it reproduces the X-TAIL multi-domain protocol rather than the native CIL protocol. Its entry point is `LADA-main/run_mmcl_seeds.sh`; it requires the X-TAIL dataset and the upstream LADA environment specified in `LADA-main/README.md` (PyTorch 2.4.1), not the root `main.py` runner.
 
 ## 📊 Results
 
-Results parsed from the training logs are maintained in [MMCL实验结果.xlsx](logs/MMCL实验结果.xlsx). The workbook contains one sheet for each seed (`0`, `42`, `1993`, and `2026`) plus the benchmark comparison sheet. Metric definitions and notes are available in [实验结果.md](实验结果.md) and [实验结果.en.md](实验结果.en.md).
+Results parsed from the training logs are maintained in [MMCL_Results.xlsx](MMCL_Results.xlsx). The workbook contains one sheet for each seed (`0`, `42`, `1993`, and `2026`), the benchmark comparison sheet, and the current experiment-progress sheet. Metric definitions and notes are available in [实验结果.md](实验结果.md) and [实验结果.en.md](实验结果.en.md).
 
 ## 📚 Datasets
 
-| Dataset       | training instances | testing instances | Classes | Link                                                         | Abstract                                 | Drive                                                        |
-| ------------- | ------------------ | ----------------- | ------- | ------------------------------------------------------------ | ---------------------------------------- | ------------------------------------------------------------ |
-| CIFAR100      | 50,000             | 10,000            | 100     |                                                              |                                          | will be automatically downloaded by the code.                |
-| CUB200-2011   | 9,430              | 2,358             | 200     |                                                              | Fine-grained bird dataset proposed by Caltech in 2010 | Google Drive: [link](https://drive.google.com/file/d/1XbUpnWpJPnItt5zQ6sHJnsjPncnNLvWb/view?usp=sharing) or OneDrive [link](https://entuedu-my.sharepoint.com/:u:/g/personal/n2207876b_e_ntu_edu_sg/EVV4pT9VJ9pBrVs2x0lcwd0BlVQCtSrdbLVfhuajMry-lA?e=L6Wjsc) |
-| ImageNet-R    | 24,000             | 6,000             | 200     |                                                              |                                          | Google Drive: [link](https://drive.google.com/file/d/1SG4TbiL8_DooekztyCVK8mPmfhMo8fkR/view?usp=sharing) or Onedrive: [link](https://entuedu-my.sharepoint.com/:u:/g/personal/n2207876b_e_ntu_edu_sg/EU4jyLL29CtBsZkB6y-JSbgBzWF5YHhBAUz1Qw8qM2954A?e=hlWpNW) |
-| ImageNet-A    | 5,981              | 1,519             | 200     |                                                              |                                          |                                                              |
-| ObjectNet     | 26,509             | 6,628             | 200     | [https:objectnet.dev/download.html](https:objectnet.dev/download.html) |                                          | Onedrive: [link](https://entuedu-my.sharepoint.com/:u:/g/personal/n2207876b_e_ntu_edu_sg/EZFv9uaaO1hBj7Y40KoCvYkBnuUZHnHnjMda6obiDpiIWw?e=4n8Kpy) You can also refer to the [filelist](https://drive.google.com/file/d/147Mta-HcENF6IhZ8dvPnZ93Romcie7T6/view?usp=sharing) and processing [code](https://github.com/zhoudw-zdw/RevisitingCIL/issues/2#issuecomment-2280462493) if the file is too large to download. |
-| Omnibenchmark | 89,697             | 5,983             | 300     |                                                              |                                          |                                                              |
-| VTAB          | 1,796              | 8,619             | 50      |                                                              |                                          |                                                              |
-| Cars          |                    |                   |         |                                                              |                                          | Google Drive: [link](https://drive.google.com/file/d/1D8ReAuOPenWi6SMNUrOZhbm6ViyhDHbL/view?usp=sharing  ) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/EbT1XAstg51Mpy82uHM0D2EBJLrtzmr_V64jeBRjqyyTnQ?e=h6g1rM) |
-| UCF           |                    |                   |         |                                                              |                                          | Google Drive: [link](https://drive.google.com/file/d/1Ng4w310_VDqpKbc7eYaumXTOiDxI02Wc/view?usp=sharing) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/EU2qHQXjASdLh1jIl6ihZmcB6G2KvqmSw-sTlZKDE6xPbg?e=7ezvTr) |
-| Aircraft      |                    |                   |         |                                                              |                                          | Google Drive: [link](https://drive.google.com/file/d/1xI5r1fU0d6Nff51HuOo5w-e4sGEP46Z2/view?usp=drive_link) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/ETVliZnmPY9AvZZgcFFJ6jMB2c7TRvcq7-gso2Aqvdl_VQ?e=pWXqdP) |
-| Food          |                    |                   |         |                                                              |                                          | Google Drive: [link](https://drive.google.com/file/d/1rupzXpwrbxki4l-RVmsRawhz1Cm0lDY5/view?usp=drive_link) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/Eb4xfptD4L5Egus-SiYxrIcBDH1VewLGp4kzyACGF_Na_w?e=duA3Ia) |
-| SUN           |                    |                   |         |                                                              |                                          | OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/EcQq1-1pFulKstYtdknB4O8BGo0hnlDRarAwB4wFEgkx0Q?e=YZ0xYV) |
-| TV100         |                    |                   |         |                                                              |                                          | OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/r/personal/ky2409911_365_nju_edu_cn/Documents/TV100/TV100.zip?csf=1&web=1&e=XNpitj) |
+| Dataset       | training instances | testing instances | Classes | Drive                                                        |
+| ------------- | ------------------ | ----------------- | ------- | ------------------------------------------------------------ |
+| CIFAR100      | 50,000             | 10,000            | 100     | will be automatically downloaded by the code.                |
+| CUB200-2011   | 9,430              | 2,358             | 200     | Google Drive: [link](https://drive.google.com/file/d/1XbUpnWpJPnItt5zQ6sHJnsjPncnNLvWb/view?usp=sharing) or OneDrive [link](https://entuedu-my.sharepoint.com/:u:/g/personal/n2207876b_e_ntu_edu_sg/EVV4pT9VJ9pBrVs2x0lcwd0BlVQCtSrdbLVfhuajMry-lA?e=L6Wjsc) |
+| ImageNet-R    | 24,000             | 6,000             | 200     | Google Drive: [link](https://drive.google.com/file/d/1SG4TbiL8_DooekztyCVK8mPmfhMo8fkR/view?usp=sharing) or Onedrive: [link](https://entuedu-my.sharepoint.com/:u:/g/personal/n2207876b_e_ntu_edu_sg/EU4jyLL29CtBsZkB6y-JSbgBzWF5YHhBAUz1Qw8qM2954A?e=hlWpNW) |
+| ImageNet-A    | 5,981              | 1,519             | 200     |                                                              |
+| ObjectNet     | 26,509             | 6,628             | 200     | Onedrive: [link](https://entuedu-my.sharepoint.com/:u:/g/personal/n2207876b_e_ntu_edu_sg/EZFv9uaaO1hBj7Y40KoCvYkBnuUZHnHnjMda6obiDpiIWw?e=4n8Kpy) You can also refer to the [filelist](https://drive.google.com/file/d/147Mta-HcENF6IhZ8dvPnZ93Romcie7T6/view?usp=sharing) and processing [code](https://github.com/zhoudw-zdw/RevisitingCIL/issues/2#issuecomment-2280462493) if the file is too large to download. |
+| Omnibenchmark | 89,697             | 5,983             | 300     |                                                              |
+| VTAB          | 1,796              | 8,619             | 50      |                                                              |
+| Cars          |                    |                   |         | Google Drive: [link](https://drive.google.com/file/d/1D8ReAuOPenWi6SMNUrOZhbm6ViyhDHbL/view?usp=sharing  ) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/EbT1XAstg51Mpy82uHM0D2EBJLrtzmr_V64jeBRjqyyTnQ?e=h6g1rM) |
+| UCF           |                    |                   |         | Google Drive: [link](https://drive.google.com/file/d/1Ng4w310_VDqpKbc7eYaumXTOiDxI02Wc/view?usp=sharing) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/EU2qHQXjASdLh1jIl6ihZmcB6G2KvqmSw-sTlZKDE6xPbg?e=7ezvTr) |
+| Aircraft      |                    |                   |         | Google Drive: [link](https://drive.google.com/file/d/1xI5r1fU0d6Nff51HuOo5w-e4sGEP46Z2/view?usp=drive_link) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/ETVliZnmPY9AvZZgcFFJ6jMB2c7TRvcq7-gso2Aqvdl_VQ?e=pWXqdP) |
+| Food          |                    |                   |         | Google Drive: [link](https://drive.google.com/file/d/1rupzXpwrbxki4l-RVmsRawhz1Cm0lDY5/view?usp=drive_link) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/Eb4xfptD4L5Egus-SiYxrIcBDH1VewLGp4kzyACGF_Na_w?e=duA3Ia) |
+| SUN           |                    |                   |         | OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/EcQq1-1pFulKstYtdknB4O8BGo0hnlDRarAwB4wFEgkx0Q?e=YZ0xYV) |
+| TV100         |                    |                   |         | OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/r/personal/ky2409911_365_nju_edu_cn/Documents/TV100/TV100.zip?csf=1&web=1&e=XNpitj) |
 
 When training **not** on `CIFAR100`, you should specify the folder of your dataset in `utils/data.py`.
 

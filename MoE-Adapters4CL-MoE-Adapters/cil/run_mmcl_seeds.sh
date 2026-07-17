@@ -3,7 +3,8 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DATA_ROOT="${DATA_ROOT:-/public/home/hanlida/Dr.1/Dataset}"
+DATA_ROOT="${DATA_ROOT:-/home/team/zhaohongwei/Dataset}"
+PYTHON_BIN="${PYTHON_BIN:-/home/team/zhaohongwei/anaconda3/envs/mmcl/bin/python}"
 CONFIGS=(
   cifar100_5_5.yaml cifar100_10_10.yaml cifar100_20_20.yaml
   cifar100_50_5.yaml cifar100_50_10.yaml
@@ -25,7 +26,7 @@ run_experiment() {
   esac
   experiment="./experiments/class/${config%.yaml}/seed_${seed}"
   echo "==== MoE-Adapters config=${config} seed=${seed} GPU=${CUDA_VISIBLE_DEVICES:-unset} ===="
-  python main.py --config-path configs/class --config-name="${config%.yaml}" \
+  "$PYTHON_BIN" main.py --config-path configs/class --config-name="${config%.yaml}" \
     dataset_root="$data_root" class_order="$order" +seed="$seed" \
     hydra.run.dir="$experiment"
 }

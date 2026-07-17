@@ -1,5 +1,5 @@
 class_order: class_orders/imagenet_R.yaml
-dataset_root: /public/home/hanlida/Dr.1/Dataset/imagenet-r
+dataset_root: /home/team/zhaohongwei/Dataset/imagenet-r
 workdir: ''
 log_path: metrics.json
 model_name: ViT-B/16

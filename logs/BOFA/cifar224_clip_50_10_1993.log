@@ -1,0 +1,168 @@
+2026-06-17 00:33:44,840 [trainer.py] => config: ./configs/bofa/bofa_cifar_B50_Inc10.json
+2026-06-17 00:33:44,841 [trainer.py] => prefix: -
+2026-06-17 00:33:44,841 [trainer.py] => dataset: cifar224
+2026-06-17 00:33:44,841 [trainer.py] => memory_size: 0
+2026-06-17 00:33:44,841 [trainer.py] => memory_per_class: 0
+2026-06-17 00:33:44,841 [trainer.py] => fixed_memory: False
+2026-06-17 00:33:44,841 [trainer.py] => shuffle: True
+2026-06-17 00:33:44,841 [trainer.py] => init_cls: 50
+2026-06-17 00:33:44,841 [trainer.py] => increment: 10
+2026-06-17 00:33:44,841 [trainer.py] => model_name: bofa
+2026-06-17 00:33:44,841 [trainer.py] => backbone_type: clip
+2026-06-17 00:33:44,841 [trainer.py] => device: [device(type='cuda', index=5)]
+2026-06-17 00:33:44,841 [trainer.py] => seed: 1993
+2026-06-17 00:33:44,841 [trainer.py] => projection_type: pure_mlp
+2026-06-17 00:33:44,841 [trainer.py] => frozen_layers: visual
+2026-06-17 00:33:44,841 [trainer.py] => tuned_epoch: 15
+2026-06-17 00:33:44,841 [trainer.py] => init_lr: 0.05
+2026-06-17 00:33:44,841 [trainer.py] => batch_size: 128
+2026-06-17 00:33:44,841 [trainer.py] => weight_decay: 0.05
+2026-06-17 00:33:44,841 [trainer.py] => min_lr: 0
+2026-06-17 00:33:44,841 [trainer.py] => optimizer: sgd
+2026-06-17 00:33:44,841 [trainer.py] => text_des: 2
+2026-06-17 00:33:44,841 [trainer.py] => image_aug: 2
+2026-06-17 00:33:44,841 [trainer.py] => stat: 0.1
+2026-06-17 00:33:44,841 [trainer.py] => Kt: 64
+2026-06-17 00:33:44,841 [trainer.py] => use_up_cov: True
+2026-06-17 00:33:44,841 [trainer.py] => total_class_num: 100
+2026-06-17 00:33:45,910 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2026-06-17 00:33:46,024 [factory.py] => Loaded ViT-B-16 model config.
+2026-06-17 00:33:47,856 [factory.py] => Loading pretrained ViT-B-16 weights (/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin).
+2026-06-17 00:33:49,702 [bofa.py] => Learning on 0-50
+2026-06-17 00:36:21,676 [bofa.py] => Eval Test Loader: Zero_Shot_Lam: 85.00
+2026-06-17 00:37:34,526 [bofa.py] => Task 0, Epoch 1/15 => Loss_Clip 2.361, Train_acc 82.82
+2026-06-17 00:38:46,570 [bofa.py] => Task 0, Epoch 2/15 => Loss_Clip 2.311, Train_acc 82.72
+2026-06-17 00:39:58,658 [bofa.py] => Task 0, Epoch 3/15 => Loss_Clip 2.306, Train_acc 82.65
+2026-06-17 00:41:10,991 [bofa.py] => Task 0, Epoch 4/15 => Loss_Clip 2.303, Train_acc 82.84
+2026-06-17 00:42:25,058 [bofa.py] => Task 0, Epoch 5/15 => Loss_Clip 2.296, Train_acc 83.08
+2026-06-17 00:43:40,873 [bofa.py] => Task 0, Epoch 6/15 => Loss_Clip 2.291, Train_acc 83.34
+2026-06-17 00:44:55,292 [bofa.py] => Task 0, Epoch 7/15 => Loss_Clip 2.283, Train_acc 83.41
+2026-06-17 00:46:11,441 [bofa.py] => Task 0, Epoch 8/15 => Loss_Clip 2.273, Train_acc 83.80
+2026-06-17 00:47:26,414 [bofa.py] => Task 0, Epoch 9/15 => Loss_Clip 2.260, Train_acc 84.32
+2026-06-17 00:48:41,350 [bofa.py] => Task 0, Epoch 10/15 => Loss_Clip 2.247, Train_acc 84.63
+2026-06-17 00:49:56,282 [bofa.py] => Task 0, Epoch 11/15 => Loss_Clip 2.231, Train_acc 85.18
+2026-06-17 00:51:11,411 [bofa.py] => Task 0, Epoch 12/15 => Loss_Clip 2.212, Train_acc 85.81
+2026-06-17 00:52:25,770 [bofa.py] => Task 0, Epoch 13/15 => Loss_Clip 2.196, Train_acc 86.52
+2026-06-17 00:53:38,706 [bofa.py] => Task 0, Epoch 14/15 => Loss_Clip 2.174, Train_acc 87.14
+2026-06-17 00:54:50,710 [bofa.py] => Task 0, Epoch 15/15 => Loss_Clip 2.153, Train_acc 88.21
+2026-06-17 00:56:02,816 [bofa.py] => Task 0, Epoch 16/15 => Loss_Clip 2.147, Train_acc 88.56
+2026-06-17 00:57:14,616 [bofa.py] => Task 0, Epoch 17/15 => Loss_Clip 2.151, Train_acc 88.37
+2026-06-17 00:57:42,328 [trainer.py] => CNN: {'total': 87.62, '00-09': 91.0, '10-19': 85.2, '20-29': 89.0, '30-39': 85.0, '40-49': 87.9, 'old': 0, 'new': 87.62, 'harmonic': 0.0}
+2026-06-17 00:57:42,328 [trainer.py] => CNN top1 curve: [87.62]
+2026-06-17 00:57:42,329 [trainer.py] => CNN top5 curve: [98.4]
+2026-06-17 00:57:42,329 [trainer.py] => Average Accuracy (CNN top1): 87.62
+2026-06-17 00:57:42,329 [bofa.py] => Learning on 50-60
+2026-06-17 00:58:13,666 [bofa.py] => Eval Test Loader: Zero_Shot_Lam: 83.73
+2026-06-17 00:58:28,708 [bofa.py] => Task 1, Epoch 1/15 => Loss_Clip 3.002, Train_acc 62.12
+2026-06-17 00:58:43,830 [bofa.py] => Task 1, Epoch 2/15 => Loss_Clip 2.275, Train_acc 93.00
+2026-06-17 00:58:58,882 [bofa.py] => Task 1, Epoch 3/15 => Loss_Clip 2.127, Train_acc 95.20
+2026-06-17 00:59:13,865 [bofa.py] => Task 1, Epoch 4/15 => Loss_Clip 2.143, Train_acc 95.10
+2026-06-17 00:59:29,458 [bofa.py] => Task 1, Epoch 5/15 => Loss_Clip 2.118, Train_acc 95.44
+2026-06-17 00:59:44,641 [bofa.py] => Task 1, Epoch 6/15 => Loss_Clip 2.125, Train_acc 94.80
+2026-06-17 00:59:59,950 [bofa.py] => Task 1, Epoch 7/15 => Loss_Clip 2.103, Train_acc 96.20
+2026-06-17 01:00:15,241 [bofa.py] => Task 1, Epoch 8/15 => Loss_Clip 2.104, Train_acc 96.26
+2026-06-17 01:00:30,745 [bofa.py] => Task 1, Epoch 9/15 => Loss_Clip 2.104, Train_acc 96.20
+2026-06-17 01:00:46,058 [bofa.py] => Task 1, Epoch 10/15 => Loss_Clip 2.081, Train_acc 97.02
+2026-06-17 01:01:01,672 [bofa.py] => Task 1, Epoch 11/15 => Loss_Clip 2.093, Train_acc 96.84
+2026-06-17 01:01:16,755 [bofa.py] => Task 1, Epoch 12/15 => Loss_Clip 2.076, Train_acc 97.24
+2026-06-17 01:01:32,407 [bofa.py] => Task 1, Epoch 13/15 => Loss_Clip 2.067, Train_acc 97.80
+2026-06-17 01:01:48,000 [bofa.py] => Task 1, Epoch 14/15 => Loss_Clip 2.063, Train_acc 97.58
+2026-06-17 01:02:03,338 [bofa.py] => Task 1, Epoch 15/15 => Loss_Clip 2.047, Train_acc 97.98
+2026-06-17 01:02:19,074 [bofa.py] => Task 1, Epoch 16/15 => Loss_Clip 3.344, Train_acc 83.26
+2026-06-17 01:02:34,280 [bofa.py] => Task 1, Epoch 17/15 => Loss_Clip 3.348, Train_acc 83.26
+2026-06-17 01:03:08,468 [trainer.py] => CNN: {'total': 84.7, '00-09': 86.6, '10-19': 81.5, '20-29': 87.2, '30-39': 82.4, '40-49': 85.8, '50-59': 84.7, 'old': 84.7, 'new': 84.7, 'harmonic': 84.7}
+2026-06-17 01:03:08,468 [trainer.py] => CNN top1 curve: [87.62, 84.7]
+2026-06-17 01:03:08,469 [trainer.py] => CNN top5 curve: [98.4, 95.93]
+2026-06-17 01:03:08,469 [trainer.py] => Average Accuracy (CNN top1): 86.16
+2026-06-17 01:03:08,469 [bofa.py] => Learning on 60-70
+2026-06-17 01:03:43,474 [bofa.py] => Eval Test Loader: Zero_Shot_Lam: 83.40
+2026-06-17 01:03:58,862 [bofa.py] => Task 2, Epoch 1/15 => Loss_Clip 2.829, Train_acc 81.02
+2026-06-17 01:04:14,354 [bofa.py] => Task 2, Epoch 2/15 => Loss_Clip 2.238, Train_acc 97.46
+2026-06-17 01:04:29,633 [bofa.py] => Task 2, Epoch 3/15 => Loss_Clip 2.202, Train_acc 98.04
+2026-06-17 01:04:45,109 [bofa.py] => Task 2, Epoch 4/15 => Loss_Clip 2.205, Train_acc 98.08
+2026-06-17 01:05:00,339 [bofa.py] => Task 2, Epoch 5/15 => Loss_Clip 2.197, Train_acc 98.32
+2026-06-17 01:05:15,643 [bofa.py] => Task 2, Epoch 6/15 => Loss_Clip 2.190, Train_acc 98.48
+2026-06-17 01:05:31,128 [bofa.py] => Task 2, Epoch 7/15 => Loss_Clip 2.199, Train_acc 98.20
+2026-06-17 01:05:46,718 [bofa.py] => Task 2, Epoch 8/15 => Loss_Clip 2.189, Train_acc 98.54
+2026-06-17 01:06:02,239 [bofa.py] => Task 2, Epoch 9/15 => Loss_Clip 2.208, Train_acc 97.90
+2026-06-17 01:06:17,795 [bofa.py] => Task 2, Epoch 10/15 => Loss_Clip 2.183, Train_acc 98.70
+2026-06-17 01:06:33,479 [bofa.py] => Task 2, Epoch 11/15 => Loss_Clip 2.193, Train_acc 98.72
+2026-06-17 01:06:49,240 [bofa.py] => Task 2, Epoch 12/15 => Loss_Clip 2.157, Train_acc 99.00
+2026-06-17 01:07:04,843 [bofa.py] => Task 2, Epoch 13/15 => Loss_Clip 2.148, Train_acc 99.08
+2026-06-17 01:07:20,563 [bofa.py] => Task 2, Epoch 14/15 => Loss_Clip 2.147, Train_acc 99.22
+2026-06-17 01:07:35,922 [bofa.py] => Task 2, Epoch 15/15 => Loss_Clip 2.141, Train_acc 99.28
+2026-06-17 01:07:51,927 [bofa.py] => Task 2, Epoch 16/15 => Loss_Clip 3.431, Train_acc 86.80
+2026-06-17 01:08:07,524 [bofa.py] => Task 2, Epoch 17/15 => Loss_Clip 3.428, Train_acc 86.80
+2026-06-17 01:08:47,541 [trainer.py] => CNN: {'total': 84.21, '00-09': 86.1, '10-19': 80.4, '20-29': 86.9, '30-39': 81.2, '40-49': 85.2, '50-59': 83.3, '60-69': 86.4, 'old': 83.85, 'new': 86.4, 'harmonic': 85.11}
+2026-06-17 01:08:47,542 [trainer.py] => CNN top1 curve: [87.62, 84.7, 84.21]
+2026-06-17 01:08:47,542 [trainer.py] => CNN top5 curve: [98.4, 95.93, 95.63]
+2026-06-17 01:08:47,542 [trainer.py] => Average Accuracy (CNN top1): 85.50999999999999
+2026-06-17 01:08:47,542 [bofa.py] => Learning on 70-80
+2026-06-17 01:09:25,985 [bofa.py] => Eval Test Loader: Zero_Shot_Lam: 81.41
+2026-06-17 01:09:41,271 [bofa.py] => Task 3, Epoch 1/15 => Loss_Clip 3.278, Train_acc 56.78
+2026-06-17 01:09:56,432 [bofa.py] => Task 3, Epoch 2/15 => Loss_Clip 2.496, Train_acc 94.64
+2026-06-17 01:10:11,506 [bofa.py] => Task 3, Epoch 3/15 => Loss_Clip 2.398, Train_acc 96.36
+2026-06-17 01:10:27,081 [bofa.py] => Task 3, Epoch 4/15 => Loss_Clip 2.408, Train_acc 96.56
+2026-06-17 01:10:42,719 [bofa.py] => Task 3, Epoch 5/15 => Loss_Clip 2.397, Train_acc 96.60
+2026-06-17 01:10:58,335 [bofa.py] => Task 3, Epoch 6/15 => Loss_Clip 2.394, Train_acc 96.66
+2026-06-17 01:11:13,217 [bofa.py] => Task 3, Epoch 7/15 => Loss_Clip 2.385, Train_acc 97.08
+2026-06-17 01:11:28,131 [bofa.py] => Task 3, Epoch 8/15 => Loss_Clip 2.369, Train_acc 97.60
+2026-06-17 01:11:43,278 [bofa.py] => Task 3, Epoch 9/15 => Loss_Clip 2.426, Train_acc 96.06
+2026-06-17 01:11:58,399 [bofa.py] => Task 3, Epoch 10/15 => Loss_Clip 2.363, Train_acc 97.16
+2026-06-17 01:12:13,864 [bofa.py] => Task 3, Epoch 11/15 => Loss_Clip 2.357, Train_acc 97.94
+2026-06-17 01:12:28,798 [bofa.py] => Task 3, Epoch 12/15 => Loss_Clip 2.342, Train_acc 97.92
+2026-06-17 01:12:43,713 [bofa.py] => Task 3, Epoch 13/15 => Loss_Clip 2.338, Train_acc 98.16
+2026-06-17 01:12:58,868 [bofa.py] => Task 3, Epoch 14/15 => Loss_Clip 2.328, Train_acc 98.40
+2026-06-17 01:13:13,738 [bofa.py] => Task 3, Epoch 15/15 => Loss_Clip 2.324, Train_acc 98.48
+2026-06-17 01:13:28,614 [bofa.py] => Task 3, Epoch 16/15 => Loss_Clip 3.646, Train_acc 75.52
+2026-06-17 01:13:43,376 [bofa.py] => Task 3, Epoch 17/15 => Loss_Clip 3.643, Train_acc 75.52
+2026-06-17 01:14:26,840 [trainer.py] => CNN: {'total': 82.06, '00-09': 84.9, '10-19': 78.9, '20-29': 86.2, '30-39': 79.7, '40-49': 83.3, '50-59': 80.0, '60-69': 83.7, '70-79': 79.8, 'old': 82.39, 'new': 79.8, 'harmonic': 81.07}
+2026-06-17 01:14:26,840 [trainer.py] => CNN top1 curve: [87.62, 84.7, 84.21, 82.06]
+2026-06-17 01:14:26,840 [trainer.py] => CNN top5 curve: [98.4, 95.93, 95.63, 94.92]
+2026-06-17 01:14:26,840 [trainer.py] => Average Accuracy (CNN top1): 84.6475
+2026-06-17 01:14:26,840 [bofa.py] => Learning on 80-90
+2026-06-17 01:15:06,108 [bofa.py] => Eval Test Loader: Zero_Shot_Lam: 79.24
+2026-06-17 01:15:21,009 [bofa.py] => Task 4, Epoch 1/15 => Loss_Clip 3.494, Train_acc 40.32
+2026-06-17 01:15:35,774 [bofa.py] => Task 4, Epoch 2/15 => Loss_Clip 2.777, Train_acc 88.36
+2026-06-17 01:15:50,838 [bofa.py] => Task 4, Epoch 3/15 => Loss_Clip 2.530, Train_acc 94.38
+2026-06-17 01:16:05,543 [bofa.py] => Task 4, Epoch 4/15 => Loss_Clip 2.544, Train_acc 94.26
+2026-06-17 01:16:20,563 [bofa.py] => Task 4, Epoch 5/15 => Loss_Clip 2.523, Train_acc 95.08
+2026-06-17 01:16:35,762 [bofa.py] => Task 4, Epoch 6/15 => Loss_Clip 2.539, Train_acc 94.66
+2026-06-17 01:16:50,626 [bofa.py] => Task 4, Epoch 7/15 => Loss_Clip 2.528, Train_acc 95.14
+2026-06-17 01:17:05,557 [bofa.py] => Task 4, Epoch 8/15 => Loss_Clip 2.516, Train_acc 95.40
+2026-06-17 01:17:20,799 [bofa.py] => Task 4, Epoch 9/15 => Loss_Clip 2.508, Train_acc 95.82
+2026-06-17 01:17:35,786 [bofa.py] => Task 4, Epoch 10/15 => Loss_Clip 2.496, Train_acc 96.24
+2026-06-17 01:17:51,096 [bofa.py] => Task 4, Epoch 11/15 => Loss_Clip 2.486, Train_acc 96.66
+2026-06-17 01:18:05,934 [bofa.py] => Task 4, Epoch 12/15 => Loss_Clip 2.475, Train_acc 96.96
+2026-06-17 01:18:21,253 [bofa.py] => Task 4, Epoch 13/15 => Loss_Clip 2.458, Train_acc 97.58
+2026-06-17 01:18:36,795 [bofa.py] => Task 4, Epoch 14/15 => Loss_Clip 2.450, Train_acc 97.96
+2026-06-17 01:18:51,900 [bofa.py] => Task 4, Epoch 15/15 => Loss_Clip 2.444, Train_acc 98.30
+2026-06-17 01:19:07,033 [bofa.py] => Task 4, Epoch 16/15 => Loss_Clip 3.761, Train_acc 75.46
+2026-06-17 01:19:22,192 [bofa.py] => Task 4, Epoch 17/15 => Loss_Clip 3.766, Train_acc 75.46
+2026-06-17 01:20:13,192 [trainer.py] => CNN: {'total': 80.39, '00-09': 83.4, '10-19': 77.2, '20-29': 84.1, '30-39': 78.6, '40-49': 82.3, '50-59': 78.8, '60-69': 82.1, '70-79': 78.4, '80-89': 78.6, 'old': 80.61, 'new': 78.6, 'harmonic': 79.59}
+2026-06-17 01:20:13,192 [trainer.py] => CNN top1 curve: [87.62, 84.7, 84.21, 82.06, 80.39]
+2026-06-17 01:20:13,192 [trainer.py] => CNN top5 curve: [98.4, 95.93, 95.63, 94.92, 94.28]
+2026-06-17 01:20:13,192 [trainer.py] => Average Accuracy (CNN top1): 83.79599999999999
+2026-06-17 01:20:13,193 [bofa.py] => Learning on 90-100
+2026-06-17 01:20:55,859 [bofa.py] => Eval Test Loader: Zero_Shot_Lam: 78.26
+2026-06-17 01:21:11,075 [bofa.py] => Task 5, Epoch 1/15 => Loss_Clip 3.580, Train_acc 41.62
+2026-06-17 01:21:26,231 [bofa.py] => Task 5, Epoch 2/15 => Loss_Clip 2.893, Train_acc 86.52
+2026-06-17 01:21:42,028 [bofa.py] => Task 5, Epoch 3/15 => Loss_Clip 2.651, Train_acc 91.58
+2026-06-17 01:21:57,350 [bofa.py] => Task 5, Epoch 4/15 => Loss_Clip 2.629, Train_acc 92.64
+2026-06-17 01:22:12,695 [bofa.py] => Task 5, Epoch 5/15 => Loss_Clip 2.608, Train_acc 94.02
+2026-06-17 01:22:27,976 [bofa.py] => Task 5, Epoch 6/15 => Loss_Clip 2.614, Train_acc 93.72
+2026-06-17 01:22:43,231 [bofa.py] => Task 5, Epoch 7/15 => Loss_Clip 2.624, Train_acc 93.80
+2026-06-17 01:22:58,545 [bofa.py] => Task 5, Epoch 8/15 => Loss_Clip 2.597, Train_acc 94.66
+2026-06-17 01:23:14,174 [bofa.py] => Task 5, Epoch 9/15 => Loss_Clip 2.605, Train_acc 94.82
+2026-06-17 01:23:30,098 [bofa.py] => Task 5, Epoch 10/15 => Loss_Clip 2.585, Train_acc 94.76
+2026-06-17 01:23:45,307 [bofa.py] => Task 5, Epoch 11/15 => Loss_Clip 2.573, Train_acc 94.94
+2026-06-17 01:24:00,928 [bofa.py] => Task 5, Epoch 12/15 => Loss_Clip 2.561, Train_acc 95.68
+2026-06-17 01:24:17,066 [bofa.py] => Task 5, Epoch 13/15 => Loss_Clip 2.549, Train_acc 96.08
+2026-06-17 01:24:32,615 [bofa.py] => Task 5, Epoch 14/15 => Loss_Clip 2.537, Train_acc 96.42
+2026-06-17 01:24:48,072 [bofa.py] => Task 5, Epoch 15/15 => Loss_Clip 2.532, Train_acc 96.74
+2026-06-17 01:25:03,431 [bofa.py] => Task 5, Epoch 16/15 => Loss_Clip 3.853, Train_acc 78.24
+2026-06-17 01:25:18,988 [bofa.py] => Task 5, Epoch 17/15 => Loss_Clip 3.851, Train_acc 78.24
+2026-06-17 01:26:16,470 [trainer.py] => CNN: {'total': 79.45, '00-09': 81.9, '10-19': 76.9, '20-29': 83.5, '30-39': 77.6, '40-49': 80.9, '50-59': 77.1, '60-69': 81.7, '70-79': 76.0, '80-89': 77.8, '90-99': 81.1, 'old': 79.27, 'new': 81.1, 'harmonic': 80.17}
+2026-06-17 01:26:16,471 [trainer.py] => CNN top1 curve: [87.62, 84.7, 84.21, 82.06, 80.39, 79.45]
+2026-06-17 01:26:16,471 [trainer.py] => CNN top5 curve: [98.4, 95.93, 95.63, 94.92, 94.28, 93.64]
+2026-06-17 01:26:16,471 [trainer.py] => Average Accuracy (CNN top1): 83.07166666666666
