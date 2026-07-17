@@ -172,3 +172,6 @@ precomputed_basis/
 /MoE-Adapters4CL-MoE-Adapters/cil/experiments/
 /reruns/
 /utils/engine/
+
+# Server-local agent instructions.
+/AGENTS.md
