@@ -1,6 +1,4 @@
 #!/bin/bash
-
-# Already started on the original server; do not rerun.
 # python main.py --config=./configs/area/area_aircraft_B0_Inc10.json
 python main.py --config=./configs/area/area_aircraft_B50_Inc10.json
 python main.py --config=./configs/area/area_cars_B0_Inc10.json
