@@ -1,0 +1,378 @@
+# 📊 实验结果与评估指标
+
+[中文](实验结果.md) | [English](实验结果.en.md)
+
+> - [Continual learning for VLMs: a survey and taxonomy beyond forgetting](http://arxiv.org/abs/2508.04227)
+> - [Recent advances of multimodal continual learning: a comprehensive survey](http://arxiv.org/abs/2410.05352)
+
+
+<div align=center><img src="https://markdownimg-hw.oss-cn-beijing.aliyuncs.com/20251203104009.png" style="zoom: 60%;" /></div>
+
+> 记 $p^j_i$ 为“模型在完成第 $i$ 个任务训练后（$i=0$ 表示预训练状态），在第 $j$ 个任务上的性能/准确率”。
+
+
+
+**Average Accuracy** 是基础评估指标，用于衡量所有学习阶段的平均任务性能，从而反映模型的整体能力。
+
+> 对于传统 continual learning，只有对角线以上的分数有意义，因为传统模型无法对未见任务进行 zero-shot 预测。$\bar{\mathcal{A}} = \frac{1}{T}\sum_{i=1}^{T}( \frac{1}{i} \sum_{j=1}^{i}p_i^j)$
+
+$$
+Avg=\frac{1}{T} \sum_{t=1}^{T} \left(\frac{1}{T} \sum_{i=1}^{T} p_t^{(i)}\right)
+$$
+
+**Last Accuracy** 衡量模型在完成全部训练后的保留能力，反映实际部署时的可用性能。
+$$
+\textbf{Last} = \frac{1}{T} \sum_{t=1}^{T}p^t_T
+$$
+
+**Forgetting Ratio** 衡量每个任务在初次学习后出现的最大性能下降。
+$$
+\textbf{Forget}=\frac{1}{T-1} \sum_{i=1}^{T-1} \max_{i \leq j \leq T-1}\left( p_j^{i} - p_T^{i} \right)
+$$
+
+**Backward Transfer (BWT)** 衡量后续任务学习对先前任务造成的提升或退化。
+
+> <div align=center><img src="https://markdownimg-hw.oss-cn-beijing.aliyuncs.com/20260127095257.png" style="zoom: 80%;" /></div>
+>
+> 就是使用模型在学习最后一个（第 $T$ 个）task以后对之前第 $i$ 个task的表现减去刚刚学完第i个时候的表现的差值(通常为负数，上图中的蓝色部分)。反应的是记忆能力！
+>
+> - 如果这个差值很大，就意味着模型对于之前学会的知识忘记的很多；
+> - 如果这个差值很小，就意味着模型对于之前学会的知识忘记的很少；
+> - 如果这个差值大于零，就意味着以后学到的知识对于之前学过的是一个促进的作用。
+
+$$
+\textbf{BWT}=\frac{1}{T-1} \sum_{t=1}^{T-1} \left(p_t^{(T)} -p_t^{(t)}  \right)
+$$
+
+**Forward Transfer (FWT)** 
+
+> <div align=center><img src="https://markdownimg-hw.oss-cn-beijing.aliyuncs.com/20260127095811.png" style="zoom: 80%;" /></div>
+>
+> 我们以最后一个任务task $T$ 为例，这个参数反应的是机器还没有学习 $T$，只是学习了 $T$ 之前别的task时候对于 $T$ 的影响。我们用机器学习之前 $T-1$ 个task时候对任务task $T$ 的表现减去初始化参数时候对task $T$ 的表现(下图绿色部分)。用这个参数衡量机器学习之前任务对现在任务的影响。如果这个参数是正的，那么就说明这个机器是会触类旁通的。反应的是**迁移能力**！
+> $$
+> FWT = \frac{1}{T-1}\sum_{i=2}^TR_{i-1,i}-R_{0,i}
+> $$
+
+**Zero-shot Transfer** 衡量模型利用已有知识泛化到未见任务的能力。
+$$
+\textbf{Transfer} =\frac{1}{T-1} \sum_{t=2}^{T} \left(\frac{1}{t-1} \sum_{i=1}^{t-1} p_t^{(i)}\right)
+$$
+
+
+
+**Zero-Shot Degradation** 显式衡量 zero-shot 能力的退化，这是 VLM 在 continual learning 中的重要风险。
+$$
+\textbf{ZSD}=\frac{1}{T-1} \sum_{t=2}^{T} \max_{1 \leq i \leq t-1}\left( p_t^{(1)} - p_t^{(i)} \right)
+$$
+
+
+
+**Recall@K 和 mean Average Precision** 
+$$
+R@K=\frac{|\mathcal{R}_q\cap\{ d_1, d_2,\ldots,d_K\} |}{|\mathcal{R}_q|}\\
+    mAP= \frac{1}{Q} \sum_{i=1}^{Q} \frac{1}{m_q} \sum_{k=1}^{K} P_q(k) \delta_q(k)
+$$
+
+---
+
+# 📝 复现实验说明
+
+## PROOF和ENGINE说明
+
+1. PROOF：这个方法本身利用了memory，所以在复现L2P，DualPrompt，CODA-Prompt等方法时，也对这些方法添加了memory
+
+<div align=center><img src="https://markdownimg-hw.oss-cn-beijing.aliyuncs.com/20260301102903.png" style="zoom: 80%;" /></div>
+
+2. ENGINE：所有方法没有memory
+
+<div align=center><img src="https://markdownimg-hw.oss-cn-beijing.aliyuncs.com/20260301102957.png" style="zoom: 80%;" /></div>
+
+---
+
+## 🛠️ C3Box代码修改
+
+1. 配置文件注释掉memory（L2P，DualPrompt，CODA-Prompt）
+
+2. `models/l2p.py`注释掉对memory的调用
+
+   ```python
+           if len(self._multiple_gpus) > 1:
+               print('Multiple GPUs')
+               self._network = nn.DataParallel(self._network, self._multiple_gpus)
+           self._train(self.train_loader, self.test_loader)
+           if len(self._multiple_gpus) > 1:
+               self._network = self._network.module
+           # if self.args["memory_size"] > 0:
+           #     self.build_rehearsal_memory(data_manager, self.samples_per_class)
+   ```
+
+3. `models/l2p.py:` `_init_train`方法，取消 `logits[:, :self._known_classes] = float('-inf')`的注释，减少对旧类分类器权重的更改
+
+   ```python
+   def _init_train(self, train_loader, test_loader, optimizer, scheduler):
+           prog_bar = tqdm(range(self.args['tuned_epoch']))
+           for _, epoch in enumerate(prog_bar):
+               self._network.backbone.train()
+               self._network.original_backbone.eval()
+   
+               losses = 0.0
+               correct, total = 0, 0
+               for i, (_, inputs, targets) in enumerate(train_loader):
+                   inputs, targets = inputs.to(self._device), targets.to(self._device)
+   
+                   output = self._network(inputs, task_id=self._cur_task, train=True)
+                   logits = output["logits"][:, :self._total_classes]
+                   logits[:, :self._known_classes] = float('-inf') 
+   ```
+
+---
+
+## 🔎 PromptFusion
+
+- CLIP的获取方式：本地加载改为自动下载 `main.py line70`
+  ```python
+  # clip_model_path = args["file_root"] + '/' + args["backbone"] + '.pt'
+    #
+    # if os.path.exists(clip_model_path):
+    #     clip_model, _ = clip.load(args["backbone"], device=args["device"], model_path=clip_model_path)
+    # else:
+    #     raise Exception("Model doesn't exist! Please manually download it!")
+    # clip获取方式修改为直接下载
+    clip_model, _ = clip.load("ViT-B/16", device=args["device"])
+  ```
+
+- `utils.py line111 imagenetr_labels`获取类名的方式
+  
+  ```python
+  def imagenetr_labels(path):
+    with open(path) as f:
+        class_map = f.read().splitlines()
+  
+    classnames = []
+    for map_ in class_map:
+        # label, name = map_.split()
+        name = map_.split("\t")[-1]
+        classnames.append(name)
+    return classnames
+  ```
+
+- 一些打印日志细节
+
+---
+
+# 📊 当前复现结果
+
+当前日志结果以 [MMCL_Baselines.xlsx](MMCL_Baselines.xlsx) 为准。工作簿按 seed 分为 `Seed0`、`Seed42`、`Seed1993` 和 `Seed2026` 四个 sheet。本文中的结果表和历史对比用于解释复现实验背景；如与工作簿不一致，以工作簿及对应日志为准。
+
+## 👨‍🏫 实验设置
+
+- ### 数据集划分
+
+  - B-$m$ Inc-$n$ ：$m$代表初始增量阶段类别数量，$n$ 代表后续每个增量阶段的类别数量
+  
+- ### 骨干网络
+
+  | 模型                   | 训练数据                               | 发布方             | 特点                                 | 模型规模                       | 创建方式                                                     |
+  | ---------------------- | -------------------------------------- | ------------------ | ------------------------------------ | ------------------------------ | ------------------------------------------------------------ |
+  | **OpenAI CLIP**        | OpenAI 内部收集的 4 亿图文对数据集     | OpenAI             | 官方版本，性能稳定，但训练数据不公开 | ViT-B/32, ViT-B/16, ViT-L/14等 | `model, preprocess = clip.load("ViT-B/32", device=device)`   |
+  | **OpenCLIP LAION400M** | 公开的 LAION-400M 数据集（4 亿图文对） | LAION 组织开源项目 | 完全开源，训练数据公开可获取，可复现 | 多种架构和规模选择             | `model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion400m_e32')` |
+
+  > 均采用`OpenAI_CLIP`
+
+- ### Memory
+
+  对于 exemplar 参数，DER、iCaRL 和 FOSTER 在 CIFAR100 上将 `fixed_memory` 设为 false，并保持 `memory_size` 为 2000；在 ImageNet-R 上将 `fixed_memory` 设为 true，并保持 `memory_per_class` 为 20。其他方法不使用 exemplars。
+
+## Seed1993结果概览
+
+下列表格保留 seed=1993 的三组数据集概览。完整方法、数据集和指标组合请查看上述工作簿；`A_bar` 表示 Average Accuracy，`A_B` 表示最终阶段的 Last Accuracy。
+
+**表 1：Aircraft, CIFAR100, Cars**
+
+| Method      | Air B0 $\bar{A}$ | Air B0 $A_B$ | Air B50 $\bar{A}$ | Air B50 $A_B$ | CIF B0 $\bar{A}$ | CIF B0 $A_B$ | CIF B50 $\bar{A}$ | CIF B50 $A_B$ | Car B0 $\bar{A}$ | Car B0 $A_B$ | Car B50 $\bar{A}$ | Car B50 $A_B$ |
+| ----------- | ---------------- | ------------ | ----------------- | ------------- | ---------------- | ------------ | ----------------- | ------------- | ---------------- | ------------ | ----------------- | ------------- |
+| Finetune    |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| SimpleCIL | 59.06 | 47.94 | 52.86 | 47.94 | 84.15 | 76.63 | 80.20 | 76.63 | 92.11 | 86.97 | 89.05 | 86.97 |
+| ZS-CLIP | 26.61 | 17.16 | 21.66 | 17.16 | 81.81 | 71.38 | 76.49 | 71.38 | 82.90 | 76.73 | 78.74 | 76.73 |
+| L2P         |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| DualPrompt  |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| CODA-Prompt |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| RAPF        |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| ENGINE      |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| BOFA | 70.85 | 60.37 | 66.31 | 61.48 | 86.05 | 79.18 | 83.07 | 79.45 | 94.26 | 90.18 | 92.05 | 90.47 |
+| CLG-CBM | 65.76 | 55.33 | 59.61 | 55.36 |  |  |  |  |  |  |  |  |
+| AREA | 66.01 | 53.65 | 67.50 | 63.52 | 88.52 | 82.69 | 85.96 | 83.22 | 94.34 | 90.35 | 92.30 | 90.77 |
+
+
+
+**表 2：ImageNet-R, CUB, UCF**
+
+| Method      | INR B0 $\bar{A}$ | INR B0 $A_B$ | INR B100 $\bar{A}$ | INR B100 $A_B$ | CUB B0 $\bar{A}$ | CUB B0 $A_B$ | CUB B100 $\bar{A}$ | CUB B100 $A_B$ | UCF B0 $\bar{A}$ | UCF B0 $A_B$ | UCF B50 $\bar{A}$ | UCF B50 $A_B$ |
+| ----------- | ---------------- | ------------ | ------------------ | -------------- | ---------------- | ------------ | ------------------ | -------------- | ---------------- | ------------ | ----------------- | ------------- |
+| Finetune    |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| SimpleCIL | 81.13 | 74.55 | 76.92 | 74.55 | 83.83 | 77.52 | 79.77 | 77.52 | 90.41 | 85.79 | 88.08 | 85.79 |
+| ZS-CLIP | 83.50 | 77.32 | 79.72 | 77.32 | 74.21 | 63.06 | 67.84 | 63.06 | 75.88 | 67.79 | 71.68 | 67.79 |
+| L2P         |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| DualPrompt  |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| CODA-Prompt |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| RAPF        |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| ENGINE      |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| BOFA | 85.12 | 79.40 | 81.94 | 79.97 | 86.59 | 80.53 | 83.09 | 80.83 | 93.17 | 88.82 | 92.60 | 89.50 |
+| CLG-CBM | 84.49 | 77.77 | 81.32 | 78.00 |  |  |  |  | 95.09 | 91.66 |  |  |
+| AREA |  |  | 82.83 | 80.45 |  |  | 83.99 | 80.87 |  |  |  |  |
+
+
+
+**表 3：SUN, Food, ObjectNet**
+
+| Method      | SUN B0 $\bar{A}$ | SUN B0 $A_B$ | SUN B150 $\bar{A}$ | SUN B150 $A_B$ | Food B0 $\bar{A}$ | Food B0 $A_B$ | Food B50 $\bar{A}$ | Food B50 $A_B$ | Obj B0 $\bar{A}$ | Obj B0 $A_B$ | Obj B100 $\bar{A}$ | Obj B100 $A_B$ |
+| ----------- | ---------------- | ------------ | ------------------ | -------------- | ----------------- | ------------- | ------------------ | -------------- | ---------------- | ------------ | ------------------ | -------------- |
+| Finetune    |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| SimpleCIL | 82.15 | 75.60 | 78.65 | 75.60 | 87.89 | 81.70 | 84.78 | 81.70 | 52.06 | 40.13 | 45.11 | 40.13 |
+| ZS-CLIP | 79.45 | 72.14 | 74.98 | 72.14 | 87.87 | 81.99 | 84.78 | 81.99 | 38.43 | 26.43 | 31.12 | 26.43 |
+| L2P         |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| DualPrompt  |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| CODA-Prompt |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| RAPF        |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| ENGINE      |                  |              |                   |               |                  |              |                   |               |                  |              |                   |               |
+| BOFA | 84.24 | 77.75 |  |  | 88.60 | 82.63 |  |  | 59.26 | 47.18 | 52.31 | 47.33 |
+| CLG-CBM | 84.63 | 77.94 |  |  |  |  |  |  | 58.17 | 44.89 | 49.72 | 43.39 |
+
+---
+
+## 📣 历史复现（C3Box）VS ENGINE
+
+> 此处是早期 C3Box 复现结果与 ENGINE 原始结果的差异，不代表当前四个 seed 工作簿中的完整结果。正值表示复现结果更高，负值表示复现结果更低。
+
+**表 1：Aircraft, CIFAR100, Cars**
+
+<div align=center><img src="https://markdownimg-hw.oss-cn-beijing.aliyuncs.com/20260228154900.png" style="zoom: 80%;" /></div>
+
+<div align=center><img src="https://markdownimg-hw.oss-cn-beijing.aliyuncs.com/20260228154908.png" style="zoom: 80%;" /></div>
+
+| Method      | Air B0 $\bar{A}$ | Air B0 $A_B$ | Air B50 $\bar{A}$ | Air B50 $A_B$ | CIF B0 $\bar{A}$ | CIF B0 $A_B$ | CIF B50 $\bar{A}$ | CIF B50 $A_B$ | Car B0 $\bar{A}$ | Car B0 $A_B$ | Car B50 $\bar{A}$ | Car B50 $A_B$ |
+| ----------- | ---------------- | ------------ | ----------------- | ------------- | ---------------- | ------------ | ----------------- | ------------- | ---------------- | ------------ | ----------------- | ------------- |
+| Finetune    | +12.78           | +7.83        | +3.38             | +3.45         | +12.97           | +5.01        | +18.57            | +6.46         | +2.22            | +2.79        | +1.61             | +1.29         |
+| SimpleCIL   | -0.18            | -0.15        | -0.19             | -0.15         | 0                | 0            | 0                 | 0             | +0.07            | +0.12        | +0.09             | +0.12         |
+| ZS-CLIP     | -0.05            | -0.06        | -0.04             | -0.06         | 0                | 0            | 0                 | 0             | +0.30            | +0.36        | +0.42             | +0.36         |
+| L2P         | +1.59            | +1.83        | +6.69             | +2.19         | -0.32            | -0.56        | -1.49             | -3.34         | +7.08            | +8.74        | +1.39             | -2.30         |
+| DualPrompt  | +0.93            | +2.52        | -0.07             | -0.12         | +1.95            | +3.17        | -0.99             | -3.27         | +5.91            | +8.01        | -4.82             | -9.11         |
+| CODA-Prompt | **-5.90**        | **-5.07**    | -1.63             | -2.73         | -1.73            | -4.88        | **-7.77**         | **-14.79**    | -2.56            | -1.89        | **-9.22**         | **-16.60**    |
+| RAPF        | **-6.76**        | +0.21        | -2.31             | +0.90         | +1.33            | +2.61        | +2.43             | +3.30         | -1.58            | +5.21        | +1.63             | +3.84         |
+| ENGINE      | +0.05            | -0.18        | +0.07             | -0.06         | -0.04            | +0.07        | 0                 | +0.02         | +0.02            | +0.05        | +0.03             | -0.05         |
+
+---
+
+**表 2：ImageNet-R, CUB, UCF**
+
+| Method      | INR B0 $\bar{A}$ | INR B0 $A_B$ | INR B100 $\bar{A}$ | INR B100 $A_B$ | CUB B0 $\bar{A}$ | CUB B0 $A_B$ | CUB B100 $\bar{A}$ | CUB B100 $A_B$ | UCF B0 $\bar{A}$ | UCF B0 $A_B$ | UCF B50 $\bar{A}$ | UCF B50 $A_B$ |
+| ----------- | ---------------- | ------------ | ------------------ | -------------- | ---------------- | ------------ | ------------------ | -------------- | ---------------- | ------------ | ----------------- | ------------- |
+| Finetune    | +22.21           | +7.40        | +19.36             | +6.54          | +24.06           | +7.08        | +20.41             | +7.97          | +14.18           | +4.59        | +7.37             | +3.82         |
+| SimpleCIL   | +0.07            | +0.07        | +0.08              | +0.07          | +0.01            | 0            | +0.02              | 0              | -0.03            | +0.11        | -0.04             | +0.11         |
+| ZS-CLIP     | +0.13            | +0.15        | +0.15              | +0.15          | -0.17            | 0            | -0.12              | 0              | +0.38            | +0.15        | +0.24             | +0.15         |
+| L2P         | +5.51            | +5.76        | +1.17              | -3.69          | +1.25            | -0.25        | **-8.04**          | **-15.06**     | +3.32            | +4.89        | -1.24             | **-6.86**     |
+| DualPrompt  | +5.40            | +7.25        | -1.34              | **-5.68**      | +4.28            | +5.52        | -4.47              | **-7.33**      | +1.75            | +3.57        | -2.90             | **-6.82**     |
+| CODA-Prompt | +3.10            | +2.05        | **-7.08**          | **-15.33**     | -2.32            | **-6.02**    | **-13.95**         | **-20.90**     | -4.01            | **-5.45**    | **-10.88**        | **-19.93**    |
+| RAPF        | +2.37            | +5.15        | +3.44              | +5.94          | **-5.38**        | -2.93        | **-5.34**          | **-6.23**      | -1.75            | +1.52        | -2.51             | -2.01         |
+| ENGINE      | +0.05            | +0.43        | -0.01              | -0.11          | -0.05            | +0.33        | +0.52              | +0.68          | +0.02            | -0.15        | -0.09             | +0.04         |
+
+---
+
+**表 3：SUN, Food, ObjectNet**
+
+| Method      | SUN B0 $\bar{A}$ | SUN B0 $A_B$ | SUN B150 $\bar{A}$ | SUN B150 $A_B$ | Food B0 $\bar{A}$ | Food B0 $A_B$ | Food B50 $\bar{A}$ | Food B50 $A_B$ | Obj B0 $\bar{A}$ | Obj B0 $A_B$ | Obj B100 $\bar{A}$ | Obj B100 $A_B$ |
+| ----------- | ---------------- | ------------ | ------------------ | -------------- | ----------------- | ------------- | ------------------ | -------------- | ---------------- | ------------ | ------------------ | -------------- |
+| Finetune    | +20.09           | +7.01        | +19.28             | +7.15          | +23.86            | +7.11         | +22.44             | +7.62          | +6.03            | +4.90        | +9.36              | +5.22          |
+| SimpleCIL   | +0.02            | +0.02        | +0.03              | +0.02          | 0                 | +0.05         | +0.05              | +0.05          | 0                | 0            | 0                  | 0              |
+| ZS-CLIP     | +0.03            | +0.03        | +0.03              | +0.03          | 0                 | +0.07         | +0.04              | +0.07          | 0                | 0            | 0                  | 0              |
+| L2P         | -3.40            | **-6.80**    | **-17.38**         | **-27.49**     | -1.78             | -2.62         | +2.55              | +4.23          | +10.94           | +9.49        | +7.17              | +4.36          |
+| DualPrompt  | +1.19            | +0.33        | -3.67              | **-7.88**      | +1.54             | +1.65         | +1.06              | +0.36          | +4.99            | +3.92        | +5.64              | +1.78          |
+| CODA-Prompt | -1.87            | -3.46        | **-9.59**          | **-15.87**     | **-5.87**         | **-11.74**    | **-9.76**          | **-18.17**     | **+14.45**       | **+12.57**   | +9.31              | +1.64          |
+| RAPF        | +2.89            | +5.14        | +3.31              | +4.97          | +1.65             | +3.75         | +2.18              | +3.56          | +5.15            | +8.22        | +6.22              | +6.44          |
+| ENGINE      | -0.01            | -0.09        | +0.04              | -0.02          | -0.03             | +0.15         | +0.03              | 0              | +0.01            | -0.08        | -0.03              | -0.23          |
+
+---
+
+**总结**
+
+- **SimpleCIL / ZS-CLIP / ENGINE**: 复现结果与论文高度一致，差异在 ±0.5 以内
+- **Finetune**: 复现结果**显著高于**论文（可能论文使用了不同的 backbone 或配置）
+- **CODA-Prompt**: 复现结果在多个 B50/B100/B150 配置上**显著低于**论文（最大差距 -20.90）
+- **L2P / DualPrompt**: 混合表现，部分配置高、部分低，尤其在 B100/B50 的 $A_B$ 上偏低
+- **RAPF**: 大部分持平或略高，但 CUB 上明显偏低
+
+---
+
+## CIFAR-100
+
+> seed=1993/2 对应了不同的类别增量顺序
+
+**seed = 1993**
+
+|           | B0 Inc5     | B0 Inc10     | B0 Inc20    | B50 Inc5    | B50 Inc10   |
+| --------- | ------------ | ----------- | ------------ | ------------ | ------------ |
+| ENGINE | 82.88   | 82.7     | 81.79    | 77.81    | 78.06     |
+| PROOF | 83.51   | 83.23    | 82.45    | 78.56    | 79.36     |
+| RAPF | 87.17 | 86.57  | 86.02  | 83.65  | 83.41  |
+| MoE-Adapters | 84.47  | 85.19  | 86.53  | 84.08 | 84.03 |
+| MG-CLIP | 86.53  | 86.85  | 87.44  | 81.77  | 83.87  |
+| PromptFusion |  |  |  |  |  |
+
+**seed = 2**
+
+|              | B0 Inc5 | B0 Inc10 | B0 Inc20 | B50 Inc5 | B50 Inc10 |
+| ------------ | ------- | -------- | -------- | -------- | --------- |
+| ENGINE       | 82.28   | 82.04    | 81.21    | 76.87    | 77.54     |
+| PROOF        | 83.18   | 82.88    | 82.23    | 77.84    | 78.64     |
+| RAPF         | 86.76   | 85.89    | 85.44    | 82.98    | 82.85     |
+| MoE-Adapters | 83.78   | 85.18    | 85.69    | 83.16    | 83.25     |
+| MG-CLIP      | 85.72   | 86.98    | 87.28    | 80.98    | 83.27     |
+
+---
+
+## ImageNet-R
+
+**seed = 1993**
+
+|              | B0 Inc10 | B0 Inc20 | B0 Inc40 | B100 Inc10 | B100 Inc20 |
+| ------------ | -------- | -------- | -------- | ---------- | ---------- |
+| ENGINE       | 83.66    | 83.68    | 83.11    | 80.03      | 80.43      |
+| PROOF        | 81.12    | 81.02    | 80.45    | 78.67      | 79.06      |
+| RAPF         | 85.58    | 85.66    | 84.63    | 81.44      | 82.51      |
+| MoE-Adapters | 85.65    | 85.88    | 85.96    | 84.29      | 84.26      |
+| MG-CLIP      | 87.37    | 87.47    | 87.29    | 83.92      | 84.64      |
+| PromptFusion |          |          |          |            |            |
+
+**seed = 2**
+
+|              | B0 Inc10 | B0 Inc20 | B0 Inc40 | B100 Inc10 | B100 Inc20 |
+| ------------ | -------- | -------- | -------- | ---------- | ---------- |
+| ENGINE       | 83.66    | 83.68    | 83.11    | 80.03      | 80.43      |
+| PROOF        | 81.12    | 81.02    | 80.45    | 78.67      | 79.06      |
+| RAPF         | 86.09    | 85.91    | 85.09    | 82.10      | 82.67      |
+| MoE-Adapters | 85.99    | 86.50    | 86.57    | 84.96      | 84.42      |
+| MG-CLIP      | 87.32    | 87.61    | 86.96    | 83.77      | 84.62      |
+
+---
+
+## CUB200
+
+seed = 1993
+
+|              | B0 Inc10 | B0 Inc20 | B0 Inc40 | B100 Inc10 | B100 Inc20 |
+| ------------ | -------- | -------- | -------- | ---------- | ---------- |
+| ENGINE       | 84.72    | 84.72    | 83.32    | 78.24      | 79.45      |
+| PROOF        | 83.17    | 82.08    | 80.67    | 78.37      | 78.61      |
+| RAPF         | 74.11    | 78.5     | 81.4     | 64.58      | 71.19      |
+| MoE-Adapters | 65.60    | 65.67    | 66.06    | 62.25      | 63.50      |
+| MG-CLIP      | 74.97    | 77.65    | 79.19    | 71.66      | 72.82      |
+
+**seed = 2**
+
+|              | B0 Inc10 | B0 Inc20 | B0 Inc40 | B100 Inc10 | B100 Inc20 |
+| ------------ | -------- | -------- | -------- | ---------- | ---------- |
+| ENGINE       | 84.72    | 84.72    | 83.32    | 78.24      | 79.45      |
+| PROOF        | 83.17    | 82.08    | 80.67    | 78.37      | 78.61      |
+| RAPF         | 70.91    | 76.62    | 79.49    | 63.82      | 70.29      |
+| MoE-Adapters | 61.75    | 61.83    | 60.38    | 60.42      | 60.91      |
+| MG-CLIP      | 72.25    | 74.41    | 75.74    | 68.65      | 71.40      |
