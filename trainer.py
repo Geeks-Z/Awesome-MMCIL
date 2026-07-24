@@ -9,6 +9,20 @@ import os
 import random
 import numpy as np
 
+# Method identifiers are lower-case in several JSON configs, whereas result
+# folders are presented with their canonical paper names.  Keep the identifier
+# unchanged for model construction, but normalize only the log destination.
+_CANONICAL_LOG_DIRS = {
+    "engine": "ENGINE",
+    "area": "AREA",
+    # Retain compatibility with older misspelled AREA configurations.
+    "aera": "AREA",
+}
+
+
+def _log_dir_name(model_name):
+    return _CANONICAL_LOG_DIRS.get(str(model_name).lower(), model_name)
+
 
 def train(args):
     seed_list = copy.deepcopy(args["seed"])
@@ -27,13 +41,14 @@ def _train(args):
     if backbone_name.startswith("pretrained_"):
         backbone_name = backbone_name[len("pretrained_") :]
 
-    logs_name = "logs/{}".format(args["model_name"])
+    log_dir_name = _log_dir_name(args["model_name"])
+    logs_name = "logs/{}".format(log_dir_name)
 
     if not os.path.exists(logs_name):
         os.makedirs(logs_name)
 
     logfilename = "logs/{}/{}_{}_{}_{}_{}".format(
-        args["model_name"],
+        log_dir_name,
         args["dataset"],
         backbone_name,
         init_cls,

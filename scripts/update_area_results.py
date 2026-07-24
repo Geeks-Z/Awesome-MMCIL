@@ -13,31 +13,15 @@ from openpyxl import load_workbook
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKBOOK = ROOT / "MMCL_Baselines.xlsx"
-LOG_DIR = ROOT / "logs" / "area"
-
-# (log stem, spreadsheet column for A_bar, spreadsheet column for A_B, row)
-RESULT_CELLS = (
-    ("aircraft_clip_0_10", "C", "D", 11),
-    ("aircraft_clip_50_10", "E", "F", 11),
-    ("cifar224_clip_0_10", "G", "H", 11),
-    ("cifar224_clip_50_10", "I", "J", 11),
-    ("cars_clip_0_10", "K", "L", 11),
-    ("cars_clip_50_10", "M", "N", 11),
-    ("imagenetr_clip_0_20", "C", "D", 23),
-    ("imagenetr_clip_100_20", "E", "F", 23),
-    ("cub_clip_0_20", "G", "H", 23),
-    ("cub_clip_100_20", "I", "J", 23),
-    ("ucf101_clip_0_10", "K", "L", 23),
-    ("ucf101_clip_50_10", "M", "N", 23),
-    ("sun_clip_0_30", "C", "D", 32),
-    ("sun_clip_150_30", "E", "F", 32),
-    ("food101_clip_0_10", "G", "H", 32),
-    ("food101_clip_50_10", "I", "J", 32),
-    ("objectnet_clip_0_20", "K", "L", 32),
-    ("objectnet_clip_100_20", "M", "N", 32),
-)
+LOG_DIRS = (ROOT / "logs" / "AREA", ROOT / "logs" / "area", ROOT / "logs" / "aera")
 
 SEED_SHEETS = {1993: "Seed1993", 2026: "Seed2026", 0: "Seed0", 42: "Seed42"}
+
+AREA_BLOCKS = (
+    ("aircraft_clip_0_10", "aircraft_clip_50_10", "cifar224_clip_0_10", "cifar224_clip_50_10", "cars_clip_0_10", "cars_clip_50_10"),
+    ("imagenetr_clip_0_20", "imagenetr_clip_100_20", "cub_clip_0_20", "cub_clip_100_20", "ucf101_clip_0_10", "ucf101_clip_50_10"),
+    ("sun_clip_0_30", "sun_clip_150_30", "food101_clip_0_10", "food101_clip_50_10", "objectnet_clip_0_20", "objectnet_clip_100_20"),
+)
 
 
 def log_stem(config: Path) -> str:
@@ -64,8 +48,17 @@ def completed_metrics(log_path: Path) -> tuple[float, float] | None:
     return round(float(averages[-1]), 2), round(curve[-1], 2)
 
 
+def area_log_path(stem: str, seed: int) -> Path:
+    """Prefer the canonical AREA directory and read older logs if necessary."""
+    for directory in LOG_DIRS:
+        path = directory / f"{stem}_{seed}.log"
+        if path.is_file():
+            return path
+    return LOG_DIRS[0] / f"{stem}_{seed}.log"
+
+
 def is_complete(config: Path, seed: int) -> bool:
-    return completed_metrics(LOG_DIR / f"{log_stem(config)}_{seed}.log") is not None
+    return completed_metrics(area_log_path(log_stem(config), seed)) is not None
 
 
 def update_workbook() -> list[str]:
@@ -74,20 +67,39 @@ def update_workbook() -> list[str]:
 
     for seed, sheet_name in SEED_SHEETS.items():
         sheet = workbook[sheet_name]
-        for _, _, _, row in RESULT_CELLS:
-            sheet.cell(row=row, column=1).value = "AREA"
-
-        for stem, a_bar_column, a_b_column, row in RESULT_CELLS:
-            metrics = completed_metrics(LOG_DIR / f"{stem}_{seed}.log")
-            if metrics is None:
+        headers = [row for row in range(1, sheet.max_row + 1) if sheet.cell(row=row, column=1).value == "Method"]
+        if len(headers) != len(AREA_BLOCKS):
+            raise ValueError(f"{sheet_name}: expected {len(AREA_BLOCKS)} Method headers, found {len(headers)}")
+        for header, next_header, stems in zip(headers, (*headers[1:], sheet.max_row + 1), AREA_BLOCKS):
+            row = next(
+                (
+                    candidate
+                    for candidate in range(header + 2, next_header)
+                    if sheet.cell(row=candidate, column=1).value == "AREA"
+                ),
+                None,
+            )
+            # AREA may have been deliberately removed from a block; do not
+            # insert or overwrite another method merely to create it.
+            if row is None:
                 continue
-            a_bar, a_b = metrics
-            a_bar_cell = f"{a_bar_column}{row}"
-            a_b_cell = f"{a_b_column}{row}"
-            if sheet[a_bar_cell].value != a_bar or sheet[a_b_cell].value != a_b:
-                sheet[a_bar_cell] = a_bar
-                sheet[a_b_cell] = a_b
-                updates.append(f"{sheet_name}!{a_bar_cell}:{a_bar}, {a_b_cell}:{a_b}")
+            sheet.cell(row=row, column=1).value = "AREA"
+            sheet.cell(row=row, column=2).value = "ICML 2026"
+            for column in range(3, 15):
+                sheet.cell(row=row, column=column).value = None
+            for index, stem in enumerate(stems):
+                metrics = completed_metrics(area_log_path(stem, seed))
+                if metrics is None:
+                    continue
+                a_bar, a_b = metrics
+                a_bar_column = 3 + index * 2
+                a_b_column = a_bar_column + 1
+                sheet.cell(row=row, column=a_bar_column).value = a_bar
+                sheet.cell(row=row, column=a_b_column).value = a_b
+                updates.append(
+                    f"{sheet_name}!{sheet.cell(row=row, column=a_bar_column).coordinate}:{a_bar}, "
+                    f"{sheet.cell(row=row, column=a_b_column).coordinate}:{a_b}"
+                )
 
     workbook.save(WORKBOOK)
     return updates

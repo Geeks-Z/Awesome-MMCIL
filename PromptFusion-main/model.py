@@ -119,18 +119,21 @@ class Clip_PF(nn.Module):
         self.text_encoder = TextEncoder(clip_model)
         self.logit_scale = clip_model.logit_scale
         self.image_prompt = nn.Parameter(torch.randn((1, args["clip_image_prompt_length"], 768)))
-        self.alpha = nn.Parameter(torch.ones(args["batch_size"], args["increment"]))
+        self.alpha = nn.Parameter(torch.ones(args["batch_size"], args["initial_increment"]))
 
         self.lambda_ = nn.Parameter(torch.ones([1]))
 
     def update_parameters(self, task_id, task_classnames, args):
-        task_raw_prompt = torch.empty(args["increment"], args["M"], 512, requires_grad=True, device=args["device"])
+        current_classes = len(task_classnames)
+        task_raw_prompt = torch.empty(current_classes, args["M"], 512, requires_grad=True, device=args["device"])
         
         nn.init.normal_(task_raw_prompt, std=0.01)
 
         self.task_raw_prompt = nn.Parameter(task_raw_prompt)
 
-        beta = torch.ones(args["batch_size"], task_id * args["increment"], requires_grad=True, device=args["device"])
+        self.alpha = nn.Parameter(torch.ones(args["batch_size"], current_classes, device=args["device"]))
+        previous_classes = sum(args["task_class_counts"][:task_id])
+        beta = torch.ones(args["batch_size"], previous_classes, requires_grad=True, device=args["device"])
         self.beta = nn.Parameter(beta)
 
         self.task_id = task_id
@@ -162,7 +165,7 @@ class Clip_PFLite(nn.Module):
         self.text_encoder = TextEncoder(clip_model)
         self.logit_scale = clip_model.logit_scale
         self.image_prompt = nn.Parameter(torch.randn((1, args["clip_image_prompt_length"], 768)))
-        self.alpha = nn.Parameter(torch.ones(args["batch_size"], args["increment"]))
+        self.alpha = nn.Parameter(torch.ones(args["batch_size"], args["initial_increment"]))
 
         self.gumbel_fc1 = nn.Linear(512, 100)
         self.gumbel_fc2 = nn.Linear(100, 2)
@@ -176,12 +179,15 @@ class Clip_PFLite(nn.Module):
 
 
     def update_parameters(self, task_id, task_classnames, args):
-        task_raw_prompt = torch.empty(args["increment"], args["M"], 512, requires_grad=True, device=args["device"])
+        current_classes = len(task_classnames)
+        task_raw_prompt = torch.empty(current_classes, args["M"], 512, requires_grad=True, device=args["device"])
         nn.init.normal_(task_raw_prompt, std=0.01)
 
         self.task_raw_prompt = nn.Parameter(task_raw_prompt)
 
-        beta = torch.ones(args["batch_size"], task_id * args["increment"], requires_grad=True, device=args["device"])
+        self.alpha = nn.Parameter(torch.ones(args["batch_size"], current_classes, device=args["device"]))
+        previous_classes = sum(args["task_class_counts"][:task_id])
+        beta = torch.ones(args["batch_size"], previous_classes, requires_grad=True, device=args["device"])
         self.beta = nn.Parameter(beta)
 
         self.task_id = task_id
@@ -203,6 +209,5 @@ class Clip_PFLite(nn.Module):
         text_features = text_features / text_features.norm(dim=-1, keepdim=True)
 
         return image_features, text_features
-
 
 

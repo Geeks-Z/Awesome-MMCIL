@@ -36,6 +36,7 @@ def continual_clip(cfg: DictConfig) -> None:
     dataset_name = {
         "cifar100": "cifar224",
         "imagenet_R": "imagenetr",
+        "cub200": "cub",
     }.get(cfg.dataset, str(cfg.dataset).lower())
     init_cls = 0 if cfg.initial_increment == cfg.increment else cfg.initial_increment
     log_dir = benchmark_root / "logs" / "MoE-Adapters"

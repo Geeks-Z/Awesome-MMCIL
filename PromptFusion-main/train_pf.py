@@ -61,7 +61,9 @@ def train_pf(clip_model, custom_clip_model, vpt_model, scenario_train, scenario_
         custom_clip_model.train()
         vpt_model.train()
 
-        task_classnames = classnames[task_id * args["increment"] : (task_id + 1) * args["increment"]]
+        task_start = sum(args["task_class_counts"][:task_id])
+        task_end = task_start + args["task_class_counts"][task_id]
+        task_classnames = classnames[task_start:task_end]
         custom_clip_model.update_parameters(task_id, task_classnames, args)
        
         optimizer = torch.optim.AdamW(list(custom_clip_model.parameters()) + list(vpt_model.parameters()), lr=args["learning_rate"], weight_decay=args["weight_decay"])
@@ -157,4 +159,3 @@ def train_pf(clip_model, custom_clip_model, vpt_model, scenario_train, scenario_
             raise Exception("Herding method not implemented")
     
     return acc_table
-        

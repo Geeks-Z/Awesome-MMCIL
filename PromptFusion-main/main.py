@@ -41,30 +41,37 @@ def load_json(setting_path):
 
 
 def set_log():
-    args["output_folder"] = "{}/{}/{}/{}/seed_{}".format(
-        args["file_root"], args["model_type"], args["dataset"],
-        args["backbone"], args["seed"]
-    )
-
-    if not os.path.exists(args["output_folder"]):
-        os.makedirs(args["output_folder"])
-
-    benchmark_root = os.path.dirname(os.path.abspath(args["file_root"]))
-    log_dir = os.path.join(benchmark_root, "logs", "PromptFusion")
-    os.makedirs(log_dir, exist_ok=True)
     dataset_name = {
         "Cifar": "cifar224",
         "ImagenetR": "imagenetr",
+        "CUB200": "cub",
     }.get(args["dataset"], args["dataset"].lower())
     num_classes = {
         "Cifar": 100,
         "ImagenetR": 200,
+        "CUB200": 200,
     }[args["dataset"]]
-    increment = num_classes // args["step"]
+    increment = int(args.get("increment", num_classes // args["step"]))
+    initial_increment = int(args.get("initial_increment", increment))
+    base_classes = 0 if initial_increment == increment else initial_increment
+
+    output_parts = [
+        args["file_root"], args["model_type"], args["dataset"], args["backbone"],
+    ]
+    # Keep the original B0 output location, while isolating B50/B100 runs.
+    if base_classes:
+        output_parts.append("base_{}_inc_{}".format(base_classes, increment))
+    output_parts.append("seed_{}".format(args["seed"]))
+    args["output_folder"] = os.path.join(*output_parts)
+    os.makedirs(args["output_folder"], exist_ok=True)
+
+    benchmark_root = os.path.dirname(os.path.abspath(args["file_root"]))
+    log_dir = os.path.join(benchmark_root, "logs", "PromptFusion")
+    os.makedirs(log_dir, exist_ok=True)
     logfilename = os.path.join(
         log_dir,
-        "{}_vit_b16_0_{}_{}.log".format(
-            dataset_name, increment, args["seed"]
+        "{}_vit_b16_{}_{}_{}.log".format(
+            dataset_name, base_classes, increment, args["seed"]
         ),
     )
 
@@ -135,18 +142,41 @@ def set_models(clip_model, args):
 def main(args):
     train_dataset, test_dataset, classnames, transform_train, transform_test = gen_dataset(args)
 
-    args["increment"] = int(args["num_classes"] / args["step"])
+    increment = int(args.get("increment", args["num_classes"] / args["step"]))
+    initial_increment = int(args.get("initial_increment", increment))
+    if initial_increment <= 0 or increment <= 0:
+        raise ValueError("initial_increment and increment must be positive")
+    if initial_increment > args["num_classes"]:
+        raise ValueError("initial_increment cannot exceed the number of classes")
+    if (args["num_classes"] - initial_increment) % increment:
+        raise ValueError("remaining classes must be divisible by increment")
+
+    args["increment"] = increment
+    args["initial_increment"] = initial_increment
+    args["base_classes"] = 0 if initial_increment == increment else initial_increment
+    args["step"] = 1 + (args["num_classes"] - initial_increment) // increment
+    args["task_class_counts"] = [initial_increment] + [increment] * (args["step"] - 1)
 
     class_mask = list()
     labels = [i for i in range(len(classnames))]
 
-    for _ in range(args["step"]):
-        scope = labels[:args["increment"]]
-        labels = labels[args["increment"]:]
+    for task_class_count in args["task_class_counts"]:
+        scope = labels[:task_class_count]
+        labels = labels[task_class_count:]
         class_mask.append(scope)
 
-    scenario_train = ClassIncremental(train_dataset, increment=args["increment"], transformations=transform_train)
-    scenario_test = ClassIncremental(test_dataset, increment=args["increment"], transformations=transform_test)
+    scenario_train = ClassIncremental(
+        train_dataset,
+        initial_increment=initial_increment,
+        increment=increment,
+        transformations=transform_train,
+    )
+    scenario_test = ClassIncremental(
+        test_dataset,
+        initial_increment=initial_increment,
+        increment=increment,
+        transformations=transform_test,
+    )
 
     memory = rehearsal.RehearsalMemory(memory_size=args["memory_size"], herding_method=args["herding_method"])
     
@@ -176,16 +206,16 @@ def main(args):
     logging.info("Average Accuracy (CNN top1): %s", average_acc)
     logging.info("Last Accuracy: %s", last_acc)
     logging.info(
-        "Finished %s_inc%s seed=%s",
-        args["dataset"], args["increment"], args["seed"],
+        "Finished %s_base%s_inc%s seed=%s",
+        args["dataset"], args["base_classes"], args["increment"], args["seed"],
     )
     logging.info("Backbone: ViT-B/16")
 
     print(f"\n{'=' * 40}")
     print(
-        "Finished {}_inc{} seed={}".format(
+        "Finished {}_base{}_inc{} seed={}".format(
             args["dataset"],
-            args["increment"], args["seed"]
+            args["base_classes"], args["increment"], args["seed"]
         )
     )
     print("Backbone: ViT-B/16")
