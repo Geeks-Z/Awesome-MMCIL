@@ -1,0 +1,283 @@
+{
+  "dataset": "cars",
+  "environment": {
+    "cuda": "11.8",
+    "device": "cuda:0",
+    "gpu": "NVIDIA A800 80GB PCIe",
+    "host": "comput1",
+    "python": "3.10.4",
+    "torch": "2.0.1+cu118"
+  },
+  "inference": {
+    "definition": "final-stage end-to-end _eval_cnn pass, including data loading and method-specific text/statistical preparation",
+    "images_per_second": 348.7297910508526,
+    "median_seconds": 11.708205334842205,
+    "peak_allocated_mib": 942.951171875,
+    "repetitions": [
+      {
+        "peak_allocated_mib": 942.951171875,
+        "peak_reserved_mib": 1106.0,
+        "seconds": 11.812268741428852,
+        "task": 9
+      },
+      {
+        "peak_allocated_mib": 942.951171875,
+        "peak_reserved_mib": 1106.0,
+        "seconds": 11.533721007406712,
+        "task": 9
+      },
+      {
+        "peak_allocated_mib": 942.951171875,
+        "peak_reserved_mib": 1106.0,
+        "seconds": 11.708205334842205,
+        "task": 9
+      }
+    ],
+    "test_samples": 4083
+  },
+  "method": "zs_clip",
+  "parameters": {
+    "ever_updated_union": 0,
+    "final_snapshot": {
+      "all_parameters": 149671937,
+      "groups": {
+        "convnet": {
+          "parameters": 149620737,
+          "requires_grad": 149620737
+        },
+        "fc": {
+          "parameters": 51200,
+          "requires_grad": 51200
+        }
+      },
+      "requires_grad_parameters": 149671937,
+      "task": 9
+    },
+    "peak_actually_updated": 0,
+    "snapshots": [
+      {
+        "all_parameters": 149625857,
+        "groups": {
+          "convnet": {
+            "parameters": 149620737,
+            "requires_grad": 149620737
+          },
+          "fc": {
+            "parameters": 5120,
+            "requires_grad": 5120
+          }
+        },
+        "requires_grad_parameters": 149625857,
+        "task": 0
+      },
+      {
+        "all_parameters": 149630977,
+        "groups": {
+          "convnet": {
+            "parameters": 149620737,
+            "requires_grad": 149620737
+          },
+          "fc": {
+            "parameters": 10240,
+            "requires_grad": 10240
+          }
+        },
+        "requires_grad_parameters": 149630977,
+        "task": 1
+      },
+      {
+        "all_parameters": 149636097,
+        "groups": {
+          "convnet": {
+            "parameters": 149620737,
+            "requires_grad": 149620737
+          },
+          "fc": {
+            "parameters": 15360,
+            "requires_grad": 15360
+          }
+        },
+        "requires_grad_parameters": 149636097,
+        "task": 2
+      },
+      {
+        "all_parameters": 149641217,
+        "groups": {
+          "convnet": {
+            "parameters": 149620737,
+            "requires_grad": 149620737
+          },
+          "fc": {
+            "parameters": 20480,
+            "requires_grad": 20480
+          }
+        },
+        "requires_grad_parameters": 149641217,
+        "task": 3
+      },
+      {
+        "all_parameters": 149646337,
+        "groups": {
+          "convnet": {
+            "parameters": 149620737,
+            "requires_grad": 149620737
+          },
+          "fc": {
+            "parameters": 25600,
+            "requires_grad": 25600
+          }
+        },
+        "requires_grad_parameters": 149646337,
+        "task": 4
+      },
+      {
+        "all_parameters": 149651457,
+        "groups": {
+          "convnet": {
+            "parameters": 149620737,
+            "requires_grad": 149620737
+          },
+          "fc": {
+            "parameters": 30720,
+            "requires_grad": 30720
+          }
+        },
+        "requires_grad_parameters": 149651457,
+        "task": 5
+      },
+      {
+        "all_parameters": 149656577,
+        "groups": {
+          "convnet": {
+            "parameters": 149620737,
+            "requires_grad": 149620737
+          },
+          "fc": {
+            "parameters": 35840,
+            "requires_grad": 35840
+          }
+        },
+        "requires_grad_parameters": 149656577,
+        "task": 6
+      },
+      {
+        "all_parameters": 149661697,
+        "groups": {
+          "convnet": {
+            "parameters": 149620737,
+            "requires_grad": 149620737
+          },
+          "fc": {
+            "parameters": 40960,
+            "requires_grad": 40960
+          }
+        },
+        "requires_grad_parameters": 149661697,
+        "task": 7
+      },
+      {
+        "all_parameters": 149666817,
+        "groups": {
+          "convnet": {
+            "parameters": 149620737,
+            "requires_grad": 149620737
+          },
+          "fc": {
+            "parameters": 46080,
+            "requires_grad": 46080
+          }
+        },
+        "requires_grad_parameters": 149666817,
+        "task": 8
+      },
+      {
+        "all_parameters": 149671937,
+        "groups": {
+          "convnet": {
+            "parameters": 149620737,
+            "requires_grad": 149620737
+          },
+          "fc": {
+            "parameters": 51200,
+            "requires_grad": 51200
+          }
+        },
+        "requires_grad_parameters": 149671937,
+        "task": 9
+      }
+    ]
+  },
+  "protocol": {
+    "batch_size": null,
+    "increment": 10,
+    "init_cls": 10
+  },
+  "schema_version": 1,
+  "seed": 1993,
+  "training": {
+    "peak_allocated_mib": 582.16796875,
+    "task_records": [
+      {
+        "peak_allocated_mib": 573.30078125,
+        "peak_reserved_mib": 634.0,
+        "seconds": 0.1326334998011589,
+        "task": 0
+      },
+      {
+        "peak_allocated_mib": 581.54296875,
+        "peak_reserved_mib": 1104.0,
+        "seconds": 0.013584263622760773,
+        "task": 1
+      },
+      {
+        "peak_allocated_mib": 581.62109375,
+        "peak_reserved_mib": 1104.0,
+        "seconds": 0.00937635451555252,
+        "task": 2
+      },
+      {
+        "peak_allocated_mib": 581.69921875,
+        "peak_reserved_mib": 1104.0,
+        "seconds": 0.005398906767368317,
+        "task": 3
+      },
+      {
+        "peak_allocated_mib": 581.77734375,
+        "peak_reserved_mib": 1104.0,
+        "seconds": 0.008482106029987335,
+        "task": 4
+      },
+      {
+        "peak_allocated_mib": 581.85546875,
+        "peak_reserved_mib": 1106.0,
+        "seconds": 0.011084236204624176,
+        "task": 5
+      },
+      {
+        "peak_allocated_mib": 581.93359375,
+        "peak_reserved_mib": 1106.0,
+        "seconds": 0.006715059280395508,
+        "task": 6
+      },
+      {
+        "peak_allocated_mib": 582.01171875,
+        "peak_reserved_mib": 1106.0,
+        "seconds": 0.005458928644657135,
+        "task": 7
+      },
+      {
+        "peak_allocated_mib": 582.08984375,
+        "peak_reserved_mib": 1106.0,
+        "seconds": 0.007477223873138428,
+        "task": 8
+      },
+      {
+        "peak_allocated_mib": 582.16796875,
+        "peak_reserved_mib": 1106.0,
+        "seconds": 0.007173687219619751,
+        "task": 9
+      }
+    ],
+    "total_seconds": 0.20738426595926285
+  }
+}

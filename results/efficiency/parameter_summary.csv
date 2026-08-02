@@ -1,0 +1,10 @@
+method,peak_updated_M,final_extra_learned_M,auxiliary_state_MiB,extra_frozen_M,extra_frozen_copy,growth,export_note
+ZS-CLIP,0.000000,0.000000,0.000,0.000000,none,O(1) learned; optional O(CD) text cache,no optimization
+L2P,0.094820,0.094820,0.000,86.192640,1x CLIP ViT-B/16 visual query encoder,fixed prompt pool + O(CD) head,prompt pool and 100-class head retained
+DualPrompt,0.286820,0.286820,0.000,86.192640,1x CLIP ViT-B/16 visual query encoder,fixed prompt pool + O(CD) head,global/expert prompts and 100-class head retained
+CODA-Prompt,3.635300,3.635300,0.000,0.000000,none,fixed allocated pool + O(CD) head,allocated prompt pool and 100-class head retained
+SimpleCIL,0.000000,0.000000,0.195,0.000000,none,O(CD) prototypes,"class prototypes are state, not gradient-learned parameters"
+RAPF,0.262144,0.262144,100.455,0.000000,none,O(D^2) adapter + O(CD^2) statistics,final 512x512 adapter retained; old adapter can be pruned
+ENGINE,0.525312,5.253120,3.032,149.620737,1x unused full OpenCLIP (implementation artifact; prune),O(TD^2) adapters + O(CV + V^2) statistics,two adapters per task retained; unused BaseNet CLIP copy is prunable
+CLG-CBM,0.612000,0.612000,110.997,0.000000,none,O(pCD + pC^2) learned + O(CD^2) statistics,final concept classifier retained
+BOFA,0.400906,0.000000,70.457,0.000000,none,O(1) extra after fusion; state O(TV^2 + TVD + CV),fused projection replaces baseline projection; unused task heads pruned

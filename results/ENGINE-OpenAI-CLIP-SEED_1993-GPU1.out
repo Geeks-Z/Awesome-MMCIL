@@ -1,0 +1,59 @@
+==== START ENGINE OpenAI ViT-B/16: engine_aircraft_B0_Inc10.json, seed=1993, GPU=1 ====
+2026-07-29 23:18:24,455 [trainer.py] => prefix: -
+2026-07-29 23:18:24,469 [trainer.py] => dataset: aircraft
+2026-07-29 23:18:24,470 [trainer.py] => shuffle: True
+2026-07-29 23:18:24,470 [trainer.py] => init_cls: 10
+2026-07-29 23:18:24,470 [trainer.py] => increment: 10
+2026-07-29 23:18:24,470 [trainer.py] => model_name: engine
+2026-07-29 23:18:24,470 [trainer.py] => backbone_type: openai_clip
+2026-07-29 23:18:24,470 [trainer.py] => device: [device(type='cuda', index=1)]
+2026-07-29 23:18:24,470 [trainer.py] => seed: 1993
+2026-07-29 23:18:24,470 [trainer.py] => projection_type: pure_mlp
+2026-07-29 23:18:24,470 [trainer.py] => frozen_layers: visual
+2026-07-29 23:18:24,470 [trainer.py] => tuned_epoch: 10
+2026-07-29 23:18:24,470 [trainer.py] => init_lr: 0.05
+2026-07-29 23:18:24,470 [trainer.py] => batch_size: 64
+2026-07-29 23:18:24,470 [trainer.py] => weight_decay: 0.05
+2026-07-29 23:18:24,470 [trainer.py] => min_lr: 0
+2026-07-29 23:18:24,470 [trainer.py] => optimizer: sgd
+2026-07-29 23:18:24,470 [trainer.py] => text_des: 2
+2026-07-29 23:18:24,470 [trainer.py] => image_aug: 0
+2026-07-29 23:18:24,471 [trainer.py] => rerank: 0.2
+2026-07-29 23:18:24,471 [trainer.py] => stat: 0.99
+2026-07-29 23:18:24,471 [trainer.py] => sample_num: 0
+2026-07-29 23:18:24,471 [trainer.py] => sample_noise: 0.25
+2026-07-29 23:18:24,471 [trainer.py] => rerank_top: 5
+2026-07-29 23:18:24,471 [trainer.py] => clip_pretrained: /public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin
+2026-07-29 23:18:24,471 [trainer.py] => config: configs/engine/engine_aircraft_B0_Inc10.json
+['707-320', '727-200', '737-200', '737-300', '737-400', '737-500', '737-600', '737-700', '737-800', '737-900', '747-100', '747-200', '747-300', '747-400', '757-200', '757-300', '767-200', '767-300', '767-400', '777-200', '777-300', 'A300B4', 'A310', 'A318', 'A319', 'A320', 'A321', 'A330-200', 'A330-300', 'A340-200', 'A340-300', 'A340-500', 'A340-600', 'A380', 'ATR-42', 'ATR-72', 'An-12', 'BAE 146-200', 'BAE 146-300', 'BAE-125', 'Beechcraft 1900', 'Boeing 717', 'C-130', 'C-47', 'CRJ-200', 'CRJ-700', 'CRJ-900', 'Cessna 172', 'Cessna 208', 'Cessna 525', 'Cessna 560', 'Challenger 600', 'DC-10', 'DC-3', 'DC-6', 'DC-8', 'DC-9-30', 'DH-82', 'DHC-1', 'DHC-6', 'DHC-8-100', 'DHC-8-300', 'DR-400', 'Dornier 328', 'E-170', 'E-190', 'E-195', 'EMB-120', 'ERJ 135', 'ERJ 145', 'Embraer Legacy 600', 'Eurofighter Typhoon', 'F-16A/B', 'F/A-18', 'Falcon 2000', 'Falcon 900', 'Fokker 100', 'Fokker 50', 'Fokker 70', 'Global Express', 'Gulfstream IV', 'Gulfstream V', 'Hawk T1', 'Il-76', 'L-1011', 'MD-11', 'MD-80', 'MD-87', 'MD-90', 'Metroliner', 'Model B200', 'PA-28', 'SR-20', 'Saab 2000', 'Saab 340', 'Spitfire', 'Tornado', 'Tu-134', 'Tu-154', 'Yak-42']
+['a photo of a {}, a type of aircraft.', 'a photo of the {}, a type of aircraft.']
+{'707-320': 0, '727-200': 1, '737-200': 2, '737-300': 3, '737-400': 4, '737-500': 5, '737-600': 6, '737-700': 7, '737-800': 8, '737-900': 9, '747-100': 10, '747-200': 11, '747-300': 12, '747-400': 13, '757-200': 14, '757-300': 15, '767-200': 16, '767-300': 17, '767-400': 18, '777-200': 19, '777-300': 20, 'A300B4': 21, 'A310': 22, 'A318': 23, 'A319': 24, 'A320': 25, 'A321': 26, 'A330-200': 27, 'A330-300': 28, 'A340-200': 29, 'A340-300': 30, 'A340-500': 31, 'A340-600': 32, 'A380': 33, 'ATR-42': 34, 'ATR-72': 35, 'An-12': 36, 'BAE-125': 37, 'BAE-146-200': 38, 'BAE-146-300': 39, 'Beechcraft-1900': 40, 'Boeing-717': 41, 'C-130': 42, 'C-47': 43, 'CRJ-200': 44, 'CRJ-700': 45, 'CRJ-900': 46, 'Cessna-172': 47, 'Cessna-208': 48, 'Cessna-525': 49, 'Cessna-560': 50, 'Challenger-600': 51, 'DC-10': 52, 'DC-3': 53, 'DC-6': 54, 'DC-8': 55, 'DC-9-30': 56, 'DH-82': 57, 'DHC-1': 58, 'DHC-6': 59, 'DHC-8-100': 60, 'DHC-8-300': 61, 'DR-400': 62, 'Dornier-328': 63, 'E-170': 64, 'E-190': 65, 'E-195': 66, 'EMB-120': 67, 'ERJ-135': 68, 'ERJ-145': 69, 'Embraer-Legacy-600': 70, 'Eurofighter-Typhoon': 71, 'F': 72, 'F-16A': 73, 'Falcon-2000': 74, 'Falcon-900': 75, 'Fokker-100': 76, 'Fokker-50': 77, 'Fokker-70': 78, 'Global-Express': 79, 'Gulfstream-IV': 80, 'Gulfstream-V': 81, 'Hawk-T1': 82, 'Il-76': 83, 'L-1011': 84, 'MD-11': 85, 'MD-80': 86, 'MD-87': 87, 'MD-90': 88, 'Metroliner': 89, 'Model-B200': 90, 'PA-28': 91, 'SR-20': 92, 'Saab-2000': 93, 'Saab-340': 94, 'Spitfire': 95, 'Tornado': 96, 'Tu-134': 97, 'Tu-154': 98, 'Yak-42': 99}
+2026-07-29 23:18:25,065 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+After shuffle, class_to_label is:  ['ERJ 135', 'DC-9-30', 'Fokker 70', '737-800', 'A318', 'L-1011', 'Model B200', 'E-190', 'Falcon 2000', 'Fokker 100', 'Beechcraft 1900', 'Metroliner', '737-300', 'SR-20', 'DC-8', '737-900', 'A321', 'Gulfstream IV', 'C-47', 'BAE 146-300', 'DHC-1', 'Embraer Legacy 600', 'Fokker 50', '727-200', 'MD-11', '777-200', '767-300', 'Cessna 560', 'A330-300', 'DC-3', '747-400', 'Gulfstream V', 'CRJ-700', 'Hawk T1', '737-600', 'DHC-6', 'Il-76', '767-200', '757-300', 'CRJ-200', 'PA-28', 'Boeing 717', 'F-16A/B', 'DHC-8-100', 'Global Express', 'DC-10', '777-300', '747-100', 'A340-500', 'DC-6', 'BAE 146-200', 'Spitfire', '757-200', 'Eurofighter Typhoon', 'Tornado', 'Tu-154', 'Tu-134', '737-200', 'E-170', 'E-195', 'C-130', 'A310', 'ATR-72', 'MD-80', 'A319', 'ATR-42', 'MD-87', 'A300B4', 'Yak-42', '707-320', 'MD-90', 'A330-200', '767-400', 'Saab 340', '747-200', '747-300', 'Cessna 172', 'A320', 'A340-300', 'CRJ-900', 'DR-400', 'ERJ 145', 'An-12', 'DHC-8-300', '737-700', 'Dornier 328', 'Falcon 900', '737-500', 'A340-600', '737-400', 'Challenger 600', 'Cessna 208', 'F/A-18', 'Saab 2000', 'BAE-125', 'EMB-120', 'A340-200', 'Cessna 525', 'DH-82', 'A380']
+Training class stages: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Using CLIP model as the backbone
+2026-07-29 23:18:42,369 [instantiator.py] => Created a temporary directory at /public/home/hanlida/tmp/tmp3x9wjn5s
+2026-07-29 23:18:42,371 [instantiator.py] => Writing /public/home/hanlida/tmp/tmp3x9wjn5s/_remote_module_non_scriptable.py
+2026-07-29 23:18:44,127 [factory.py] => Loaded ViT-B-16 model config.
+2026-07-29 23:18:45,708 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Using CLIP model as the backbone
+2026-07-29 23:18:49,760 [factory.py] => Loaded ViT-B-16 model config.
+2026-07-29 23:18:51,050 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+Traceback (most recent call last):
+  File "/public/home/hanlida/Dr.1/Code/Research/Awesome-MMCL/scripts/run_engine_openai.py", line 48, in <module>
+    main()
+  File "/public/home/hanlida/Dr.1/Code/Research/Awesome-MMCL/scripts/run_engine_openai.py", line 44, in main
+    train(params)
+  File "/public/home/hanlida/Dr.1/Code/Research/Awesome-MMCL/trainer.py", line 34, in train
+    _train(args)
+  File "/public/home/hanlida/Dr.1/Code/Research/Awesome-MMCL/trainer.py", line 78, in _train
+    model = factory.get_model(args["model_name"], args)
+  File "/public/home/hanlida/Dr.1/Code/Research/Awesome-MMCL/utils/factory.py", line 50, in get_model
+    return Learner(args)
+  File "/public/home/hanlida/Dr.1/Code/Research/Awesome-MMCL/models/engine.py", line 43, in __init__
+    self.new_des_dict = self._get_text_des(self.args['dataset'])
+  File "/public/home/hanlida/Dr.1/Code/Research/Awesome-MMCL/models/engine.py", line 50, in _get_text_des
+    with open(des_path, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: './utils/engine/chat/aircraft_des.json'

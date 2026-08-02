@@ -1,0 +1,19 @@
+method,dataset,gpu,train_batch,train_schedule,train_seconds,train_minutes,train_peak_MiB,infer_batch,infer_median_seconds,infer_min_max_seconds,images_per_second,infer_peak_MiB
+ZS-CLIP,cars,cuda:2,48,no optimizer,0.276,0.00,582.2,64,11.529,11.368-11.655,354.15,1062.5
+ZS-CLIP,aircraft,cuda:2,48,no optimizer,0.195,0.00,582.2,64,10.739,9.863-10.995,310.37,1062.5
+L2P,cars,cuda:0,16,10 epochs/task,436.598,7.28,2920.7,64,21.949,21.944-22.043,186.02,1428.1
+L2P,aircraft,cuda:1,16,10 epochs/task,696.769,11.61,2921.4,64,18.829,18.791-18.830,177.01,1428.1
+DualPrompt,cars,cuda:2,64,10 epochs/task,387.831,6.46,7114.8,64,20.686,20.529-20.694,197.38,1277.6
+DualPrompt,aircraft,cuda:2,64,10 epochs/task,627.247,10.45,7114.8,64,17.685,17.645-17.694,188.46,1277.6
+CODA-Prompt,cars,cuda:2,128,10 epochs/task,468.213,7.80,15902.9,64,21.916,21.765-22.120,186.31,993.5
+CODA-Prompt,aircraft,cuda:0,128,10 epochs/task,754.962,12.58,15902.9,64,18.394,18.355-18.406,181.20,993.3
+SimpleCIL,cars,cuda:0,48,prototype estimation,22.206,0.37,942.7,64,10.934,10.807-11.184,373.43,1062.1
+SimpleCIL,aircraft,cuda:1,48,prototype estimation,43.589,0.73,942.7,64,11.537,9.884-13.966,288.90,1062.1
+RAPF,cars,cuda:1,128,10 epochs/task,277.356,4.62,7345.1,64,13.889,13.749-13.970,293.96,4676.1
+RAPF,aircraft,cuda:0,128,10 epochs/task,465.906,7.77,7345.1,64,11.609,11.588-11.796,287.10,4676.1
+ENGINE,cars,cuda:0,64,10 epochs/task,439.962,7.33,1137.8,64,144.759,144.394-145.195,28.21,2963.5
+ENGINE,aircraft,cuda:1,64,10 epochs/task,538.566,8.98,1100.1,64,119.440,119.003-119.535,27.91,2963.5
+CLG-CBM,cars,cuda:0,48,60 epochs/task with model selection,1650.128,27.50,1074.6,64,11.091,10.977-11.146,368.14,1184.6
+CLG-CBM,aircraft,cuda:1,48,60 epochs/task with model selection,1929.473,32.16,1074.6,64,9.824,9.633-11.244,339.27,1184.6
+BOFA,cars,cuda:2,128,15 stage-1 + 2 stage-2 epochs/task,446.486,7.44,1773.9,64,20.282,20.231-20.312,201.31,1152.6
+BOFA,aircraft,cuda:2,128,15 stage-1 + 2 stage-2 epochs/task,717.540,11.96,1921.3,64,17.039,16.902-17.128,195.61,1150.8

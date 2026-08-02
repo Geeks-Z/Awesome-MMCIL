@@ -1,0 +1,745 @@
+==== START zs_clip OpenAI ViT-B/16: zs_clip_ucf_B0_Inc10.json, seed=1993, GPU=2 ====
+2026-08-02 11:49:16,662 [trainer.py] => prefix: -
+2026-08-02 11:49:16,663 [trainer.py] => dataset: ucf101
+2026-08-02 11:49:16,663 [trainer.py] => memory_size: 0
+2026-08-02 11:49:16,663 [trainer.py] => memory_per_class: 0
+2026-08-02 11:49:16,663 [trainer.py] => fixed_memory: False
+2026-08-02 11:49:16,663 [trainer.py] => shuffle: True
+2026-08-02 11:49:16,663 [trainer.py] => init_cls: 10
+2026-08-02 11:49:16,663 [trainer.py] => increment: 10
+2026-08-02 11:49:16,664 [trainer.py] => model_name: zs_clip
+2026-08-02 11:49:16,664 [trainer.py] => backbone_type: openai_clip
+2026-08-02 11:49:16,664 [trainer.py] => device: [device(type='cuda', index=2)]
+2026-08-02 11:49:16,664 [trainer.py] => seed: 1993
+2026-08-02 11:49:16,664 [trainer.py] => total_class_num: 100
+2026-08-02 11:49:16,664 [trainer.py] => clip_pretrained: /public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin
+2026-08-02 11:49:16,664 [trainer.py] => config: configs/zs_clip/zs_clip_ucf_B0_Inc10.json
+['Apply Eye Makeup', 'Apply Lipstick', 'Archery', 'Baby Crawling', 'Balance Beam', 'Band Marching', 'Baseball Pitch', 'Basketball', 'Basketball Dunk', 'Bench Press', 'Biking', 'Billiards', 'Blow Dry Hair', 'Blowing Candles', 'Body Weight Squats', 'Bowling', 'Boxing Punching Bag', 'Boxing Speed Bag', 'Breast Stroke', 'Brushing Teeth', 'Clean And Jerk', 'Cliff Diving', 'Cricket Bowling', 'Cricket Shot', 'Cutting In Kitchen', 'Diving', 'Drumming', 'Fencing', 'Field Hockey Penalty', 'Floor Gymnastics', 'Frisbee Catch', 'Front Crawl', 'Golf Swing', 'Haircut', 'Hammer Throw', 'Hammering', 'Hand Stand Pushups', 'Handstand Walking', 'Head Massage', 'High Jump', 'Horse Race', 'Horse Riding', 'Hula Hoop', 'Ice Dancing', 'Javelin Throw', 'Juggling Balls', 'Jump Rope', 'Jumping Jack', 'Kayaking', 'Knitting', 'Long Jump', 'Lunges', 'Military Parade', 'Mixing', 'Mopping Floor', 'Nunchucks', 'Parallel Bars', 'Pizza Tossing', 'Playing Cello', 'Playing Daf', 'Playing Dhol', 'Playing Flute', 'Playing Guitar', 'Playing Piano', 'Playing Sitar', 'Playing Tabla', 'Playing Violin', 'Pole Vault', 'Pommel Horse', 'Pull Ups', 'Punch', 'Push Ups', 'Rafting', 'Rock Climbing Indoor', 'Rope Climbing', 'Rowing', 'Salsa Spin', 'Shaving Beard', 'Shotput', 'Skate Boarding', 'Skiing', 'Skijet', 'Sky Diving', 'Soccer Juggling', 'Soccer Penalty', 'Still Rings', 'Sumo Wrestling', 'Surfing', 'Swing', 'Table Tennis Shot', 'Tai Chi', 'Tennis Swing', 'Throw Discus', 'Trampoline Jumping', 'Typing', 'Uneven Bars', 'Volleyball Spiking', 'Walking With Dog', 'Wall Pushups', 'Writing On Board']
+['a photo of a person {}.', 'a video of a person {}.', 'a example of a person {}.', 'a demonstration of a person {}.', 'a photo of the person {}.', 'a video of the person {}.', 'a example of the person {}.', 'a demonstration of the person {}.', 'a photo of a person using {}.', 'a video of a person using {}.', 'a example of a person using {}.', 'a demonstration of a person using {}.', 'a photo of the person using {}.', 'a video of the person using {}.', 'a example of the person using {}.', 'a demonstration of the person using {}.', 'a photo of a person doing {}.', 'a video of a person doing {}.', 'a example of a person doing {}.', 'a demonstration of a person doing {}.', 'a photo of the person doing {}.', 'a video of the person doing {}.', 'a example of the person doing {}.', 'a demonstration of the person doing {}.', 'a photo of a person during {}.', 'a video of a person during {}.', 'a example of a person during {}.', 'a demonstration of a person during {}.', 'a photo of the person during {}.', 'a video of the person during {}.', 'a example of the person during {}.', 'a demonstration of the person during {}.', 'a photo of a person performing {}.', 'a video of a person performing {}.', 'a example of a person performing {}.', 'a demonstration of a person performing {}.', 'a photo of the person performing {}.', 'a video of the person performing {}.', 'a example of the person performing {}.', 'a demonstration of the person performing {}.', 'a photo of a person practicing {}.', 'a video of a person practicing {}.', 'a example of a person practicing {}.', 'a demonstration of a person practicing {}.', 'a photo of the person practicing {}.', 'a video of the person practicing {}.', 'a example of the person practicing {}.', 'a demonstration of the person practicing {}.']
+{'Apply_Eye_Makeup': 0, 'Apply_Lipstick': 1, 'Archery': 2, 'Baby_Crawling': 3, 'Balance_Beam': 4, 'Band_Marching': 5, 'Baseball_Pitch': 6, 'Basketball': 7, 'Basketball_Dunk': 8, 'Bench_Press': 9, 'Biking': 10, 'Billiards': 11, 'Blow_Dry_Hair': 12, 'Blowing_Candles': 13, 'Body_Weight_Squats': 14, 'Bowling': 15, 'Boxing_Punching_Bag': 16, 'Boxing_Speed_Bag': 17, 'Breast_Stroke': 18, 'Brushing_Teeth': 19, 'Clean_And_Jerk': 20, 'Cliff_Diving': 21, 'Cricket_Bowling': 22, 'Cricket_Shot': 23, 'Cutting_In_Kitchen': 24, 'Diving': 25, 'Drumming': 26, 'Fencing': 27, 'Field_Hockey_Penalty': 28, 'Floor_Gymnastics': 29, 'Frisbee_Catch': 30, 'Front_Crawl': 31, 'Golf_Swing': 32, 'Haircut': 33, 'Hammer_Throw': 34, 'Hammering': 35, 'Handstand_Pushups': 36, 'Handstand_Walking': 37, 'Head_Massage': 38, 'High_Jump': 39, 'Horse_Race': 40, 'Horse_Riding': 41, 'Hula_Hoop': 42, 'Ice_Dancing': 43, 'Javelin_Throw': 44, 'Juggling_Balls': 45, 'Jump_Rope': 46, 'Jumping_Jack': 47, 'Kayaking': 48, 'Knitting': 49, 'Long_Jump': 50, 'Lunges': 51, 'Military_Parade': 52, 'Mixing': 53, 'Mopping_Floor': 54, 'Nunchucks': 55, 'Parallel_Bars': 56, 'Pizza_Tossing': 57, 'Playing_Cello': 58, 'Playing_Daf': 59, 'Playing_Dhol': 60, 'Playing_Flute': 61, 'Playing_Guitar': 62, 'Playing_Piano': 63, 'Playing_Sitar': 64, 'Playing_Tabla': 65, 'Playing_Violin': 66, 'Pole_Vault': 67, 'Pommel_Horse': 68, 'Pull_Ups': 69, 'Punch': 70, 'Push_Ups': 71, 'Rafting': 72, 'Rock_Climbing_Indoor': 73, 'Rope_Climbing': 74, 'Rowing': 75, 'Salsa_Spin': 76, 'Shaving_Beard': 77, 'Shotput': 78, 'Skate_Boarding': 79, 'Skiing': 80, 'Skijet': 81, 'Sky_Diving': 82, 'Soccer_Juggling': 83, 'Soccer_Penalty': 84, 'Still_Rings': 85, 'Sumo_Wrestling': 86, 'Surfing': 87, 'Swing': 88, 'Table_Tennis_Shot': 89, 'Tai_Chi': 90, 'Tennis_Swing': 91, 'Throw_Discus': 92, 'Trampoline_Jumping': 93, 'Typing': 94, 'Uneven_Bars': 95, 'Volleyball_Spiking': 96, 'Walking_With_Dog': 97, 'Wall_Pushups': 98, 'Writing_On_Board': 99}
+2026-08-02 11:49:17,564 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+After shuffle, class_to_label is:  ['Pommel Horse', 'Parallel Bars', 'Shotput', 'Basketball Dunk', 'Cricket Shot', 'Soccer Penalty', 'Tai Chi', 'Playing Tabla', 'Rope Climbing', 'Salsa Spin', 'Horse Race', 'Table Tennis Shot', 'Baby Crawling', 'Throw Discus', 'Nunchucks', 'Bench Press', 'Drumming', 'Skiing', 'Ice Dancing', 'Head Massage', 'Playing Cello', 'Punch', 'Shaving Beard', 'Apply Lipstick', 'Still Rings', 'Brushing Teeth', 'Boxing Speed Bag', 'Long Jump', 'Field Hockey Penalty', 'Mixing', 'Blowing Candles', 'Skijet', 'Juggling Balls', 'Sky Diving', 'Baseball Pitch', 'Playing Daf', 'Soccer Juggling', 'Boxing Punching Bag', 'Bowling', 'Javelin Throw', 'Tennis Swing', 'Horse Riding', 'Rafting', 'Playing Dhol', 'Skate Boarding', 'Military Parade', 'Clean And Jerk', 'Biking', 'Front Crawl', 'Mopping Floor', 'Handstand Walking', 'Uneven Bars', 'Body Weight Squats', 'Push Ups', 'Volleyball Spiking', 'Wall Pushups', 'Walking With Dog', 'Archery', 'Playing Sitar', 'Playing Violin', 'Hula Hoop', 'Cricket Bowling', 'Hammering', 'Sumo Wrestling', 'Cutting In Kitchen', 'Hammer Throw', 'Surfing', 'Cliff Diving', 'Writing On Board', 'Apply Eye Makeup', 'Swing', 'Fencing', 'Breast Stroke', 'Typing', 'Billiards', 'Blow Dry Hair', 'Jumping Jack', 'Diving', 'Frisbee Catch', 'Jump Rope', 'Playing Guitar', 'Pull Ups', 'Hand Stand Pushups', 'Playing Flute', 'Basketball', 'Playing Piano', 'Rowing', 'Band Marching', 'Golf Swing', 'Balance Beam', 'Lunges', 'Kayaking', 'Rock Climbing Indoor', 'Trampoline Jumping', 'High Jump', 'Pole Vault', 'Floor Gymnastics', 'Knitting', 'Pizza Tossing', 'Haircut']
+Training class stages: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Using CLIP model as the backbone
+2026-08-02 11:49:31,295 [instantiator.py] => Created a temporary directory at /public/home/hanlida/tmp/tmpqk04na13
+2026-08-02 11:49:31,298 [instantiator.py] => Writing /public/home/hanlida/tmp/tmpqk04na13/_remote_module_non_scriptable.py
+2026-08-02 11:49:33,214 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 11:49:34,664 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Using CLIP model as the backbone
+2026-08-02 11:49:39,914 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 11:49:41,103 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+batch_size not in args, set to 48  as default
+init_lr not in args, set to 0.01  as default
+weight_decay not in args, set to 0.0005  as default
+min_lr not in args, set to 1e-08  as default
+2026-08-02 11:49:46,597 [zs_clip.py] => Learning on 0-10
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/nn/modules/activation.py:1160: UserWarning: Converting mask without torch.bool dtype to bool; this will negatively affect performance. Prefer to use a boolean mask directly. (Triggered internally at ../aten/src/ATen/native/transformers/attention.cpp:150.)
+  return torch._native_multi_head_attention(
+2026-08-02 11:49:52,450 [trainer.py] => CNN: {'total': 85.38, '00-09': 85.38, 'old': 0, 'new': 85.38, 'harmonic': 0.0}
+2026-08-02 11:49:52,451 [trainer.py] => CNN top1 curve: [85.38]
+2026-08-02 11:49:52,451 [trainer.py] => CNN top5 curve: [98.81]
+2026-08-02 11:49:52,451 [trainer.py] => CNN top10 curve: [100.0]
+2026-08-02 11:49:52,451 [trainer.py] => Average Accuracy (CNN top1): 85.38
+2026-08-02 11:49:52,457 [zs_clip.py] => Learning on 10-20
+2026-08-02 11:49:56,369 [trainer.py] => CNN: {'total': 82.65, '00-09': 72.73, '10-19': 92.31, 'old': 72.73, 'new': 92.31, 'harmonic': 81.36}
+2026-08-02 11:49:56,370 [trainer.py] => CNN top1 curve: [85.38, 82.65]
+2026-08-02 11:49:56,370 [trainer.py] => CNN top5 curve: [98.81, 97.66]
+2026-08-02 11:49:56,370 [trainer.py] => CNN top10 curve: [100.0, 99.81]
+2026-08-02 11:49:56,371 [trainer.py] => Average Accuracy (CNN top1): 84.015
+2026-08-02 11:49:56,376 [zs_clip.py] => Learning on 20-30
+2026-08-02 11:50:02,704 [trainer.py] => CNN: {'total': 77.92, '00-09': 71.54, '10-19': 90.0, '20-29': 72.36, 'old': 80.9, 'new': 72.36, 'harmonic': 76.39}
+2026-08-02 11:50:02,704 [trainer.py] => CNN top1 curve: [85.38, 82.65, 77.92]
+2026-08-02 11:50:02,704 [trainer.py] => CNN top5 curve: [98.81, 97.66, 94.92]
+2026-08-02 11:50:02,704 [trainer.py] => CNN top10 curve: [100.0, 99.81, 98.1]
+2026-08-02 11:50:02,704 [trainer.py] => Average Accuracy (CNN top1): 81.98333333333333
+2026-08-02 11:50:02,750 [zs_clip.py] => Learning on 30-40
+2026-08-02 11:50:10,369 [trainer.py] => CNN: {'total': 74.64, '00-09': 71.54, '10-19': 87.31, '20-29': 64.0, '30-39': 76.31, 'old': 74.11, 'new': 76.31, 'harmonic': 75.19}
+2026-08-02 11:50:10,370 [trainer.py] => CNN top1 curve: [85.38, 82.65, 77.92, 74.64]
+2026-08-02 11:50:10,370 [trainer.py] => CNN top5 curve: [98.81, 97.66, 94.92, 92.38]
+2026-08-02 11:50:10,370 [trainer.py] => CNN top10 curve: [100.0, 99.81, 98.1, 96.82]
+2026-08-02 11:50:10,370 [trainer.py] => Average Accuracy (CNN top1): 80.1475
+2026-08-02 11:50:10,373 [zs_clip.py] => Learning on 40-50
+2026-08-02 11:50:20,235 [trainer.py] => CNN: {'total': 77.88, '00-09': 68.77, '10-19': 87.31, '20-29': 63.64, '30-39': 75.5, '40-49': 93.8, 'old': 73.67, 'new': 93.8, 'harmonic': 82.53}
+2026-08-02 11:50:20,235 [trainer.py] => CNN top1 curve: [85.38, 82.65, 77.92, 74.64, 77.88]
+2026-08-02 11:50:20,236 [trainer.py] => CNN top5 curve: [98.81, 97.66, 94.92, 92.38, 92.52]
+2026-08-02 11:50:20,236 [trainer.py] => CNN top10 curve: [100.0, 99.81, 98.1, 96.82, 97.1]
+2026-08-02 11:50:20,236 [trainer.py] => Average Accuracy (CNN top1): 79.69399999999999
+2026-08-02 11:50:20,237 [zs_clip.py] => Learning on 50-60
+2026-08-02 11:50:32,363 [trainer.py] => CNN: {'total': 76.22, '00-09': 61.26, '10-19': 86.54, '20-29': 63.27, '30-39': 75.1, '40-49': 93.8, '50-59': 76.76, 'old': 76.13, 'new': 76.76, 'harmonic': 76.44}
+2026-08-02 11:50:32,364 [trainer.py] => CNN top1 curve: [85.38, 82.65, 77.92, 74.64, 77.88, 76.22]
+2026-08-02 11:50:32,364 [trainer.py] => CNN top5 curve: [98.81, 97.66, 94.92, 92.38, 92.52, 91.88]
+2026-08-02 11:50:32,364 [trainer.py] => CNN top10 curve: [100.0, 99.81, 98.1, 96.82, 97.1, 95.94]
+2026-08-02 11:50:32,364 [trainer.py] => Average Accuracy (CNN top1): 79.115
+2026-08-02 11:50:32,391 [zs_clip.py] => Learning on 60-70
+2026-08-02 11:50:45,151 [trainer.py] => CNN: {'total': 73.33, '00-09': 54.94, '10-19': 84.23, '20-29': 54.55, '30-39': 71.49, '40-49': 93.43, '50-59': 75.1, '60-69': 78.83, 'old': 72.36, 'new': 78.83, 'harmonic': 75.46}
+2026-08-02 11:50:45,162 [trainer.py] => CNN top1 curve: [85.38, 82.65, 77.92, 74.64, 77.88, 76.22, 73.33]
+2026-08-02 11:50:45,162 [trainer.py] => CNN top5 curve: [98.81, 97.66, 94.92, 92.38, 92.52, 91.88, 91.79]
+2026-08-02 11:50:45,162 [trainer.py] => CNN top10 curve: [100.0, 99.81, 98.1, 96.82, 97.1, 95.94, 95.67]
+2026-08-02 11:50:45,162 [trainer.py] => Average Accuracy (CNN top1): 78.28857142857143
+2026-08-02 11:50:45,195 [zs_clip.py] => Learning on 70-80
+2026-08-02 11:51:00,507 [trainer.py] => CNN: {'total': 71.38, '00-09': 54.55, '10-19': 83.08, '20-29': 54.55, '30-39': 69.88, '40-49': 85.77, '50-59': 75.1, '60-69': 77.74, '70-79': 70.0, 'old': 71.58, 'new': 70.0, 'harmonic': 70.78}
+2026-08-02 11:51:00,521 [trainer.py] => CNN top1 curve: [85.38, 82.65, 77.92, 74.64, 77.88, 76.22, 73.33, 71.38]
+2026-08-02 11:51:00,521 [trainer.py] => CNN top5 curve: [98.81, 97.66, 94.92, 92.38, 92.52, 91.88, 91.79, 90.94]
+2026-08-02 11:51:00,521 [trainer.py] => CNN top10 curve: [100.0, 99.81, 98.1, 96.82, 97.1, 95.94, 95.67, 95.06]
+2026-08-02 11:51:00,522 [trainer.py] => Average Accuracy (CNN top1): 77.425
+2026-08-02 11:51:00,544 [zs_clip.py] => Learning on 80-90
+2026-08-02 11:51:18,195 [trainer.py] => CNN: {'total': 70.07, '00-09': 45.85, '10-19': 82.31, '20-29': 54.18, '30-39': 69.48, '40-49': 85.4, '50-59': 68.88, '60-69': 77.01, '70-79': 68.85, '80-89': 76.69, 'old': 69.13, 'new': 76.69, 'harmonic': 72.71}
+2026-08-02 11:51:18,197 [trainer.py] => CNN top1 curve: [85.38, 82.65, 77.92, 74.64, 77.88, 76.22, 73.33, 71.38, 70.07]
+2026-08-02 11:51:18,197 [trainer.py] => CNN top5 curve: [98.81, 97.66, 94.92, 92.38, 92.52, 91.88, 91.79, 90.94, 91.18]
+2026-08-02 11:51:18,197 [trainer.py] => CNN top10 curve: [100.0, 99.81, 98.1, 96.82, 97.1, 95.94, 95.67, 95.06, 95.42]
+2026-08-02 11:51:18,197 [trainer.py] => Average Accuracy (CNN top1): 76.60777777777778
+2026-08-02 11:51:18,199 [zs_clip.py] => Learning on 90-100
+2026-08-02 11:51:38,029 [trainer.py] => CNN: {'total': 66.28, '00-09': 44.27, '10-19': 75.0, '20-29': 52.0, '30-39': 67.87, '40-49': 84.67, '50-59': 63.9, '60-69': 76.28, '70-79': 66.92, '80-89': 75.0, '90-99': 54.09, 'old': 67.59, 'new': 54.09, 'harmonic': 60.09}
+2026-08-02 11:51:38,039 [trainer.py] => CNN top1 curve: [85.38, 82.65, 77.92, 74.64, 77.88, 76.22, 73.33, 71.38, 70.07, 66.28]
+2026-08-02 11:51:38,039 [trainer.py] => CNN top5 curve: [98.81, 97.66, 94.92, 92.38, 92.52, 91.88, 91.79, 90.94, 91.18, 89.77]
+2026-08-02 11:51:38,039 [trainer.py] => CNN top10 curve: [100.0, 99.81, 98.1, 96.82, 97.1, 95.94, 95.67, 95.06, 95.42, 94.69]
+2026-08-02 11:51:38,039 [trainer.py] => Average Accuracy (CNN top1): 75.575
+
+========================================
+Finished ucf101_init10_inc10 seed=1993
+Backbone: OpenAI CLIP
+Average Accuracy (Top1): 75.58
+Last Accuracy: 66.28
+Average Accuracy (Top5): 93.18
+Last Top5: 89.77
+Average Accuracy (Top10): 96.86
+Last Top10: 94.69
+========================================
+
+==== FINISHED zs_clip OpenAI ViT-B/16: zs_clip_ucf_B0_Inc10.json, seed=1993, GPU=2 ====
+==== START zs_clip OpenAI ViT-B/16: zs_clip_ucf_B50_Inc10.json, seed=1993, GPU=2 ====
+2026-08-02 11:52:08,054 [trainer.py] => prefix: -
+2026-08-02 11:52:08,055 [trainer.py] => dataset: ucf101
+2026-08-02 11:52:08,055 [trainer.py] => memory_size: 0
+2026-08-02 11:52:08,055 [trainer.py] => memory_per_class: 0
+2026-08-02 11:52:08,055 [trainer.py] => fixed_memory: False
+2026-08-02 11:52:08,055 [trainer.py] => shuffle: True
+2026-08-02 11:52:08,055 [trainer.py] => init_cls: 50
+2026-08-02 11:52:08,055 [trainer.py] => increment: 10
+2026-08-02 11:52:08,055 [trainer.py] => model_name: zs_clip
+2026-08-02 11:52:08,055 [trainer.py] => backbone_type: openai_clip
+2026-08-02 11:52:08,055 [trainer.py] => device: [device(type='cuda', index=2)]
+2026-08-02 11:52:08,055 [trainer.py] => seed: 1993
+2026-08-02 11:52:08,055 [trainer.py] => total_class_num: 100
+2026-08-02 11:52:08,055 [trainer.py] => clip_pretrained: /public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin
+2026-08-02 11:52:08,055 [trainer.py] => config: configs/zs_clip/zs_clip_ucf_B50_Inc10.json
+['Apply Eye Makeup', 'Apply Lipstick', 'Archery', 'Baby Crawling', 'Balance Beam', 'Band Marching', 'Baseball Pitch', 'Basketball', 'Basketball Dunk', 'Bench Press', 'Biking', 'Billiards', 'Blow Dry Hair', 'Blowing Candles', 'Body Weight Squats', 'Bowling', 'Boxing Punching Bag', 'Boxing Speed Bag', 'Breast Stroke', 'Brushing Teeth', 'Clean And Jerk', 'Cliff Diving', 'Cricket Bowling', 'Cricket Shot', 'Cutting In Kitchen', 'Diving', 'Drumming', 'Fencing', 'Field Hockey Penalty', 'Floor Gymnastics', 'Frisbee Catch', 'Front Crawl', 'Golf Swing', 'Haircut', 'Hammer Throw', 'Hammering', 'Hand Stand Pushups', 'Handstand Walking', 'Head Massage', 'High Jump', 'Horse Race', 'Horse Riding', 'Hula Hoop', 'Ice Dancing', 'Javelin Throw', 'Juggling Balls', 'Jump Rope', 'Jumping Jack', 'Kayaking', 'Knitting', 'Long Jump', 'Lunges', 'Military Parade', 'Mixing', 'Mopping Floor', 'Nunchucks', 'Parallel Bars', 'Pizza Tossing', 'Playing Cello', 'Playing Daf', 'Playing Dhol', 'Playing Flute', 'Playing Guitar', 'Playing Piano', 'Playing Sitar', 'Playing Tabla', 'Playing Violin', 'Pole Vault', 'Pommel Horse', 'Pull Ups', 'Punch', 'Push Ups', 'Rafting', 'Rock Climbing Indoor', 'Rope Climbing', 'Rowing', 'Salsa Spin', 'Shaving Beard', 'Shotput', 'Skate Boarding', 'Skiing', 'Skijet', 'Sky Diving', 'Soccer Juggling', 'Soccer Penalty', 'Still Rings', 'Sumo Wrestling', 'Surfing', 'Swing', 'Table Tennis Shot', 'Tai Chi', 'Tennis Swing', 'Throw Discus', 'Trampoline Jumping', 'Typing', 'Uneven Bars', 'Volleyball Spiking', 'Walking With Dog', 'Wall Pushups', 'Writing On Board']
+['a photo of a person {}.', 'a video of a person {}.', 'a example of a person {}.', 'a demonstration of a person {}.', 'a photo of the person {}.', 'a video of the person {}.', 'a example of the person {}.', 'a demonstration of the person {}.', 'a photo of a person using {}.', 'a video of a person using {}.', 'a example of a person using {}.', 'a demonstration of a person using {}.', 'a photo of the person using {}.', 'a video of the person using {}.', 'a example of the person using {}.', 'a demonstration of the person using {}.', 'a photo of a person doing {}.', 'a video of a person doing {}.', 'a example of a person doing {}.', 'a demonstration of a person doing {}.', 'a photo of the person doing {}.', 'a video of the person doing {}.', 'a example of the person doing {}.', 'a demonstration of the person doing {}.', 'a photo of a person during {}.', 'a video of a person during {}.', 'a example of a person during {}.', 'a demonstration of a person during {}.', 'a photo of the person during {}.', 'a video of the person during {}.', 'a example of the person during {}.', 'a demonstration of the person during {}.', 'a photo of a person performing {}.', 'a video of a person performing {}.', 'a example of a person performing {}.', 'a demonstration of a person performing {}.', 'a photo of the person performing {}.', 'a video of the person performing {}.', 'a example of the person performing {}.', 'a demonstration of the person performing {}.', 'a photo of a person practicing {}.', 'a video of a person practicing {}.', 'a example of a person practicing {}.', 'a demonstration of a person practicing {}.', 'a photo of the person practicing {}.', 'a video of the person practicing {}.', 'a example of the person practicing {}.', 'a demonstration of the person practicing {}.']
+{'Apply_Eye_Makeup': 0, 'Apply_Lipstick': 1, 'Archery': 2, 'Baby_Crawling': 3, 'Balance_Beam': 4, 'Band_Marching': 5, 'Baseball_Pitch': 6, 'Basketball': 7, 'Basketball_Dunk': 8, 'Bench_Press': 9, 'Biking': 10, 'Billiards': 11, 'Blow_Dry_Hair': 12, 'Blowing_Candles': 13, 'Body_Weight_Squats': 14, 'Bowling': 15, 'Boxing_Punching_Bag': 16, 'Boxing_Speed_Bag': 17, 'Breast_Stroke': 18, 'Brushing_Teeth': 19, 'Clean_And_Jerk': 20, 'Cliff_Diving': 21, 'Cricket_Bowling': 22, 'Cricket_Shot': 23, 'Cutting_In_Kitchen': 24, 'Diving': 25, 'Drumming': 26, 'Fencing': 27, 'Field_Hockey_Penalty': 28, 'Floor_Gymnastics': 29, 'Frisbee_Catch': 30, 'Front_Crawl': 31, 'Golf_Swing': 32, 'Haircut': 33, 'Hammer_Throw': 34, 'Hammering': 35, 'Handstand_Pushups': 36, 'Handstand_Walking': 37, 'Head_Massage': 38, 'High_Jump': 39, 'Horse_Race': 40, 'Horse_Riding': 41, 'Hula_Hoop': 42, 'Ice_Dancing': 43, 'Javelin_Throw': 44, 'Juggling_Balls': 45, 'Jump_Rope': 46, 'Jumping_Jack': 47, 'Kayaking': 48, 'Knitting': 49, 'Long_Jump': 50, 'Lunges': 51, 'Military_Parade': 52, 'Mixing': 53, 'Mopping_Floor': 54, 'Nunchucks': 55, 'Parallel_Bars': 56, 'Pizza_Tossing': 57, 'Playing_Cello': 58, 'Playing_Daf': 59, 'Playing_Dhol': 60, 'Playing_Flute': 61, 'Playing_Guitar': 62, 'Playing_Piano': 63, 'Playing_Sitar': 64, 'Playing_Tabla': 65, 'Playing_Violin': 66, 'Pole_Vault': 67, 'Pommel_Horse': 68, 'Pull_Ups': 69, 'Punch': 70, 'Push_Ups': 71, 'Rafting': 72, 'Rock_Climbing_Indoor': 73, 'Rope_Climbing': 74, 'Rowing': 75, 'Salsa_Spin': 76, 'Shaving_Beard': 77, 'Shotput': 78, 'Skate_Boarding': 79, 'Skiing': 80, 'Skijet': 81, 'Sky_Diving': 82, 'Soccer_Juggling': 83, 'Soccer_Penalty': 84, 'Still_Rings': 85, 'Sumo_Wrestling': 86, 'Surfing': 87, 'Swing': 88, 'Table_Tennis_Shot': 89, 'Tai_Chi': 90, 'Tennis_Swing': 91, 'Throw_Discus': 92, 'Trampoline_Jumping': 93, 'Typing': 94, 'Uneven_Bars': 95, 'Volleyball_Spiking': 96, 'Walking_With_Dog': 97, 'Wall_Pushups': 98, 'Writing_On_Board': 99}
+2026-08-02 11:52:08,500 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+After shuffle, class_to_label is:  ['Pommel Horse', 'Parallel Bars', 'Shotput', 'Basketball Dunk', 'Cricket Shot', 'Soccer Penalty', 'Tai Chi', 'Playing Tabla', 'Rope Climbing', 'Salsa Spin', 'Horse Race', 'Table Tennis Shot', 'Baby Crawling', 'Throw Discus', 'Nunchucks', 'Bench Press', 'Drumming', 'Skiing', 'Ice Dancing', 'Head Massage', 'Playing Cello', 'Punch', 'Shaving Beard', 'Apply Lipstick', 'Still Rings', 'Brushing Teeth', 'Boxing Speed Bag', 'Long Jump', 'Field Hockey Penalty', 'Mixing', 'Blowing Candles', 'Skijet', 'Juggling Balls', 'Sky Diving', 'Baseball Pitch', 'Playing Daf', 'Soccer Juggling', 'Boxing Punching Bag', 'Bowling', 'Javelin Throw', 'Tennis Swing', 'Horse Riding', 'Rafting', 'Playing Dhol', 'Skate Boarding', 'Military Parade', 'Clean And Jerk', 'Biking', 'Front Crawl', 'Mopping Floor', 'Handstand Walking', 'Uneven Bars', 'Body Weight Squats', 'Push Ups', 'Volleyball Spiking', 'Wall Pushups', 'Walking With Dog', 'Archery', 'Playing Sitar', 'Playing Violin', 'Hula Hoop', 'Cricket Bowling', 'Hammering', 'Sumo Wrestling', 'Cutting In Kitchen', 'Hammer Throw', 'Surfing', 'Cliff Diving', 'Writing On Board', 'Apply Eye Makeup', 'Swing', 'Fencing', 'Breast Stroke', 'Typing', 'Billiards', 'Blow Dry Hair', 'Jumping Jack', 'Diving', 'Frisbee Catch', 'Jump Rope', 'Playing Guitar', 'Pull Ups', 'Hand Stand Pushups', 'Playing Flute', 'Basketball', 'Playing Piano', 'Rowing', 'Band Marching', 'Golf Swing', 'Balance Beam', 'Lunges', 'Kayaking', 'Rock Climbing Indoor', 'Trampoline Jumping', 'High Jump', 'Pole Vault', 'Floor Gymnastics', 'Knitting', 'Pizza Tossing', 'Haircut']
+Training class stages: [50, 10, 10, 10, 10, 10]
+Using CLIP model as the backbone
+2026-08-02 11:52:28,052 [instantiator.py] => Created a temporary directory at /public/home/hanlida/tmp/tmp2yea52dg
+2026-08-02 11:52:28,053 [instantiator.py] => Writing /public/home/hanlida/tmp/tmp2yea52dg/_remote_module_non_scriptable.py
+2026-08-02 11:52:30,021 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 11:52:31,592 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Using CLIP model as the backbone
+2026-08-02 11:52:36,656 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 11:52:38,027 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+batch_size not in args, set to 48  as default
+init_lr not in args, set to 0.01  as default
+weight_decay not in args, set to 0.0005  as default
+min_lr not in args, set to 1e-08  as default
+2026-08-02 11:52:41,929 [zs_clip.py] => Learning on 0-50
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/nn/modules/activation.py:1160: UserWarning: Converting mask without torch.bool dtype to bool; this will negatively affect performance. Prefer to use a boolean mask directly. (Triggered internally at ../aten/src/ATen/native/transformers/attention.cpp:150.)
+  return torch._native_multi_head_attention(
+2026-08-02 11:52:54,480 [trainer.py] => CNN: {'total': 77.88, '00-09': 68.77, '10-19': 87.31, '20-29': 63.64, '30-39': 75.5, '40-49': 93.8, 'old': 0, 'new': 77.88, 'harmonic': 0.0}
+2026-08-02 11:52:54,481 [trainer.py] => CNN top1 curve: [77.88]
+2026-08-02 11:52:54,481 [trainer.py] => CNN top5 curve: [92.52]
+2026-08-02 11:52:54,481 [trainer.py] => CNN top10 curve: [97.1]
+2026-08-02 11:52:54,481 [trainer.py] => Average Accuracy (CNN top1): 77.88
+2026-08-02 11:52:54,484 [zs_clip.py] => Learning on 50-60
+2026-08-02 11:53:06,076 [trainer.py] => CNN: {'total': 76.22, '00-09': 61.26, '10-19': 86.54, '20-29': 63.27, '30-39': 75.1, '40-49': 93.8, '50-59': 76.76, 'old': 76.13, 'new': 76.76, 'harmonic': 76.44}
+2026-08-02 11:53:06,077 [trainer.py] => CNN top1 curve: [77.88, 76.22]
+2026-08-02 11:53:06,077 [trainer.py] => CNN top5 curve: [92.52, 91.88]
+2026-08-02 11:53:06,078 [trainer.py] => CNN top10 curve: [97.1, 95.94]
+2026-08-02 11:53:06,078 [trainer.py] => Average Accuracy (CNN top1): 77.05
+2026-08-02 11:53:06,081 [zs_clip.py] => Learning on 60-70
+2026-08-02 11:53:20,633 [trainer.py] => CNN: {'total': 73.33, '00-09': 54.94, '10-19': 84.23, '20-29': 54.55, '30-39': 71.49, '40-49': 93.43, '50-59': 75.1, '60-69': 78.83, 'old': 72.36, 'new': 78.83, 'harmonic': 75.46}
+2026-08-02 11:53:20,644 [trainer.py] => CNN top1 curve: [77.88, 76.22, 73.33]
+2026-08-02 11:53:20,644 [trainer.py] => CNN top5 curve: [92.52, 91.88, 91.79]
+2026-08-02 11:53:20,644 [trainer.py] => CNN top10 curve: [97.1, 95.94, 95.67]
+2026-08-02 11:53:20,644 [trainer.py] => Average Accuracy (CNN top1): 75.81
+2026-08-02 11:53:20,646 [zs_clip.py] => Learning on 70-80
+2026-08-02 11:53:37,816 [trainer.py] => CNN: {'total': 71.38, '00-09': 54.55, '10-19': 83.08, '20-29': 54.55, '30-39': 69.88, '40-49': 85.77, '50-59': 75.1, '60-69': 77.74, '70-79': 70.0, 'old': 71.58, 'new': 70.0, 'harmonic': 70.78}
+2026-08-02 11:53:37,845 [trainer.py] => CNN top1 curve: [77.88, 76.22, 73.33, 71.38]
+2026-08-02 11:53:37,845 [trainer.py] => CNN top5 curve: [92.52, 91.88, 91.79, 90.94]
+2026-08-02 11:53:37,845 [trainer.py] => CNN top10 curve: [97.1, 95.94, 95.67, 95.06]
+2026-08-02 11:53:37,846 [trainer.py] => Average Accuracy (CNN top1): 74.7025
+2026-08-02 11:53:37,847 [zs_clip.py] => Learning on 80-90
+2026-08-02 11:53:56,798 [trainer.py] => CNN: {'total': 70.07, '00-09': 45.85, '10-19': 82.31, '20-29': 54.18, '30-39': 69.48, '40-49': 85.4, '50-59': 68.88, '60-69': 77.01, '70-79': 68.85, '80-89': 76.69, 'old': 69.13, 'new': 76.69, 'harmonic': 72.71}
+2026-08-02 11:53:56,799 [trainer.py] => CNN top1 curve: [77.88, 76.22, 73.33, 71.38, 70.07]
+2026-08-02 11:53:56,799 [trainer.py] => CNN top5 curve: [92.52, 91.88, 91.79, 90.94, 91.18]
+2026-08-02 11:53:56,799 [trainer.py] => CNN top10 curve: [97.1, 95.94, 95.67, 95.06, 95.42]
+2026-08-02 11:53:56,799 [trainer.py] => Average Accuracy (CNN top1): 73.776
+2026-08-02 11:53:56,821 [zs_clip.py] => Learning on 90-100
+2026-08-02 11:54:15,287 [trainer.py] => CNN: {'total': 66.28, '00-09': 44.27, '10-19': 75.0, '20-29': 52.0, '30-39': 67.87, '40-49': 84.67, '50-59': 63.9, '60-69': 76.28, '70-79': 66.92, '80-89': 75.0, '90-99': 54.09, 'old': 67.59, 'new': 54.09, 'harmonic': 60.09}
+2026-08-02 11:54:15,287 [trainer.py] => CNN top1 curve: [77.88, 76.22, 73.33, 71.38, 70.07, 66.28]
+2026-08-02 11:54:15,288 [trainer.py] => CNN top5 curve: [92.52, 91.88, 91.79, 90.94, 91.18, 89.77]
+2026-08-02 11:54:15,288 [trainer.py] => CNN top10 curve: [97.1, 95.94, 95.67, 95.06, 95.42, 94.69]
+2026-08-02 11:54:15,288 [trainer.py] => Average Accuracy (CNN top1): 72.52666666666666
+
+========================================
+Finished ucf101_init50_inc10 seed=1993
+Backbone: OpenAI CLIP
+Average Accuracy (Top1): 72.53
+Last Accuracy: 66.28
+Average Accuracy (Top5): 91.35
+Last Top5: 89.77
+Average Accuracy (Top10): 95.65
+Last Top10: 94.69
+========================================
+
+==== FINISHED zs_clip OpenAI ViT-B/16: zs_clip_ucf_B50_Inc10.json, seed=1993, GPU=2 ====
+==== START zs_clip OpenAI ViT-B/16: zs_clip_food_B0_Inc10.json, seed=1993, GPU=2 ====
+2026-08-02 11:54:46,920 [trainer.py] => prefix: -
+2026-08-02 11:54:46,940 [trainer.py] => dataset: food101
+2026-08-02 11:54:46,940 [trainer.py] => memory_size: 0
+2026-08-02 11:54:46,941 [trainer.py] => memory_per_class: 0
+2026-08-02 11:54:46,941 [trainer.py] => fixed_memory: False
+2026-08-02 11:54:46,941 [trainer.py] => shuffle: True
+2026-08-02 11:54:46,941 [trainer.py] => init_cls: 10
+2026-08-02 11:54:46,941 [trainer.py] => increment: 10
+2026-08-02 11:54:46,941 [trainer.py] => model_name: zs_clip
+2026-08-02 11:54:46,941 [trainer.py] => backbone_type: openai_clip
+2026-08-02 11:54:46,941 [trainer.py] => device: [device(type='cuda', index=2)]
+2026-08-02 11:54:46,941 [trainer.py] => seed: 1993
+2026-08-02 11:54:46,941 [trainer.py] => total_class_num: 100
+2026-08-02 11:54:46,941 [trainer.py] => clip_pretrained: /public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin
+2026-08-02 11:54:46,941 [trainer.py] => config: configs/zs_clip/zs_clip_food_B0_Inc10.json
+['apple pie', 'baby back ribs', 'baklava', 'beef carpaccio', 'beef tartare', 'beet salad', 'beignets', 'bibimbap', 'bread pudding', 'breakfast burrito', 'bruschetta', 'caesar salad', 'cannoli', 'caprese salad', 'carrot cake', 'ceviche', 'cheese plate', 'cheesecake', 'chicken curry', 'chicken quesadilla', 'chicken wings', 'chocolate cake', 'chocolate mousse', 'churros', 'clam chowder', 'club sandwich', 'crab cakes', 'creme brulee', 'croque madame', 'cup cakes', 'deviled eggs', 'donuts', 'dumplings', 'edamame', 'eggs benedict', 'escargots', 'falafel', 'filet mignon', 'fish and chips', 'foie gras', 'french fries', 'french onion soup', 'french toast', 'fried calamari', 'fried rice', 'frozen yogurt', 'garlic bread', 'gnocchi', 'greek salad', 'grilled cheese sandwich', 'grilled salmon', 'guacamole', 'gyoza', 'hamburger', 'hot and sour soup', 'hot dog', 'huevos rancheros', 'hummus', 'ice cream', 'lasagna', 'lobster bisque', 'lobster roll sandwich', 'macaroni and cheese', 'macarons', 'miso soup', 'mussels', 'nachos', 'omelette', 'onion rings', 'oysters', 'pad thai', 'paella', 'pancakes', 'panna cotta', 'peking duck', 'pho', 'pizza', 'pork chop', 'poutine', 'prime rib', 'pulled pork sandwich', 'ramen', 'ravioli', 'red velvet cake', 'risotto', 'samosa', 'sashimi', 'scallops', 'seaweed salad', 'shrimp and grits', 'spaghetti bolognese', 'spaghetti carbonara', 'spring rolls', 'steak', 'strawberry shortcake', 'sushi', 'tacos', 'takoyaki', 'tiramisu', 'tuna tartare']
+['a photo of {}, a type of food.']
+{'apple_pie': 0, 'baby_back_ribs': 1, 'baklava': 2, 'beef_carpaccio': 3, 'beef_tartare': 4, 'beet_salad': 5, 'beignets': 6, 'bibimbap': 7, 'bread_pudding': 8, 'breakfast_burrito': 9, 'bruschetta': 10, 'caesar_salad': 11, 'cannoli': 12, 'caprese_salad': 13, 'carrot_cake': 14, 'ceviche': 15, 'cheese_plate': 16, 'cheesecake': 17, 'chicken_curry': 18, 'chicken_quesadilla': 19, 'chicken_wings': 20, 'chocolate_cake': 21, 'chocolate_mousse': 22, 'churros': 23, 'clam_chowder': 24, 'club_sandwich': 25, 'crab_cakes': 26, 'creme_brulee': 27, 'croque_madame': 28, 'cup_cakes': 29, 'deviled_eggs': 30, 'donuts': 31, 'dumplings': 32, 'edamame': 33, 'eggs_benedict': 34, 'escargots': 35, 'falafel': 36, 'filet_mignon': 37, 'fish_and_chips': 38, 'foie_gras': 39, 'french_fries': 40, 'french_onion_soup': 41, 'french_toast': 42, 'fried_calamari': 43, 'fried_rice': 44, 'frozen_yogurt': 45, 'garlic_bread': 46, 'gnocchi': 47, 'greek_salad': 48, 'grilled_cheese_sandwich': 49, 'grilled_salmon': 50, 'guacamole': 51, 'gyoza': 52, 'hamburger': 53, 'hot_and_sour_soup': 54, 'hot_dog': 55, 'huevos_rancheros': 56, 'hummus': 57, 'ice_cream': 58, 'lasagna': 59, 'lobster_bisque': 60, 'lobster_roll_sandwich': 61, 'macaroni_and_cheese': 62, 'macarons': 63, 'miso_soup': 64, 'mussels': 65, 'nachos': 66, 'omelette': 67, 'onion_rings': 68, 'oysters': 69, 'pad_thai': 70, 'paella': 71, 'pancakes': 72, 'panna_cotta': 73, 'peking_duck': 74, 'pho': 75, 'pizza': 76, 'pork_chop': 77, 'poutine': 78, 'prime_rib': 79, 'pulled_pork_sandwich': 80, 'ramen': 81, 'ravioli': 82, 'red_velvet_cake': 83, 'risotto': 84, 'samosa': 85, 'sashimi': 86, 'scallops': 87, 'seaweed_salad': 88, 'shrimp_and_grits': 89, 'spaghetti_bolognese': 90, 'spaghetti_carbonara': 91, 'spring_rolls': 92, 'steak': 93, 'strawberry_shortcake': 94, 'sushi': 95, 'tacos': 96, 'takoyaki': 97, 'tiramisu': 98, 'tuna_tartare': 99}
+2026-08-02 11:54:48,570 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+After shuffle, class_to_label is:  ['onion rings', 'huevos rancheros', 'poutine', 'bread pudding', 'churros', 'risotto', 'spaghetti bolognese', 'mussels', 'peking duck', 'pizza', 'french fries', 'shrimp and grits', 'beef carpaccio', 'spring rolls', 'hot dog', 'breakfast burrito', 'crab cakes', 'pulled pork sandwich', 'fried calamari', 'fish and chips', 'ice cream', 'pad thai', 'pork chop', 'baby back ribs', 'samosa', 'chicken quesadilla', 'cheesecake', 'grilled salmon', 'croque madame', 'hamburger', 'caprese salad', 'ramen', 'frozen yogurt', 'ravioli', 'beignets', 'lasagna', 'red velvet cake', 'cheese plate', 'ceviche', 'fried rice', 'spaghetti carbonara', 'french onion soup', 'pancakes', 'lobster bisque', 'prime rib', 'gyoza', 'chicken wings', 'bruschetta', 'donuts', 'hot and sour soup', 'filet mignon', 'sushi', 'carrot cake', 'paella', 'tacos', 'tiramisu', 'takoyaki', 'baklava', 'miso soup', 'nachos', 'french toast', 'chocolate mousse', 'escargots', 'sashimi', 'clam chowder', 'eggs benedict', 'scallops', 'chocolate cake', 'tuna tartare', 'apple pie', 'seaweed salad', 'creme brulee', 'chicken curry', 'strawberry shortcake', 'caesar salad', 'cannoli', 'gnocchi', 'club sandwich', 'deviled eggs', 'garlic bread', 'macaroni and cheese', 'oysters', 'falafel', 'lobster roll sandwich', 'bibimbap', 'macarons', 'pho', 'beet salad', 'dumplings', 'beef tartare', 'guacamole', 'greek salad', 'panna cotta', 'steak', 'foie gras', 'omelette', 'cup cakes', 'grilled cheese sandwich', 'hummus', 'edamame']
+Training class stages: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Using CLIP model as the backbone
+2026-08-02 11:55:08,165 [instantiator.py] => Created a temporary directory at /public/home/hanlida/tmp/tmpfjnff3u_
+2026-08-02 11:55:08,167 [instantiator.py] => Writing /public/home/hanlida/tmp/tmpfjnff3u_/_remote_module_non_scriptable.py
+2026-08-02 11:55:10,238 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 11:55:11,718 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Using CLIP model as the backbone
+2026-08-02 11:55:16,663 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 11:55:18,065 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+batch_size not in args, set to 48  as default
+init_lr not in args, set to 0.01  as default
+weight_decay not in args, set to 0.0005  as default
+min_lr not in args, set to 1e-08  as default
+2026-08-02 11:55:21,906 [zs_clip.py] => Learning on 0-10
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/nn/modules/activation.py:1160: UserWarning: Converting mask without torch.bool dtype to bool; this will negatively affect performance. Prefer to use a boolean mask directly. (Triggered internally at ../aten/src/ATen/native/transformers/attention.cpp:150.)
+  return torch._native_multi_head_attention(
+2026-08-02 11:55:36,242 [trainer.py] => CNN: {'total': 97.67, '00-09': 97.67, 'old': 0, 'new': 97.67, 'harmonic': 0.0}
+2026-08-02 11:55:36,243 [trainer.py] => CNN top1 curve: [97.67]
+2026-08-02 11:55:36,243 [trainer.py] => CNN top5 curve: [99.75]
+2026-08-02 11:55:36,243 [trainer.py] => CNN top10 curve: [100.0]
+2026-08-02 11:55:36,244 [trainer.py] => Average Accuracy (CNN top1): 97.67
+2026-08-02 11:55:36,295 [zs_clip.py] => Learning on 10-20
+2026-08-02 11:55:58,220 [trainer.py] => CNN: {'total': 92.72, '00-09': 92.82, '10-19': 92.61, 'old': 92.82, 'new': 92.61, 'harmonic': 92.71}
+2026-08-02 11:55:58,253 [trainer.py] => CNN top1 curve: [97.67, 92.72]
+2026-08-02 11:55:58,253 [trainer.py] => CNN top5 curve: [99.75, 99.32]
+2026-08-02 11:55:58,253 [trainer.py] => CNN top10 curve: [100.0, 99.8]
+2026-08-02 11:55:58,262 [trainer.py] => Average Accuracy (CNN top1): 95.195
+2026-08-02 11:55:58,277 [zs_clip.py] => Learning on 20-30
+2026-08-02 11:56:29,453 [trainer.py] => CNN: {'total': 90.73, '00-09': 90.64, '10-19': 90.73, '20-29': 90.81, 'old': 90.69, 'new': 90.81, 'harmonic': 90.75}
+2026-08-02 11:56:29,477 [trainer.py] => CNN top1 curve: [97.67, 92.72, 90.73]
+2026-08-02 11:56:29,477 [trainer.py] => CNN top5 curve: [99.75, 99.32, 98.93]
+2026-08-02 11:56:29,477 [trainer.py] => CNN top10 curve: [100.0, 99.8, 99.6]
+2026-08-02 11:56:29,478 [trainer.py] => Average Accuracy (CNN top1): 93.70666666666666
+2026-08-02 11:56:29,518 [zs_clip.py] => Learning on 30-40
+2026-08-02 11:57:13,695 [trainer.py] => CNN: {'total': 89.28, '00-09': 89.55, '10-19': 89.72, '20-29': 88.17, '30-39': 89.66, 'old': 89.15, 'new': 89.66, 'harmonic': 89.4}
+2026-08-02 11:57:13,722 [trainer.py] => CNN top1 curve: [97.67, 92.72, 90.73, 89.28]
+2026-08-02 11:57:13,722 [trainer.py] => CNN top5 curve: [99.75, 99.32, 98.93, 98.68]
+2026-08-02 11:57:13,722 [trainer.py] => CNN top10 curve: [100.0, 99.8, 99.6, 99.48]
+2026-08-02 11:57:13,723 [trainer.py] => Average Accuracy (CNN top1): 92.6
+2026-08-02 11:57:13,755 [zs_clip.py] => Learning on 40-50
+2026-08-02 11:58:10,175 [trainer.py] => CNN: {'total': 88.29, '00-09': 88.51, '10-19': 88.91, '20-29': 85.42, '30-39': 86.6, '40-49': 92.1, 'old': 87.35, 'new': 92.1, 'harmonic': 89.66}
+2026-08-02 11:58:10,194 [trainer.py] => CNN top1 curve: [97.67, 92.72, 90.73, 89.28, 88.29]
+2026-08-02 11:58:10,194 [trainer.py] => CNN top5 curve: [99.75, 99.32, 98.93, 98.68, 98.37]
+2026-08-02 11:58:10,195 [trainer.py] => CNN top10 curve: [100.0, 99.8, 99.6, 99.48, 99.25]
+2026-08-02 11:58:10,195 [trainer.py] => Average Accuracy (CNN top1): 91.738
+2026-08-02 11:58:10,197 [zs_clip.py] => Learning on 50-60
+2026-08-02 11:59:12,685 [trainer.py] => CNN: {'total': 86.56, '00-09': 87.08, '10-19': 88.15, '20-29': 83.77, '30-39': 85.24, '40-49': 91.19, '50-59': 84.03, 'old': 87.07, 'new': 84.03, 'harmonic': 85.52}
+2026-08-02 11:59:12,718 [trainer.py] => CNN top1 curve: [97.67, 92.72, 90.73, 89.28, 88.29, 86.56]
+2026-08-02 11:59:12,718 [trainer.py] => CNN top5 curve: [99.75, 99.32, 98.93, 98.68, 98.37, 97.98]
+2026-08-02 11:59:12,718 [trainer.py] => CNN top10 curve: [100.0, 99.8, 99.6, 99.48, 99.25, 99.07]
+2026-08-02 11:59:12,718 [trainer.py] => Average Accuracy (CNN top1): 90.875
+2026-08-02 11:59:12,721 [zs_clip.py] => Learning on 60-70
+2026-08-02 12:00:32,025 [trainer.py] => CNN: {'total': 84.08, '00-09': 85.45, '10-19': 86.99, '20-29': 82.23, '30-39': 83.88, '40-49': 90.04, '50-59': 80.9, '60-69': 79.14, 'old': 84.89, 'new': 79.14, 'harmonic': 81.91}
+2026-08-02 12:00:32,061 [trainer.py] => CNN top1 curve: [97.67, 92.72, 90.73, 89.28, 88.29, 86.56, 84.08]
+2026-08-02 12:00:32,061 [trainer.py] => CNN top5 curve: [99.75, 99.32, 98.93, 98.68, 98.37, 97.98, 97.26]
+2026-08-02 12:00:32,061 [trainer.py] => CNN top10 curve: [100.0, 99.8, 99.6, 99.48, 99.25, 99.07, 98.8]
+2026-08-02 12:00:32,061 [trainer.py] => Average Accuracy (CNN top1): 89.90428571428572
+2026-08-02 12:00:32,065 [zs_clip.py] => Learning on 70-80
+2026-08-02 12:02:01,018 [trainer.py] => CNN: {'total': 83.19, '00-09': 84.8, '10-19': 86.23, '20-29': 80.88, '30-39': 82.86, '40-49': 89.43, '50-59': 80.0, '60-69': 78.28, '70-79': 83.11, 'old': 83.21, 'new': 83.11, 'harmonic': 83.16}
+2026-08-02 12:02:01,051 [trainer.py] => CNN top1 curve: [97.67, 92.72, 90.73, 89.28, 88.29, 86.56, 84.08, 83.19]
+2026-08-02 12:02:01,051 [trainer.py] => CNN top5 curve: [99.75, 99.32, 98.93, 98.68, 98.37, 97.98, 97.26, 96.78]
+2026-08-02 12:02:01,052 [trainer.py] => CNN top10 curve: [100.0, 99.8, 99.6, 99.48, 99.25, 99.07, 98.8, 98.55]
+2026-08-02 12:02:01,052 [trainer.py] => Average Accuracy (CNN top1): 89.065
+2026-08-02 12:02:01,103 [zs_clip.py] => Learning on 80-90
+2026-08-02 12:03:40,790 [trainer.py] => CNN: {'total': 82.64, '00-09': 83.96, '10-19': 85.52, '20-29': 80.63, '30-39': 82.23, '40-49': 88.37, '50-59': 79.7, '60-69': 77.07, '70-79': 82.56, '80-89': 83.79, 'old': 82.5, 'new': 83.79, 'harmonic': 83.14}
+2026-08-02 12:03:40,813 [trainer.py] => CNN top1 curve: [97.67, 92.72, 90.73, 89.28, 88.29, 86.56, 84.08, 83.19, 82.64]
+2026-08-02 12:03:40,813 [trainer.py] => CNN top5 curve: [99.75, 99.32, 98.93, 98.68, 98.37, 97.98, 97.26, 96.78, 96.51]
+2026-08-02 12:03:40,813 [trainer.py] => CNN top10 curve: [100.0, 99.8, 99.6, 99.48, 99.25, 99.07, 98.8, 98.55, 98.37]
+2026-08-02 12:03:40,813 [trainer.py] => Average Accuracy (CNN top1): 88.35111111111111
+2026-08-02 12:03:40,817 [zs_clip.py] => Learning on 90-100
+2026-08-02 12:05:27,821 [trainer.py] => CNN: {'total': 80.9, '00-09': 83.76, '10-19': 85.06, '20-29': 79.03, '30-39': 81.31, '40-49': 87.32, '50-59': 78.01, '60-69': 75.91, '70-79': 81.66, '80-89': 83.33, '90-99': 73.59, 'old': 81.71, 'new': 73.59, 'harmonic': 77.44}
+2026-08-02 12:05:27,839 [trainer.py] => CNN top1 curve: [97.67, 92.72, 90.73, 89.28, 88.29, 86.56, 84.08, 83.19, 82.64, 80.9]
+2026-08-02 12:05:27,839 [trainer.py] => CNN top5 curve: [99.75, 99.32, 98.93, 98.68, 98.37, 97.98, 97.26, 96.78, 96.51, 96.16]
+2026-08-02 12:05:27,840 [trainer.py] => CNN top10 curve: [100.0, 99.8, 99.6, 99.48, 99.25, 99.07, 98.8, 98.55, 98.37, 98.16]
+2026-08-02 12:05:27,852 [trainer.py] => Average Accuracy (CNN top1): 87.606
+
+========================================
+Finished food101_init10_inc10 seed=1993
+Backbone: OpenAI CLIP
+Average Accuracy (Top1): 87.61
+Last Accuracy: 80.9
+Average Accuracy (Top5): 97.97
+Last Top5: 96.16
+Average Accuracy (Top10): 99.11
+Last Top10: 98.16
+========================================
+
+==== FINISHED zs_clip OpenAI ViT-B/16: zs_clip_food_B0_Inc10.json, seed=1993, GPU=2 ====
+==== START zs_clip OpenAI ViT-B/16: zs_clip_food_B50_Inc10.json, seed=1993, GPU=2 ====
+2026-08-02 12:05:58,603 [trainer.py] => prefix: -
+2026-08-02 12:05:58,603 [trainer.py] => dataset: food101
+2026-08-02 12:05:58,603 [trainer.py] => memory_size: 0
+2026-08-02 12:05:58,603 [trainer.py] => memory_per_class: 0
+2026-08-02 12:05:58,603 [trainer.py] => fixed_memory: False
+2026-08-02 12:05:58,603 [trainer.py] => shuffle: True
+2026-08-02 12:05:58,603 [trainer.py] => init_cls: 50
+2026-08-02 12:05:58,603 [trainer.py] => increment: 10
+2026-08-02 12:05:58,604 [trainer.py] => model_name: zs_clip
+2026-08-02 12:05:58,604 [trainer.py] => backbone_type: openai_clip
+2026-08-02 12:05:58,604 [trainer.py] => device: [device(type='cuda', index=2)]
+2026-08-02 12:05:58,604 [trainer.py] => seed: 1993
+2026-08-02 12:05:58,604 [trainer.py] => total_class_num: 100
+2026-08-02 12:05:58,604 [trainer.py] => clip_pretrained: /public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin
+2026-08-02 12:05:58,604 [trainer.py] => config: configs/zs_clip/zs_clip_food_B50_Inc10.json
+['apple pie', 'baby back ribs', 'baklava', 'beef carpaccio', 'beef tartare', 'beet salad', 'beignets', 'bibimbap', 'bread pudding', 'breakfast burrito', 'bruschetta', 'caesar salad', 'cannoli', 'caprese salad', 'carrot cake', 'ceviche', 'cheese plate', 'cheesecake', 'chicken curry', 'chicken quesadilla', 'chicken wings', 'chocolate cake', 'chocolate mousse', 'churros', 'clam chowder', 'club sandwich', 'crab cakes', 'creme brulee', 'croque madame', 'cup cakes', 'deviled eggs', 'donuts', 'dumplings', 'edamame', 'eggs benedict', 'escargots', 'falafel', 'filet mignon', 'fish and chips', 'foie gras', 'french fries', 'french onion soup', 'french toast', 'fried calamari', 'fried rice', 'frozen yogurt', 'garlic bread', 'gnocchi', 'greek salad', 'grilled cheese sandwich', 'grilled salmon', 'guacamole', 'gyoza', 'hamburger', 'hot and sour soup', 'hot dog', 'huevos rancheros', 'hummus', 'ice cream', 'lasagna', 'lobster bisque', 'lobster roll sandwich', 'macaroni and cheese', 'macarons', 'miso soup', 'mussels', 'nachos', 'omelette', 'onion rings', 'oysters', 'pad thai', 'paella', 'pancakes', 'panna cotta', 'peking duck', 'pho', 'pizza', 'pork chop', 'poutine', 'prime rib', 'pulled pork sandwich', 'ramen', 'ravioli', 'red velvet cake', 'risotto', 'samosa', 'sashimi', 'scallops', 'seaweed salad', 'shrimp and grits', 'spaghetti bolognese', 'spaghetti carbonara', 'spring rolls', 'steak', 'strawberry shortcake', 'sushi', 'tacos', 'takoyaki', 'tiramisu', 'tuna tartare']
+['a photo of {}, a type of food.']
+{'apple_pie': 0, 'baby_back_ribs': 1, 'baklava': 2, 'beef_carpaccio': 3, 'beef_tartare': 4, 'beet_salad': 5, 'beignets': 6, 'bibimbap': 7, 'bread_pudding': 8, 'breakfast_burrito': 9, 'bruschetta': 10, 'caesar_salad': 11, 'cannoli': 12, 'caprese_salad': 13, 'carrot_cake': 14, 'ceviche': 15, 'cheese_plate': 16, 'cheesecake': 17, 'chicken_curry': 18, 'chicken_quesadilla': 19, 'chicken_wings': 20, 'chocolate_cake': 21, 'chocolate_mousse': 22, 'churros': 23, 'clam_chowder': 24, 'club_sandwich': 25, 'crab_cakes': 26, 'creme_brulee': 27, 'croque_madame': 28, 'cup_cakes': 29, 'deviled_eggs': 30, 'donuts': 31, 'dumplings': 32, 'edamame': 33, 'eggs_benedict': 34, 'escargots': 35, 'falafel': 36, 'filet_mignon': 37, 'fish_and_chips': 38, 'foie_gras': 39, 'french_fries': 40, 'french_onion_soup': 41, 'french_toast': 42, 'fried_calamari': 43, 'fried_rice': 44, 'frozen_yogurt': 45, 'garlic_bread': 46, 'gnocchi': 47, 'greek_salad': 48, 'grilled_cheese_sandwich': 49, 'grilled_salmon': 50, 'guacamole': 51, 'gyoza': 52, 'hamburger': 53, 'hot_and_sour_soup': 54, 'hot_dog': 55, 'huevos_rancheros': 56, 'hummus': 57, 'ice_cream': 58, 'lasagna': 59, 'lobster_bisque': 60, 'lobster_roll_sandwich': 61, 'macaroni_and_cheese': 62, 'macarons': 63, 'miso_soup': 64, 'mussels': 65, 'nachos': 66, 'omelette': 67, 'onion_rings': 68, 'oysters': 69, 'pad_thai': 70, 'paella': 71, 'pancakes': 72, 'panna_cotta': 73, 'peking_duck': 74, 'pho': 75, 'pizza': 76, 'pork_chop': 77, 'poutine': 78, 'prime_rib': 79, 'pulled_pork_sandwich': 80, 'ramen': 81, 'ravioli': 82, 'red_velvet_cake': 83, 'risotto': 84, 'samosa': 85, 'sashimi': 86, 'scallops': 87, 'seaweed_salad': 88, 'shrimp_and_grits': 89, 'spaghetti_bolognese': 90, 'spaghetti_carbonara': 91, 'spring_rolls': 92, 'steak': 93, 'strawberry_shortcake': 94, 'sushi': 95, 'tacos': 96, 'takoyaki': 97, 'tiramisu': 98, 'tuna_tartare': 99}
+2026-08-02 12:05:59,362 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+After shuffle, class_to_label is:  ['onion rings', 'huevos rancheros', 'poutine', 'bread pudding', 'churros', 'risotto', 'spaghetti bolognese', 'mussels', 'peking duck', 'pizza', 'french fries', 'shrimp and grits', 'beef carpaccio', 'spring rolls', 'hot dog', 'breakfast burrito', 'crab cakes', 'pulled pork sandwich', 'fried calamari', 'fish and chips', 'ice cream', 'pad thai', 'pork chop', 'baby back ribs', 'samosa', 'chicken quesadilla', 'cheesecake', 'grilled salmon', 'croque madame', 'hamburger', 'caprese salad', 'ramen', 'frozen yogurt', 'ravioli', 'beignets', 'lasagna', 'red velvet cake', 'cheese plate', 'ceviche', 'fried rice', 'spaghetti carbonara', 'french onion soup', 'pancakes', 'lobster bisque', 'prime rib', 'gyoza', 'chicken wings', 'bruschetta', 'donuts', 'hot and sour soup', 'filet mignon', 'sushi', 'carrot cake', 'paella', 'tacos', 'tiramisu', 'takoyaki', 'baklava', 'miso soup', 'nachos', 'french toast', 'chocolate mousse', 'escargots', 'sashimi', 'clam chowder', 'eggs benedict', 'scallops', 'chocolate cake', 'tuna tartare', 'apple pie', 'seaweed salad', 'creme brulee', 'chicken curry', 'strawberry shortcake', 'caesar salad', 'cannoli', 'gnocchi', 'club sandwich', 'deviled eggs', 'garlic bread', 'macaroni and cheese', 'oysters', 'falafel', 'lobster roll sandwich', 'bibimbap', 'macarons', 'pho', 'beet salad', 'dumplings', 'beef tartare', 'guacamole', 'greek salad', 'panna cotta', 'steak', 'foie gras', 'omelette', 'cup cakes', 'grilled cheese sandwich', 'hummus', 'edamame']
+Training class stages: [50, 10, 10, 10, 10, 10]
+Using CLIP model as the backbone
+2026-08-02 12:06:16,663 [instantiator.py] => Created a temporary directory at /public/home/hanlida/tmp/tmphwc77kbh
+2026-08-02 12:06:16,666 [instantiator.py] => Writing /public/home/hanlida/tmp/tmphwc77kbh/_remote_module_non_scriptable.py
+2026-08-02 12:06:18,531 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 12:06:19,979 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Using CLIP model as the backbone
+2026-08-02 12:06:25,082 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 12:06:26,265 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+batch_size not in args, set to 48  as default
+init_lr not in args, set to 0.01  as default
+weight_decay not in args, set to 0.0005  as default
+min_lr not in args, set to 1e-08  as default
+2026-08-02 12:06:30,443 [zs_clip.py] => Learning on 0-50
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/nn/modules/activation.py:1160: UserWarning: Converting mask without torch.bool dtype to bool; this will negatively affect performance. Prefer to use a boolean mask directly. (Triggered internally at ../aten/src/ATen/native/transformers/attention.cpp:150.)
+  return torch._native_multi_head_attention(
+2026-08-02 12:07:22,242 [trainer.py] => CNN: {'total': 88.29, '00-09': 88.51, '10-19': 88.91, '20-29': 85.42, '30-39': 86.6, '40-49': 92.1, 'old': 0, 'new': 88.29, 'harmonic': 0.0}
+2026-08-02 12:07:22,270 [trainer.py] => CNN top1 curve: [88.29]
+2026-08-02 12:07:22,270 [trainer.py] => CNN top5 curve: [98.37]
+2026-08-02 12:07:22,270 [trainer.py] => CNN top10 curve: [99.25]
+2026-08-02 12:07:22,270 [trainer.py] => Average Accuracy (CNN top1): 88.29
+2026-08-02 12:07:22,301 [zs_clip.py] => Learning on 50-60
+2026-08-02 12:08:27,112 [trainer.py] => CNN: {'total': 86.56, '00-09': 87.08, '10-19': 88.15, '20-29': 83.77, '30-39': 85.24, '40-49': 91.19, '50-59': 84.03, 'old': 87.07, 'new': 84.03, 'harmonic': 85.52}
+2026-08-02 12:08:27,160 [trainer.py] => CNN top1 curve: [88.29, 86.56]
+2026-08-02 12:08:27,160 [trainer.py] => CNN top5 curve: [98.37, 97.98]
+2026-08-02 12:08:27,160 [trainer.py] => CNN top10 curve: [99.25, 99.07]
+2026-08-02 12:08:27,160 [trainer.py] => Average Accuracy (CNN top1): 87.42500000000001
+2026-08-02 12:08:27,188 [zs_clip.py] => Learning on 60-70
+2026-08-02 12:09:47,537 [trainer.py] => CNN: {'total': 84.08, '00-09': 85.45, '10-19': 86.99, '20-29': 82.23, '30-39': 83.88, '40-49': 90.04, '50-59': 80.9, '60-69': 79.14, 'old': 84.89, 'new': 79.14, 'harmonic': 81.91}
+2026-08-02 12:09:47,569 [trainer.py] => CNN top1 curve: [88.29, 86.56, 84.08]
+2026-08-02 12:09:47,569 [trainer.py] => CNN top5 curve: [98.37, 97.98, 97.26]
+2026-08-02 12:09:47,570 [trainer.py] => CNN top10 curve: [99.25, 99.07, 98.8]
+2026-08-02 12:09:47,570 [trainer.py] => Average Accuracy (CNN top1): 86.31
+2026-08-02 12:09:47,574 [zs_clip.py] => Learning on 70-80
+2026-08-02 12:11:19,438 [trainer.py] => CNN: {'total': 83.19, '00-09': 84.8, '10-19': 86.23, '20-29': 80.88, '30-39': 82.86, '40-49': 89.43, '50-59': 80.0, '60-69': 78.28, '70-79': 83.11, 'old': 83.21, 'new': 83.11, 'harmonic': 83.16}
+2026-08-02 12:11:19,467 [trainer.py] => CNN top1 curve: [88.29, 86.56, 84.08, 83.19]
+2026-08-02 12:11:19,468 [trainer.py] => CNN top5 curve: [98.37, 97.98, 97.26, 96.78]
+2026-08-02 12:11:19,468 [trainer.py] => CNN top10 curve: [99.25, 99.07, 98.8, 98.55]
+2026-08-02 12:11:19,468 [trainer.py] => Average Accuracy (CNN top1): 85.53
+2026-08-02 12:11:19,471 [zs_clip.py] => Learning on 80-90
+2026-08-02 12:13:03,974 [trainer.py] => CNN: {'total': 82.64, '00-09': 83.96, '10-19': 85.52, '20-29': 80.63, '30-39': 82.23, '40-49': 88.37, '50-59': 79.7, '60-69': 77.07, '70-79': 82.56, '80-89': 83.79, 'old': 82.5, 'new': 83.79, 'harmonic': 83.14}
+2026-08-02 12:13:04,004 [trainer.py] => CNN top1 curve: [88.29, 86.56, 84.08, 83.19, 82.64]
+2026-08-02 12:13:04,004 [trainer.py] => CNN top5 curve: [98.37, 97.98, 97.26, 96.78, 96.51]
+2026-08-02 12:13:04,004 [trainer.py] => CNN top10 curve: [99.25, 99.07, 98.8, 98.55, 98.37]
+2026-08-02 12:13:04,004 [trainer.py] => Average Accuracy (CNN top1): 84.952
+2026-08-02 12:13:04,037 [zs_clip.py] => Learning on 90-100
+2026-08-02 12:15:03,264 [trainer.py] => CNN: {'total': 80.9, '00-09': 83.76, '10-19': 85.06, '20-29': 79.03, '30-39': 81.31, '40-49': 87.32, '50-59': 78.01, '60-69': 75.91, '70-79': 81.66, '80-89': 83.33, '90-99': 73.59, 'old': 81.71, 'new': 73.59, 'harmonic': 77.44}
+2026-08-02 12:15:03,302 [trainer.py] => CNN top1 curve: [88.29, 86.56, 84.08, 83.19, 82.64, 80.9]
+2026-08-02 12:15:03,302 [trainer.py] => CNN top5 curve: [98.37, 97.98, 97.26, 96.78, 96.51, 96.16]
+2026-08-02 12:15:03,302 [trainer.py] => CNN top10 curve: [99.25, 99.07, 98.8, 98.55, 98.37, 98.16]
+2026-08-02 12:15:03,303 [trainer.py] => Average Accuracy (CNN top1): 84.27666666666666
+
+========================================
+Finished food101_init50_inc10 seed=1993
+Backbone: OpenAI CLIP
+Average Accuracy (Top1): 84.28
+Last Accuracy: 80.9
+Average Accuracy (Top5): 97.18
+Last Top5: 96.16
+Average Accuracy (Top10): 98.7
+Last Top10: 98.16
+========================================
+
+==== FINISHED zs_clip OpenAI ViT-B/16: zs_clip_food_B50_Inc10.json, seed=1993, GPU=2 ====
+==== START simplecil OpenAI ViT-B/16: simplecil_ucf_B0_Inc10.json, seed=1993, GPU=2 ====
+2026-08-02 12:15:27,964 [trainer.py] => prefix: -
+2026-08-02 12:15:27,964 [trainer.py] => dataset: ucf101
+2026-08-02 12:15:27,964 [trainer.py] => memory_size: 0
+2026-08-02 12:15:27,964 [trainer.py] => memory_per_class: 0
+2026-08-02 12:15:27,964 [trainer.py] => fixed_memory: False
+2026-08-02 12:15:27,964 [trainer.py] => shuffle: True
+2026-08-02 12:15:27,964 [trainer.py] => init_cls: 10
+2026-08-02 12:15:27,964 [trainer.py] => increment: 10
+2026-08-02 12:15:27,964 [trainer.py] => model_name: simplecil
+2026-08-02 12:15:27,964 [trainer.py] => backbone_type: openai_clip
+2026-08-02 12:15:27,964 [trainer.py] => device: [device(type='cuda', index=2)]
+2026-08-02 12:15:27,964 [trainer.py] => seed: 1993
+2026-08-02 12:15:27,964 [trainer.py] => total_class_num: 100
+2026-08-02 12:15:27,965 [trainer.py] => clip_pretrained: /public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin
+2026-08-02 12:15:27,965 [trainer.py] => config: configs/simplecil/simplecil_ucf_B0_Inc10.json
+['Apply Eye Makeup', 'Apply Lipstick', 'Archery', 'Baby Crawling', 'Balance Beam', 'Band Marching', 'Baseball Pitch', 'Basketball', 'Basketball Dunk', 'Bench Press', 'Biking', 'Billiards', 'Blow Dry Hair', 'Blowing Candles', 'Body Weight Squats', 'Bowling', 'Boxing Punching Bag', 'Boxing Speed Bag', 'Breast Stroke', 'Brushing Teeth', 'Clean And Jerk', 'Cliff Diving', 'Cricket Bowling', 'Cricket Shot', 'Cutting In Kitchen', 'Diving', 'Drumming', 'Fencing', 'Field Hockey Penalty', 'Floor Gymnastics', 'Frisbee Catch', 'Front Crawl', 'Golf Swing', 'Haircut', 'Hammer Throw', 'Hammering', 'Hand Stand Pushups', 'Handstand Walking', 'Head Massage', 'High Jump', 'Horse Race', 'Horse Riding', 'Hula Hoop', 'Ice Dancing', 'Javelin Throw', 'Juggling Balls', 'Jump Rope', 'Jumping Jack', 'Kayaking', 'Knitting', 'Long Jump', 'Lunges', 'Military Parade', 'Mixing', 'Mopping Floor', 'Nunchucks', 'Parallel Bars', 'Pizza Tossing', 'Playing Cello', 'Playing Daf', 'Playing Dhol', 'Playing Flute', 'Playing Guitar', 'Playing Piano', 'Playing Sitar', 'Playing Tabla', 'Playing Violin', 'Pole Vault', 'Pommel Horse', 'Pull Ups', 'Punch', 'Push Ups', 'Rafting', 'Rock Climbing Indoor', 'Rope Climbing', 'Rowing', 'Salsa Spin', 'Shaving Beard', 'Shotput', 'Skate Boarding', 'Skiing', 'Skijet', 'Sky Diving', 'Soccer Juggling', 'Soccer Penalty', 'Still Rings', 'Sumo Wrestling', 'Surfing', 'Swing', 'Table Tennis Shot', 'Tai Chi', 'Tennis Swing', 'Throw Discus', 'Trampoline Jumping', 'Typing', 'Uneven Bars', 'Volleyball Spiking', 'Walking With Dog', 'Wall Pushups', 'Writing On Board']
+['a photo of a person {}.', 'a video of a person {}.', 'a example of a person {}.', 'a demonstration of a person {}.', 'a photo of the person {}.', 'a video of the person {}.', 'a example of the person {}.', 'a demonstration of the person {}.', 'a photo of a person using {}.', 'a video of a person using {}.', 'a example of a person using {}.', 'a demonstration of a person using {}.', 'a photo of the person using {}.', 'a video of the person using {}.', 'a example of the person using {}.', 'a demonstration of the person using {}.', 'a photo of a person doing {}.', 'a video of a person doing {}.', 'a example of a person doing {}.', 'a demonstration of a person doing {}.', 'a photo of the person doing {}.', 'a video of the person doing {}.', 'a example of the person doing {}.', 'a demonstration of the person doing {}.', 'a photo of a person during {}.', 'a video of a person during {}.', 'a example of a person during {}.', 'a demonstration of a person during {}.', 'a photo of the person during {}.', 'a video of the person during {}.', 'a example of the person during {}.', 'a demonstration of the person during {}.', 'a photo of a person performing {}.', 'a video of a person performing {}.', 'a example of a person performing {}.', 'a demonstration of a person performing {}.', 'a photo of the person performing {}.', 'a video of the person performing {}.', 'a example of the person performing {}.', 'a demonstration of the person performing {}.', 'a photo of a person practicing {}.', 'a video of a person practicing {}.', 'a example of a person practicing {}.', 'a demonstration of a person practicing {}.', 'a photo of the person practicing {}.', 'a video of the person practicing {}.', 'a example of the person practicing {}.', 'a demonstration of the person practicing {}.']
+{'Apply_Eye_Makeup': 0, 'Apply_Lipstick': 1, 'Archery': 2, 'Baby_Crawling': 3, 'Balance_Beam': 4, 'Band_Marching': 5, 'Baseball_Pitch': 6, 'Basketball': 7, 'Basketball_Dunk': 8, 'Bench_Press': 9, 'Biking': 10, 'Billiards': 11, 'Blow_Dry_Hair': 12, 'Blowing_Candles': 13, 'Body_Weight_Squats': 14, 'Bowling': 15, 'Boxing_Punching_Bag': 16, 'Boxing_Speed_Bag': 17, 'Breast_Stroke': 18, 'Brushing_Teeth': 19, 'Clean_And_Jerk': 20, 'Cliff_Diving': 21, 'Cricket_Bowling': 22, 'Cricket_Shot': 23, 'Cutting_In_Kitchen': 24, 'Diving': 25, 'Drumming': 26, 'Fencing': 27, 'Field_Hockey_Penalty': 28, 'Floor_Gymnastics': 29, 'Frisbee_Catch': 30, 'Front_Crawl': 31, 'Golf_Swing': 32, 'Haircut': 33, 'Hammer_Throw': 34, 'Hammering': 35, 'Handstand_Pushups': 36, 'Handstand_Walking': 37, 'Head_Massage': 38, 'High_Jump': 39, 'Horse_Race': 40, 'Horse_Riding': 41, 'Hula_Hoop': 42, 'Ice_Dancing': 43, 'Javelin_Throw': 44, 'Juggling_Balls': 45, 'Jump_Rope': 46, 'Jumping_Jack': 47, 'Kayaking': 48, 'Knitting': 49, 'Long_Jump': 50, 'Lunges': 51, 'Military_Parade': 52, 'Mixing': 53, 'Mopping_Floor': 54, 'Nunchucks': 55, 'Parallel_Bars': 56, 'Pizza_Tossing': 57, 'Playing_Cello': 58, 'Playing_Daf': 59, 'Playing_Dhol': 60, 'Playing_Flute': 61, 'Playing_Guitar': 62, 'Playing_Piano': 63, 'Playing_Sitar': 64, 'Playing_Tabla': 65, 'Playing_Violin': 66, 'Pole_Vault': 67, 'Pommel_Horse': 68, 'Pull_Ups': 69, 'Punch': 70, 'Push_Ups': 71, 'Rafting': 72, 'Rock_Climbing_Indoor': 73, 'Rope_Climbing': 74, 'Rowing': 75, 'Salsa_Spin': 76, 'Shaving_Beard': 77, 'Shotput': 78, 'Skate_Boarding': 79, 'Skiing': 80, 'Skijet': 81, 'Sky_Diving': 82, 'Soccer_Juggling': 83, 'Soccer_Penalty': 84, 'Still_Rings': 85, 'Sumo_Wrestling': 86, 'Surfing': 87, 'Swing': 88, 'Table_Tennis_Shot': 89, 'Tai_Chi': 90, 'Tennis_Swing': 91, 'Throw_Discus': 92, 'Trampoline_Jumping': 93, 'Typing': 94, 'Uneven_Bars': 95, 'Volleyball_Spiking': 96, 'Walking_With_Dog': 97, 'Wall_Pushups': 98, 'Writing_On_Board': 99}
+2026-08-02 12:15:28,375 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+After shuffle, class_to_label is:  ['Pommel Horse', 'Parallel Bars', 'Shotput', 'Basketball Dunk', 'Cricket Shot', 'Soccer Penalty', 'Tai Chi', 'Playing Tabla', 'Rope Climbing', 'Salsa Spin', 'Horse Race', 'Table Tennis Shot', 'Baby Crawling', 'Throw Discus', 'Nunchucks', 'Bench Press', 'Drumming', 'Skiing', 'Ice Dancing', 'Head Massage', 'Playing Cello', 'Punch', 'Shaving Beard', 'Apply Lipstick', 'Still Rings', 'Brushing Teeth', 'Boxing Speed Bag', 'Long Jump', 'Field Hockey Penalty', 'Mixing', 'Blowing Candles', 'Skijet', 'Juggling Balls', 'Sky Diving', 'Baseball Pitch', 'Playing Daf', 'Soccer Juggling', 'Boxing Punching Bag', 'Bowling', 'Javelin Throw', 'Tennis Swing', 'Horse Riding', 'Rafting', 'Playing Dhol', 'Skate Boarding', 'Military Parade', 'Clean And Jerk', 'Biking', 'Front Crawl', 'Mopping Floor', 'Handstand Walking', 'Uneven Bars', 'Body Weight Squats', 'Push Ups', 'Volleyball Spiking', 'Wall Pushups', 'Walking With Dog', 'Archery', 'Playing Sitar', 'Playing Violin', 'Hula Hoop', 'Cricket Bowling', 'Hammering', 'Sumo Wrestling', 'Cutting In Kitchen', 'Hammer Throw', 'Surfing', 'Cliff Diving', 'Writing On Board', 'Apply Eye Makeup', 'Swing', 'Fencing', 'Breast Stroke', 'Typing', 'Billiards', 'Blow Dry Hair', 'Jumping Jack', 'Diving', 'Frisbee Catch', 'Jump Rope', 'Playing Guitar', 'Pull Ups', 'Hand Stand Pushups', 'Playing Flute', 'Basketball', 'Playing Piano', 'Rowing', 'Band Marching', 'Golf Swing', 'Balance Beam', 'Lunges', 'Kayaking', 'Rock Climbing Indoor', 'Trampoline Jumping', 'High Jump', 'Pole Vault', 'Floor Gymnastics', 'Knitting', 'Pizza Tossing', 'Haircut']
+Training class stages: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Using CLIP model as the backbone
+2026-08-02 12:15:30,347 [instantiator.py] => Created a temporary directory at /public/home/hanlida/tmp/tmpm3wyc82n
+2026-08-02 12:15:30,348 [instantiator.py] => Writing /public/home/hanlida/tmp/tmpm3wyc82n/_remote_module_non_scriptable.py
+2026-08-02 12:15:31,304 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 12:15:32,889 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Using CLIP model as the backbone
+2026-08-02 12:15:38,014 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 12:15:39,359 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+batch_size not in args, set to 48  as default
+init_lr not in args, set to 0.01  as default
+weight_decay not in args, set to 0.0005  as default
+min_lr not in args, set to 1e-08  as default
+2026-08-02 12:15:43,619 [simplecil.py] => Learning on 0-10
+2026-08-02 12:15:55,828 [trainer.py] => CNN: {'total': 94.07, '00-09': 94.07, 'old': 0, 'new': 94.07, 'harmonic': 0.0}
+2026-08-02 12:15:55,828 [trainer.py] => CNN top1 curve: [94.07]
+2026-08-02 12:15:55,828 [trainer.py] => CNN top5 curve: [99.6]
+2026-08-02 12:15:55,828 [trainer.py] => Average Accuracy (CNN top1): 94.07
+2026-08-02 12:15:55,861 [simplecil.py] => Learning on 10-20
+2026-08-02 12:16:09,226 [trainer.py] => CNN: {'total': 94.15, '00-09': 90.91, '10-19': 97.31, 'old': 90.91, 'new': 97.31, 'harmonic': 94.0}
+2026-08-02 12:16:09,226 [trainer.py] => CNN top1 curve: [94.07, 94.15]
+2026-08-02 12:16:09,226 [trainer.py] => CNN top5 curve: [99.6, 99.42]
+2026-08-02 12:16:09,226 [trainer.py] => Average Accuracy (CNN top1): 94.11
+2026-08-02 12:16:09,276 [simplecil.py] => Learning on 20-30
+2026-08-02 12:16:23,195 [trainer.py] => CNN: {'total': 90.74, '00-09': 86.56, '10-19': 96.92, '20-29': 88.73, 'old': 91.81, 'new': 88.73, 'harmonic': 90.24}
+2026-08-02 12:16:23,214 [trainer.py] => CNN top1 curve: [94.07, 94.15, 90.74]
+2026-08-02 12:16:23,214 [trainer.py] => CNN top5 curve: [99.6, 99.42, 99.24]
+2026-08-02 12:16:23,215 [trainer.py] => Average Accuracy (CNN top1): 92.98666666666666
+2026-08-02 12:16:23,230 [simplecil.py] => Learning on 30-40
+2026-08-02 12:16:38,556 [trainer.py] => CNN: {'total': 89.59, '00-09': 85.38, '10-19': 95.0, '20-29': 86.18, '30-39': 91.97, 'old': 88.83, 'new': 91.97, 'harmonic': 90.37}
+2026-08-02 12:16:38,585 [trainer.py] => CNN top1 curve: [94.07, 94.15, 90.74, 89.59]
+2026-08-02 12:16:38,585 [trainer.py] => CNN top5 curve: [99.6, 99.42, 99.24, 99.13]
+2026-08-02 12:16:38,585 [trainer.py] => Average Accuracy (CNN top1): 92.13749999999999
+2026-08-02 12:16:38,617 [simplecil.py] => Learning on 40-50
+2026-08-02 12:16:54,594 [trainer.py] => CNN: {'total': 89.55, '00-09': 84.98, '10-19': 95.0, '20-29': 86.18, '30-39': 91.57, '40-49': 90.15, 'old': 89.39, 'new': 90.15, 'harmonic': 89.77}
+2026-08-02 12:16:54,612 [trainer.py] => CNN top1 curve: [94.07, 94.15, 90.74, 89.59, 89.55]
+2026-08-02 12:16:54,613 [trainer.py] => CNN top5 curve: [99.6, 99.42, 99.24, 99.13, 98.47]
+2026-08-02 12:16:54,613 [trainer.py] => Average Accuracy (CNN top1): 91.61999999999999
+2026-08-02 12:16:54,615 [simplecil.py] => Learning on 50-60
+2026-08-02 12:17:12,572 [trainer.py] => CNN: {'total': 88.14, '00-09': 83.79, '10-19': 92.31, '20-29': 85.45, '30-39': 90.76, '40-49': 89.42, '50-59': 87.14, 'old': 88.33, 'new': 87.14, 'harmonic': 87.73}
+2026-08-02 12:17:12,588 [trainer.py] => CNN top1 curve: [94.07, 94.15, 90.74, 89.59, 89.55, 88.14]
+2026-08-02 12:17:12,589 [trainer.py] => CNN top5 curve: [99.6, 99.42, 99.24, 99.13, 98.47, 97.74]
+2026-08-02 12:17:12,589 [trainer.py] => Average Accuracy (CNN top1): 91.04
+2026-08-02 12:17:12,622 [simplecil.py] => Learning on 60-70
+2026-08-02 12:17:30,035 [trainer.py] => CNN: {'total': 86.75, '00-09': 79.45, '10-19': 91.15, '20-29': 83.27, '30-39': 89.96, '40-49': 89.42, '50-59': 86.31, '60-69': 87.59, 'old': 86.6, 'new': 87.59, 'harmonic': 87.09}
+2026-08-02 12:17:30,043 [trainer.py] => CNN top1 curve: [94.07, 94.15, 90.74, 89.59, 89.55, 88.14, 86.75]
+2026-08-02 12:17:30,043 [trainer.py] => CNN top5 curve: [99.6, 99.42, 99.24, 99.13, 98.47, 97.74, 97.54]
+2026-08-02 12:17:30,043 [trainer.py] => Average Accuracy (CNN top1): 90.42714285714285
+2026-08-02 12:17:30,141 [simplecil.py] => Learning on 70-80
+2026-08-02 12:17:52,147 [trainer.py] => CNN: {'total': 85.86, '00-09': 79.45, '10-19': 90.38, '20-29': 82.55, '30-39': 89.96, '40-49': 86.86, '50-59': 85.89, '60-69': 86.13, '70-79': 85.77, 'old': 85.87, 'new': 85.77, 'harmonic': 85.82}
+2026-08-02 12:17:52,177 [trainer.py] => CNN top1 curve: [94.07, 94.15, 90.74, 89.59, 89.55, 88.14, 86.75, 85.86]
+2026-08-02 12:17:52,177 [trainer.py] => CNN top5 curve: [99.6, 99.42, 99.24, 99.13, 98.47, 97.74, 97.54, 97.41]
+2026-08-02 12:17:52,177 [trainer.py] => Average Accuracy (CNN top1): 89.85625
+2026-08-02 12:17:52,180 [simplecil.py] => Learning on 80-90
+2026-08-02 12:18:13,134 [trainer.py] => CNN: {'total': 85.68, '00-09': 79.05, '10-19': 90.38, '20-29': 82.55, '30-39': 89.96, '40-49': 86.5, '50-59': 83.4, '60-69': 86.13, '70-79': 85.77, '80-89': 87.16, 'old': 85.47, 'new': 87.16, 'harmonic': 86.31}
+2026-08-02 12:18:13,145 [trainer.py] => CNN top1 curve: [94.07, 94.15, 90.74, 89.59, 89.55, 88.14, 86.75, 85.86, 85.68]
+2026-08-02 12:18:13,145 [trainer.py] => CNN top5 curve: [99.6, 99.42, 99.24, 99.13, 98.47, 97.74, 97.54, 97.41, 97.31]
+2026-08-02 12:18:13,145 [trainer.py] => Average Accuracy (CNN top1): 89.39222222222222
+2026-08-02 12:18:13,148 [simplecil.py] => Learning on 90-100
+2026-08-02 12:18:37,135 [trainer.py] => CNN: {'total': 83.63, '00-09': 78.26, '10-19': 90.38, '20-29': 80.36, '30-39': 87.95, '40-49': 85.04, '50-59': 83.4, '60-69': 85.77, '70-79': 83.46, '80-89': 85.14, '90-99': 76.26, 'old': 84.42, 'new': 76.26, 'harmonic': 80.13}
+2026-08-02 12:18:37,146 [trainer.py] => CNN top1 curve: [94.07, 94.15, 90.74, 89.59, 89.55, 88.14, 86.75, 85.86, 85.68, 83.63]
+2026-08-02 12:18:37,147 [trainer.py] => CNN top5 curve: [99.6, 99.42, 99.24, 99.13, 98.47, 97.74, 97.54, 97.41, 97.31, 96.7]
+2026-08-02 12:18:37,147 [trainer.py] => Average Accuracy (CNN top1): 88.816
+
+========================================
+Finished ucf101_init10_inc10 seed=1993
+Backbone: OpenAI CLIP
+Average Accuracy (Top1): 88.82
+Last Accuracy: 83.63
+Average Accuracy (Top5): 98.26
+Last Top5: 96.7
+========================================
+
+==== FINISHED simplecil OpenAI ViT-B/16: simplecil_ucf_B0_Inc10.json, seed=1993, GPU=2 ====
+==== START simplecil OpenAI ViT-B/16: simplecil_ucf_B50_Inc10.json, seed=1993, GPU=2 ====
+2026-08-02 12:19:02,842 [trainer.py] => prefix: -
+2026-08-02 12:19:02,857 [trainer.py] => dataset: ucf101
+2026-08-02 12:19:02,857 [trainer.py] => memory_size: 0
+2026-08-02 12:19:02,858 [trainer.py] => memory_per_class: 0
+2026-08-02 12:19:02,858 [trainer.py] => fixed_memory: False
+2026-08-02 12:19:02,858 [trainer.py] => shuffle: True
+2026-08-02 12:19:02,858 [trainer.py] => init_cls: 50
+2026-08-02 12:19:02,858 [trainer.py] => increment: 10
+2026-08-02 12:19:02,858 [trainer.py] => model_name: simplecil
+2026-08-02 12:19:02,858 [trainer.py] => backbone_type: openai_clip
+2026-08-02 12:19:02,858 [trainer.py] => device: [device(type='cuda', index=2)]
+2026-08-02 12:19:02,858 [trainer.py] => seed: 1993
+2026-08-02 12:19:02,858 [trainer.py] => total_class_num: 100
+2026-08-02 12:19:02,858 [trainer.py] => clip_pretrained: /public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin
+2026-08-02 12:19:02,858 [trainer.py] => config: configs/simplecil/simplecil_ucf_B50_Inc10.json
+['Apply Eye Makeup', 'Apply Lipstick', 'Archery', 'Baby Crawling', 'Balance Beam', 'Band Marching', 'Baseball Pitch', 'Basketball', 'Basketball Dunk', 'Bench Press', 'Biking', 'Billiards', 'Blow Dry Hair', 'Blowing Candles', 'Body Weight Squats', 'Bowling', 'Boxing Punching Bag', 'Boxing Speed Bag', 'Breast Stroke', 'Brushing Teeth', 'Clean And Jerk', 'Cliff Diving', 'Cricket Bowling', 'Cricket Shot', 'Cutting In Kitchen', 'Diving', 'Drumming', 'Fencing', 'Field Hockey Penalty', 'Floor Gymnastics', 'Frisbee Catch', 'Front Crawl', 'Golf Swing', 'Haircut', 'Hammer Throw', 'Hammering', 'Hand Stand Pushups', 'Handstand Walking', 'Head Massage', 'High Jump', 'Horse Race', 'Horse Riding', 'Hula Hoop', 'Ice Dancing', 'Javelin Throw', 'Juggling Balls', 'Jump Rope', 'Jumping Jack', 'Kayaking', 'Knitting', 'Long Jump', 'Lunges', 'Military Parade', 'Mixing', 'Mopping Floor', 'Nunchucks', 'Parallel Bars', 'Pizza Tossing', 'Playing Cello', 'Playing Daf', 'Playing Dhol', 'Playing Flute', 'Playing Guitar', 'Playing Piano', 'Playing Sitar', 'Playing Tabla', 'Playing Violin', 'Pole Vault', 'Pommel Horse', 'Pull Ups', 'Punch', 'Push Ups', 'Rafting', 'Rock Climbing Indoor', 'Rope Climbing', 'Rowing', 'Salsa Spin', 'Shaving Beard', 'Shotput', 'Skate Boarding', 'Skiing', 'Skijet', 'Sky Diving', 'Soccer Juggling', 'Soccer Penalty', 'Still Rings', 'Sumo Wrestling', 'Surfing', 'Swing', 'Table Tennis Shot', 'Tai Chi', 'Tennis Swing', 'Throw Discus', 'Trampoline Jumping', 'Typing', 'Uneven Bars', 'Volleyball Spiking', 'Walking With Dog', 'Wall Pushups', 'Writing On Board']
+['a photo of a person {}.', 'a video of a person {}.', 'a example of a person {}.', 'a demonstration of a person {}.', 'a photo of the person {}.', 'a video of the person {}.', 'a example of the person {}.', 'a demonstration of the person {}.', 'a photo of a person using {}.', 'a video of a person using {}.', 'a example of a person using {}.', 'a demonstration of a person using {}.', 'a photo of the person using {}.', 'a video of the person using {}.', 'a example of the person using {}.', 'a demonstration of the person using {}.', 'a photo of a person doing {}.', 'a video of a person doing {}.', 'a example of a person doing {}.', 'a demonstration of a person doing {}.', 'a photo of the person doing {}.', 'a video of the person doing {}.', 'a example of the person doing {}.', 'a demonstration of the person doing {}.', 'a photo of a person during {}.', 'a video of a person during {}.', 'a example of a person during {}.', 'a demonstration of a person during {}.', 'a photo of the person during {}.', 'a video of the person during {}.', 'a example of the person during {}.', 'a demonstration of the person during {}.', 'a photo of a person performing {}.', 'a video of a person performing {}.', 'a example of a person performing {}.', 'a demonstration of a person performing {}.', 'a photo of the person performing {}.', 'a video of the person performing {}.', 'a example of the person performing {}.', 'a demonstration of the person performing {}.', 'a photo of a person practicing {}.', 'a video of a person practicing {}.', 'a example of a person practicing {}.', 'a demonstration of a person practicing {}.', 'a photo of the person practicing {}.', 'a video of the person practicing {}.', 'a example of the person practicing {}.', 'a demonstration of the person practicing {}.']
+{'Apply_Eye_Makeup': 0, 'Apply_Lipstick': 1, 'Archery': 2, 'Baby_Crawling': 3, 'Balance_Beam': 4, 'Band_Marching': 5, 'Baseball_Pitch': 6, 'Basketball': 7, 'Basketball_Dunk': 8, 'Bench_Press': 9, 'Biking': 10, 'Billiards': 11, 'Blow_Dry_Hair': 12, 'Blowing_Candles': 13, 'Body_Weight_Squats': 14, 'Bowling': 15, 'Boxing_Punching_Bag': 16, 'Boxing_Speed_Bag': 17, 'Breast_Stroke': 18, 'Brushing_Teeth': 19, 'Clean_And_Jerk': 20, 'Cliff_Diving': 21, 'Cricket_Bowling': 22, 'Cricket_Shot': 23, 'Cutting_In_Kitchen': 24, 'Diving': 25, 'Drumming': 26, 'Fencing': 27, 'Field_Hockey_Penalty': 28, 'Floor_Gymnastics': 29, 'Frisbee_Catch': 30, 'Front_Crawl': 31, 'Golf_Swing': 32, 'Haircut': 33, 'Hammer_Throw': 34, 'Hammering': 35, 'Handstand_Pushups': 36, 'Handstand_Walking': 37, 'Head_Massage': 38, 'High_Jump': 39, 'Horse_Race': 40, 'Horse_Riding': 41, 'Hula_Hoop': 42, 'Ice_Dancing': 43, 'Javelin_Throw': 44, 'Juggling_Balls': 45, 'Jump_Rope': 46, 'Jumping_Jack': 47, 'Kayaking': 48, 'Knitting': 49, 'Long_Jump': 50, 'Lunges': 51, 'Military_Parade': 52, 'Mixing': 53, 'Mopping_Floor': 54, 'Nunchucks': 55, 'Parallel_Bars': 56, 'Pizza_Tossing': 57, 'Playing_Cello': 58, 'Playing_Daf': 59, 'Playing_Dhol': 60, 'Playing_Flute': 61, 'Playing_Guitar': 62, 'Playing_Piano': 63, 'Playing_Sitar': 64, 'Playing_Tabla': 65, 'Playing_Violin': 66, 'Pole_Vault': 67, 'Pommel_Horse': 68, 'Pull_Ups': 69, 'Punch': 70, 'Push_Ups': 71, 'Rafting': 72, 'Rock_Climbing_Indoor': 73, 'Rope_Climbing': 74, 'Rowing': 75, 'Salsa_Spin': 76, 'Shaving_Beard': 77, 'Shotput': 78, 'Skate_Boarding': 79, 'Skiing': 80, 'Skijet': 81, 'Sky_Diving': 82, 'Soccer_Juggling': 83, 'Soccer_Penalty': 84, 'Still_Rings': 85, 'Sumo_Wrestling': 86, 'Surfing': 87, 'Swing': 88, 'Table_Tennis_Shot': 89, 'Tai_Chi': 90, 'Tennis_Swing': 91, 'Throw_Discus': 92, 'Trampoline_Jumping': 93, 'Typing': 94, 'Uneven_Bars': 95, 'Volleyball_Spiking': 96, 'Walking_With_Dog': 97, 'Wall_Pushups': 98, 'Writing_On_Board': 99}
+2026-08-02 12:19:03,273 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+After shuffle, class_to_label is:  ['Pommel Horse', 'Parallel Bars', 'Shotput', 'Basketball Dunk', 'Cricket Shot', 'Soccer Penalty', 'Tai Chi', 'Playing Tabla', 'Rope Climbing', 'Salsa Spin', 'Horse Race', 'Table Tennis Shot', 'Baby Crawling', 'Throw Discus', 'Nunchucks', 'Bench Press', 'Drumming', 'Skiing', 'Ice Dancing', 'Head Massage', 'Playing Cello', 'Punch', 'Shaving Beard', 'Apply Lipstick', 'Still Rings', 'Brushing Teeth', 'Boxing Speed Bag', 'Long Jump', 'Field Hockey Penalty', 'Mixing', 'Blowing Candles', 'Skijet', 'Juggling Balls', 'Sky Diving', 'Baseball Pitch', 'Playing Daf', 'Soccer Juggling', 'Boxing Punching Bag', 'Bowling', 'Javelin Throw', 'Tennis Swing', 'Horse Riding', 'Rafting', 'Playing Dhol', 'Skate Boarding', 'Military Parade', 'Clean And Jerk', 'Biking', 'Front Crawl', 'Mopping Floor', 'Handstand Walking', 'Uneven Bars', 'Body Weight Squats', 'Push Ups', 'Volleyball Spiking', 'Wall Pushups', 'Walking With Dog', 'Archery', 'Playing Sitar', 'Playing Violin', 'Hula Hoop', 'Cricket Bowling', 'Hammering', 'Sumo Wrestling', 'Cutting In Kitchen', 'Hammer Throw', 'Surfing', 'Cliff Diving', 'Writing On Board', 'Apply Eye Makeup', 'Swing', 'Fencing', 'Breast Stroke', 'Typing', 'Billiards', 'Blow Dry Hair', 'Jumping Jack', 'Diving', 'Frisbee Catch', 'Jump Rope', 'Playing Guitar', 'Pull Ups', 'Hand Stand Pushups', 'Playing Flute', 'Basketball', 'Playing Piano', 'Rowing', 'Band Marching', 'Golf Swing', 'Balance Beam', 'Lunges', 'Kayaking', 'Rock Climbing Indoor', 'Trampoline Jumping', 'High Jump', 'Pole Vault', 'Floor Gymnastics', 'Knitting', 'Pizza Tossing', 'Haircut']
+Training class stages: [50, 10, 10, 10, 10, 10]
+Using CLIP model as the backbone
+2026-08-02 12:19:24,355 [instantiator.py] => Created a temporary directory at /public/home/hanlida/tmp/tmpsseys5pd
+2026-08-02 12:19:24,368 [instantiator.py] => Writing /public/home/hanlida/tmp/tmpsseys5pd/_remote_module_non_scriptable.py
+2026-08-02 12:19:26,645 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 12:19:28,387 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Using CLIP model as the backbone
+2026-08-02 12:19:33,242 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 12:19:34,487 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+batch_size not in args, set to 48  as default
+init_lr not in args, set to 0.01  as default
+weight_decay not in args, set to 0.0005  as default
+min_lr not in args, set to 1e-08  as default
+2026-08-02 12:19:38,367 [simplecil.py] => Learning on 0-50
+2026-08-02 12:20:21,887 [trainer.py] => CNN: {'total': 89.55, '00-09': 84.98, '10-19': 95.0, '20-29': 86.18, '30-39': 91.57, '40-49': 90.15, 'old': 0, 'new': 89.55, 'harmonic': 0.0}
+2026-08-02 12:20:21,919 [trainer.py] => CNN top1 curve: [89.55]
+2026-08-02 12:20:21,919 [trainer.py] => CNN top5 curve: [98.47]
+2026-08-02 12:20:21,919 [trainer.py] => Average Accuracy (CNN top1): 89.55
+2026-08-02 12:20:21,970 [simplecil.py] => Learning on 50-60
+2026-08-02 12:20:39,109 [trainer.py] => CNN: {'total': 88.14, '00-09': 83.79, '10-19': 92.31, '20-29': 85.45, '30-39': 90.76, '40-49': 89.42, '50-59': 87.14, 'old': 88.33, 'new': 87.14, 'harmonic': 87.73}
+2026-08-02 12:20:39,110 [trainer.py] => CNN top1 curve: [89.55, 88.14]
+2026-08-02 12:20:39,110 [trainer.py] => CNN top5 curve: [98.47, 97.74]
+2026-08-02 12:20:39,110 [trainer.py] => Average Accuracy (CNN top1): 88.845
+2026-08-02 12:20:39,160 [simplecil.py] => Learning on 60-70
+2026-08-02 12:20:59,884 [trainer.py] => CNN: {'total': 86.75, '00-09': 79.45, '10-19': 91.15, '20-29': 83.27, '30-39': 89.96, '40-49': 89.42, '50-59': 86.31, '60-69': 87.59, 'old': 86.6, 'new': 87.59, 'harmonic': 87.09}
+2026-08-02 12:20:59,885 [trainer.py] => CNN top1 curve: [89.55, 88.14, 86.75]
+2026-08-02 12:20:59,885 [trainer.py] => CNN top5 curve: [98.47, 97.74, 97.54]
+2026-08-02 12:20:59,885 [trainer.py] => Average Accuracy (CNN top1): 88.14666666666666
+2026-08-02 12:20:59,888 [simplecil.py] => Learning on 70-80
+2026-08-02 12:21:21,179 [trainer.py] => CNN: {'total': 85.86, '00-09': 79.45, '10-19': 90.38, '20-29': 82.55, '30-39': 89.96, '40-49': 86.86, '50-59': 85.89, '60-69': 86.13, '70-79': 85.77, 'old': 85.87, 'new': 85.77, 'harmonic': 85.82}
+2026-08-02 12:21:21,179 [trainer.py] => CNN top1 curve: [89.55, 88.14, 86.75, 85.86]
+2026-08-02 12:21:21,179 [trainer.py] => CNN top5 curve: [98.47, 97.74, 97.54, 97.41]
+2026-08-02 12:21:21,179 [trainer.py] => Average Accuracy (CNN top1): 87.575
+2026-08-02 12:21:21,181 [simplecil.py] => Learning on 80-90
+2026-08-02 12:21:45,620 [trainer.py] => CNN: {'total': 85.68, '00-09': 79.05, '10-19': 90.38, '20-29': 82.55, '30-39': 89.96, '40-49': 86.5, '50-59': 83.4, '60-69': 86.13, '70-79': 85.77, '80-89': 87.16, 'old': 85.47, 'new': 87.16, 'harmonic': 86.31}
+2026-08-02 12:21:45,644 [trainer.py] => CNN top1 curve: [89.55, 88.14, 86.75, 85.86, 85.68]
+2026-08-02 12:21:45,644 [trainer.py] => CNN top5 curve: [98.47, 97.74, 97.54, 97.41, 97.31]
+2026-08-02 12:21:45,645 [trainer.py] => Average Accuracy (CNN top1): 87.196
+2026-08-02 12:21:45,678 [simplecil.py] => Learning on 90-100
+2026-08-02 12:22:09,924 [trainer.py] => CNN: {'total': 83.63, '00-09': 78.26, '10-19': 90.38, '20-29': 80.36, '30-39': 87.95, '40-49': 85.04, '50-59': 83.4, '60-69': 85.77, '70-79': 83.46, '80-89': 85.14, '90-99': 76.26, 'old': 84.42, 'new': 76.26, 'harmonic': 80.13}
+2026-08-02 12:22:09,962 [trainer.py] => CNN top1 curve: [89.55, 88.14, 86.75, 85.86, 85.68, 83.63]
+2026-08-02 12:22:09,962 [trainer.py] => CNN top5 curve: [98.47, 97.74, 97.54, 97.41, 97.31, 96.7]
+2026-08-02 12:22:09,963 [trainer.py] => Average Accuracy (CNN top1): 86.60166666666667
+
+========================================
+Finished ucf101_init50_inc10 seed=1993
+Backbone: OpenAI CLIP
+Average Accuracy (Top1): 86.6
+Last Accuracy: 83.63
+Average Accuracy (Top5): 97.53
+Last Top5: 96.7
+========================================
+
+==== FINISHED simplecil OpenAI ViT-B/16: simplecil_ucf_B50_Inc10.json, seed=1993, GPU=2 ====
+==== START simplecil OpenAI ViT-B/16: simplecil_food_B0_Inc10.json, seed=1993, GPU=2 ====
+2026-08-02 12:22:40,326 [trainer.py] => prefix: -
+2026-08-02 12:22:40,327 [trainer.py] => dataset: food101
+2026-08-02 12:22:40,327 [trainer.py] => memory_size: 0
+2026-08-02 12:22:40,327 [trainer.py] => memory_per_class: 0
+2026-08-02 12:22:40,327 [trainer.py] => fixed_memory: False
+2026-08-02 12:22:40,327 [trainer.py] => shuffle: True
+2026-08-02 12:22:40,328 [trainer.py] => init_cls: 10
+2026-08-02 12:22:40,328 [trainer.py] => increment: 10
+2026-08-02 12:22:40,328 [trainer.py] => model_name: simplecil
+2026-08-02 12:22:40,328 [trainer.py] => backbone_type: openai_clip
+2026-08-02 12:22:40,328 [trainer.py] => device: [device(type='cuda', index=2)]
+2026-08-02 12:22:40,328 [trainer.py] => seed: 1993
+2026-08-02 12:22:40,328 [trainer.py] => total_class_num: 100
+2026-08-02 12:22:40,328 [trainer.py] => clip_pretrained: /public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin
+2026-08-02 12:22:40,329 [trainer.py] => config: configs/simplecil/simplecil_food_B0_Inc10.json
+['apple pie', 'baby back ribs', 'baklava', 'beef carpaccio', 'beef tartare', 'beet salad', 'beignets', 'bibimbap', 'bread pudding', 'breakfast burrito', 'bruschetta', 'caesar salad', 'cannoli', 'caprese salad', 'carrot cake', 'ceviche', 'cheese plate', 'cheesecake', 'chicken curry', 'chicken quesadilla', 'chicken wings', 'chocolate cake', 'chocolate mousse', 'churros', 'clam chowder', 'club sandwich', 'crab cakes', 'creme brulee', 'croque madame', 'cup cakes', 'deviled eggs', 'donuts', 'dumplings', 'edamame', 'eggs benedict', 'escargots', 'falafel', 'filet mignon', 'fish and chips', 'foie gras', 'french fries', 'french onion soup', 'french toast', 'fried calamari', 'fried rice', 'frozen yogurt', 'garlic bread', 'gnocchi', 'greek salad', 'grilled cheese sandwich', 'grilled salmon', 'guacamole', 'gyoza', 'hamburger', 'hot and sour soup', 'hot dog', 'huevos rancheros', 'hummus', 'ice cream', 'lasagna', 'lobster bisque', 'lobster roll sandwich', 'macaroni and cheese', 'macarons', 'miso soup', 'mussels', 'nachos', 'omelette', 'onion rings', 'oysters', 'pad thai', 'paella', 'pancakes', 'panna cotta', 'peking duck', 'pho', 'pizza', 'pork chop', 'poutine', 'prime rib', 'pulled pork sandwich', 'ramen', 'ravioli', 'red velvet cake', 'risotto', 'samosa', 'sashimi', 'scallops', 'seaweed salad', 'shrimp and grits', 'spaghetti bolognese', 'spaghetti carbonara', 'spring rolls', 'steak', 'strawberry shortcake', 'sushi', 'tacos', 'takoyaki', 'tiramisu', 'tuna tartare']
+['a photo of {}, a type of food.']
+{'apple_pie': 0, 'baby_back_ribs': 1, 'baklava': 2, 'beef_carpaccio': 3, 'beef_tartare': 4, 'beet_salad': 5, 'beignets': 6, 'bibimbap': 7, 'bread_pudding': 8, 'breakfast_burrito': 9, 'bruschetta': 10, 'caesar_salad': 11, 'cannoli': 12, 'caprese_salad': 13, 'carrot_cake': 14, 'ceviche': 15, 'cheese_plate': 16, 'cheesecake': 17, 'chicken_curry': 18, 'chicken_quesadilla': 19, 'chicken_wings': 20, 'chocolate_cake': 21, 'chocolate_mousse': 22, 'churros': 23, 'clam_chowder': 24, 'club_sandwich': 25, 'crab_cakes': 26, 'creme_brulee': 27, 'croque_madame': 28, 'cup_cakes': 29, 'deviled_eggs': 30, 'donuts': 31, 'dumplings': 32, 'edamame': 33, 'eggs_benedict': 34, 'escargots': 35, 'falafel': 36, 'filet_mignon': 37, 'fish_and_chips': 38, 'foie_gras': 39, 'french_fries': 40, 'french_onion_soup': 41, 'french_toast': 42, 'fried_calamari': 43, 'fried_rice': 44, 'frozen_yogurt': 45, 'garlic_bread': 46, 'gnocchi': 47, 'greek_salad': 48, 'grilled_cheese_sandwich': 49, 'grilled_salmon': 50, 'guacamole': 51, 'gyoza': 52, 'hamburger': 53, 'hot_and_sour_soup': 54, 'hot_dog': 55, 'huevos_rancheros': 56, 'hummus': 57, 'ice_cream': 58, 'lasagna': 59, 'lobster_bisque': 60, 'lobster_roll_sandwich': 61, 'macaroni_and_cheese': 62, 'macarons': 63, 'miso_soup': 64, 'mussels': 65, 'nachos': 66, 'omelette': 67, 'onion_rings': 68, 'oysters': 69, 'pad_thai': 70, 'paella': 71, 'pancakes': 72, 'panna_cotta': 73, 'peking_duck': 74, 'pho': 75, 'pizza': 76, 'pork_chop': 77, 'poutine': 78, 'prime_rib': 79, 'pulled_pork_sandwich': 80, 'ramen': 81, 'ravioli': 82, 'red_velvet_cake': 83, 'risotto': 84, 'samosa': 85, 'sashimi': 86, 'scallops': 87, 'seaweed_salad': 88, 'shrimp_and_grits': 89, 'spaghetti_bolognese': 90, 'spaghetti_carbonara': 91, 'spring_rolls': 92, 'steak': 93, 'strawberry_shortcake': 94, 'sushi': 95, 'tacos': 96, 'takoyaki': 97, 'tiramisu': 98, 'tuna_tartare': 99}
+2026-08-02 12:22:41,182 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+After shuffle, class_to_label is:  ['onion rings', 'huevos rancheros', 'poutine', 'bread pudding', 'churros', 'risotto', 'spaghetti bolognese', 'mussels', 'peking duck', 'pizza', 'french fries', 'shrimp and grits', 'beef carpaccio', 'spring rolls', 'hot dog', 'breakfast burrito', 'crab cakes', 'pulled pork sandwich', 'fried calamari', 'fish and chips', 'ice cream', 'pad thai', 'pork chop', 'baby back ribs', 'samosa', 'chicken quesadilla', 'cheesecake', 'grilled salmon', 'croque madame', 'hamburger', 'caprese salad', 'ramen', 'frozen yogurt', 'ravioli', 'beignets', 'lasagna', 'red velvet cake', 'cheese plate', 'ceviche', 'fried rice', 'spaghetti carbonara', 'french onion soup', 'pancakes', 'lobster bisque', 'prime rib', 'gyoza', 'chicken wings', 'bruschetta', 'donuts', 'hot and sour soup', 'filet mignon', 'sushi', 'carrot cake', 'paella', 'tacos', 'tiramisu', 'takoyaki', 'baklava', 'miso soup', 'nachos', 'french toast', 'chocolate mousse', 'escargots', 'sashimi', 'clam chowder', 'eggs benedict', 'scallops', 'chocolate cake', 'tuna tartare', 'apple pie', 'seaweed salad', 'creme brulee', 'chicken curry', 'strawberry shortcake', 'caesar salad', 'cannoli', 'gnocchi', 'club sandwich', 'deviled eggs', 'garlic bread', 'macaroni and cheese', 'oysters', 'falafel', 'lobster roll sandwich', 'bibimbap', 'macarons', 'pho', 'beet salad', 'dumplings', 'beef tartare', 'guacamole', 'greek salad', 'panna cotta', 'steak', 'foie gras', 'omelette', 'cup cakes', 'grilled cheese sandwich', 'hummus', 'edamame']
+Training class stages: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Using CLIP model as the backbone
+2026-08-02 12:23:01,629 [instantiator.py] => Created a temporary directory at /public/home/hanlida/tmp/tmp7d1yltzr
+2026-08-02 12:23:01,630 [instantiator.py] => Writing /public/home/hanlida/tmp/tmp7d1yltzr/_remote_module_non_scriptable.py
+2026-08-02 12:23:04,067 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 12:23:05,859 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Using CLIP model as the backbone
+2026-08-02 12:23:09,588 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 12:23:11,054 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+batch_size not in args, set to 48  as default
+init_lr not in args, set to 0.01  as default
+weight_decay not in args, set to 0.0005  as default
+min_lr not in args, set to 1e-08  as default
+2026-08-02 12:23:14,028 [simplecil.py] => Learning on 0-10
+2026-08-02 12:24:17,011 [trainer.py] => CNN: {'total': 97.13, '00-09': 97.13, 'old': 0, 'new': 97.13, 'harmonic': 0.0}
+2026-08-02 12:24:17,022 [trainer.py] => CNN top1 curve: [97.13]
+2026-08-02 12:24:17,022 [trainer.py] => CNN top5 curve: [99.8]
+2026-08-02 12:24:17,022 [trainer.py] => Average Accuracy (CNN top1): 97.13
+2026-08-02 12:24:17,055 [simplecil.py] => Learning on 10-20
+2026-08-02 12:25:25,467 [trainer.py] => CNN: {'total': 92.27, '00-09': 93.42, '10-19': 91.09, 'old': 93.42, 'new': 91.09, 'harmonic': 92.24}
+2026-08-02 12:25:25,491 [trainer.py] => CNN top1 curve: [97.13, 92.27]
+2026-08-02 12:25:25,491 [trainer.py] => CNN top5 curve: [99.8, 99.25]
+2026-08-02 12:25:25,491 [trainer.py] => Average Accuracy (CNN top1): 94.69999999999999
+2026-08-02 12:25:25,495 [simplecil.py] => Learning on 20-30
+2026-08-02 12:26:48,241 [trainer.py] => CNN: {'total': 90.0, '00-09': 91.24, '10-19': 88.66, '20-29': 90.06, 'old': 89.96, 'new': 90.06, 'harmonic': 90.01}
+2026-08-02 12:26:48,284 [trainer.py] => CNN top1 curve: [97.13, 92.27, 90.0]
+2026-08-02 12:26:48,284 [trainer.py] => CNN top5 curve: [99.8, 99.25, 98.88]
+2026-08-02 12:26:48,284 [trainer.py] => Average Accuracy (CNN top1): 93.13333333333333
+2026-08-02 12:26:48,306 [simplecil.py] => Learning on 30-40
+2026-08-02 12:28:23,597 [trainer.py] => CNN: {'total': 88.86, '00-09': 90.0, '10-19': 87.59, '20-29': 88.32, '30-39': 89.47, 'old': 88.65, 'new': 89.47, 'harmonic': 89.06}
+2026-08-02 12:28:23,656 [trainer.py] => CNN top1 curve: [97.13, 92.27, 90.0, 88.86]
+2026-08-02 12:28:23,656 [trainer.py] => CNN top5 curve: [99.8, 99.25, 98.88, 98.39]
+2026-08-02 12:28:23,656 [trainer.py] => Average Accuracy (CNN top1): 92.065
+2026-08-02 12:28:23,659 [simplecil.py] => Learning on 40-50
+2026-08-02 12:30:09,080 [trainer.py] => CNN: {'total': 88.02, '00-09': 88.51, '10-19': 87.14, '20-29': 87.32, '30-39': 87.43, '40-49': 89.73, 'old': 87.6, 'new': 89.73, 'harmonic': 88.65}
+2026-08-02 12:30:09,116 [trainer.py] => CNN top1 curve: [97.13, 92.27, 90.0, 88.86, 88.02]
+2026-08-02 12:30:09,117 [trainer.py] => CNN top5 curve: [99.8, 99.25, 98.88, 98.39, 97.9]
+2026-08-02 12:30:09,117 [trainer.py] => Average Accuracy (CNN top1): 91.256
+2026-08-02 12:30:09,122 [simplecil.py] => Learning on 50-60
+2026-08-02 12:32:10,262 [trainer.py] => CNN: {'total': 85.98, '00-09': 86.88, '10-19': 86.48, '20-29': 84.32, '30-39': 85.83, '40-49': 87.87, '50-59': 84.53, 'old': 86.27, 'new': 84.53, 'harmonic': 85.39}
+2026-08-02 12:32:10,298 [trainer.py] => CNN top1 curve: [97.13, 92.27, 90.0, 88.86, 88.02, 85.98]
+2026-08-02 12:32:10,298 [trainer.py] => CNN top5 curve: [99.8, 99.25, 98.88, 98.39, 97.9, 97.51]
+2026-08-02 12:32:10,298 [trainer.py] => Average Accuracy (CNN top1): 90.37666666666667
+2026-08-02 12:32:10,337 [simplecil.py] => Learning on 60-70
+2026-08-02 12:34:22,047 [trainer.py] => CNN: {'total': 83.13, '00-09': 85.2, '10-19': 85.42, '20-29': 82.48, '30-39': 84.22, '40-49': 86.11, '50-59': 80.35, '60-69': 78.08, 'old': 83.96, 'new': 78.08, 'harmonic': 80.91}
+2026-08-02 12:34:22,076 [trainer.py] => CNN top1 curve: [97.13, 92.27, 90.0, 88.86, 88.02, 85.98, 83.13]
+2026-08-02 12:34:22,077 [trainer.py] => CNN top5 curve: [99.8, 99.25, 98.88, 98.39, 97.9, 97.51, 96.65]
+2026-08-02 12:34:22,077 [trainer.py] => Average Accuracy (CNN top1): 89.34142857142857
+2026-08-02 12:34:22,133 [simplecil.py] => Learning on 70-80
+2026-08-02 12:36:43,796 [trainer.py] => CNN: {'total': 82.43, '00-09': 84.95, '10-19': 84.71, '20-29': 81.18, '30-39': 82.62, '40-49': 85.71, '50-59': 79.85, '60-69': 77.37, '70-79': 83.06, 'old': 82.34, 'new': 83.06, 'harmonic': 82.7}
+2026-08-02 12:36:43,818 [trainer.py] => CNN top1 curve: [97.13, 92.27, 90.0, 88.86, 88.02, 85.98, 83.13, 82.43]
+2026-08-02 12:36:43,818 [trainer.py] => CNN top5 curve: [99.8, 99.25, 98.88, 98.39, 97.9, 97.51, 96.65, 96.17]
+2026-08-02 12:36:43,819 [trainer.py] => Average Accuracy (CNN top1): 88.47749999999999
+2026-08-02 12:36:43,855 [simplecil.py] => Learning on 80-90
+2026-08-02 12:39:16,604 [trainer.py] => CNN: {'total': 82.04, '00-09': 84.5, '10-19': 83.85, '20-29': 81.13, '30-39': 81.84, '40-49': 84.45, '50-59': 79.85, '60-69': 76.67, '70-79': 82.31, '80-89': 83.79, 'old': 81.83, 'new': 83.79, 'harmonic': 82.8}
+2026-08-02 12:39:16,626 [trainer.py] => CNN top1 curve: [97.13, 92.27, 90.0, 88.86, 88.02, 85.98, 83.13, 82.43, 82.04]
+2026-08-02 12:39:16,626 [trainer.py] => CNN top5 curve: [99.8, 99.25, 98.88, 98.39, 97.9, 97.51, 96.65, 96.17, 95.83]
+2026-08-02 12:39:16,626 [trainer.py] => Average Accuracy (CNN top1): 87.7622222222222
+2026-08-02 12:39:16,630 [simplecil.py] => Learning on 90-100
+2026-08-02 12:41:51,102 [trainer.py] => CNN: {'total': 80.36, '00-09': 83.81, '10-19': 83.49, '20-29': 79.23, '30-39': 80.58, '40-49': 83.64, '50-59': 77.86, '60-69': 74.19, '70-79': 80.61, '80-89': 82.28, '90-99': 77.82, 'old': 80.64, 'new': 77.82, 'harmonic': 79.2}
+2026-08-02 12:41:51,131 [trainer.py] => CNN top1 curve: [97.13, 92.27, 90.0, 88.86, 88.02, 85.98, 83.13, 82.43, 82.04, 80.36]
+2026-08-02 12:41:51,131 [trainer.py] => CNN top5 curve: [99.8, 99.25, 98.88, 98.39, 97.9, 97.51, 96.65, 96.17, 95.83, 95.28]
+2026-08-02 12:41:51,131 [trainer.py] => Average Accuracy (CNN top1): 87.02199999999999
+
+========================================
+Finished food101_init10_inc10 seed=1993
+Backbone: OpenAI CLIP
+Average Accuracy (Top1): 87.02
+Last Accuracy: 80.36
+Average Accuracy (Top5): 97.57
+Last Top5: 95.28
+========================================
+
+==== FINISHED simplecil OpenAI ViT-B/16: simplecil_food_B0_Inc10.json, seed=1993, GPU=2 ====
+==== START simplecil OpenAI ViT-B/16: simplecil_food_B50_Inc10.json, seed=1993, GPU=2 ====
+2026-08-02 12:42:00,937 [trainer.py] => prefix: -
+2026-08-02 12:42:00,938 [trainer.py] => dataset: food101
+2026-08-02 12:42:00,938 [trainer.py] => memory_size: 0
+2026-08-02 12:42:00,938 [trainer.py] => memory_per_class: 0
+2026-08-02 12:42:00,938 [trainer.py] => fixed_memory: False
+2026-08-02 12:42:00,938 [trainer.py] => shuffle: True
+2026-08-02 12:42:00,938 [trainer.py] => init_cls: 50
+2026-08-02 12:42:00,939 [trainer.py] => increment: 10
+2026-08-02 12:42:00,939 [trainer.py] => model_name: simplecil
+2026-08-02 12:42:00,939 [trainer.py] => backbone_type: openai_clip
+2026-08-02 12:42:00,939 [trainer.py] => device: [device(type='cuda', index=2)]
+2026-08-02 12:42:00,939 [trainer.py] => seed: 1993
+2026-08-02 12:42:00,940 [trainer.py] => total_class_num: 100
+2026-08-02 12:42:00,940 [trainer.py] => clip_pretrained: /public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin
+2026-08-02 12:42:00,940 [trainer.py] => config: configs/simplecil/simplecil_food_B50_Inc10.json
+['apple pie', 'baby back ribs', 'baklava', 'beef carpaccio', 'beef tartare', 'beet salad', 'beignets', 'bibimbap', 'bread pudding', 'breakfast burrito', 'bruschetta', 'caesar salad', 'cannoli', 'caprese salad', 'carrot cake', 'ceviche', 'cheese plate', 'cheesecake', 'chicken curry', 'chicken quesadilla', 'chicken wings', 'chocolate cake', 'chocolate mousse', 'churros', 'clam chowder', 'club sandwich', 'crab cakes', 'creme brulee', 'croque madame', 'cup cakes', 'deviled eggs', 'donuts', 'dumplings', 'edamame', 'eggs benedict', 'escargots', 'falafel', 'filet mignon', 'fish and chips', 'foie gras', 'french fries', 'french onion soup', 'french toast', 'fried calamari', 'fried rice', 'frozen yogurt', 'garlic bread', 'gnocchi', 'greek salad', 'grilled cheese sandwich', 'grilled salmon', 'guacamole', 'gyoza', 'hamburger', 'hot and sour soup', 'hot dog', 'huevos rancheros', 'hummus', 'ice cream', 'lasagna', 'lobster bisque', 'lobster roll sandwich', 'macaroni and cheese', 'macarons', 'miso soup', 'mussels', 'nachos', 'omelette', 'onion rings', 'oysters', 'pad thai', 'paella', 'pancakes', 'panna cotta', 'peking duck', 'pho', 'pizza', 'pork chop', 'poutine', 'prime rib', 'pulled pork sandwich', 'ramen', 'ravioli', 'red velvet cake', 'risotto', 'samosa', 'sashimi', 'scallops', 'seaweed salad', 'shrimp and grits', 'spaghetti bolognese', 'spaghetti carbonara', 'spring rolls', 'steak', 'strawberry shortcake', 'sushi', 'tacos', 'takoyaki', 'tiramisu', 'tuna tartare']
+['a photo of {}, a type of food.']
+{'apple_pie': 0, 'baby_back_ribs': 1, 'baklava': 2, 'beef_carpaccio': 3, 'beef_tartare': 4, 'beet_salad': 5, 'beignets': 6, 'bibimbap': 7, 'bread_pudding': 8, 'breakfast_burrito': 9, 'bruschetta': 10, 'caesar_salad': 11, 'cannoli': 12, 'caprese_salad': 13, 'carrot_cake': 14, 'ceviche': 15, 'cheese_plate': 16, 'cheesecake': 17, 'chicken_curry': 18, 'chicken_quesadilla': 19, 'chicken_wings': 20, 'chocolate_cake': 21, 'chocolate_mousse': 22, 'churros': 23, 'clam_chowder': 24, 'club_sandwich': 25, 'crab_cakes': 26, 'creme_brulee': 27, 'croque_madame': 28, 'cup_cakes': 29, 'deviled_eggs': 30, 'donuts': 31, 'dumplings': 32, 'edamame': 33, 'eggs_benedict': 34, 'escargots': 35, 'falafel': 36, 'filet_mignon': 37, 'fish_and_chips': 38, 'foie_gras': 39, 'french_fries': 40, 'french_onion_soup': 41, 'french_toast': 42, 'fried_calamari': 43, 'fried_rice': 44, 'frozen_yogurt': 45, 'garlic_bread': 46, 'gnocchi': 47, 'greek_salad': 48, 'grilled_cheese_sandwich': 49, 'grilled_salmon': 50, 'guacamole': 51, 'gyoza': 52, 'hamburger': 53, 'hot_and_sour_soup': 54, 'hot_dog': 55, 'huevos_rancheros': 56, 'hummus': 57, 'ice_cream': 58, 'lasagna': 59, 'lobster_bisque': 60, 'lobster_roll_sandwich': 61, 'macaroni_and_cheese': 62, 'macarons': 63, 'miso_soup': 64, 'mussels': 65, 'nachos': 66, 'omelette': 67, 'onion_rings': 68, 'oysters': 69, 'pad_thai': 70, 'paella': 71, 'pancakes': 72, 'panna_cotta': 73, 'peking_duck': 74, 'pho': 75, 'pizza': 76, 'pork_chop': 77, 'poutine': 78, 'prime_rib': 79, 'pulled_pork_sandwich': 80, 'ramen': 81, 'ravioli': 82, 'red_velvet_cake': 83, 'risotto': 84, 'samosa': 85, 'sashimi': 86, 'scallops': 87, 'seaweed_salad': 88, 'shrimp_and_grits': 89, 'spaghetti_bolognese': 90, 'spaghetti_carbonara': 91, 'spring_rolls': 92, 'steak': 93, 'strawberry_shortcake': 94, 'sushi': 95, 'tacos': 96, 'takoyaki': 97, 'tiramisu': 98, 'tuna_tartare': 99}
+2026-08-02 12:42:02,071 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+After shuffle, class_to_label is:  ['onion rings', 'huevos rancheros', 'poutine', 'bread pudding', 'churros', 'risotto', 'spaghetti bolognese', 'mussels', 'peking duck', 'pizza', 'french fries', 'shrimp and grits', 'beef carpaccio', 'spring rolls', 'hot dog', 'breakfast burrito', 'crab cakes', 'pulled pork sandwich', 'fried calamari', 'fish and chips', 'ice cream', 'pad thai', 'pork chop', 'baby back ribs', 'samosa', 'chicken quesadilla', 'cheesecake', 'grilled salmon', 'croque madame', 'hamburger', 'caprese salad', 'ramen', 'frozen yogurt', 'ravioli', 'beignets', 'lasagna', 'red velvet cake', 'cheese plate', 'ceviche', 'fried rice', 'spaghetti carbonara', 'french onion soup', 'pancakes', 'lobster bisque', 'prime rib', 'gyoza', 'chicken wings', 'bruschetta', 'donuts', 'hot and sour soup', 'filet mignon', 'sushi', 'carrot cake', 'paella', 'tacos', 'tiramisu', 'takoyaki', 'baklava', 'miso soup', 'nachos', 'french toast', 'chocolate mousse', 'escargots', 'sashimi', 'clam chowder', 'eggs benedict', 'scallops', 'chocolate cake', 'tuna tartare', 'apple pie', 'seaweed salad', 'creme brulee', 'chicken curry', 'strawberry shortcake', 'caesar salad', 'cannoli', 'gnocchi', 'club sandwich', 'deviled eggs', 'garlic bread', 'macaroni and cheese', 'oysters', 'falafel', 'lobster roll sandwich', 'bibimbap', 'macarons', 'pho', 'beet salad', 'dumplings', 'beef tartare', 'guacamole', 'greek salad', 'panna cotta', 'steak', 'foie gras', 'omelette', 'cup cakes', 'grilled cheese sandwich', 'hummus', 'edamame']
+Training class stages: [50, 10, 10, 10, 10, 10]
+Using CLIP model as the backbone
+2026-08-02 12:42:20,579 [instantiator.py] => Created a temporary directory at /public/home/hanlida/tmp/tmphvqvm819
+2026-08-02 12:42:20,581 [instantiator.py] => Writing /public/home/hanlida/tmp/tmphvqvm819/_remote_module_non_scriptable.py
+2026-08-02 12:42:22,753 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 12:42:24,360 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Using CLIP model as the backbone
+2026-08-02 12:42:29,026 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-02 12:42:30,306 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model.bin).
+batch_size not in args, set to 48  as default
+init_lr not in args, set to 0.01  as default
+weight_decay not in args, set to 0.0005  as default
+min_lr not in args, set to 1e-08  as default
+2026-08-02 12:42:33,964 [simplecil.py] => Learning on 0-50
+2026-08-02 12:47:16,018 [trainer.py] => CNN: {'total': 88.02, '00-09': 88.51, '10-19': 87.14, '20-29': 87.32, '30-39': 87.43, '40-49': 89.73, 'old': 0, 'new': 88.02, 'harmonic': 0.0}
+2026-08-02 12:47:16,051 [trainer.py] => CNN top1 curve: [88.02]
+2026-08-02 12:47:16,051 [trainer.py] => CNN top5 curve: [97.9]
+2026-08-02 12:47:16,052 [trainer.py] => Average Accuracy (CNN top1): 88.02
+2026-08-02 12:47:16,058 [simplecil.py] => Learning on 50-60
+2026-08-02 12:49:07,187 [trainer.py] => CNN: {'total': 85.98, '00-09': 86.88, '10-19': 86.48, '20-29': 84.32, '30-39': 85.83, '40-49': 87.87, '50-59': 84.53, 'old': 86.27, 'new': 84.53, 'harmonic': 85.39}
+2026-08-02 12:49:07,210 [trainer.py] => CNN top1 curve: [88.02, 85.98]
+2026-08-02 12:49:07,210 [trainer.py] => CNN top5 curve: [97.9, 97.51]
+2026-08-02 12:49:07,210 [trainer.py] => Average Accuracy (CNN top1): 87.0
+2026-08-02 12:49:07,214 [simplecil.py] => Learning on 60-70
+2026-08-02 12:51:10,920 [trainer.py] => CNN: {'total': 83.13, '00-09': 85.2, '10-19': 85.42, '20-29': 82.48, '30-39': 84.22, '40-49': 86.11, '50-59': 80.35, '60-69': 78.08, 'old': 83.96, 'new': 78.08, 'harmonic': 80.91}
+2026-08-02 12:51:10,931 [trainer.py] => CNN top1 curve: [88.02, 85.98, 83.13]
+2026-08-02 12:51:10,931 [trainer.py] => CNN top5 curve: [97.9, 97.51, 96.65]
+2026-08-02 12:51:10,931 [trainer.py] => Average Accuracy (CNN top1): 85.71
+2026-08-02 12:51:10,937 [simplecil.py] => Learning on 70-80
+2026-08-02 12:53:29,112 [trainer.py] => CNN: {'total': 82.43, '00-09': 84.95, '10-19': 84.71, '20-29': 81.18, '30-39': 82.62, '40-49': 85.71, '50-59': 79.85, '60-69': 77.37, '70-79': 83.06, 'old': 82.34, 'new': 83.06, 'harmonic': 82.7}
+2026-08-02 12:53:29,132 [trainer.py] => CNN top1 curve: [88.02, 85.98, 83.13, 82.43]
+2026-08-02 12:53:29,132 [trainer.py] => CNN top5 curve: [97.9, 97.51, 96.65, 96.17]
+2026-08-02 12:53:29,132 [trainer.py] => Average Accuracy (CNN top1): 84.89
+2026-08-02 12:53:29,162 [simplecil.py] => Learning on 80-90
+2026-08-02 12:55:59,694 [trainer.py] => CNN: {'total': 82.04, '00-09': 84.5, '10-19': 83.85, '20-29': 81.13, '30-39': 81.84, '40-49': 84.45, '50-59': 79.85, '60-69': 76.67, '70-79': 82.31, '80-89': 83.79, 'old': 81.83, 'new': 83.79, 'harmonic': 82.8}
+2026-08-02 12:55:59,712 [trainer.py] => CNN top1 curve: [88.02, 85.98, 83.13, 82.43, 82.04]
+2026-08-02 12:55:59,712 [trainer.py] => CNN top5 curve: [97.9, 97.51, 96.65, 96.17, 95.83]
+2026-08-02 12:55:59,712 [trainer.py] => Average Accuracy (CNN top1): 84.32000000000001
+2026-08-02 12:55:59,717 [simplecil.py] => Learning on 90-100
+2026-08-02 12:58:41,033 [trainer.py] => CNN: {'total': 80.36, '00-09': 83.81, '10-19': 83.49, '20-29': 79.23, '30-39': 80.58, '40-49': 83.64, '50-59': 77.86, '60-69': 74.19, '70-79': 80.61, '80-89': 82.28, '90-99': 77.82, 'old': 80.64, 'new': 77.82, 'harmonic': 79.2}
+2026-08-02 12:58:41,061 [trainer.py] => CNN top1 curve: [88.02, 85.98, 83.13, 82.43, 82.04, 80.36]
+2026-08-02 12:58:41,061 [trainer.py] => CNN top5 curve: [97.9, 97.51, 96.65, 96.17, 95.83, 95.28]
+2026-08-02 12:58:41,062 [trainer.py] => Average Accuracy (CNN top1): 83.66000000000001
+
+========================================
+Finished food101_init50_inc10 seed=1993
+Backbone: OpenAI CLIP
+Average Accuracy (Top1): 83.66
+Last Accuracy: 80.36
+Average Accuracy (Top5): 96.56
+Last Top5: 95.28
+========================================
+
+==== FINISHED simplecil OpenAI ViT-B/16: simplecil_food_B50_Inc10.json, seed=1993, GPU=2 ====
+==== ZS-CLIP/SimpleCIL OpenAI queue complete: seed=1993, GPU=2, shard=2 ====

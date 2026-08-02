@@ -8,6 +8,7 @@ from utils.toolkit import count_parameters
 import os
 import random
 import numpy as np
+from utils.efficiency import EfficiencyProfiler
 
 # Method identifiers are lower-case in several JSON configs, whereas result
 # folders are presented with their canonical paper names.  Keep the identifier
@@ -77,6 +78,8 @@ def _train(args):
     )
     model = factory.get_model(args["model_name"], args)
     model.save_dir = logs_name
+    profile_path = os.environ.get("MMCL_PROFILE_OUT")
+    profiler = EfficiencyProfiler(args, profile_path) if profile_path else None
 
     eval_metrics = ["top{}".format(k) for k in model.eval_topk]
     cnn_curve = {metric: [] for metric in eval_metrics}
@@ -91,11 +94,41 @@ def _train(args):
         #  logging.info(
         #      "Trainable params: {}".format(count_parameters(model._network, True))
         #  )
-        model.incremental_train(data_manager)
+        if profiler is None:
+            model.incremental_train(data_manager)
+        else:
+            profiler.measure(
+                "train",
+                task,
+                model._device,
+                model.incremental_train,
+                data_manager,
+            )
+            profiler.snapshot_parameters(task, model)
         # cnn_accy, nme_accy = model.eval_task()
         cnn_accy, nme_accy, zs_seen, zs_unseen, zs_harmonic, zs_total = (
             model.eval_task()
         )
+        if profiler is not None and task == data_manager.nb_tasks - 1:
+            benchmark_batch_size = int(
+                os.environ.get("MMCL_PROFILE_INFER_BATCH_SIZE", "64")
+            )
+            benchmark_loader = torch.utils.data.DataLoader(
+                model.test_loader.dataset,
+                batch_size=benchmark_batch_size,
+                shuffle=False,
+                num_workers=model.test_loader.num_workers,
+            )
+            profiler.inference_batch_size = benchmark_batch_size
+            repetitions = int(os.environ.get("MMCL_PROFILE_INFER_REPEATS", "3"))
+            for _ in range(repetitions):
+                profiler.measure(
+                    "inference",
+                    task,
+                    model._device,
+                    model._eval_cnn,
+                    benchmark_loader,
+                )
         model.after_task()
 
         logging.info("CNN: {}".format(cnn_accy["grouped"]))
@@ -110,6 +143,10 @@ def _train(args):
                 sum(cnn_curve["top1"]) / len(cnn_curve["top1"])
             )
         )
+
+    if profiler is not None:
+        profiler.write(model, len(model.test_loader.dataset))
+        profiler.close()
 
     if args["backbone_type"] == "openai_clip":
         clip_type = "OpenAI CLIP"

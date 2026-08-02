@@ -164,11 +164,6 @@ cython_debug/
 .idea
 precomputed_basis/
 
-# Keep completed benchmark logs and the two consolidated result outputs versioned.
-!logs/
-!logs/**/*.log
-/logs/out文件/
-/results/archive/
 
 # Runtime-only experiment artifacts are summarized in MMCL_Results.xlsx and logs/.
 /MoE-Adapters4CL-MoE-Adapters/cil/experiments/
