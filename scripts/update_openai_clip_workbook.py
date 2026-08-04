@@ -48,10 +48,13 @@ DATASET_ALIASES = {
 }
 
 QUEUE_LOGS = [
-    ROOT / "results" / "ENGINE-OpenAI-CLIP-SEED_1993-GPU1-retry1.out",
-    ROOT / "results" / "ENGINE-OpenAI-CLIP-SEED_1993-GPU2-retry1.out",
+    ROOT / "logs" / "OpenAI_CLIP_ViTB16" / "ENGINE" / "queue"
+    / "ENGINE-OpenAI-CLIP-SEED_1993-GPU1-retry1.out",
+    ROOT / "logs" / "OpenAI_CLIP_ViTB16" / "ENGINE" / "queue"
+    / "ENGINE-OpenAI-CLIP-SEED_1993-GPU2-retry1.out",
     *[
-        ROOT / "results" / f"RAPF-CLG-CBM-BOFA-OpenAI-CLIP-SEED_1993-GPU{gpu}.out"
+        ROOT / "logs" / "OpenAI_CLIP_ViTB16" / "queue"
+        / f"RAPF-CLG-CBM-BOFA-OpenAI-CLIP-SEED_1993-GPU{gpu}.out"
         for gpu in range(4)
     ],
 ]

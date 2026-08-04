@@ -4,6 +4,7 @@ import os
 import json
 import hydra
 import logging
+from hydra.core.hydra_config import HydraConfig
 from omegaconf import DictConfig
 
 from tqdm import tqdm
@@ -54,6 +55,13 @@ def continual_clip(cfg: DictConfig) -> None:
             logging.StreamHandler(sys.stdout),
         ],
     )
+    # ``force=True`` closes Hydra's default file handler.  Remove the duplicate
+    # ``main.log`` it created so this run has one model/method-classified log.
+    hydra_log = Path(HydraConfig.get().runtime.output_dir) / (
+        f"{HydraConfig.get().job.name}.log"
+    )
+    if hydra_log.resolve() != log_path.resolve() and hydra_log.exists():
+        hydra_log.unlink()
 
     utils.save_config(cfg)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

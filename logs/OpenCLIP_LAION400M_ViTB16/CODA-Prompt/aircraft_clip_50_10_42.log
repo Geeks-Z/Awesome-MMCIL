@@ -1,0 +1,69 @@
+2026-07-24 20:20:54,516 [trainer.py] => config: ./configs/coda_prompt/coda_prompt_aircraft_B50_Inc10.json
+2026-07-24 20:20:54,516 [trainer.py] => prefix: -
+2026-07-24 20:20:54,516 [trainer.py] => dataset: aircraft
+2026-07-24 20:20:54,517 [trainer.py] => memory_size: 0
+2026-07-24 20:20:54,517 [trainer.py] => memory_per_class: 0
+2026-07-24 20:20:54,517 [trainer.py] => fixed_memory: False
+2026-07-24 20:20:54,517 [trainer.py] => shuffle: True
+2026-07-24 20:20:54,517 [trainer.py] => init_cls: 50
+2026-07-24 20:20:54,517 [trainer.py] => increment: 10
+2026-07-24 20:20:54,517 [trainer.py] => model_name: coda
+2026-07-24 20:20:54,517 [trainer.py] => class_num: 100
+2026-07-24 20:20:54,517 [trainer.py] => nb_tasks: 6
+2026-07-24 20:20:54,517 [trainer.py] => backbone_type: clip
+2026-07-24 20:20:54,517 [trainer.py] => device: [device(type='cuda', index=3)]
+2026-07-24 20:20:54,517 [trainer.py] => seed: 42
+2026-07-24 20:20:54,517 [trainer.py] => tuned_epoch: 10
+2026-07-24 20:20:54,517 [trainer.py] => init_lr: 0.001
+2026-07-24 20:20:54,517 [trainer.py] => batch_size: 48
+2026-07-24 20:20:54,517 [trainer.py] => weight_decay: 0
+2026-07-24 20:20:54,517 [trainer.py] => min_lr: 1e-05
+2026-07-24 20:20:54,517 [trainer.py] => optimizer: adam
+2026-07-24 20:20:54,518 [trainer.py] => scheduler: cosine
+2026-07-24 20:20:54,518 [trainer.py] => reinit_optimizer: True
+2026-07-24 20:20:54,518 [trainer.py] => pretrained: True
+2026-07-24 20:20:54,518 [trainer.py] => drop: 0.0
+2026-07-24 20:20:54,518 [trainer.py] => drop_path: 0.0
+2026-07-24 20:20:54,518 [trainer.py] => prompt_param: [100, 8.0, 0.0]
+2026-07-24 20:20:54,518 [trainer.py] => total_class_num: 100
+2026-07-24 20:20:54,629 [data_manager.py] => [83, 53, 70, 45, 44, 39, 22, 80, 10, 0, 18, 30, 73, 33, 90, 4, 76, 77, 12, 31, 55, 88, 26, 42, 69, 15, 40, 96, 9, 72, 11, 47, 85, 28, 93, 5, 66, 65, 35, 16, 49, 34, 7, 95, 27, 19, 81, 25, 62, 13, 24, 3, 17, 38, 8, 78, 6, 64, 36, 89, 56, 99, 54, 43, 50, 67, 46, 68, 61, 97, 79, 41, 58, 48, 98, 57, 75, 32, 94, 59, 63, 84, 37, 29, 1, 52, 21, 2, 23, 87, 91, 74, 86, 82, 20, 60, 71, 14, 92, 51]
+2026-07-24 20:20:54,648 [factory.py] => Loaded ViT-B-16 model config.
+2026-07-24 20:20:55,851 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin).
+2026-07-24 20:20:58,539 [coda_prompt.py] => 89,827,940 total parameters.
+2026-07-24 20:20:58,540 [coda_prompt.py] => 3,635,300 fc and prompt training parameters.
+2026-07-24 20:20:58,540 [coda_prompt.py] => Learning on 0-50
+2026-07-24 20:30:51,161 [coda_prompt.py] => Task 0, Epoch 10/10 => Loss 1.189, Train_accy 77.55, Test_accy 64.84
+2026-07-24 20:31:09,164 [trainer.py] => CNN: {'total': 64.84, '00-09': 70.15, '10-19': 66.47, '20-29': 71.3, '30-39': 57.31, '40-49': 59.04, 'old': 0, 'new': 64.84, 'harmonic': 0.0}
+2026-07-24 20:31:09,164 [trainer.py] => CNN top1 curve: [64.84]
+2026-07-24 20:31:09,164 [trainer.py] => CNN top5 curve: [91.89]
+2026-07-24 20:31:09,164 [trainer.py] => Average Accuracy (CNN top1): 64.84
+2026-07-24 20:31:09,901 [coda_prompt.py] => Learning on 50-60
+2026-07-24 20:36:02,467 [coda_prompt.py] => Task 1, Epoch 10/10 => Loss 1.052, Train_accy 82.03, Test_accy 48.62
+2026-07-24 20:36:23,061 [trainer.py] => CNN: {'total': 48.62, '00-09': 56.72, '10-19': 63.14, '20-29': 67.07, '30-39': 46.87, '40-49': 58.13, '50-59': 0.0, 'old': 58.35, 'new': 0.0, 'harmonic': 0.0}
+2026-07-24 20:36:23,062 [trainer.py] => CNN top1 curve: [64.84, 48.62]
+2026-07-24 20:36:23,062 [trainer.py] => CNN top5 curve: [91.89, 77.82]
+2026-07-24 20:36:23,062 [trainer.py] => Average Accuracy (CNN top1): 56.730000000000004
+2026-07-24 20:36:27,691 [coda_prompt.py] => Learning on 60-70
+2026-07-24 20:41:42,521 [coda_prompt.py] => Task 2, Epoch 10/10 => Loss 0.939, Train_accy 87.03, Test_accy 40.13
+2026-07-24 20:42:06,157 [trainer.py] => CNN: {'total': 40.13, '00-09': 58.21, '10-19': 59.52, '20-29': 63.14, '30-39': 44.78, '40-49': 55.42, '50-59': 0.0, '60-69': 0.0, 'old': 46.82, 'new': 0.0, 'harmonic': 0.0}
+2026-07-24 20:42:06,158 [trainer.py] => CNN top1 curve: [64.84, 48.62, 40.13]
+2026-07-24 20:42:06,158 [trainer.py] => CNN top5 curve: [91.89, 77.82, 68.28]
+2026-07-24 20:42:06,158 [trainer.py] => Average Accuracy (CNN top1): 51.196666666666665
+2026-07-24 20:42:14,707 [coda_prompt.py] => Learning on 70-80
+2026-07-24 20:48:01,602 [coda_prompt.py] => Task 3, Epoch 10/10 => Loss 0.702, Train_accy 93.28, Test_accy 34.38
+2026-07-24 20:48:29,066 [trainer.py] => CNN: {'total': 34.38, '00-09': 45.37, '10-19': 60.73, '20-29': 65.26, '30-39': 44.78, '40-49': 58.73, '50-59': 0.0, '60-69': 0.3, '70-79': 0.3, 'old': 39.27, 'new': 0.3, 'harmonic': 0.6}
+2026-07-24 20:48:29,066 [trainer.py] => CNN top1 curve: [64.84, 48.62, 40.13, 34.38]
+2026-07-24 20:48:29,066 [trainer.py] => CNN top5 curve: [91.89, 77.82, 68.28, 61.71]
+2026-07-24 20:48:29,066 [trainer.py] => Average Accuracy (CNN top1): 46.9925
+2026-07-24 20:48:35,356 [coda_prompt.py] => Learning on 80-90
+2026-07-24 20:55:01,281 [coda_prompt.py] => Task 4, Epoch 10/10 => Loss 0.920, Train_accy 80.31, Test_accy 30.43
+2026-07-24 20:55:20,264 [trainer.py] => CNN: {'total': 30.43, '00-09': 52.24, '10-19': 56.8, '20-29': 66.47, '30-39': 43.58, '40-49': 55.12, '50-59': 0.0, '60-69': 0.0, '70-79': 0.0, '80-89': 0.0, 'old': 34.23, 'new': 0.0, 'harmonic': 0.0}
+2026-07-24 20:55:20,264 [trainer.py] => CNN top1 curve: [64.84, 48.62, 40.13, 34.38, 30.43]
+2026-07-24 20:55:20,264 [trainer.py] => CNN top5 curve: [91.89, 77.82, 68.28, 61.71, 56.26]
+2026-07-24 20:55:20,265 [trainer.py] => Average Accuracy (CNN top1): 43.68
+2026-07-24 20:55:23,337 [coda_prompt.py] => Learning on 90-100
+2026-07-24 21:02:26,175 [coda_prompt.py] => Task 5, Epoch 10/10 => Loss 0.596, Train_accy 95.62, Test_accy 26.91
+2026-07-24 21:02:46,968 [trainer.py] => CNN: {'total': 26.91, '00-09': 45.67, '10-19': 58.31, '20-29': 67.67, '30-39': 42.69, '40-49': 54.82, '50-59': 0.0, '60-69': 0.0, '70-79': 0.0, '80-89': 0.0, '90-99': 0.6, 'old': 29.86, 'new': 0.6, 'harmonic': 1.18}
+2026-07-24 21:02:46,969 [trainer.py] => CNN top1 curve: [64.84, 48.62, 40.13, 34.38, 30.43, 26.91]
+2026-07-24 21:02:46,969 [trainer.py] => CNN top5 curve: [91.89, 77.82, 68.28, 61.71, 56.26, 51.52]
+2026-07-24 21:02:46,969 [trainer.py] => Average Accuracy (CNN top1): 40.885

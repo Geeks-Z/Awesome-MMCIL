@@ -28,7 +28,7 @@ run_experiment() {
   echo "==== MoE-Adapters config=${config} seed=${seed} GPU=${CUDA_VISIBLE_DEVICES:-unset} ===="
   "$PYTHON_BIN" main.py --config-path configs/class --config-name="${config%.yaml}" \
     dataset_root="$data_root" class_order="$order" +seed="$seed" \
-    hydra.run.dir="$experiment"
+    hydra.run.dir="$experiment" hydra/job_logging=disabled
 }
 
 # Completed on the previous server (2026-07-14); retain as comments so they

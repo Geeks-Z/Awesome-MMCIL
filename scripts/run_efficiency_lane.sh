@@ -21,15 +21,27 @@ project_root="/public/home/hanlida/Dr.1/Code/Research/Awesome-MMCL"
 data_root="/public/home/hanlida/Dr.1/Dataset"
 checkpoint="/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin"
 raw_dir="${project_root}/results/efficiency/raw"
-log_dir="${project_root}/logs/efficiency/baseline"
 status_file="${project_root}/results/efficiency/lane_gpu${gpu}${run_suffix}.tsv"
 
-mkdir -p "${raw_dir}" "${log_dir}"
+mkdir -p "${raw_dir}"
 cd "${project_root}" || exit 1
 
 for config in "$@"; do
     stem="$(basename "${config}" .json)"
     output="${raw_dir}/${stem}_seed1993${run_suffix}.json"
+    log_dir="$(python - "${config}" <<'PY'
+import json
+import sys
+
+from utils.log_layout import log_directory
+
+with open(sys.argv[1], encoding="utf-8") as config_file:
+    config = json.load(config_file)
+print(log_directory(config["model_name"], config["backbone_type"], base_dir="logs"))
+PY
+)" || exit 1
+    log_dir="${project_root}/${log_dir}/efficiency"
+    mkdir -p "${log_dir}"
     log="${log_dir}/${stem}_seed1993${run_suffix}.log"
 
     if [[ -s "${output}" ]]; then

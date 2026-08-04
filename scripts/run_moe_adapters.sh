@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Submit with: nohup bash scripts/run_moe_adapters.sh > results/MoE-Adapters-GPU6.out 2>&1 &
+# Submit with: nohup bash scripts/run_moe_adapters.sh > logs/OpenAI_CLIP_ViTB16/MoE-Adapters/queue/MoE-Adapters-GPU6.out 2>&1 &
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

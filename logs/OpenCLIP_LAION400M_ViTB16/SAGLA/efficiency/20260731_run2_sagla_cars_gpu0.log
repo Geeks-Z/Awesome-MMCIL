@@ -1,0 +1,45 @@
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+{'AM_General_Hummer_SUV_2000': 0, 'Acura_Integra_Type_R_2001': 1, 'Acura_RL_Sedan_2012': 2, 'Acura_TL_Sedan_2012': 3, 'Acura_TL_Type-S_2008': 4, 'Acura_TSX_Sedan_2012': 5, 'Acura_ZDX_Hatchback_2012': 6, 'Aston_Martin_V8_Vantage_Convertible_2012': 7, 'Aston_Martin_V8_Vantage_Coupe_2012': 8, 'Aston_Martin_Virage_Convertible_2012': 9, 'Aston_Martin_Virage_Coupe_2012': 10, 'Audi_100_Sedan_1994': 11, 'Audi_100_Wagon_1994': 12, 'Audi_A5_Coupe_2012': 13, 'Audi_R8_Coupe_2012': 14, 'Audi_RS_4_Convertible_2008': 15, 'Audi_S4_Sedan_2007': 16, 'Audi_S4_Sedan_2012': 17, 'Audi_S5_Convertible_2012': 18, 'Audi_S5_Coupe_2012': 19, 'Audi_S6_Sedan_2011': 20, 'Audi_TTS_Coupe_2012': 21, 'Audi_TT_Hatchback_2011': 22, 'Audi_TT_RS_Coupe_2012': 23, 'Audi_V8_Sedan_1994': 24, 'BMW_1_Series_Convertible_2012': 25, 'BMW_1_Series_Coupe_2012': 26, 'BMW_3_Series_Sedan_2012': 27, 'BMW_3_Series_Wagon_2012': 28, 'BMW_6_Series_Convertible_2007': 29, 'BMW_ActiveHybrid_5_Sedan_2012': 30, 'BMW_M3_Coupe_2012': 31, 'BMW_M5_Sedan_2010': 32, 'BMW_M6_Convertible_2010': 33, 'BMW_X3_SUV_2012': 34, 'BMW_X5_SUV_2007': 35, 'BMW_X6_SUV_2012': 36, 'BMW_Z4_Convertible_2012': 37, 'Bentley_Arnage_Sedan_2009': 38, 'Bentley_Continental_Flying_Spur_Sedan_2007': 39, 'Bentley_Continental_GT_Coupe_2007': 40, 'Bentley_Continental_GT_Coupe_2012': 41, 'Bentley_Continental_Supersports_Conv._Convertible_2012': 42, 'Bentley_Mulsanne_Sedan_2011': 43, 'Bugatti_Veyron_16.4_Convertible_2009': 44, 'Bugatti_Veyron_16.4_Coupe_2009': 45, 'Buick_Enclave_SUV_2012': 46, 'Buick_Rainier_SUV_2007': 47, 'Buick_Regal_GS_2012': 48, 'Buick_Verano_Sedan_2012': 49, 'Cadillac_CTS-V_Sedan_2012': 50, 'Cadillac_Escalade_EXT_Crew_Cab_2007': 51, 'Cadillac_SRX_SUV_2012': 52, 'Chevrolet_Avalanche_Crew_Cab_2012': 53, 'Chevrolet_Camaro_Convertible_2012': 54, 'Chevrolet_Cobalt_SS_2010': 55, 'Chevrolet_Corvette_Convertible_2012': 56, 'Chevrolet_Corvette_Ron_Fellows_Edition_Z06_2007': 57, 'Chevrolet_Corvette_ZR1_2012': 58, 'Chevrolet_Express_Cargo_Van_2007': 59, 'Chevrolet_Express_Van_2007': 60, 'Chevrolet_HHR_SS_2010': 61, 'Chevrolet_Impala_Sedan_2007': 62, 'Chevrolet_Malibu_Hybrid_Sedan_2010': 63, 'Chevrolet_Malibu_Sedan_2007': 64, 'Chevrolet_Monte_Carlo_Coupe_2007': 65, 'Chevrolet_Silverado_1500_Classic_Extended_Cab_2007': 66, 'Chevrolet_Silverado_1500_Extended_Cab_2012': 67, 'Chevrolet_Silverado_1500_Hybrid_Crew_Cab_2012': 68, 'Chevrolet_Silverado_1500_Regular_Cab_2012': 69, 'Chevrolet_Silverado_2500HD_Regular_Cab_2012': 70, 'Chevrolet_Sonic_Sedan_2012': 71, 'Chevrolet_Tahoe_Hybrid_SUV_2012': 72, 'Chevrolet_TrailBlazer_SS_2009': 73, 'Chevrolet_Traverse_SUV_2012': 74, 'Chrysler_300_SRT-8_2010': 75, 'Chrysler_Aspen_SUV_2009': 76, 'Chrysler_Crossfire_Convertible_2008': 77, 'Chrysler_PT_Cruiser_Convertible_2008': 78, 'Chrysler_Sebring_Convertible_2010': 79, 'Chrysler_Town_and_Country_Minivan_2012': 80, 'Daewoo_Nubira_Wagon_2002': 81, 'Dodge_Caliber_Wagon_2007': 82, 'Dodge_Caliber_Wagon_2012': 83, 'Dodge_Caravan_Minivan_1997': 84, 'Dodge_Challenger_SRT8_2011': 85, 'Dodge_Charger_SRT-8_2009': 86, 'Dodge_Charger_Sedan_2012': 87, 'Dodge_Dakota_Club_Cab_2007': 88, 'Dodge_Dakota_Crew_Cab_2010': 89, 'Dodge_Durango_SUV_2007': 90, 'Dodge_Durango_SUV_2012': 91, 'Dodge_Journey_SUV_2012': 92, 'Dodge_Magnum_Wagon_2008': 93, 'Dodge_Ram_Pickup_3500_Crew_Cab_2010': 94, 'Dodge_Ram_Pickup_3500_Quad_Cab_2009': 95, 'Dodge_Sprinter_Cargo_Van_2009': 96, 'Eagle_Talon_Hatchback_1998': 97, 'Ferrari_458_Italia_Convertible_2012': 98, 'Ferrari_458_Italia_Coupe_2012': 99}
+After shuffle, class_to_label is:  ['Chevrolet Silverado 1500 Hybrid Crew Cab 2012', 'Chevrolet Corvette Convertible 2012', 'Chrysler PT Cruiser Convertible 2008', 'Aston Martin V8 Vantage Coupe 2012', 'Audi TT RS Coupe 2012', 'Dodge Caravan Minivan 1997', 'Dodge Durango SUV 2007', 'Chevrolet Monte Carlo Coupe 2007', 'Chevrolet Traverse SUV 2012', 'Chrysler Aspen SUV 2009', 'Bentley Continental GT Coupe 2007', 'Dodge Dakota Crew Cab 2010', 'Acura TL Sedan 2012', 'Dodge Journey SUV 2012', 'Chevrolet Cobalt SS 2010', 'Aston Martin Virage Convertible 2012', 'BMW 1 Series Coupe 2012', 'Chrysler Town and Country Minivan 2012', 'Bentley Mulsanne Sedan 2011', 'Bentley Arnage Sedan 2009', 'Chevrolet Corvette ZR1 2012', 'Chevrolet Silverado 2500HD Regular Cab 2012', 'Chrysler Crossfire Convertible 2008', 'Acura Integra Type R 2001', 'Dodge Challenger SRT8 2011', 'Audi S5 Coupe 2012', 'Audi S4 Sedan 2012', 'Cadillac CTS-V Sedan 2012', 'BMW 3 Series Wagon 2012', 'Chevrolet Avalanche Crew Cab 2012', 'Audi A5 Coupe 2012', 'Daewoo Nubira Wagon 2002', 'Bugatti Veyron 16.4 Coupe 2009', 'Dodge Caliber Wagon 2007', 'Acura ZDX Hatchback 2012', 'Chevrolet Express Cargo Van 2007', 'Dodge Caliber Wagon 2012', 'Audi S4 Sedan 2007', 'Audi RS 4 Convertible 2008', 'Bugatti Veyron 16.4 Convertible 2009', 'Dodge Durango SUV 2012', 'Bentley Continental GT Coupe 2012', 'Chevrolet Tahoe Hybrid SUV 2012', 'Chevrolet Express Van 2007', 'Chrysler Sebring Convertible 2010', 'Cadillac SRX SUV 2012', 'Audi S6 Sedan 2011', 'Aston Martin Virage Coupe 2012', 'BMW M3 Coupe 2012', 'Chevrolet Camaro Convertible 2012', 'BMW Z4 Convertible 2012', 'Dodge Ram Pickup 3500 Quad Cab 2009', 'Audi R8 Coupe 2012', 'Chevrolet Sonic Sedan 2012', 'Dodge Sprinter Cargo Van 2009', 'FIAT 500 Abarth 2012', 'Eagle Talon Hatchback 1998', 'Acura RL Sedan 2012', 'Chevrolet Malibu Sedan 2007', 'Chevrolet Silverado 1500 Classic Extended Cab 2007', 'Bentley Continental Supersports Conv. Convertible 2012', 'Audi TT Hatchback 2011', 'BMW X5 SUV 2007', 'Dodge Charger SRT-8 2009', 'Audi V8 Sedan 1994', 'BMW X3 SUV 2012', 'Dodge Charger Sedan 2012', 'Audi TTS Coupe 2012', 'FIAT 500 Convertible 2012', 'AM General Hummer SUV 2000', 'Dodge Dakota Club Cab 2007', 'BMW 3 Series Sedan 2012', 'Audi S5 Convertible 2012', 'Dodge Ram Pickup 3500 Crew Cab 2010', 'Audi 100 Sedan 1994', 'Audi 100 Wagon 1994', 'Buick Rainier SUV 2007', 'BMW 1 Series Convertible 2012', 'BMW ActiveHybrid 5 Sedan 2012', 'Buick Enclave SUV 2012', 'Chevrolet Impala Sedan 2007', 'Chevrolet Silverado 1500 Regular Cab 2012', 'BMW X6 SUV 2012', 'Chevrolet HHR SS 2010', 'Aston Martin V8 Vantage Convertible 2012', 'Chevrolet Malibu Hybrid Sedan 2010', 'Chrysler 300 SRT-8 2010', 'Acura TSX Sedan 2012', 'BMW M5 Sedan 2010', 'Acura TL Type-S 2008', 'Cadillac Escalade EXT Crew Cab 2007', 'Buick Regal GS 2012', 'Chevrolet TrailBlazer SS 2009', 'Dodge Magnum Wagon 2008', 'Bentley Continental Flying Spur Sedan 2007', 'Chevrolet Silverado 1500 Extended Cab 2012', 'BMW 6 Series Convertible 2007', 'Buick Verano Sedan 2012', 'Chevrolet Corvette Ron Fellows Edition Z06 2007', 'BMW M6 Convertible 2010']
+Training class stages: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Using CLIP model as the backbone
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/nn/modules/activation.py:1160: UserWarning: Converting mask without torch.bool dtype to bool; this will negatively affect performance. Prefer to use a boolean mask directly. (Triggered internally at ../aten/src/ATen/native/transformers/attention.cpp:150.)
+  return torch._native_multi_head_attention(
+{
+  "method": "SAGLA",
+  "dataset": "cars",
+  "protocol": "B10/Inc10",
+  "seed": 1993,
+  "backbone": "openai_clip ViT-B-16",
+  "gpu_index": 0,
+  "gpu": "NVIDIA A800 80GB PCIe",
+  "training": {
+    "batch_size": 32,
+    "num_workers": 4,
+    "total_seconds": 90.39963160455227,
+    "peak_allocated_bytes": 861569024
+  },
+  "inference": {
+    "batch_size": 64,
+    "num_workers": 8,
+    "warmup_passes": 1,
+    "seconds": [
+      11.056494981050491,
+      10.9167849868536,
+      10.86942621320486
+    ],
+    "median_seconds": 10.9167849868536,
+    "peak_allocated_bytes": 1153243648
+  },
+  "parameters": {
+    "common_frozen_backbone": 149620737,
+    "peak_trainable": 0,
+    "final_extra_learned": 0
+  },
+  "auxiliary_state": {
+    "gda_bytes": 2974096,
+    "text_cache_bytes": 204800,
+    "persistent_total_bytes": 3178896
+  }
+}

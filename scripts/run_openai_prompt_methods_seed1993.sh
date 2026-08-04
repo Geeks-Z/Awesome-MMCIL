@@ -76,7 +76,13 @@ export MMCL_DATA_ROOT="${DATA_ROOT}"
 export MMCL_CLIP_PRETRAINED="${OPENAI_CHECKPOINT}"
 export PYTHONUNBUFFERED=1
 
-QUEUE_DIR="${MMCL_QUEUE_LOG_DIR:-${ROOT}/logs/OpenAI_CLIP_ViTB16/queue/seed${SEED}}"
+case "${METHOD}" in
+    l2p) METHOD_DIR="L2P" ;;
+    dualprompt) METHOD_DIR="DualPrompt" ;;
+    coda) METHOD_DIR="CODA-Prompt" ;;
+    proof) METHOD_DIR="PROOF" ;;
+esac
+QUEUE_DIR="${MMCL_QUEUE_LOG_DIR:-${ROOT}/logs/OpenAI_CLIP_ViTB16/${METHOD_DIR}/queue/seed${SEED}}"
 QUEUE_TAG="${METHOD}_gpu${GPU_ID}"
 if [[ -n "${PROOF_SHARD}" ]]; then
     QUEUE_TAG+="_shard${PROOF_SHARD}"

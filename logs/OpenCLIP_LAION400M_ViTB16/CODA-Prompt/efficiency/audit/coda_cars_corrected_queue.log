@@ -1,0 +1,13 @@
+nohup: ignoring input
+2026-07-31 20:36:17 waiting for queue PID 23221
+2026-07-31 20:37:17 waiting for queue PID 23221
+2026-07-31 20:38:17 waiting for queue PID 23221
+2026-07-31 20:39:17 waiting for queue PID 23221
+2026-07-31 20:40:17 waiting for queue PID 23221
+2026-07-31 20:41:17 waiting for queue PID 23221
+2026-07-31 20:42:17 waiting for queue PID 23221
+2026-07-31 20:43:17 waiting for queue PID 23221
+2026-07-31 20:44:17 waiting for queue PID 23221
+2026-07-31 20:45:17 waiting for queue PID 23221
+2026-07-31 20:46:17 waiting for queue PID 23221
+2026-07-31 20:47:17 queue PID 23221 exited; starting bash scripts/run_efficiency_lane.sh 2 configs/coda_prompt/coda_prompt_cars_B0_Inc10.json

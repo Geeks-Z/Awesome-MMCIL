@@ -37,19 +37,19 @@ DATASET_ALIASES = {
     "objectnet": "objectnet",
 }
 QUEUE_LOGS = [
-    ROOT / "logs" / "OpenAI_CLIP_ViTB16" / "queue" / "seed1993" / name
-    for name in (
-        "l2p_gpu1_tmux.out",
-        "dualprompt_gpu2_tmux.out",
-        "coda_prompt_gpu5_tmux.out",
-        "proof_shard0_gpu6_tmux.out",
-        "proof_shard0_gpu6_retry.out",
-        "proof_shard1_gpu7_tmux.out",
-        "l2p_gpu1_retry_fd65535.out",
-        "l2p_food_b0_gpu1.out",
-        "l2p_food_b50_gpu5.out",
-        "l2p_sun_b0_gpu6.out",
-        "l2p_sun_b150_gpu7.out",
+    ROOT / "logs" / "OpenAI_CLIP_ViTB16" / method / "queue" / "seed1993" / name
+    for method, name in (
+        ("L2P", "l2p_gpu1_tmux.out"),
+        ("DualPrompt", "dualprompt_gpu2_tmux.out"),
+        ("CODA-Prompt", "coda_prompt_gpu5_tmux.out"),
+        ("PROOF", "proof_shard0_gpu6_tmux.out"),
+        ("PROOF", "proof_shard0_gpu6_retry.out"),
+        ("PROOF", "proof_shard1_gpu7_tmux.out"),
+        ("L2P", "l2p_gpu1_retry_fd65535.out"),
+        ("L2P", "l2p_food_b0_gpu1.out"),
+        ("L2P", "l2p_food_b50_gpu5.out"),
+        ("L2P", "l2p_sun_b0_gpu6.out"),
+        ("L2P", "l2p_sun_b150_gpu7.out"),
     )
 ]
 START = re.compile(

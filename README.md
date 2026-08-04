@@ -108,40 +108,51 @@ GPU_ID=6 bash scripts/run_moe_adapters.sh
 
 `LADA` is also standalone, but it reproduces the X-TAIL multi-domain protocol rather than the native CIL protocol. Its entry point is `LADA-main/run_mmcl_seeds.sh`; it requires the X-TAIL dataset and the upstream LADA environment specified in `LADA-main/README.md` (PyTorch 2.4.1), not the root `main.py` runner.
 
-## 📊 Results
+## 📊 Reproduced Results
 
-Results parsed from the training logs are maintained in [MMCL_Results.xlsx](MMCL_Results.xlsx). The workbook contains one sheet for each seed (`0`, `42`, `1993`, and `2026`), the benchmark comparison sheet, and the current experiment-progress sheet. Metric definitions and notes are available in [实验结果.md](实验结果.md) and [实验结果.en.md](实验结果.en.md).
+Results parsed from the training logs are maintained in [MMCL_OpenCLIP_ViT-B16_LAION-400M_Baselines.xlsx](MMCL_OpenCLIP_ViT-B16_LAION-400M_Baselines.xlsx) and [MMCL_OpenAI_CLIP_ViT-B16_Baselines.xlsx](MMCL_OpenAI_CLIP_ViT-B16_Baselines.xlsx). The workbook contains one sheet for each seed (`0`, `42`, `1993`, and `2026`), the benchmark comparison sheet, and the current experiment-progress sheet. Metric definitions and notes are available in [MMCL_Baselines.md](MMCL_Baselines.md) and [MMCL_Baselines.en.md](MMCL_Baselines.en.md).
 
-## 📚 Datasets
+- **Datasets**
 
-| Dataset       | training instances | testing instances | Classes | Drive                                                        |
-| ------------- | ------------------ | ----------------- | ------- | ------------------------------------------------------------ |
-| CIFAR100      | 50,000             | 10,000            | 100     | will be automatically downloaded by the code.                |
-| CUB200-2011   | 9,430              | 2,358             | 200     | Google Drive: [link](https://drive.google.com/file/d/1XbUpnWpJPnItt5zQ6sHJnsjPncnNLvWb/view?usp=sharing) or OneDrive [link](https://entuedu-my.sharepoint.com/:u:/g/personal/n2207876b_e_ntu_edu_sg/EVV4pT9VJ9pBrVs2x0lcwd0BlVQCtSrdbLVfhuajMry-lA?e=L6Wjsc) |
-| ImageNet-R    | 24,000             | 6,000             | 200     | Google Drive: [link](https://drive.google.com/file/d/1SG4TbiL8_DooekztyCVK8mPmfhMo8fkR/view?usp=sharing) or Onedrive: [link](https://entuedu-my.sharepoint.com/:u:/g/personal/n2207876b_e_ntu_edu_sg/EU4jyLL29CtBsZkB6y-JSbgBzWF5YHhBAUz1Qw8qM2954A?e=hlWpNW) |
-| ImageNet-A    | 5,981              | 1,519             | 200     |                                                              |
-| ObjectNet     | 26,509             | 6,628             | 200     | Onedrive: [link](https://entuedu-my.sharepoint.com/:u:/g/personal/n2207876b_e_ntu_edu_sg/EZFv9uaaO1hBj7Y40KoCvYkBnuUZHnHnjMda6obiDpiIWw?e=4n8Kpy) You can also refer to the [filelist](https://drive.google.com/file/d/147Mta-HcENF6IhZ8dvPnZ93Romcie7T6/view?usp=sharing) and processing [code](https://github.com/zhoudw-zdw/RevisitingCIL/issues/2#issuecomment-2280462493) if the file is too large to download. |
-| Omnibenchmark | 89,697             | 5,983             | 300     |                                                              |
-| VTAB          | 1,796              | 8,619             | 50      |                                                              |
-| Cars          |                    |                   |         | Google Drive: [link](https://drive.google.com/file/d/1D8ReAuOPenWi6SMNUrOZhbm6ViyhDHbL/view?usp=sharing  ) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/EbT1XAstg51Mpy82uHM0D2EBJLrtzmr_V64jeBRjqyyTnQ?e=h6g1rM) |
-| UCF           |                    |                   |         | Google Drive: [link](https://drive.google.com/file/d/1Ng4w310_VDqpKbc7eYaumXTOiDxI02Wc/view?usp=sharing) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/EU2qHQXjASdLh1jIl6ihZmcB6G2KvqmSw-sTlZKDE6xPbg?e=7ezvTr) |
-| Aircraft      |                    |                   |         | Google Drive: [link](https://drive.google.com/file/d/1xI5r1fU0d6Nff51HuOo5w-e4sGEP46Z2/view?usp=drive_link) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/ETVliZnmPY9AvZZgcFFJ6jMB2c7TRvcq7-gso2Aqvdl_VQ?e=pWXqdP) |
-| Food          |                    |                   |         | Google Drive: [link](https://drive.google.com/file/d/1rupzXpwrbxki4l-RVmsRawhz1Cm0lDY5/view?usp=drive_link) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/Eb4xfptD4L5Egus-SiYxrIcBDH1VewLGp4kzyACGF_Na_w?e=duA3Ia) |
-| SUN           |                    |                   |         | OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/EcQq1-1pFulKstYtdknB4O8BGo0hnlDRarAwB4wFEgkx0Q?e=YZ0xYV) |
-| TV100         |                    |                   |         | OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/r/personal/ky2409911_365_nju_edu_cn/Documents/TV100/TV100.zip?csf=1&web=1&e=XNpitj) |
+  | Dataset       | training instances | testing instances | Classes | Drive                                                        |
+  | ------------- | ------------------ | ----------------- | ------- | ------------------------------------------------------------ |
+  | CIFAR100      | 50,000             | 10,000            | 100     | will be automatically downloaded by the code.                |
+  | CUB200-2011   | 9,430              | 2,358             | 200     | Google Drive: [link](https://drive.google.com/file/d/1XbUpnWpJPnItt5zQ6sHJnsjPncnNLvWb/view?usp=sharing) or OneDrive [link](https://entuedu-my.sharepoint.com/:u:/g/personal/n2207876b_e_ntu_edu_sg/EVV4pT9VJ9pBrVs2x0lcwd0BlVQCtSrdbLVfhuajMry-lA?e=L6Wjsc) |
+  | ImageNet-R    | 24,000             | 6,000             | 200     | Google Drive: [link](https://drive.google.com/file/d/1SG4TbiL8_DooekztyCVK8mPmfhMo8fkR/view?usp=sharing) or Onedrive: [link](https://entuedu-my.sharepoint.com/:u:/g/personal/n2207876b_e_ntu_edu_sg/EU4jyLL29CtBsZkB6y-JSbgBzWF5YHhBAUz1Qw8qM2954A?e=hlWpNW) |
+  | ImageNet-A    | 5,981              | 1,519             | 200     |                                                              |
+  | ObjectNet     | 26,509             | 6,628             | 200     | Onedrive: [link](https://entuedu-my.sharepoint.com/:u:/g/personal/n2207876b_e_ntu_edu_sg/EZFv9uaaO1hBj7Y40KoCvYkBnuUZHnHnjMda6obiDpiIWw?e=4n8Kpy) You can also refer to the [filelist](https://drive.google.com/file/d/147Mta-HcENF6IhZ8dvPnZ93Romcie7T6/view?usp=sharing) and processing [code](https://github.com/zhoudw-zdw/RevisitingCIL/issues/2#issuecomment-2280462493) if the file is too large to download. |
+  | Omnibenchmark | 89,697             | 5,983             | 300     |                                                              |
+  | VTAB          | 1,796              | 8,619             | 50      |                                                              |
+  | Cars          | 4,135              | 4,083             | 100     | Google Drive: [link](https://drive.google.com/file/d/1D8ReAuOPenWi6SMNUrOZhbm6ViyhDHbL/view?usp=sharing) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/EbT1XAstg51Mpy82uHM0D2EBJLrtzmr_V64jeBRjqyyTnQ?e=h6g1rM) |
+  | UCF           | 10,553             | 2,639             | 100     | Google Drive: [link](https://drive.google.com/file/d/1Ng4w310_VDqpKbc7eYaumXTOiDxI02Wc/view?usp=sharing) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/EU2qHQXjASdLh1jIl6ihZmcB6G2KvqmSw-sTlZKDE6xPbg?e=7ezvTr) |
+  | Aircraft      | 6,667              | 3,333             | 100     | Google Drive: [link](https://drive.google.com/file/d/1xI5r1fU0d6Nff51HuOo5w-e4sGEP46Z2/view?usp=drive_link) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/ETVliZnmPY9AvZZgcFFJ6jMB2c7TRvcq7-gso2Aqvdl_VQ?e=pWXqdP) |
+  | Food          | 79,988             | 20,012            | 100     | Google Drive: [link](https://drive.google.com/file/d/1rupzXpwrbxki4l-RVmsRawhz1Cm0lDY5/view?usp=drive_link) or OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/Eb4xfptD4L5Egus-SiYxrIcBDH1VewLGp4kzyACGF_Na_w?e=duA3Ia) |
+  | SUN           | 72,870             | 18,179            | 300     | OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/g/personal/ky2409911_365_nju_edu_cn/EcQq1-1pFulKstYtdknB4O8BGo0hnlDRarAwB4wFEgkx0Q?e=YZ0xYV) |
+  | TV100         | 41,716             | 4,000             | 100     | OneDrive: [link](https://njuedu-my.sharepoint.cn/:u:/r/personal/ky2409911_365_nju_edu_cn/Documents/TV100/TV100.zip?csf=1&web=1&e=XNpitj) |
 
-When training **not** on `CIFAR100`, you should specify the folder of your dataset in `utils/data.py`.
+  The instance and class counts above refer to the preprocessed benchmark subsets used by this framework, which may differ from the complete original datasets.
 
-```python
-    def download_data(self):
-        assert 0,"You should specify the folder of your dataset"
-        train_dir = '[DATA-PATH]/train/'
-        test_dir = '[DATA-PATH]/val/'
-```
+  When training **not** on `CIFAR100`, you should specify the folder of your dataset in `utils/data.py`.
+
+  ```python
+  def download_data(self):
+          assert 0,"You should specify the folder of your dataset"
+          train_dir = '[DATA-PATH]/train/'
+          test_dir = '[DATA-PATH]/val/'
+  ```
+
+- ### Dataset split
+
+  - B-$m$ Inc-$n$: $m$ denotes the number of classes in the initial incremental stage, and $n$ denotes the number of classes in each subsequent incremental stage.
+
+- ### Backbone
+
+  | Model                  | Training Data                                        | Publisher                 | Characteristics                                              | Model Scale                        | Creation Method                                              |
+  | ---------------------- | ---------------------------------------------------- | ------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
+  | **OpenAI CLIP**        | 400M internal image-text pairs collected by OpenAI   | OpenAI                    | Official version with stable performance, but training data is not public | ViT-B/32, ViT-B/16, ViT-L/14, etc. | `model, preprocess = clip.load("ViT-B/32", device=device)`   |
+  | **OpenCLIP LAION400M** | Public LAION-400M dataset with 400M image-text pairs | LAION open-source project | Fully open source; training data is public and reproducible  | Multiple architectures and scales  | `model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion400m_e32')` |
 
 ---
-
-
 
 ## 🤗 Multi-domain Incremental Learning
 

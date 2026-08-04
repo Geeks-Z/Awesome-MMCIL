@@ -1,0 +1,45 @@
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+{'707-320': 0, '727-200': 1, '737-200': 2, '737-300': 3, '737-400': 4, '737-500': 5, '737-600': 6, '737-700': 7, '737-800': 8, '737-900': 9, '747-100': 10, '747-200': 11, '747-300': 12, '747-400': 13, '757-200': 14, '757-300': 15, '767-200': 16, '767-300': 17, '767-400': 18, '777-200': 19, '777-300': 20, 'A300B4': 21, 'A310': 22, 'A318': 23, 'A319': 24, 'A320': 25, 'A321': 26, 'A330-200': 27, 'A330-300': 28, 'A340-200': 29, 'A340-300': 30, 'A340-500': 31, 'A340-600': 32, 'A380': 33, 'ATR-42': 34, 'ATR-72': 35, 'An-12': 36, 'BAE-125': 37, 'BAE-146-200': 38, 'BAE-146-300': 39, 'Beechcraft-1900': 40, 'Boeing-717': 41, 'C-130': 42, 'C-47': 43, 'CRJ-200': 44, 'CRJ-700': 45, 'CRJ-900': 46, 'Cessna-172': 47, 'Cessna-208': 48, 'Cessna-525': 49, 'Cessna-560': 50, 'Challenger-600': 51, 'DC-10': 52, 'DC-3': 53, 'DC-6': 54, 'DC-8': 55, 'DC-9-30': 56, 'DH-82': 57, 'DHC-1': 58, 'DHC-6': 59, 'DHC-8-100': 60, 'DHC-8-300': 61, 'DR-400': 62, 'Dornier-328': 63, 'E-170': 64, 'E-190': 65, 'E-195': 66, 'EMB-120': 67, 'ERJ-135': 68, 'ERJ-145': 69, 'Embraer-Legacy-600': 70, 'Eurofighter-Typhoon': 71, 'F': 72, 'F-16A': 73, 'Falcon-2000': 74, 'Falcon-900': 75, 'Fokker-100': 76, 'Fokker-50': 77, 'Fokker-70': 78, 'Global-Express': 79, 'Gulfstream-IV': 80, 'Gulfstream-V': 81, 'Hawk-T1': 82, 'Il-76': 83, 'L-1011': 84, 'MD-11': 85, 'MD-80': 86, 'MD-87': 87, 'MD-90': 88, 'Metroliner': 89, 'Model-B200': 90, 'PA-28': 91, 'SR-20': 92, 'Saab-2000': 93, 'Saab-340': 94, 'Spitfire': 95, 'Tornado': 96, 'Tu-134': 97, 'Tu-154': 98, 'Yak-42': 99}
+After shuffle, class_to_label is:  ['ERJ 135', 'DC-9-30', 'Fokker 70', '737-800', 'A318', 'L-1011', 'Model B200', 'E-190', 'Falcon 2000', 'Fokker 100', 'Beechcraft 1900', 'Metroliner', '737-300', 'SR-20', 'DC-8', '737-900', 'A321', 'Gulfstream IV', 'C-47', 'BAE 146-300', 'DHC-1', 'Embraer Legacy 600', 'Fokker 50', '727-200', 'MD-11', '777-200', '767-300', 'Cessna 560', 'A330-300', 'DC-3', '747-400', 'Gulfstream V', 'CRJ-700', 'Hawk T1', '737-600', 'DHC-6', 'Il-76', '767-200', '757-300', 'CRJ-200', 'PA-28', 'Boeing 717', 'F-16A/B', 'DHC-8-100', 'Global Express', 'DC-10', '777-300', '747-100', 'A340-500', 'DC-6', 'BAE 146-200', 'Spitfire', '757-200', 'Eurofighter Typhoon', 'Tornado', 'Tu-154', 'Tu-134', '737-200', 'E-170', 'E-195', 'C-130', 'A310', 'ATR-72', 'MD-80', 'A319', 'ATR-42', 'MD-87', 'A300B4', 'Yak-42', '707-320', 'MD-90', 'A330-200', '767-400', 'Saab 340', '747-200', '747-300', 'Cessna 172', 'A320', 'A340-300', 'CRJ-900', 'DR-400', 'ERJ 145', 'An-12', 'DHC-8-300', '737-700', 'Dornier 328', 'Falcon 900', '737-500', 'A340-600', '737-400', 'Challenger 600', 'Cessna 208', 'F/A-18', 'Saab 2000', 'BAE-125', 'EMB-120', 'A340-200', 'Cessna 525', 'DH-82', 'A380']
+Training class stages: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Using CLIP model as the backbone
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/nn/modules/activation.py:1160: UserWarning: Converting mask without torch.bool dtype to bool; this will negatively affect performance. Prefer to use a boolean mask directly. (Triggered internally at ../aten/src/ATen/native/transformers/attention.cpp:150.)
+  return torch._native_multi_head_attention(
+{
+  "method": "SAGLA",
+  "dataset": "aircraft",
+  "protocol": "B10/Inc10",
+  "seed": 1993,
+  "backbone": "openai_clip ViT-B-16",
+  "gpu_index": 1,
+  "gpu": "NVIDIA A800 80GB PCIe",
+  "training": {
+    "batch_size": 32,
+    "num_workers": 4,
+    "total_seconds": 139.24060280621052,
+    "peak_allocated_bytes": 861569024
+  },
+  "inference": {
+    "batch_size": 64,
+    "num_workers": 8,
+    "warmup_passes": 1,
+    "seconds": [
+      9.151700779795647,
+      9.296443082392216,
+      9.198341682553291
+    ],
+    "median_seconds": 9.198341682553291,
+    "peak_allocated_bytes": 1153243648
+  },
+  "parameters": {
+    "common_frozen_backbone": 149620737,
+    "peak_trainable": 0,
+    "final_extra_learned": 0
+  },
+  "auxiliary_state": {
+    "gda_bytes": 2974096,
+    "text_cache_bytes": 204800,
+    "persistent_total_bytes": 3178896
+  }
+}

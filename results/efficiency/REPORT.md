@@ -46,7 +46,7 @@
 
 推理是在最终 100 类完整测试集上统一 batch 64、8 workers；常规最终评测用于预热，随后执行 3 次完整 `_eval_cnn`，报告中位数、范围和 images/s。它包含数据加载、文本/统计准备及方法特有重排。显存为进程内 `torch.cuda.max_memory_allocated`，不采用整卡 `nvidia-smi`。
 
-本次统计实验的有效运行日志、启动器日志、无效尝试审计日志和 SAGLA 系列日志已分别归档在 `logs/efficiency/baseline/`、`logs/efficiency/launcher/`、`logs/efficiency/audit/` 和 `logs/efficiency/sagla/`。
+本次统计实验的有效运行日志按方法归档在 `logs/OpenCLIP_LAION400M_ViTB16/<方法>/efficiency/`；启动器日志位于 `logs/OpenCLIP_LAION400M_ViTB16/queue/efficiency/`，无效尝试审计日志位于对应方法的 `efficiency/audit/`，SAGLA 系列日志位于 `logs/OpenCLIP_LAION400M_ViTB16/SAGLA/efficiency/`。
 
 ## Cars
 

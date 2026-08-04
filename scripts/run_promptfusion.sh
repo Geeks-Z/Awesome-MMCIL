@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Submit with: nohup bash scripts/run_promptfusion.sh > results/PromptFusion-GPU5.out 2>&1 &
+# Submit with: nohup bash scripts/run_promptfusion.sh > logs/OpenAI_CLIP_ViTB16/PromptFusion/queue/PromptFusion-GPU5.out 2>&1 &
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

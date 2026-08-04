@@ -4,43 +4,12 @@ import copy
 import torch
 from utils import factory
 from utils.data_manager import DataManager
+from utils.log_layout import log_directory
 from utils.toolkit import count_parameters
 import os
 import random
 import numpy as np
 from utils.efficiency import EfficiencyProfiler
-
-# Method identifiers are lower-case in several JSON configs, whereas result
-# folders are presented with their canonical paper names.  Keep the identifier
-# unchanged for model construction, but normalize only the log destination.
-_CANONICAL_LOG_DIRS = {
-    "engine": "ENGINE",
-    "area": "AREA",
-    # Retain compatibility with older misspelled AREA configurations.
-    "aera": "AREA",
-}
-
-_BACKBONE_LOG_ROOTS = {
-    "openai_clip": "OpenAI_CLIP_ViTB16",
-    "clip": "OpenCLIP_LAION400M_ViTB16",
-    "clip_laion2b": "OpenCLIP_LAION2B_ViTB16",
-}
-
-
-def _log_dir_name(model_name):
-    return _CANONICAL_LOG_DIRS.get(str(model_name).lower(), model_name)
-
-
-def _backbone_log_root(backbone_type):
-    """Return a backbone-specific log root instead of mixing model families."""
-    backbone_name = str(backbone_type).lower()
-    if backbone_name.startswith("pretrained_"):
-        backbone_name = backbone_name[len("pretrained_") :]
-    try:
-        return _BACKBONE_LOG_ROOTS[backbone_name]
-    except KeyError as error:
-        raise ValueError(f"Unsupported log backbone {backbone_type!r}") from error
-
 
 def train(args):
     seed_list = copy.deepcopy(args["seed"])
@@ -59,9 +28,7 @@ def _train(args):
     if backbone_name.startswith("pretrained_"):
         backbone_name = backbone_name[len("pretrained_") :]
 
-    log_dir_name = _log_dir_name(args["model_name"])
-    backbone_log_root = _backbone_log_root(args["backbone_type"])
-    logs_name = os.path.join("logs", backbone_log_root, log_dir_name)
+    logs_name = str(log_directory(args["model_name"], args["backbone_type"]))
 
     os.makedirs(logs_name, exist_ok=True)
 

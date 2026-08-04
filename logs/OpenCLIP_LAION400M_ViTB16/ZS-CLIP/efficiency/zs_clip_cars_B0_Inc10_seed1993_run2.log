@@ -1,0 +1,108 @@
+2026-08-01 01:41:49,053 [trainer.py] => config: configs/zs_clip/zs_clip_cars_B0_Inc10.json
+2026-08-01 01:41:49,070 [trainer.py] => prefix: -
+2026-08-01 01:41:49,070 [trainer.py] => dataset: cars
+2026-08-01 01:41:49,070 [trainer.py] => memory_size: 0
+2026-08-01 01:41:49,070 [trainer.py] => memory_per_class: 0
+2026-08-01 01:41:49,070 [trainer.py] => fixed_memory: False
+2026-08-01 01:41:49,070 [trainer.py] => shuffle: True
+2026-08-01 01:41:49,071 [trainer.py] => init_cls: 10
+2026-08-01 01:41:49,071 [trainer.py] => increment: 10
+2026-08-01 01:41:49,071 [trainer.py] => model_name: zs_clip
+2026-08-01 01:41:49,071 [trainer.py] => backbone_type: clip
+2026-08-01 01:41:49,071 [trainer.py] => device: [device(type='cuda', index=2)]
+2026-08-01 01:41:49,071 [trainer.py] => seed: 1993
+2026-08-01 01:41:49,071 [trainer.py] => total_class_num: 100
+['AM General Hummer SUV 2000', 'Acura Integra Type R 2001', 'Acura RL Sedan 2012', 'Acura TL Sedan 2012', 'Acura TL Type-S 2008', 'Acura TSX Sedan 2012', 'Acura ZDX Hatchback 2012', 'Aston Martin V8 Vantage Convertible 2012', 'Aston Martin V8 Vantage Coupe 2012', 'Aston Martin Virage Convertible 2012', 'Aston Martin Virage Coupe 2012', 'Audi 100 Sedan 1994', 'Audi 100 Wagon 1994', 'Audi A5 Coupe 2012', 'Audi R8 Coupe 2012', 'Audi RS 4 Convertible 2008', 'Audi S4 Sedan 2007', 'Audi S4 Sedan 2012', 'Audi S5 Convertible 2012', 'Audi S5 Coupe 2012', 'Audi S6 Sedan 2011', 'Audi TTS Coupe 2012', 'Audi TT Hatchback 2011', 'Audi TT RS Coupe 2012', 'Audi V8 Sedan 1994', 'BMW 1 Series Convertible 2012', 'BMW 1 Series Coupe 2012', 'BMW 3 Series Sedan 2012', 'BMW 3 Series Wagon 2012', 'BMW 6 Series Convertible 2007', 'BMW ActiveHybrid 5 Sedan 2012', 'BMW M3 Coupe 2012', 'BMW M5 Sedan 2010', 'BMW M6 Convertible 2010', 'BMW X3 SUV 2012', 'BMW X5 SUV 2007', 'BMW X6 SUV 2012', 'BMW Z4 Convertible 2012', 'Bentley Arnage Sedan 2009', 'Bentley Continental Flying Spur Sedan 2007', 'Bentley Continental GT Coupe 2007', 'Bentley Continental GT Coupe 2012', 'Bentley Continental Supersports Conv. Convertible 2012', 'Bentley Mulsanne Sedan 2011', 'Bugatti Veyron 16.4 Convertible 2009', 'Bugatti Veyron 16.4 Coupe 2009', 'Buick Enclave SUV 2012', 'Buick Rainier SUV 2007', 'Buick Regal GS 2012', 'Buick Verano Sedan 2012', 'Cadillac CTS-V Sedan 2012', 'Cadillac Escalade EXT Crew Cab 2007', 'Cadillac SRX SUV 2012', 'Chevrolet Avalanche Crew Cab 2012', 'Chevrolet Camaro Convertible 2012', 'Chevrolet Cobalt SS 2010', 'Chevrolet Corvette Convertible 2012', 'Chevrolet Corvette Ron Fellows Edition Z06 2007', 'Chevrolet Corvette ZR1 2012', 'Chevrolet Express Cargo Van 2007', 'Chevrolet Express Van 2007', 'Chevrolet HHR SS 2010', 'Chevrolet Impala Sedan 2007', 'Chevrolet Malibu Hybrid Sedan 2010', 'Chevrolet Malibu Sedan 2007', 'Chevrolet Monte Carlo Coupe 2007', 'Chevrolet Silverado 1500 Classic Extended Cab 2007', 'Chevrolet Silverado 1500 Extended Cab 2012', 'Chevrolet Silverado 1500 Hybrid Crew Cab 2012', 'Chevrolet Silverado 1500 Regular Cab 2012', 'Chevrolet Silverado 2500HD Regular Cab 2012', 'Chevrolet Sonic Sedan 2012', 'Chevrolet Tahoe Hybrid SUV 2012', 'Chevrolet TrailBlazer SS 2009', 'Chevrolet Traverse SUV 2012', 'Chrysler 300 SRT-8 2010', 'Chrysler Aspen SUV 2009', 'Chrysler Crossfire Convertible 2008', 'Chrysler PT Cruiser Convertible 2008', 'Chrysler Sebring Convertible 2010', 'Chrysler Town and Country Minivan 2012', 'Daewoo Nubira Wagon 2002', 'Dodge Caliber Wagon 2007', 'Dodge Caliber Wagon 2012', 'Dodge Caravan Minivan 1997', 'Dodge Challenger SRT8 2011', 'Dodge Charger SRT-8 2009', 'Dodge Charger Sedan 2012', 'Dodge Dakota Club Cab 2007', 'Dodge Dakota Crew Cab 2010', 'Dodge Durango SUV 2007', 'Dodge Durango SUV 2012', 'Dodge Journey SUV 2012', 'Dodge Magnum Wagon 2008', 'Dodge Ram Pickup 3500 Crew Cab 2010', 'Dodge Ram Pickup 3500 Quad Cab 2009', 'Dodge Sprinter Cargo Van 2009', 'Eagle Talon Hatchback 1998', 'FIAT 500 Abarth 2012', 'FIAT 500 Convertible 2012', 'Ferrari 458 Italia Convertible 2012', 'Ferrari 458 Italia Coupe 2012']
+['a photo of a {}.', 'a photo of the {}.', 'a photo of my {}.', 'i love my {}!', 'a photo of my dirty {}.', 'a photo of my clean {}.', 'a photo of my new {}.', 'a photo of my old {}.']
+{'AM_General_Hummer_SUV_2000': 0, 'Acura_Integra_Type_R_2001': 1, 'Acura_RL_Sedan_2012': 2, 'Acura_TL_Sedan_2012': 3, 'Acura_TL_Type-S_2008': 4, 'Acura_TSX_Sedan_2012': 5, 'Acura_ZDX_Hatchback_2012': 6, 'Aston_Martin_V8_Vantage_Convertible_2012': 7, 'Aston_Martin_V8_Vantage_Coupe_2012': 8, 'Aston_Martin_Virage_Convertible_2012': 9, 'Aston_Martin_Virage_Coupe_2012': 10, 'Audi_100_Sedan_1994': 11, 'Audi_100_Wagon_1994': 12, 'Audi_A5_Coupe_2012': 13, 'Audi_R8_Coupe_2012': 14, 'Audi_RS_4_Convertible_2008': 15, 'Audi_S4_Sedan_2007': 16, 'Audi_S4_Sedan_2012': 17, 'Audi_S5_Convertible_2012': 18, 'Audi_S5_Coupe_2012': 19, 'Audi_S6_Sedan_2011': 20, 'Audi_TTS_Coupe_2012': 21, 'Audi_TT_Hatchback_2011': 22, 'Audi_TT_RS_Coupe_2012': 23, 'Audi_V8_Sedan_1994': 24, 'BMW_1_Series_Convertible_2012': 25, 'BMW_1_Series_Coupe_2012': 26, 'BMW_3_Series_Sedan_2012': 27, 'BMW_3_Series_Wagon_2012': 28, 'BMW_6_Series_Convertible_2007': 29, 'BMW_ActiveHybrid_5_Sedan_2012': 30, 'BMW_M3_Coupe_2012': 31, 'BMW_M5_Sedan_2010': 32, 'BMW_M6_Convertible_2010': 33, 'BMW_X3_SUV_2012': 34, 'BMW_X5_SUV_2007': 35, 'BMW_X6_SUV_2012': 36, 'BMW_Z4_Convertible_2012': 37, 'Bentley_Arnage_Sedan_2009': 38, 'Bentley_Continental_Flying_Spur_Sedan_2007': 39, 'Bentley_Continental_GT_Coupe_2007': 40, 'Bentley_Continental_GT_Coupe_2012': 41, 'Bentley_Continental_Supersports_Conv._Convertible_2012': 42, 'Bentley_Mulsanne_Sedan_2011': 43, 'Bugatti_Veyron_16.4_Convertible_2009': 44, 'Bugatti_Veyron_16.4_Coupe_2009': 45, 'Buick_Enclave_SUV_2012': 46, 'Buick_Rainier_SUV_2007': 47, 'Buick_Regal_GS_2012': 48, 'Buick_Verano_Sedan_2012': 49, 'Cadillac_CTS-V_Sedan_2012': 50, 'Cadillac_Escalade_EXT_Crew_Cab_2007': 51, 'Cadillac_SRX_SUV_2012': 52, 'Chevrolet_Avalanche_Crew_Cab_2012': 53, 'Chevrolet_Camaro_Convertible_2012': 54, 'Chevrolet_Cobalt_SS_2010': 55, 'Chevrolet_Corvette_Convertible_2012': 56, 'Chevrolet_Corvette_Ron_Fellows_Edition_Z06_2007': 57, 'Chevrolet_Corvette_ZR1_2012': 58, 'Chevrolet_Express_Cargo_Van_2007': 59, 'Chevrolet_Express_Van_2007': 60, 'Chevrolet_HHR_SS_2010': 61, 'Chevrolet_Impala_Sedan_2007': 62, 'Chevrolet_Malibu_Hybrid_Sedan_2010': 63, 'Chevrolet_Malibu_Sedan_2007': 64, 'Chevrolet_Monte_Carlo_Coupe_2007': 65, 'Chevrolet_Silverado_1500_Classic_Extended_Cab_2007': 66, 'Chevrolet_Silverado_1500_Extended_Cab_2012': 67, 'Chevrolet_Silverado_1500_Hybrid_Crew_Cab_2012': 68, 'Chevrolet_Silverado_1500_Regular_Cab_2012': 69, 'Chevrolet_Silverado_2500HD_Regular_Cab_2012': 70, 'Chevrolet_Sonic_Sedan_2012': 71, 'Chevrolet_Tahoe_Hybrid_SUV_2012': 72, 'Chevrolet_TrailBlazer_SS_2009': 73, 'Chevrolet_Traverse_SUV_2012': 74, 'Chrysler_300_SRT-8_2010': 75, 'Chrysler_Aspen_SUV_2009': 76, 'Chrysler_Crossfire_Convertible_2008': 77, 'Chrysler_PT_Cruiser_Convertible_2008': 78, 'Chrysler_Sebring_Convertible_2010': 79, 'Chrysler_Town_and_Country_Minivan_2012': 80, 'Daewoo_Nubira_Wagon_2002': 81, 'Dodge_Caliber_Wagon_2007': 82, 'Dodge_Caliber_Wagon_2012': 83, 'Dodge_Caravan_Minivan_1997': 84, 'Dodge_Challenger_SRT8_2011': 85, 'Dodge_Charger_SRT-8_2009': 86, 'Dodge_Charger_Sedan_2012': 87, 'Dodge_Dakota_Club_Cab_2007': 88, 'Dodge_Dakota_Crew_Cab_2010': 89, 'Dodge_Durango_SUV_2007': 90, 'Dodge_Durango_SUV_2012': 91, 'Dodge_Journey_SUV_2012': 92, 'Dodge_Magnum_Wagon_2008': 93, 'Dodge_Ram_Pickup_3500_Crew_Cab_2010': 94, 'Dodge_Ram_Pickup_3500_Quad_Cab_2009': 95, 'Dodge_Sprinter_Cargo_Van_2009': 96, 'Eagle_Talon_Hatchback_1998': 97, 'Ferrari_458_Italia_Convertible_2012': 98, 'Ferrari_458_Italia_Coupe_2012': 99}
+2026-08-01 01:41:49,323 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+After shuffle, class_to_label is:  ['Chevrolet Silverado 1500 Hybrid Crew Cab 2012', 'Chevrolet Corvette Convertible 2012', 'Chrysler PT Cruiser Convertible 2008', 'Aston Martin V8 Vantage Coupe 2012', 'Audi TT RS Coupe 2012', 'Dodge Caravan Minivan 1997', 'Dodge Durango SUV 2007', 'Chevrolet Monte Carlo Coupe 2007', 'Chevrolet Traverse SUV 2012', 'Chrysler Aspen SUV 2009', 'Bentley Continental GT Coupe 2007', 'Dodge Dakota Crew Cab 2010', 'Acura TL Sedan 2012', 'Dodge Journey SUV 2012', 'Chevrolet Cobalt SS 2010', 'Aston Martin Virage Convertible 2012', 'BMW 1 Series Coupe 2012', 'Chrysler Town and Country Minivan 2012', 'Bentley Mulsanne Sedan 2011', 'Bentley Arnage Sedan 2009', 'Chevrolet Corvette ZR1 2012', 'Chevrolet Silverado 2500HD Regular Cab 2012', 'Chrysler Crossfire Convertible 2008', 'Acura Integra Type R 2001', 'Dodge Challenger SRT8 2011', 'Audi S5 Coupe 2012', 'Audi S4 Sedan 2012', 'Cadillac CTS-V Sedan 2012', 'BMW 3 Series Wagon 2012', 'Chevrolet Avalanche Crew Cab 2012', 'Audi A5 Coupe 2012', 'Daewoo Nubira Wagon 2002', 'Bugatti Veyron 16.4 Coupe 2009', 'Dodge Caliber Wagon 2007', 'Acura ZDX Hatchback 2012', 'Chevrolet Express Cargo Van 2007', 'Dodge Caliber Wagon 2012', 'Audi S4 Sedan 2007', 'Audi RS 4 Convertible 2008', 'Bugatti Veyron 16.4 Convertible 2009', 'Dodge Durango SUV 2012', 'Bentley Continental GT Coupe 2012', 'Chevrolet Tahoe Hybrid SUV 2012', 'Chevrolet Express Van 2007', 'Chrysler Sebring Convertible 2010', 'Cadillac SRX SUV 2012', 'Audi S6 Sedan 2011', 'Aston Martin Virage Coupe 2012', 'BMW M3 Coupe 2012', 'Chevrolet Camaro Convertible 2012', 'BMW Z4 Convertible 2012', 'Dodge Ram Pickup 3500 Quad Cab 2009', 'Audi R8 Coupe 2012', 'Chevrolet Sonic Sedan 2012', 'Dodge Sprinter Cargo Van 2009', 'FIAT 500 Abarth 2012', 'Eagle Talon Hatchback 1998', 'Acura RL Sedan 2012', 'Chevrolet Malibu Sedan 2007', 'Chevrolet Silverado 1500 Classic Extended Cab 2007', 'Bentley Continental Supersports Conv. Convertible 2012', 'Audi TT Hatchback 2011', 'BMW X5 SUV 2007', 'Dodge Charger SRT-8 2009', 'Audi V8 Sedan 1994', 'BMW X3 SUV 2012', 'Dodge Charger Sedan 2012', 'Audi TTS Coupe 2012', 'FIAT 500 Convertible 2012', 'AM General Hummer SUV 2000', 'Dodge Dakota Club Cab 2007', 'BMW 3 Series Sedan 2012', 'Audi S5 Convertible 2012', 'Dodge Ram Pickup 3500 Crew Cab 2010', 'Audi 100 Sedan 1994', 'Audi 100 Wagon 1994', 'Buick Rainier SUV 2007', 'BMW 1 Series Convertible 2012', 'BMW ActiveHybrid 5 Sedan 2012', 'Buick Enclave SUV 2012', 'Chevrolet Impala Sedan 2007', 'Chevrolet Silverado 1500 Regular Cab 2012', 'BMW X6 SUV 2012', 'Chevrolet HHR SS 2010', 'Aston Martin V8 Vantage Convertible 2012', 'Chevrolet Malibu Hybrid Sedan 2010', 'Chrysler 300 SRT-8 2010', 'Acura TSX Sedan 2012', 'BMW M5 Sedan 2010', 'Acura TL Type-S 2008', 'Cadillac Escalade EXT Crew Cab 2007', 'Buick Regal GS 2012', 'Chevrolet TrailBlazer SS 2009', 'Dodge Magnum Wagon 2008', 'Bentley Continental Flying Spur Sedan 2007', 'Chevrolet Silverado 1500 Extended Cab 2012', 'BMW 6 Series Convertible 2007', 'Buick Verano Sedan 2012', 'Chevrolet Corvette Ron Fellows Edition Z06 2007', 'BMW M6 Convertible 2010']
+Training class stages: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Using CLIP model as the backbone
+2026-08-01 01:41:57,812 [instantiator.py] => Created a temporary directory at /tmp/tmpzdc2gav5
+2026-08-01 01:41:57,813 [instantiator.py] => Writing /tmp/tmpzdc2gav5/_remote_module_non_scriptable.py
+2026-08-01 01:41:59,358 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-01 01:42:00,770 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin).
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Using CLIP model as the backbone
+2026-08-01 01:42:02,054 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-01 01:42:03,494 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin).
+batch_size not in args, set to 48  as default
+init_lr not in args, set to 0.01  as default
+weight_decay not in args, set to 0.0005  as default
+min_lr not in args, set to 1e-08  as default
+2026-08-01 01:42:05,374 [zs_clip.py] => Learning on 0-10
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/nn/modules/activation.py:1160: UserWarning: Converting mask without torch.bool dtype to bool; this will negatively affect performance. Prefer to use a boolean mask directly. (Triggered internally at ../aten/src/ATen/native/transformers/attention.cpp:150.)
+  return torch._native_multi_head_attention(
+2026-08-01 01:42:08,907 [trainer.py] => CNN: {'total': 89.39, '00-09': 89.39, 'old': 0, 'new': 89.39, 'harmonic': 0.0}
+2026-08-01 01:42:08,908 [trainer.py] => CNN top1 curve: [89.39]
+2026-08-01 01:42:08,908 [trainer.py] => CNN top5 curve: [100.0]
+2026-08-01 01:42:08,908 [trainer.py] => CNN top10 curve: [100.0]
+2026-08-01 01:42:08,908 [trainer.py] => Average Accuracy (CNN top1): 89.39
+2026-08-01 01:42:08,911 [zs_clip.py] => Learning on 10-20
+2026-08-01 01:42:11,825 [trainer.py] => CNN: {'total': 90.66, '00-09': 83.02, '10-19': 98.75, 'old': 83.02, 'new': 98.75, 'harmonic': 90.2}
+2026-08-01 01:42:11,825 [trainer.py] => CNN top1 curve: [89.39, 90.66]
+2026-08-01 01:42:11,825 [trainer.py] => CNN top5 curve: [100.0, 100.0]
+2026-08-01 01:42:11,825 [trainer.py] => CNN top10 curve: [100.0, 100.0]
+2026-08-01 01:42:11,825 [trainer.py] => Average Accuracy (CNN top1): 90.025
+2026-08-01 01:42:11,826 [zs_clip.py] => Learning on 20-30
+2026-08-01 01:42:15,815 [trainer.py] => CNN: {'total': 91.16, '00-09': 80.66, '10-19': 98.0, '20-29': 95.24, 'old': 89.08, 'new': 95.24, 'harmonic': 92.06}
+2026-08-01 01:42:15,815 [trainer.py] => CNN top1 curve: [89.39, 90.66, 91.16]
+2026-08-01 01:42:15,816 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0]
+2026-08-01 01:42:15,816 [trainer.py] => CNN top10 curve: [100.0, 100.0, 100.0]
+2026-08-01 01:42:15,816 [trainer.py] => Average Accuracy (CNN top1): 90.40333333333335
+2026-08-01 01:42:15,817 [zs_clip.py] => Learning on 30-40
+2026-08-01 01:42:20,992 [trainer.py] => CNN: {'total': 85.33, '00-09': 80.42, '10-19': 94.75, '20-29': 93.1, '30-39': 72.7, 'old': 89.31, 'new': 72.7, 'harmonic': 80.15}
+2026-08-01 01:42:20,993 [trainer.py] => CNN top1 curve: [89.39, 90.66, 91.16, 85.33]
+2026-08-01 01:42:20,993 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0, 99.94]
+2026-08-01 01:42:20,993 [trainer.py] => CNN top10 curve: [100.0, 100.0, 100.0, 99.94]
+2026-08-01 01:42:20,993 [trainer.py] => Average Accuracy (CNN top1): 89.135
+2026-08-01 01:42:20,994 [zs_clip.py] => Learning on 40-50
+2026-08-01 01:42:27,095 [trainer.py] => CNN: {'total': 82.19, '00-09': 79.25, '10-19': 90.5, '20-29': 92.14, '30-39': 71.94, '40-49': 76.62, 'old': 83.56, 'new': 76.62, 'harmonic': 79.94}
+2026-08-01 01:42:27,096 [trainer.py] => CNN top1 curve: [89.39, 90.66, 91.16, 85.33, 82.19]
+2026-08-01 01:42:27,096 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0, 99.94, 99.85]
+2026-08-01 01:42:27,096 [trainer.py] => CNN top10 curve: [100.0, 100.0, 100.0, 99.94, 99.95]
+2026-08-01 01:42:27,096 [trainer.py] => Average Accuracy (CNN top1): 87.74600000000001
+2026-08-01 01:42:27,099 [zs_clip.py] => Learning on 50-60
+2026-08-01 01:42:34,517 [trainer.py] => CNN: {'total': 80.17, '00-09': 74.53, '10-19': 89.25, '20-29': 91.67, '30-39': 71.68, '40-49': 76.62, '50-59': 77.0, 'old': 80.81, 'new': 77.0, 'harmonic': 78.86}
+2026-08-01 01:42:34,518 [trainer.py] => CNN top1 curve: [89.39, 90.66, 91.16, 85.33, 82.19, 80.17]
+2026-08-01 01:42:34,518 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0, 99.94, 99.85, 98.98]
+2026-08-01 01:42:34,518 [trainer.py] => CNN top10 curve: [100.0, 100.0, 100.0, 99.94, 99.95, 99.8]
+2026-08-01 01:42:34,518 [trainer.py] => Average Accuracy (CNN top1): 86.48333333333333
+2026-08-01 01:42:34,521 [zs_clip.py] => Learning on 60-70
+2026-08-01 01:42:42,887 [trainer.py] => CNN: {'total': 78.46, '00-09': 73.35, '10-19': 88.75, '20-29': 90.48, '30-39': 70.92, '40-49': 76.62, '50-59': 76.76, '60-69': 72.13, 'old': 79.52, 'new': 72.13, 'harmonic': 75.64}
+2026-08-01 01:42:42,888 [trainer.py] => CNN top1 curve: [89.39, 90.66, 91.16, 85.33, 82.19, 80.17, 78.46]
+2026-08-01 01:42:42,888 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0, 99.94, 99.85, 98.98, 97.52]
+2026-08-01 01:42:42,888 [trainer.py] => CNN top10 curve: [100.0, 100.0, 100.0, 99.94, 99.95, 99.8, 98.53]
+2026-08-01 01:42:42,888 [trainer.py] => Average Accuracy (CNN top1): 85.33714285714287
+2026-08-01 01:42:42,890 [zs_clip.py] => Learning on 70-80
+2026-08-01 01:42:52,783 [trainer.py] => CNN: {'total': 77.75, '00-09': 73.11, '10-19': 88.0, '20-29': 90.0, '30-39': 69.9, '40-49': 76.62, '50-59': 75.54, '60-69': 67.24, '70-79': 81.45, 'old': 77.24, 'new': 81.45, 'harmonic': 79.29}
+2026-08-01 01:42:52,783 [trainer.py] => CNN top1 curve: [89.39, 90.66, 91.16, 85.33, 82.19, 80.17, 78.46, 77.75]
+2026-08-01 01:42:52,784 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0, 99.94, 99.85, 98.98, 97.52, 97.58]
+2026-08-01 01:42:52,784 [trainer.py] => CNN top10 curve: [100.0, 100.0, 100.0, 99.94, 99.95, 99.8, 98.53, 98.71]
+2026-08-01 01:42:52,784 [trainer.py] => Average Accuracy (CNN top1): 84.38875
+2026-08-01 01:42:52,786 [zs_clip.py] => Learning on 80-90
+2026-08-01 01:43:03,633 [trainer.py] => CNN: {'total': 77.13, '00-09': 70.75, '10-19': 85.75, '20-29': 89.05, '30-39': 69.9, '40-49': 75.37, '50-59': 74.09, '60-69': 66.01, '70-79': 80.7, '80-89': 82.34, 'old': 76.47, 'new': 82.34, 'harmonic': 79.3}
+2026-08-01 01:43:03,634 [trainer.py] => CNN top1 curve: [89.39, 90.66, 91.16, 85.33, 82.19, 80.17, 78.46, 77.75, 77.13]
+2026-08-01 01:43:03,634 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0, 99.94, 99.85, 98.98, 97.52, 97.58, 97.2]
+2026-08-01 01:43:03,634 [trainer.py] => CNN top10 curve: [100.0, 100.0, 100.0, 99.94, 99.95, 99.8, 98.53, 98.71, 98.69]
+2026-08-01 01:43:03,634 [trainer.py] => Average Accuracy (CNN top1): 83.58222222222223
+2026-08-01 01:43:03,635 [zs_clip.py] => Learning on 90-100
+2026-08-01 01:43:49,149 [trainer.py] => CNN: {'total': 76.73, '00-09': 68.63, '10-19': 85.25, '20-29': 87.38, '30-39': 69.9, '40-49': 74.63, '50-59': 73.85, '60-69': 66.01, '70-79': 80.7, '80-89': 81.62, '90-99': 79.26, 'old': 76.45, 'new': 79.26, 'harmonic': 77.83}
+2026-08-01 01:43:49,150 [trainer.py] => CNN top1 curve: [89.39, 90.66, 91.16, 85.33, 82.19, 80.17, 78.46, 77.75, 77.13, 76.73]
+2026-08-01 01:43:49,150 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0, 99.94, 99.85, 98.98, 97.52, 97.58, 97.2, 97.33]
+2026-08-01 01:43:49,150 [trainer.py] => CNN top10 curve: [100.0, 100.0, 100.0, 99.94, 99.95, 99.8, 98.53, 98.71, 98.69, 98.68]
+2026-08-01 01:43:49,150 [trainer.py] => Average Accuracy (CNN top1): 82.897
+
+========================================
+Finished cars_init10_inc10 seed=1993
+Backbone: OpenCLIP_LAION400M
+Average Accuracy (Top1): 82.9
+Last Accuracy: 76.73
+Average Accuracy (Top5): 98.84
+Last Top5: 97.33
+Average Accuracy (Top10): 99.43
+Last Top10: 98.68
+========================================
+

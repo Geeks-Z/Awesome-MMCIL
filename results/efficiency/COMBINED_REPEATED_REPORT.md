@@ -32,4 +32,4 @@
 论文展示用的两位小数数据见 `combined_repeated_table_2dp.csv`。高精度逐次观测值及派生统计保留在 `combined_repeated_statistics.csv`，基线方法的高精度统计见 `baseline_repeated_statistics.csv`，用于复核而非直接排版。
 
 说明：ZS-CLIP 不执行优化训练，其训练时间实际为初始化与特征准备 时间。ENGINE 的额外冻结参数包含一个未使用、可裁剪的实现副本。BOFA 的最终额外参数为 0，前提是采用已验证的融合投影导出并裁剪 推理不使用的任务头。SAGLA-C 为 Top-10 consensus 配置。
-本次实验日志统一归档在 `logs/efficiency/`。
+本次实验日志按方法归档在 `logs/OpenCLIP_LAION400M_ViTB16/<方法>/efficiency/`。

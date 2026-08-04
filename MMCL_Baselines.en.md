@@ -115,12 +115,12 @@ $$
            for _, epoch in enumerate(prog_bar):
                self._network.backbone.train()
                self._network.original_backbone.eval()
-
+   
                losses = 0.0
                correct, total = 0, 0
                for i, (_, inputs, targets) in enumerate(train_loader):
                    inputs, targets = inputs.to(self._device), targets.to(self._device)
-
+   
                    output = self._network(inputs, task_id=self._cur_task, train=True)
                    logits = output["logits"][:, :self._total_classes]
                    logits[:, :self._known_classes] = float('-inf')
@@ -159,30 +159,3 @@ $$
   ```
 
 - Some logging details.
-
----
-
-## 📊 Reproduced Results
-
-### Experimental Setup
-
-- ### Dataset split
-
-  - B-$m$ Inc-$n$: $m$ denotes the number of classes in the initial incremental stage, and $n$ denotes the number of classes in each subsequent incremental stage.
-
-- ### Backbone
-
-  | Model                  | Training Data                          | Publisher          | Characteristics                      | Model Scale                    | Creation Method                                              |
-  | ---------------------- | -------------------------------------- | ------------------ | ------------------------------------ | ------------------------------ | ------------------------------------------------------------ |
-  | **OpenAI CLIP**        | 400M internal image-text pairs collected by OpenAI | OpenAI             | Official version with stable performance, but training data is not public | ViT-B/32, ViT-B/16, ViT-L/14, etc. | `model, preprocess = clip.load("ViT-B/32", device=device)`   |
-  | **OpenCLIP LAION400M** | Public LAION-400M dataset with 400M image-text pairs | LAION open-source project | Fully open source; training data is public and reproducible | Multiple architectures and scales | `model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-16', pretrained='laion400m_e32')` |
-
-  > All experiments use `OpenAI_CLIP`.
-
-- ### Memory
-
-  For exemplar parameters, DER, iCaRL and FOSTER set the `fixed_memory` option to false and retain the `memory_size` of 2000 for CIFAR100, while setting `fixed_memory` option to true and retaining the `memory_per_class` of 20 for ImageNet-R. On the contrary, other models are exemplar-free.
-
-### Experiment Results
-
-The current log-derived results are maintained in [MMCL_Baselines.xlsx](MMCL_Baselines.xlsx).

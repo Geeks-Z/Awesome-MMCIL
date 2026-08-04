@@ -351,7 +351,8 @@ def write_report(path, rows):
             "时间。ENGINE 的额外冻结参数包含一个未使用、可裁剪的实现副本。"
             "BOFA 的最终额外参数为 0，前提是采用已验证的融合投影导出并裁剪 "
             "推理不使用的任务头。SAGLA-C 为 Top-10 consensus 配置。",
-            "本次实验日志统一归档在 `logs/efficiency/`。",
+            "本次实验日志按方法归档在 "
+            "`logs/OpenCLIP_LAION400M_ViTB16/<方法>/efficiency/`。",
             "",
         ]
     )

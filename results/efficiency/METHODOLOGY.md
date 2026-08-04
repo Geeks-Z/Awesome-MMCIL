@@ -68,4 +68,4 @@ ENGINE 的构造函数还在 `BaseNet.convnet` 元组中保留了一份未注册
 原始 profile 位于 `results/efficiency/raw/`，两位小数论文表位于
 `results/efficiency/combined_repeated_table_2dp.csv`，高精度合并统计位于
 `results/efficiency/combined_repeated_statistics.csv`。本次实验日志统一归档在
-`logs/efficiency/`。
+`logs/OpenCLIP_LAION400M_ViTB16/<方法>/efficiency/`。
