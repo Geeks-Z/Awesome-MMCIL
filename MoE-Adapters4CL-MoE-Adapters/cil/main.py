@@ -39,7 +39,8 @@ def continual_clip(cfg: DictConfig) -> None:
         "cub200": "cub",
     }.get(cfg.dataset, str(cfg.dataset).lower())
     init_cls = 0 if cfg.initial_increment == cfg.increment else cfg.initial_increment
-    log_dir = benchmark_root / "logs" / "MoE-Adapters"
+    # This upstream implementation loads OpenAI CLIP directly.
+    log_dir = benchmark_root / "logs" / "OpenAI_CLIP_ViTB16" / "MoE-Adapters"
     log_dir.mkdir(parents=True, exist_ok=True)
     log_path = log_dir / (
         f"{dataset_name}_openai_clip_{init_cls}_{cfg.increment}_{seed}.log"

@@ -28,7 +28,7 @@ run_protocol() {
     local log_stem="$3"
 
     for seed in "${SEEDS[@]}"; do
-        local log_file="${REPO_ROOT}/logs/PromptFusion/${log_stem}_${seed}.log"
+        local log_file="${REPO_ROOT}/logs/OpenAI_CLIP_ViTB16/PromptFusion/${log_stem}_${seed}.log"
         if [[ -s "${log_file}" ]] && grep -q 'Last Accuracy:' "${log_file}"; then
             echo "$(date '+%F %T') SKIP ${config_name} seed=${seed}: complete"
             continue

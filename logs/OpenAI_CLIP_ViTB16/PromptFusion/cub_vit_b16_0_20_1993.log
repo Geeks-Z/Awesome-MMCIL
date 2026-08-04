@@ -53,3 +53,17 @@
 2026-07-24 16:31:40,936 [train_pf.py] => Start Training Task 8
 2026-07-24 16:31:40,952 [train_pf.py] => number of trainable params: 512201
 2026-07-24 16:31:40,954 [train_pf.py] => total number of params: 210657738
+2026-07-24 16:44:47,127 [train_pf.py] => Task 8 Average Accuracy is 0.853
+2026-07-24 16:45:00,863 [train_pf.py] => Start Training Task 9
+2026-07-24 16:45:00,870 [train_pf.py] => number of trainable params: 512841
+2026-07-24 16:45:00,872 [train_pf.py] => total number of params: 210658378
+2026-07-24 17:01:00,332 [train_pf.py] => Task 9 Average Accuracy is 0.849
+2026-07-24 17:01:15,920 [train_pf.py] => Start Training Task 10
+2026-07-24 17:01:15,925 [train_pf.py] => number of trainable params: 513481
+2026-07-24 17:01:15,926 [train_pf.py] => total number of params: 210659018
+2026-07-24 17:19:34,869 [train_pf.py] => Task 10 Average Accuracy is 0.859
+2026-07-24 17:19:50,735 [main.py] => CNN top1 curve: [88.5, 85.25, 87.5, 85.4, 86.7, 86.17, 85.03, 85.35, 84.92, 85.92]
+2026-07-24 17:19:50,736 [main.py] => Average Accuracy (CNN top1): 86.07
+2026-07-24 17:19:50,736 [main.py] => Last Accuracy: 85.92
+2026-07-24 17:19:50,737 [main.py] => Finished CUB200_base0_inc20 seed=1993
+2026-07-24 17:19:50,737 [main.py] => Backbone: ViT-B/16

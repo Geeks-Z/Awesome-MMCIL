@@ -44,7 +44,7 @@ run_moe() {
 
 run_prompt() {
   local config="$1" stem="$2" dataset_root="$3" seed="$4"
-  local log="${ROOT}/logs/PromptFusion/${stem}_${seed}.log"
+  local log="${ROOT}/logs/OpenAI_CLIP_ViTB16/PromptFusion/${stem}_${seed}.log"
   if has_prompt_result "$log"; then
     echo "==== SKIP complete PromptFusion: ${config} seed=${seed} ===="
     return

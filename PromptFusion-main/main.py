@@ -66,7 +66,10 @@ def set_log():
     os.makedirs(args["output_folder"], exist_ok=True)
 
     benchmark_root = os.path.dirname(os.path.abspath(args["file_root"]))
-    log_dir = os.path.join(benchmark_root, "logs", "PromptFusion")
+    # PromptFusion uses the upstream OpenAI ``clip.load`` implementation.
+    log_dir = os.path.join(
+        benchmark_root, "logs", "OpenAI_CLIP_ViTB16", "PromptFusion"
+    )
     os.makedirs(log_dir, exist_ok=True)
     logfilename = os.path.join(
         log_dir,

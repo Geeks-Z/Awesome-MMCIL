@@ -37,7 +37,7 @@ DATASET_ALIASES = {
     "objectnet": "objectnet",
 }
 QUEUE_LOGS = [
-    ROOT / "results" / "openai_clip_vit_b16_seed1993" / name
+    ROOT / "logs" / "OpenAI_CLIP_ViTB16" / "queue" / "seed1993" / name
     for name in (
         "l2p_gpu1_tmux.out",
         "dualprompt_gpu2_tmux.out",

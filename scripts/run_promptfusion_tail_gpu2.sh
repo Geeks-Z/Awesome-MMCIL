@@ -28,7 +28,7 @@ has_final_result() {
 
 run_experiment() {
   local config="$1" stem="$2"
-  local log_file="${ROOT}/logs/PromptFusion/${stem}_${SEED}.log"
+  local log_file="${ROOT}/logs/OpenAI_CLIP_ViTB16/PromptFusion/${stem}_${SEED}.log"
   if has_final_result "${log_file}"; then
     echo "==== SKIP complete PromptFusion: ${config} seed=${SEED} ===="
     return

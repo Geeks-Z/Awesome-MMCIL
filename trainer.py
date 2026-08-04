@@ -20,9 +20,26 @@ _CANONICAL_LOG_DIRS = {
     "aera": "AREA",
 }
 
+_BACKBONE_LOG_ROOTS = {
+    "openai_clip": "OpenAI_CLIP_ViTB16",
+    "clip": "OpenCLIP_LAION400M_ViTB16",
+    "clip_laion2b": "OpenCLIP_LAION2B_ViTB16",
+}
+
 
 def _log_dir_name(model_name):
     return _CANONICAL_LOG_DIRS.get(str(model_name).lower(), model_name)
+
+
+def _backbone_log_root(backbone_type):
+    """Return a backbone-specific log root instead of mixing model families."""
+    backbone_name = str(backbone_type).lower()
+    if backbone_name.startswith("pretrained_"):
+        backbone_name = backbone_name[len("pretrained_") :]
+    try:
+        return _BACKBONE_LOG_ROOTS[backbone_name]
+    except KeyError as error:
+        raise ValueError(f"Unsupported log backbone {backbone_type!r}") from error
 
 
 def train(args):
@@ -43,18 +60,18 @@ def _train(args):
         backbone_name = backbone_name[len("pretrained_") :]
 
     log_dir_name = _log_dir_name(args["model_name"])
-    logs_name = "logs/{}".format(log_dir_name)
+    backbone_log_root = _backbone_log_root(args["backbone_type"])
+    logs_name = os.path.join("logs", backbone_log_root, log_dir_name)
 
     os.makedirs(logs_name, exist_ok=True)
 
-    logfilename = "logs/{}/{}_{}_{}_{}_{}".format(
-        log_dir_name,
+    logfilename = os.path.join(logs_name, "{}_{}_{}_{}_{}".format(
         args["dataset"],
         backbone_name,
         init_cls,
         args["increment"],
         args["seed"],
-    )
+    ))
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(filename)s] => %(message)s",

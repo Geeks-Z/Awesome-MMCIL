@@ -76,8 +76,20 @@ export MMCL_DATA_ROOT="${DATA_ROOT}"
 export MMCL_CLIP_PRETRAINED="${OPENAI_CHECKPOINT}"
 export PYTHONUNBUFFERED=1
 
+QUEUE_DIR="${MMCL_QUEUE_LOG_DIR:-${ROOT}/logs/OpenAI_CLIP_ViTB16/queue/seed${SEED}}"
+QUEUE_TAG="${METHOD}_gpu${GPU_ID}"
+if [[ -n "${PROOF_SHARD}" ]]; then
+    QUEUE_TAG+="_shard${PROOF_SHARD}"
+fi
+QUEUE_LOG="${MMCL_QUEUE_LOG:-${QUEUE_DIR}/${QUEUE_TAG}.out}"
+mkdir -p "${QUEUE_DIR}"
+# Preserve the interactive stream while making every launcher invocation leave
+# an auditable backbone-specific queue log.  Callers may override QUEUE_LOG.
+exec > >(tee -a "${QUEUE_LOG}") 2>&1
+
 echo "Queue: method=${METHOD}, gpu=${GPU_ID}, seed=${SEED}, configs=${#CONFIG_STEMS[@]}"
 echo "Checkpoint: ${OPENAI_CHECKPOINT}"
+echo "Queue log: ${QUEUE_LOG}"
 
 failed=0
 for stem in "${CONFIG_STEMS[@]}"; do

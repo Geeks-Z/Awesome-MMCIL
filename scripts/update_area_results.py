@@ -13,7 +13,14 @@ from openpyxl import load_workbook
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKBOOK = ROOT / "MMCL_OpenCLIP_ViT-B16_LAION-400M_Baselines.xlsx"
-LOG_DIRS = (ROOT / "logs" / "AREA", ROOT / "logs" / "area", ROOT / "logs" / "aera")
+LOG_DIRS = (
+    ROOT / "logs" / "OpenCLIP_LAION400M_ViTB16" / "AREA",
+    ROOT / "logs" / "OpenCLIP_LAION400M_ViTB16" / "AREA_legacy",
+    # Read old layouts during the one-time log migration.
+    ROOT / "logs" / "AREA",
+    ROOT / "logs" / "area",
+    ROOT / "logs" / "aera",
+)
 
 SEED_SHEETS = {1993: "Seed1993", 2026: "Seed2026", 0: "Seed0", 42: "Seed42"}
 
