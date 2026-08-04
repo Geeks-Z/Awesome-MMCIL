@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Extract completed AREA runs from logs and update MMCL_Baselines.xlsx."""
+"""Extract completed AREA runs from logs and update the OpenCLIP workbook."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ from openpyxl import load_workbook
 
 
 ROOT = Path(__file__).resolve().parents[1]
-WORKBOOK = ROOT / "MMCL_Baselines.xlsx"
+WORKBOOK = ROOT / "MMCL_OpenCLIP_ViT-B16_LAION-400M_Baselines.xlsx"
 LOG_DIRS = (ROOT / "logs" / "AREA", ROOT / "logs" / "area", ROOT / "logs" / "aera")
 
 SEED_SHEETS = {1993: "Seed1993", 2026: "Seed2026", 0: "Seed0", 42: "Seed42"}
@@ -84,15 +84,16 @@ def update_workbook() -> list[str]:
             if row is None:
                 continue
             sheet.cell(row=row, column=1).value = "AREA"
-            sheet.cell(row=row, column=2).value = "ICML 2026"
-            for column in range(3, 15):
+            sheet.cell(row=row, column=2).value = "ICML"
+            sheet.cell(row=row, column=3).value = 2026
+            for column in range(4, 16):
                 sheet.cell(row=row, column=column).value = None
             for index, stem in enumerate(stems):
                 metrics = completed_metrics(area_log_path(stem, seed))
                 if metrics is None:
                     continue
                 a_bar, a_b = metrics
-                a_bar_column = 3 + index * 2
+                a_bar_column = 4 + index * 2
                 a_b_column = a_bar_column + 1
                 sheet.cell(row=row, column=a_bar_column).value = a_bar
                 sheet.cell(row=row, column=a_b_column).value = a_b
