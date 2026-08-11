@@ -1,0 +1,318 @@
+{
+  "dataset": "cars",
+  "environment": {
+    "cuda": "11.8",
+    "device": "cuda:1",
+    "gpu": "NVIDIA A800 80GB PCIe",
+    "host": "comput1",
+    "python": "3.10.4",
+    "torch": "2.0.1+cu118"
+  },
+  "inference": {
+    "definition": "final-stage end-to-end _eval_cnn pass, including data loading and method-specific text/statistical preparation",
+    "images_per_second": 337.6823974933219,
+    "median_seconds": 12.091243222355843,
+    "peak_allocated_mib": 1120.263671875,
+    "repetitions": [
+      {
+        "peak_allocated_mib": 1120.263671875,
+        "peak_reserved_mib": 6040.0,
+        "seconds": 12.10715290158987,
+        "task": 9
+      },
+      {
+        "peak_allocated_mib": 1120.263671875,
+        "peak_reserved_mib": 6040.0,
+        "seconds": 11.625066444277763,
+        "task": 9
+      },
+      {
+        "peak_allocated_mib": 1120.263671875,
+        "peak_reserved_mib": 6040.0,
+        "seconds": 12.091243222355843,
+        "task": 9
+      }
+    ],
+    "test_samples": 4083
+  },
+  "method": "fecam",
+  "parameters": {
+    "ever_updated_union": 1194752,
+    "final_snapshot": {
+      "all_parameters": 87433472,
+      "auxiliary_storage": {
+        "numpy_bytes": 0,
+        "tensor_bytes": 209715200,
+        "tensor_values": 52428800,
+        "total_bytes": 209715200,
+        "total_mib": 200.0
+      },
+      "groups": {
+        "_network": {
+          "parameters": 87433472,
+          "requires_grad": 1240832
+        }
+      },
+      "requires_grad_parameters": 1240832,
+      "task": 9
+    },
+    "peak_actually_updated": 1194752,
+    "snapshots": [
+      {
+        "all_parameters": 87387392,
+        "auxiliary_storage": {
+          "numpy_bytes": 0,
+          "tensor_bytes": 20971520,
+          "tensor_values": 5242880,
+          "total_bytes": 20971520,
+          "total_mib": 20.0
+        },
+        "groups": {
+          "_network": {
+            "parameters": 87387392,
+            "requires_grad": 1194752
+          }
+        },
+        "requires_grad_parameters": 1194752,
+        "task": 0
+      },
+      {
+        "all_parameters": 87392512,
+        "auxiliary_storage": {
+          "numpy_bytes": 0,
+          "tensor_bytes": 41943040,
+          "tensor_values": 10485760,
+          "total_bytes": 41943040,
+          "total_mib": 40.0
+        },
+        "groups": {
+          "_network": {
+            "parameters": 87392512,
+            "requires_grad": 1199872
+          }
+        },
+        "requires_grad_parameters": 1199872,
+        "task": 1
+      },
+      {
+        "all_parameters": 87397632,
+        "auxiliary_storage": {
+          "numpy_bytes": 0,
+          "tensor_bytes": 62914560,
+          "tensor_values": 15728640,
+          "total_bytes": 62914560,
+          "total_mib": 60.0
+        },
+        "groups": {
+          "_network": {
+            "parameters": 87397632,
+            "requires_grad": 1204992
+          }
+        },
+        "requires_grad_parameters": 1204992,
+        "task": 2
+      },
+      {
+        "all_parameters": 87402752,
+        "auxiliary_storage": {
+          "numpy_bytes": 0,
+          "tensor_bytes": 83886080,
+          "tensor_values": 20971520,
+          "total_bytes": 83886080,
+          "total_mib": 80.0
+        },
+        "groups": {
+          "_network": {
+            "parameters": 87402752,
+            "requires_grad": 1210112
+          }
+        },
+        "requires_grad_parameters": 1210112,
+        "task": 3
+      },
+      {
+        "all_parameters": 87407872,
+        "auxiliary_storage": {
+          "numpy_bytes": 0,
+          "tensor_bytes": 104857600,
+          "tensor_values": 26214400,
+          "total_bytes": 104857600,
+          "total_mib": 100.0
+        },
+        "groups": {
+          "_network": {
+            "parameters": 87407872,
+            "requires_grad": 1215232
+          }
+        },
+        "requires_grad_parameters": 1215232,
+        "task": 4
+      },
+      {
+        "all_parameters": 87412992,
+        "auxiliary_storage": {
+          "numpy_bytes": 0,
+          "tensor_bytes": 125829120,
+          "tensor_values": 31457280,
+          "total_bytes": 125829120,
+          "total_mib": 120.0
+        },
+        "groups": {
+          "_network": {
+            "parameters": 87412992,
+            "requires_grad": 1220352
+          }
+        },
+        "requires_grad_parameters": 1220352,
+        "task": 5
+      },
+      {
+        "all_parameters": 87418112,
+        "auxiliary_storage": {
+          "numpy_bytes": 0,
+          "tensor_bytes": 146800640,
+          "tensor_values": 36700160,
+          "total_bytes": 146800640,
+          "total_mib": 140.0
+        },
+        "groups": {
+          "_network": {
+            "parameters": 87418112,
+            "requires_grad": 1225472
+          }
+        },
+        "requires_grad_parameters": 1225472,
+        "task": 6
+      },
+      {
+        "all_parameters": 87423232,
+        "auxiliary_storage": {
+          "numpy_bytes": 0,
+          "tensor_bytes": 167772160,
+          "tensor_values": 41943040,
+          "total_bytes": 167772160,
+          "total_mib": 160.0
+        },
+        "groups": {
+          "_network": {
+            "parameters": 87423232,
+            "requires_grad": 1230592
+          }
+        },
+        "requires_grad_parameters": 1230592,
+        "task": 7
+      },
+      {
+        "all_parameters": 87428352,
+        "auxiliary_storage": {
+          "numpy_bytes": 0,
+          "tensor_bytes": 188743680,
+          "tensor_values": 47185920,
+          "total_bytes": 188743680,
+          "total_mib": 180.0
+        },
+        "groups": {
+          "_network": {
+            "parameters": 87428352,
+            "requires_grad": 1235712
+          }
+        },
+        "requires_grad_parameters": 1235712,
+        "task": 8
+      },
+      {
+        "all_parameters": 87433472,
+        "auxiliary_storage": {
+          "numpy_bytes": 0,
+          "tensor_bytes": 209715200,
+          "tensor_values": 52428800,
+          "total_bytes": 209715200,
+          "total_mib": 200.0
+        },
+        "groups": {
+          "_network": {
+            "parameters": 87433472,
+            "requires_grad": 1240832
+          }
+        },
+        "requires_grad_parameters": 1240832,
+        "task": 9
+      }
+    ]
+  },
+  "protocol": {
+    "increment": 10,
+    "inference_batch_size": 64,
+    "init_cls": 10,
+    "training_batch_size": 48
+  },
+  "schema_version": 1,
+  "seed": 1993,
+  "training": {
+    "definition": "sum of incremental_train wall time; diagnostic epoch-level test passes are excluded, while validation/model-selection passes required by the algorithm are retained",
+    "peak_allocated_mib": 5422.72412109375,
+    "task_records": [
+      {
+        "peak_allocated_mib": 5422.72412109375,
+        "peak_reserved_mib": 5596.0,
+        "seconds": 69.69149225205183,
+        "task": 0
+      },
+      {
+        "peak_allocated_mib": 864.810546875,
+        "peak_reserved_mib": 5596.0,
+        "seconds": 3.563405178487301,
+        "task": 1
+      },
+      {
+        "peak_allocated_mib": 874.830078125,
+        "peak_reserved_mib": 5596.0,
+        "seconds": 3.1110152527689934,
+        "task": 2
+      },
+      {
+        "peak_allocated_mib": 885.146484375,
+        "peak_reserved_mib": 5596.0,
+        "seconds": 3.0915192142128944,
+        "task": 3
+      },
+      {
+        "peak_allocated_mib": 894.275390625,
+        "peak_reserved_mib": 5596.0,
+        "seconds": 2.8844835832715034,
+        "task": 4
+      },
+      {
+        "peak_allocated_mib": 905.185546875,
+        "peak_reserved_mib": 5596.0,
+        "seconds": 3.2034753784537315,
+        "task": 5
+      },
+      {
+        "peak_allocated_mib": 914.314453125,
+        "peak_reserved_mib": 5596.0,
+        "seconds": 3.073190987110138,
+        "task": 6
+      },
+      {
+        "peak_allocated_mib": 924.333984375,
+        "peak_reserved_mib": 5596.0,
+        "seconds": 3.426426187157631,
+        "task": 7
+      },
+      {
+        "peak_allocated_mib": 934.353515625,
+        "peak_reserved_mib": 5596.0,
+        "seconds": 3.805005893111229,
+        "task": 8
+      },
+      {
+        "peak_allocated_mib": 944.373046875,
+        "peak_reserved_mib": 5596.0,
+        "seconds": 3.6225822493433952,
+        "task": 9
+      }
+    ],
+    "total_seconds": 99.47259617596865
+  }
+}

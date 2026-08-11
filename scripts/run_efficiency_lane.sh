@@ -21,27 +21,15 @@ project_root="/public/home/hanlida/Dr.1/Code/Research/Awesome-MMCL"
 data_root="/public/home/hanlida/Dr.1/Dataset"
 checkpoint="/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin"
 raw_dir="${project_root}/results/efficiency/raw"
-status_file="${project_root}/results/efficiency/lane_gpu${gpu}${run_suffix}.tsv"
+log_dir="${MMCL_EFFICIENCY_LOG_DIR:-${project_root}/logs/efficiency}"
+status_file="${MMCL_EFFICIENCY_STATUS_FILE:-${log_dir}/lane_gpu${gpu}${run_suffix}.tsv}"
 
-mkdir -p "${raw_dir}"
+mkdir -p "${raw_dir}" "${log_dir}"
 cd "${project_root}" || exit 1
 
 for config in "$@"; do
     stem="$(basename "${config}" .json)"
     output="${raw_dir}/${stem}_seed1993${run_suffix}.json"
-    log_dir="$(python - "${config}" <<'PY'
-import json
-import sys
-
-from utils.log_layout import log_directory
-
-with open(sys.argv[1], encoding="utf-8") as config_file:
-    config = json.load(config_file)
-print(log_directory(config["model_name"], config["backbone_type"], base_dir="logs"))
-PY
-)" || exit 1
-    log_dir="${project_root}/${log_dir}/efficiency"
-    mkdir -p "${log_dir}"
     log="${log_dir}/${stem}_seed1993${run_suffix}.log"
 
     if [[ -s "${output}" ]]; then
@@ -56,6 +44,7 @@ PY
     MMCL_SEEDS="1993" \
     MMCL_PROFILE_OUT="${output}" \
     MMCL_PROFILE_INFER_REPEATS="3" \
+    MMCL_LOG_BASE_DIR="${log_dir}" \
         python main.py --config "${config}" > "${log}" 2>&1
     status=$?
 

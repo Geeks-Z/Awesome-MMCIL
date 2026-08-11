@@ -28,7 +28,12 @@ def _train(args):
     if backbone_name.startswith("pretrained_"):
         backbone_name = backbone_name[len("pretrained_") :]
 
-    logs_name = str(log_directory(args["model_name"], args["backbone_type"]))
+    log_base_dir = os.environ.get("MMCL_LOG_BASE_DIR", "logs")
+    logs_name = str(
+        log_directory(
+            args["model_name"], args["backbone_type"], base_dir=log_base_dir
+        )
+    )
 
     os.makedirs(logs_name, exist_ok=True)
 

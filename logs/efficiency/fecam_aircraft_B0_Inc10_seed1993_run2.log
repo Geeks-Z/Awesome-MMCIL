@@ -1,0 +1,111 @@
+2026-08-11 10:07:29,544 [trainer.py] => config: configs/fecam/fecam_aircraft_B0_Inc10.json
+2026-08-11 10:07:29,545 [trainer.py] => prefix: -
+2026-08-11 10:07:29,545 [trainer.py] => dataset: aircraft
+2026-08-11 10:07:29,545 [trainer.py] => memory_size: 0
+2026-08-11 10:07:29,545 [trainer.py] => memory_per_class: 0
+2026-08-11 10:07:29,545 [trainer.py] => fixed_memory: False
+2026-08-11 10:07:29,545 [trainer.py] => shuffle: True
+2026-08-11 10:07:29,545 [trainer.py] => init_cls: 10
+2026-08-11 10:07:29,546 [trainer.py] => increment: 10
+2026-08-11 10:07:29,546 [trainer.py] => model_name: fecam
+2026-08-11 10:07:29,546 [trainer.py] => backbone_type: clip
+2026-08-11 10:07:29,546 [trainer.py] => clip_pretrained: /home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin
+2026-08-11 10:07:29,546 [trainer.py] => device: [device(type='cuda', index=1)]
+2026-08-11 10:07:29,546 [trainer.py] => seed: 1993
+2026-08-11 10:07:29,547 [trainer.py] => tuned_epoch: 20
+2026-08-11 10:07:29,547 [trainer.py] => init_lr: 0.01
+2026-08-11 10:07:29,547 [trainer.py] => batch_size: 48
+2026-08-11 10:07:29,547 [trainer.py] => weight_decay: 0.0005
+2026-08-11 10:07:29,547 [trainer.py] => min_lr: 0.0
+2026-08-11 10:07:29,547 [trainer.py] => ffn_num: 64
+2026-08-11 10:07:29,547 [trainer.py] => optimizer: sgd
+2026-08-11 10:07:29,547 [trainer.py] => num_workers: 8
+2026-08-11 10:07:29,548 [trainer.py] => fecam_alpha: 100.0
+2026-08-11 10:07:29,548 [trainer.py] => maha_batch_size: 64
+2026-08-11 10:07:29,548 [trainer.py] => total_class_num: 100
+['707-320', '727-200', '737-200', '737-300', '737-400', '737-500', '737-600', '737-700', '737-800', '737-900', '747-100', '747-200', '747-300', '747-400', '757-200', '757-300', '767-200', '767-300', '767-400', '777-200', '777-300', 'A300B4', 'A310', 'A318', 'A319', 'A320', 'A321', 'A330-200', 'A330-300', 'A340-200', 'A340-300', 'A340-500', 'A340-600', 'A380', 'ATR-42', 'ATR-72', 'An-12', 'BAE 146-200', 'BAE 146-300', 'BAE-125', 'Beechcraft 1900', 'Boeing 717', 'C-130', 'C-47', 'CRJ-200', 'CRJ-700', 'CRJ-900', 'Cessna 172', 'Cessna 208', 'Cessna 525', 'Cessna 560', 'Challenger 600', 'DC-10', 'DC-3', 'DC-6', 'DC-8', 'DC-9-30', 'DH-82', 'DHC-1', 'DHC-6', 'DHC-8-100', 'DHC-8-300', 'DR-400', 'Dornier 328', 'E-170', 'E-190', 'E-195', 'EMB-120', 'ERJ 135', 'ERJ 145', 'Embraer Legacy 600', 'Eurofighter Typhoon', 'F-16A/B', 'F/A-18', 'Falcon 2000', 'Falcon 900', 'Fokker 100', 'Fokker 50', 'Fokker 70', 'Global Express', 'Gulfstream IV', 'Gulfstream V', 'Hawk T1', 'Il-76', 'L-1011', 'MD-11', 'MD-80', 'MD-87', 'MD-90', 'Metroliner', 'Model B200', 'PA-28', 'SR-20', 'Saab 2000', 'Saab 340', 'Spitfire', 'Tornado', 'Tu-134', 'Tu-154', 'Yak-42']
+['a photo of a {}, a type of aircraft.', 'a photo of the {}, a type of aircraft.']
+{'707-320': 0, '727-200': 1, '737-200': 2, '737-300': 3, '737-400': 4, '737-500': 5, '737-600': 6, '737-700': 7, '737-800': 8, '737-900': 9, '747-100': 10, '747-200': 11, '747-300': 12, '747-400': 13, '757-200': 14, '757-300': 15, '767-200': 16, '767-300': 17, '767-400': 18, '777-200': 19, '777-300': 20, 'A300B4': 21, 'A310': 22, 'A318': 23, 'A319': 24, 'A320': 25, 'A321': 26, 'A330-200': 27, 'A330-300': 28, 'A340-200': 29, 'A340-300': 30, 'A340-500': 31, 'A340-600': 32, 'A380': 33, 'ATR-42': 34, 'ATR-72': 35, 'An-12': 36, 'BAE-125': 37, 'BAE-146-200': 38, 'BAE-146-300': 39, 'Beechcraft-1900': 40, 'Boeing-717': 41, 'C-130': 42, 'C-47': 43, 'CRJ-200': 44, 'CRJ-700': 45, 'CRJ-900': 46, 'Cessna-172': 47, 'Cessna-208': 48, 'Cessna-525': 49, 'Cessna-560': 50, 'Challenger-600': 51, 'DC-10': 52, 'DC-3': 53, 'DC-6': 54, 'DC-8': 55, 'DC-9-30': 56, 'DH-82': 57, 'DHC-1': 58, 'DHC-6': 59, 'DHC-8-100': 60, 'DHC-8-300': 61, 'DR-400': 62, 'Dornier-328': 63, 'E-170': 64, 'E-190': 65, 'E-195': 66, 'EMB-120': 67, 'ERJ-135': 68, 'ERJ-145': 69, 'Embraer-Legacy-600': 70, 'Eurofighter-Typhoon': 71, 'F': 72, 'F-16A': 73, 'Falcon-2000': 74, 'Falcon-900': 75, 'Fokker-100': 76, 'Fokker-50': 77, 'Fokker-70': 78, 'Global-Express': 79, 'Gulfstream-IV': 80, 'Gulfstream-V': 81, 'Hawk-T1': 82, 'Il-76': 83, 'L-1011': 84, 'MD-11': 85, 'MD-80': 86, 'MD-87': 87, 'MD-90': 88, 'Metroliner': 89, 'Model-B200': 90, 'PA-28': 91, 'SR-20': 92, 'Saab-2000': 93, 'Saab-340': 94, 'Spitfire': 95, 'Tornado': 96, 'Tu-134': 97, 'Tu-154': 98, 'Yak-42': 99}
+2026-08-11 10:07:29,879 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+After shuffle, class_to_label is:  ['ERJ 135', 'DC-9-30', 'Fokker 70', '737-800', 'A318', 'L-1011', 'Model B200', 'E-190', 'Falcon 2000', 'Fokker 100', 'Beechcraft 1900', 'Metroliner', '737-300', 'SR-20', 'DC-8', '737-900', 'A321', 'Gulfstream IV', 'C-47', 'BAE 146-300', 'DHC-1', 'Embraer Legacy 600', 'Fokker 50', '727-200', 'MD-11', '777-200', '767-300', 'Cessna 560', 'A330-300', 'DC-3', '747-400', 'Gulfstream V', 'CRJ-700', 'Hawk T1', '737-600', 'DHC-6', 'Il-76', '767-200', '757-300', 'CRJ-200', 'PA-28', 'Boeing 717', 'F-16A/B', 'DHC-8-100', 'Global Express', 'DC-10', '777-300', '747-100', 'A340-500', 'DC-6', 'BAE 146-200', 'Spitfire', '757-200', 'Eurofighter Typhoon', 'Tornado', 'Tu-154', 'Tu-134', '737-200', 'E-170', 'E-195', 'C-130', 'A310', 'ATR-72', 'MD-80', 'A319', 'ATR-42', 'MD-87', 'A300B4', 'Yak-42', '707-320', 'MD-90', 'A330-200', '767-400', 'Saab 340', '747-200', '747-300', 'Cessna 172', 'A320', 'A340-300', 'CRJ-900', 'DR-400', 'ERJ 145', 'An-12', 'DHC-8-300', '737-700', 'Dornier 328', 'Falcon 900', '737-500', 'A340-600', '737-400', 'Challenger 600', 'Cessna 208', 'F/A-18', 'Saab 2000', 'BAE-125', 'EMB-120', 'A340-200', 'Cessna 525', 'DH-82', 'A380']
+Training class stages: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+2026-08-11 10:07:40,496 [instantiator.py] => Created a temporary directory at /tmp/tmptn2_uusd
+2026-08-11 10:07:40,497 [instantiator.py] => Writing /tmp/tmptn2_uusd/_remote_module_non_scriptable.py
+2026-08-11 10:07:42,267 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-11 10:07:43,671 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin).
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+2026-08-11 10:07:51,780 [fecam.py] => Learning on 0-10
+2026-08-11 10:07:51,783 [fecam.py] => FeCAM first-session trainable parameters: 1194752
+FeCAM adapter tuning:   0%|          | 0/20 [00:00<?, ?it/s]FeCAM task 0 epoch 1/20 loss 2.302 acc 7.38:   0%|          | 0/20 [00:06<?, ?it/s]FeCAM task 0 epoch 1/20 loss 2.302 acc 7.38:   5%|▌         | 1/20 [00:06<02:06,  6.64s/it]FeCAM task 0 epoch 2/20 loss 2.279 acc 27.71:   5%|▌         | 1/20 [00:11<02:06,  6.64s/it]FeCAM task 0 epoch 2/20 loss 2.279 acc 27.71:  10%|█         | 2/20 [00:11<01:39,  5.51s/it]FeCAM task 0 epoch 3/20 loss 2.251 acc 45.03:  10%|█         | 2/20 [00:16<01:39,  5.51s/it]FeCAM task 0 epoch 3/20 loss 2.251 acc 45.03:  15%|█▌        | 3/20 [00:16<01:28,  5.20s/it]FeCAM task 0 epoch 4/20 loss 2.225 acc 54.52:  15%|█▌        | 3/20 [00:20<01:28,  5.20s/it]FeCAM task 0 epoch 4/20 loss 2.225 acc 54.52:  20%|██        | 4/20 [00:20<01:20,  5.03s/it]FeCAM task 0 epoch 5/20 loss 2.202 acc 61.60:  20%|██        | 4/20 [00:25<01:20,  5.03s/it]FeCAM task 0 epoch 5/20 loss 2.202 acc 61.60:  25%|██▌       | 5/20 [00:25<01:14,  4.97s/it]FeCAM task 0 epoch 6/20 loss 2.182 acc 65.21:  25%|██▌       | 5/20 [00:30<01:14,  4.97s/it]FeCAM task 0 epoch 6/20 loss 2.182 acc 65.21:  30%|███       | 6/20 [00:30<01:08,  4.88s/it]FeCAM task 0 epoch 7/20 loss 2.166 acc 65.81:  30%|███       | 6/20 [00:35<01:08,  4.88s/it]FeCAM task 0 epoch 7/20 loss 2.166 acc 65.81:  35%|███▌      | 7/20 [00:35<01:03,  4.86s/it]FeCAM task 0 epoch 8/20 loss 2.153 acc 67.32:  35%|███▌      | 7/20 [00:40<01:03,  4.86s/it]FeCAM task 0 epoch 8/20 loss 2.153 acc 67.32:  40%|████      | 8/20 [00:40<00:57,  4.82s/it]FeCAM task 0 epoch 9/20 loss 2.142 acc 70.18:  40%|████      | 8/20 [00:44<00:57,  4.82s/it]FeCAM task 0 epoch 9/20 loss 2.142 acc 70.18:  45%|████▌     | 9/20 [00:44<00:53,  4.84s/it]FeCAM task 0 epoch 10/20 loss 2.133 acc 71.39:  45%|████▌     | 9/20 [00:49<00:53,  4.84s/it]FeCAM task 0 epoch 10/20 loss 2.133 acc 71.39:  50%|█████     | 10/20 [00:49<00:48,  4.82s/it]FeCAM task 0 epoch 11/20 loss 2.126 acc 72.29:  50%|█████     | 10/20 [00:54<00:48,  4.82s/it]FeCAM task 0 epoch 11/20 loss 2.126 acc 72.29:  55%|█████▌    | 11/20 [00:54<00:43,  4.80s/it]FeCAM task 0 epoch 12/20 loss 2.121 acc 72.89:  55%|█████▌    | 11/20 [00:59<00:43,  4.80s/it]FeCAM task 0 epoch 12/20 loss 2.121 acc 72.89:  60%|██████    | 12/20 [00:59<00:38,  4.78s/it]FeCAM task 0 epoch 13/20 loss 2.116 acc 73.49:  60%|██████    | 12/20 [01:04<00:38,  4.78s/it]FeCAM task 0 epoch 13/20 loss 2.116 acc 73.49:  65%|██████▌   | 13/20 [01:04<00:33,  4.80s/it]FeCAM task 0 epoch 14/20 loss 2.113 acc 74.10:  65%|██████▌   | 13/20 [01:09<00:33,  4.80s/it]FeCAM task 0 epoch 14/20 loss 2.113 acc 74.10:  70%|███████   | 14/20 [01:09<00:29,  4.85s/it]FeCAM task 0 epoch 15/20 loss 2.110 acc 74.70:  70%|███████   | 14/20 [01:13<00:29,  4.85s/it]FeCAM task 0 epoch 15/20 loss 2.110 acc 74.70:  75%|███████▌  | 15/20 [01:13<00:23,  4.79s/it]FeCAM task 0 epoch 16/20 loss 2.108 acc 74.70:  75%|███████▌  | 15/20 [01:18<00:23,  4.79s/it]FeCAM task 0 epoch 16/20 loss 2.108 acc 74.70:  80%|████████  | 16/20 [01:18<00:19,  4.79s/it]FeCAM task 0 epoch 17/20 loss 2.107 acc 75.00:  80%|████████  | 16/20 [01:23<00:19,  4.79s/it]FeCAM task 0 epoch 17/20 loss 2.107 acc 75.00:  85%|████████▌ | 17/20 [01:23<00:14,  4.80s/it]FeCAM task 0 epoch 18/20 loss 2.106 acc 75.15:  85%|████████▌ | 17/20 [01:28<00:14,  4.80s/it]FeCAM task 0 epoch 18/20 loss 2.106 acc 75.15:  90%|█████████ | 18/20 [01:28<00:09,  4.79s/it]FeCAM task 0 epoch 19/20 loss 2.106 acc 75.30:  90%|█████████ | 18/20 [01:32<00:09,  4.79s/it]FeCAM task 0 epoch 19/20 loss 2.106 acc 75.30:  95%|█████████▌| 19/20 [01:32<00:04,  4.79s/it]FeCAM task 0 epoch 20/20 loss 2.106 acc 75.30:  95%|█████████▌| 19/20 [01:37<00:04,  4.79s/it]FeCAM task 0 epoch 20/20 loss 2.106 acc 75.30: 100%|██████████| 20/20 [01:37<00:00,  4.77s/it]FeCAM task 0 epoch 20/20 loss 2.106 acc 75.30: 100%|██████████| 20/20 [01:37<00:00,  4.88s/it]
+2026-08-11 10:09:33,293 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:09:35,722 [trainer.py] => CNN: {'total': 75.89, '00-09': 75.89, 'old': 0, 'new': 75.89, 'harmonic': 0.0}
+2026-08-11 10:09:35,722 [trainer.py] => CNN top1 curve: [75.89]
+2026-08-11 10:09:35,722 [trainer.py] => CNN top5 curve: [99.7]
+2026-08-11 10:09:35,722 [trainer.py] => Average Accuracy (CNN top1): 75.89
+2026-08-11 10:09:35,724 [fecam.py] => Learning on 10-20
+2026-08-11 10:09:40,228 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:09:42,963 [trainer.py] => CNN: {'total': 70.3, '00-09': 66.67, '10-19': 73.95, 'old': 66.67, 'new': 73.95, 'harmonic': 70.12}
+2026-08-11 10:09:42,963 [trainer.py] => CNN top1 curve: [75.89, 70.3]
+2026-08-11 10:09:42,963 [trainer.py] => CNN top5 curve: [99.7, 95.22]
+2026-08-11 10:09:42,964 [trainer.py] => Average Accuracy (CNN top1): 73.095
+2026-08-11 10:09:42,965 [fecam.py] => Learning on 20-30
+2026-08-11 10:09:47,239 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:09:50,919 [trainer.py] => CNN: {'total': 65.34, '00-09': 62.8, '10-19': 66.17, '20-29': 67.07, 'old': 64.48, 'new': 67.07, 'harmonic': 65.75}
+2026-08-11 10:09:50,919 [trainer.py] => CNN top1 curve: [75.89, 70.3, 65.34]
+2026-08-11 10:09:50,919 [trainer.py] => CNN top5 curve: [99.7, 95.22, 94.02]
+2026-08-11 10:09:50,919 [trainer.py] => Average Accuracy (CNN top1): 70.51
+2026-08-11 10:09:50,920 [fecam.py] => Learning on 30-40
+2026-08-11 10:09:55,008 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:09:59,716 [trainer.py] => CNN: {'total': 61.03, '00-09': 60.42, '10-19': 59.58, '20-29': 63.47, '30-39': 60.66, 'old': 61.16, 'new': 60.66, 'harmonic': 60.91}
+2026-08-11 10:09:59,717 [trainer.py] => CNN top1 curve: [75.89, 70.3, 65.34, 61.03]
+2026-08-11 10:09:59,717 [trainer.py] => CNN top5 curve: [99.7, 95.22, 94.02, 90.65]
+2026-08-11 10:09:59,717 [trainer.py] => Average Accuracy (CNN top1): 68.14
+2026-08-11 10:09:59,718 [fecam.py] => Learning on 40-50
+2026-08-11 10:10:03,885 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:10:09,698 [trainer.py] => CNN: {'total': 59.08, '00-09': 58.63, '10-19': 59.28, '20-29': 55.99, '30-39': 60.06, '40-49': 61.45, 'old': 58.49, 'new': 61.45, 'harmonic': 59.93}
+2026-08-11 10:10:09,699 [trainer.py] => CNN top1 curve: [75.89, 70.3, 65.34, 61.03, 59.08]
+2026-08-11 10:10:09,699 [trainer.py] => CNN top5 curve: [99.7, 95.22, 94.02, 90.65, 88.86]
+2026-08-11 10:10:09,699 [trainer.py] => Average Accuracy (CNN top1): 66.328
+2026-08-11 10:10:09,700 [fecam.py] => Learning on 50-60
+2026-08-11 10:10:13,797 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:10:20,408 [trainer.py] => CNN: {'total': 57.63, '00-09': 53.57, '10-19': 57.19, '20-29': 53.59, '30-39': 57.96, '40-49': 60.24, '50-59': 63.28, 'old': 56.5, 'new': 63.28, 'harmonic': 59.7}
+2026-08-11 10:10:20,409 [trainer.py] => CNN top1 curve: [75.89, 70.3, 65.34, 61.03, 59.08, 57.63]
+2026-08-11 10:10:20,409 [trainer.py] => CNN top5 curve: [99.7, 95.22, 94.02, 90.65, 88.86, 86.73]
+2026-08-11 10:10:20,409 [trainer.py] => Average Accuracy (CNN top1): 64.87833333333333
+2026-08-11 10:10:20,410 [fecam.py] => Learning on 60-70
+2026-08-11 10:10:24,957 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:10:32,477 [trainer.py] => CNN: {'total': 53.04, '00-09': 52.38, '10-19': 51.8, '20-29': 51.8, '30-39': 57.66, '40-49': 58.73, '50-59': 61.49, '60-69': 37.35, 'old': 55.64, 'new': 37.35, 'harmonic': 44.7}
+2026-08-11 10:10:32,478 [trainer.py] => CNN top1 curve: [75.89, 70.3, 65.34, 61.03, 59.08, 57.63, 53.04]
+2026-08-11 10:10:32,478 [trainer.py] => CNN top5 curve: [99.7, 95.22, 94.02, 90.65, 88.86, 86.73, 83.01]
+2026-08-11 10:10:32,478 [trainer.py] => Average Accuracy (CNN top1): 63.18714285714286
+2026-08-11 10:10:32,481 [fecam.py] => Learning on 70-80
+2026-08-11 10:10:37,108 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:10:45,505 [trainer.py] => CNN: {'total': 49.85, '00-09': 50.89, '10-19': 49.1, '20-29': 48.8, '30-39': 54.05, '40-49': 57.83, '50-59': 60.9, '60-69': 35.54, '70-79': 41.57, 'old': 51.03, 'new': 41.57, 'harmonic': 45.82}
+2026-08-11 10:10:45,506 [trainer.py] => CNN top1 curve: [75.89, 70.3, 65.34, 61.03, 59.08, 57.63, 53.04, 49.85]
+2026-08-11 10:10:45,506 [trainer.py] => CNN top5 curve: [99.7, 95.22, 94.02, 90.65, 88.86, 86.73, 83.01, 79.2]
+2026-08-11 10:10:45,506 [trainer.py] => Average Accuracy (CNN top1): 61.52
+2026-08-11 10:10:45,508 [fecam.py] => Learning on 80-90
+2026-08-11 10:10:50,292 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:10:59,618 [trainer.py] => CNN: {'total': 47.55, '00-09': 46.43, '10-19': 47.01, '20-29': 44.91, '30-39': 53.45, '40-49': 55.12, '50-59': 60.9, '60-69': 32.23, '70-79': 40.06, '80-89': 47.75, 'old': 47.53, 'new': 47.75, 'harmonic': 47.64}
+2026-08-11 10:10:59,618 [trainer.py] => CNN top1 curve: [75.89, 70.3, 65.34, 61.03, 59.08, 57.63, 53.04, 49.85, 47.55]
+2026-08-11 10:10:59,619 [trainer.py] => CNN top5 curve: [99.7, 95.22, 94.02, 90.65, 88.86, 86.73, 83.01, 79.2, 77.64]
+2026-08-11 10:10:59,619 [trainer.py] => Average Accuracy (CNN top1): 59.96777777777778
+2026-08-11 10:10:59,658 [fecam.py] => Learning on 90-100
+2026-08-11 10:11:04,486 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:11:15,448 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:11:26,539 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:11:36,621 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:11:46,830 [trainer.py] => CNN: {'total': 47.46, '00-09': 45.83, '10-19': 44.61, '20-29': 42.22, '30-39': 51.95, '40-49': 53.01, '50-59': 60.3, '60-69': 31.93, '70-79': 38.25, '80-89': 46.85, '90-99': 59.64, 'old': 46.12, 'new': 59.64, 'harmonic': 52.02}
+2026-08-11 10:11:46,830 [trainer.py] => CNN top1 curve: [75.89, 70.3, 65.34, 61.03, 59.08, 57.63, 53.04, 49.85, 47.55, 47.46]
+2026-08-11 10:11:46,830 [trainer.py] => CNN top5 curve: [99.7, 95.22, 94.02, 90.65, 88.86, 86.73, 83.01, 79.2, 77.64, 77.62]
+2026-08-11 10:11:46,830 [trainer.py] => Average Accuracy (CNN top1): 58.717000000000006
+
+========================================
+Finished aircraft_init10_inc10 seed=1993
+Backbone: OpenCLIP_LAION400M
+Average Accuracy (Top1): 58.72
+Last Accuracy: 47.46
+Average Accuracy (Top5): 87.27
+Last Top5: 77.62
+========================================

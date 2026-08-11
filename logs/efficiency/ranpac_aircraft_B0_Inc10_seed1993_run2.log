@@ -1,0 +1,110 @@
+2026-08-11 10:03:06,077 [trainer.py] => config: configs/ranpac/ranpac_aircraft_B0_Inc10.json
+2026-08-11 10:03:06,077 [trainer.py] => prefix: -
+2026-08-11 10:03:06,077 [trainer.py] => dataset: aircraft
+2026-08-11 10:03:06,077 [trainer.py] => memory_size: 0
+2026-08-11 10:03:06,077 [trainer.py] => memory_per_class: 0
+2026-08-11 10:03:06,077 [trainer.py] => fixed_memory: False
+2026-08-11 10:03:06,077 [trainer.py] => shuffle: True
+2026-08-11 10:03:06,077 [trainer.py] => init_cls: 10
+2026-08-11 10:03:06,078 [trainer.py] => increment: 10
+2026-08-11 10:03:06,078 [trainer.py] => model_name: ranpac
+2026-08-11 10:03:06,078 [trainer.py] => backbone_type: clip
+2026-08-11 10:03:06,078 [trainer.py] => clip_pretrained: /home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin
+2026-08-11 10:03:06,078 [trainer.py] => device: [device(type='cuda', index=1)]
+2026-08-11 10:03:06,078 [trainer.py] => seed: 1993
+2026-08-11 10:03:06,078 [trainer.py] => tuned_epoch: 20
+2026-08-11 10:03:06,078 [trainer.py] => init_lr: 0.01
+2026-08-11 10:03:06,078 [trainer.py] => batch_size: 48
+2026-08-11 10:03:06,078 [trainer.py] => weight_decay: 0.0005
+2026-08-11 10:03:06,078 [trainer.py] => min_lr: 0.0
+2026-08-11 10:03:06,078 [trainer.py] => ffn_num: 64
+2026-08-11 10:03:06,078 [trainer.py] => optimizer: sgd
+2026-08-11 10:03:06,078 [trainer.py] => num_workers: 8
+2026-08-11 10:03:06,078 [trainer.py] => use_RP: True
+2026-08-11 10:03:06,078 [trainer.py] => M: 10000
+2026-08-11 10:03:06,078 [trainer.py] => ridge_sample_size: 1024
+2026-08-11 10:03:06,078 [trainer.py] => total_class_num: 100
+['707-320', '727-200', '737-200', '737-300', '737-400', '737-500', '737-600', '737-700', '737-800', '737-900', '747-100', '747-200', '747-300', '747-400', '757-200', '757-300', '767-200', '767-300', '767-400', '777-200', '777-300', 'A300B4', 'A310', 'A318', 'A319', 'A320', 'A321', 'A330-200', 'A330-300', 'A340-200', 'A340-300', 'A340-500', 'A340-600', 'A380', 'ATR-42', 'ATR-72', 'An-12', 'BAE 146-200', 'BAE 146-300', 'BAE-125', 'Beechcraft 1900', 'Boeing 717', 'C-130', 'C-47', 'CRJ-200', 'CRJ-700', 'CRJ-900', 'Cessna 172', 'Cessna 208', 'Cessna 525', 'Cessna 560', 'Challenger 600', 'DC-10', 'DC-3', 'DC-6', 'DC-8', 'DC-9-30', 'DH-82', 'DHC-1', 'DHC-6', 'DHC-8-100', 'DHC-8-300', 'DR-400', 'Dornier 328', 'E-170', 'E-190', 'E-195', 'EMB-120', 'ERJ 135', 'ERJ 145', 'Embraer Legacy 600', 'Eurofighter Typhoon', 'F-16A/B', 'F/A-18', 'Falcon 2000', 'Falcon 900', 'Fokker 100', 'Fokker 50', 'Fokker 70', 'Global Express', 'Gulfstream IV', 'Gulfstream V', 'Hawk T1', 'Il-76', 'L-1011', 'MD-11', 'MD-80', 'MD-87', 'MD-90', 'Metroliner', 'Model B200', 'PA-28', 'SR-20', 'Saab 2000', 'Saab 340', 'Spitfire', 'Tornado', 'Tu-134', 'Tu-154', 'Yak-42']
+['a photo of a {}, a type of aircraft.', 'a photo of the {}, a type of aircraft.']
+{'707-320': 0, '727-200': 1, '737-200': 2, '737-300': 3, '737-400': 4, '737-500': 5, '737-600': 6, '737-700': 7, '737-800': 8, '737-900': 9, '747-100': 10, '747-200': 11, '747-300': 12, '747-400': 13, '757-200': 14, '757-300': 15, '767-200': 16, '767-300': 17, '767-400': 18, '777-200': 19, '777-300': 20, 'A300B4': 21, 'A310': 22, 'A318': 23, 'A319': 24, 'A320': 25, 'A321': 26, 'A330-200': 27, 'A330-300': 28, 'A340-200': 29, 'A340-300': 30, 'A340-500': 31, 'A340-600': 32, 'A380': 33, 'ATR-42': 34, 'ATR-72': 35, 'An-12': 36, 'BAE-125': 37, 'BAE-146-200': 38, 'BAE-146-300': 39, 'Beechcraft-1900': 40, 'Boeing-717': 41, 'C-130': 42, 'C-47': 43, 'CRJ-200': 44, 'CRJ-700': 45, 'CRJ-900': 46, 'Cessna-172': 47, 'Cessna-208': 48, 'Cessna-525': 49, 'Cessna-560': 50, 'Challenger-600': 51, 'DC-10': 52, 'DC-3': 53, 'DC-6': 54, 'DC-8': 55, 'DC-9-30': 56, 'DH-82': 57, 'DHC-1': 58, 'DHC-6': 59, 'DHC-8-100': 60, 'DHC-8-300': 61, 'DR-400': 62, 'Dornier-328': 63, 'E-170': 64, 'E-190': 65, 'E-195': 66, 'EMB-120': 67, 'ERJ-135': 68, 'ERJ-145': 69, 'Embraer-Legacy-600': 70, 'Eurofighter-Typhoon': 71, 'F': 72, 'F-16A': 73, 'Falcon-2000': 74, 'Falcon-900': 75, 'Fokker-100': 76, 'Fokker-50': 77, 'Fokker-70': 78, 'Global-Express': 79, 'Gulfstream-IV': 80, 'Gulfstream-V': 81, 'Hawk-T1': 82, 'Il-76': 83, 'L-1011': 84, 'MD-11': 85, 'MD-80': 86, 'MD-87': 87, 'MD-90': 88, 'Metroliner': 89, 'Model-B200': 90, 'PA-28': 91, 'SR-20': 92, 'Saab-2000': 93, 'Saab-340': 94, 'Spitfire': 95, 'Tornado': 96, 'Tu-134': 97, 'Tu-154': 98, 'Yak-42': 99}
+2026-08-11 10:03:06,362 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+After shuffle, class_to_label is:  ['ERJ 135', 'DC-9-30', 'Fokker 70', '737-800', 'A318', 'L-1011', 'Model B200', 'E-190', 'Falcon 2000', 'Fokker 100', 'Beechcraft 1900', 'Metroliner', '737-300', 'SR-20', 'DC-8', '737-900', 'A321', 'Gulfstream IV', 'C-47', 'BAE 146-300', 'DHC-1', 'Embraer Legacy 600', 'Fokker 50', '727-200', 'MD-11', '777-200', '767-300', 'Cessna 560', 'A330-300', 'DC-3', '747-400', 'Gulfstream V', 'CRJ-700', 'Hawk T1', '737-600', 'DHC-6', 'Il-76', '767-200', '757-300', 'CRJ-200', 'PA-28', 'Boeing 717', 'F-16A/B', 'DHC-8-100', 'Global Express', 'DC-10', '777-300', '747-100', 'A340-500', 'DC-6', 'BAE 146-200', 'Spitfire', '757-200', 'Eurofighter Typhoon', 'Tornado', 'Tu-154', 'Tu-134', '737-200', 'E-170', 'E-195', 'C-130', 'A310', 'ATR-72', 'MD-80', 'A319', 'ATR-42', 'MD-87', 'A300B4', 'Yak-42', '707-320', 'MD-90', 'A330-200', '767-400', 'Saab 340', '747-200', '747-300', 'Cessna 172', 'A320', 'A340-300', 'CRJ-900', 'DR-400', 'ERJ 145', 'An-12', 'DHC-8-300', '737-700', 'Dornier 328', 'Falcon 900', '737-500', 'A340-600', '737-400', 'Challenger 600', 'Cessna 208', 'F/A-18', 'Saab 2000', 'BAE-125', 'EMB-120', 'A340-200', 'Cessna 525', 'DH-82', 'A380']
+Training class stages: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+2026-08-11 10:03:15,620 [instantiator.py] => Created a temporary directory at /tmp/tmpr83m5kyc
+2026-08-11 10:03:15,623 [instantiator.py] => Writing /tmp/tmpr83m5kyc/_remote_module_non_scriptable.py
+2026-08-11 10:03:17,284 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-11 10:03:19,172 [factory.py] => Loading pretrained ViT-B-16 weights (/public/home/hanlida/Dr.1/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin).
+/public/home/hanlida/ld/envs/mmcl/lib/python3.10/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+2026-08-11 10:03:24,614 [ranpac.py] => Learning on 0-10
+2026-08-11 10:03:24,655 [ranpac.py] => RanPAC first-session trainable parameters: 1194752
+RanPAC adapter tuning:   0%|          | 0/20 [00:00<?, ?it/s]RanPAC task 0 epoch 1/20 loss 2.302 acc 7.38:   0%|          | 0/20 [00:07<?, ?it/s]RanPAC task 0 epoch 1/20 loss 2.302 acc 7.38:   5%|▌         | 1/20 [00:07<02:21,  7.46s/it]RanPAC task 0 epoch 2/20 loss 2.279 acc 27.71:   5%|▌         | 1/20 [00:12<02:21,  7.46s/it]RanPAC task 0 epoch 2/20 loss 2.279 acc 27.71:  10%|█         | 2/20 [00:12<01:49,  6.06s/it]RanPAC task 0 epoch 3/20 loss 2.251 acc 45.03:  10%|█         | 2/20 [00:17<01:49,  6.06s/it]RanPAC task 0 epoch 3/20 loss 2.251 acc 45.03:  15%|█▌        | 3/20 [00:17<01:33,  5.51s/it]RanPAC task 0 epoch 4/20 loss 2.225 acc 54.52:  15%|█▌        | 3/20 [00:22<01:33,  5.51s/it]RanPAC task 0 epoch 4/20 loss 2.225 acc 54.52:  20%|██        | 4/20 [00:22<01:23,  5.20s/it]RanPAC task 0 epoch 5/20 loss 2.202 acc 61.60:  20%|██        | 4/20 [00:26<01:23,  5.20s/it]RanPAC task 0 epoch 5/20 loss 2.202 acc 61.60:  25%|██▌       | 5/20 [00:26<01:16,  5.08s/it]RanPAC task 0 epoch 6/20 loss 2.182 acc 65.21:  25%|██▌       | 5/20 [00:31<01:16,  5.08s/it]RanPAC task 0 epoch 6/20 loss 2.182 acc 65.21:  30%|███       | 6/20 [00:31<01:09,  4.96s/it]RanPAC task 0 epoch 7/20 loss 2.166 acc 65.81:  30%|███       | 6/20 [00:36<01:09,  4.96s/it]RanPAC task 0 epoch 7/20 loss 2.166 acc 65.81:  35%|███▌      | 7/20 [00:36<01:03,  4.90s/it]RanPAC task 0 epoch 8/20 loss 2.153 acc 67.32:  35%|███▌      | 7/20 [00:41<01:03,  4.90s/it]RanPAC task 0 epoch 8/20 loss 2.153 acc 67.32:  40%|████      | 8/20 [00:41<00:57,  4.82s/it]RanPAC task 0 epoch 9/20 loss 2.142 acc 70.18:  40%|████      | 8/20 [00:45<00:57,  4.82s/it]RanPAC task 0 epoch 9/20 loss 2.142 acc 70.18:  45%|████▌     | 9/20 [00:45<00:52,  4.82s/it]RanPAC task 0 epoch 10/20 loss 2.133 acc 71.39:  45%|████▌     | 9/20 [00:50<00:52,  4.82s/it]RanPAC task 0 epoch 10/20 loss 2.133 acc 71.39:  50%|█████     | 10/20 [00:50<00:47,  4.80s/it]RanPAC task 0 epoch 11/20 loss 2.126 acc 72.29:  50%|█████     | 10/20 [00:55<00:47,  4.80s/it]RanPAC task 0 epoch 11/20 loss 2.126 acc 72.29:  55%|█████▌    | 11/20 [00:55<00:43,  4.78s/it]RanPAC task 0 epoch 12/20 loss 2.121 acc 72.89:  55%|█████▌    | 11/20 [01:00<00:43,  4.78s/it]RanPAC task 0 epoch 12/20 loss 2.121 acc 72.89:  60%|██████    | 12/20 [01:00<00:38,  4.80s/it]RanPAC task 0 epoch 13/20 loss 2.116 acc 73.49:  60%|██████    | 12/20 [01:04<00:38,  4.80s/it]RanPAC task 0 epoch 13/20 loss 2.116 acc 73.49:  65%|██████▌   | 13/20 [01:04<00:33,  4.77s/it]RanPAC task 0 epoch 14/20 loss 2.113 acc 74.10:  65%|██████▌   | 13/20 [01:09<00:33,  4.77s/it]RanPAC task 0 epoch 14/20 loss 2.113 acc 74.10:  70%|███████   | 14/20 [01:09<00:28,  4.75s/it]RanPAC task 0 epoch 15/20 loss 2.110 acc 74.70:  70%|███████   | 14/20 [01:14<00:28,  4.75s/it]RanPAC task 0 epoch 15/20 loss 2.110 acc 74.70:  75%|███████▌  | 15/20 [01:14<00:23,  4.74s/it]RanPAC task 0 epoch 16/20 loss 2.108 acc 74.70:  75%|███████▌  | 15/20 [01:19<00:23,  4.74s/it]RanPAC task 0 epoch 16/20 loss 2.108 acc 74.70:  80%|████████  | 16/20 [01:19<00:18,  4.74s/it]RanPAC task 0 epoch 17/20 loss 2.107 acc 75.00:  80%|████████  | 16/20 [01:23<00:18,  4.74s/it]RanPAC task 0 epoch 17/20 loss 2.107 acc 75.00:  85%|████████▌ | 17/20 [01:23<00:14,  4.74s/it]RanPAC task 0 epoch 18/20 loss 2.106 acc 75.15:  85%|████████▌ | 17/20 [01:28<00:14,  4.74s/it]RanPAC task 0 epoch 18/20 loss 2.106 acc 75.15:  90%|█████████ | 18/20 [01:28<00:09,  4.72s/it]RanPAC task 0 epoch 19/20 loss 2.106 acc 75.30:  90%|█████████ | 18/20 [01:33<00:09,  4.72s/it]RanPAC task 0 epoch 19/20 loss 2.106 acc 75.30:  95%|█████████▌| 19/20 [01:33<00:04,  4.69s/it]RanPAC task 0 epoch 20/20 loss 2.106 acc 75.30:  95%|█████████▌| 19/20 [01:37<00:04,  4.69s/it]RanPAC task 0 epoch 20/20 loss 2.106 acc 75.30: 100%|██████████| 20/20 [01:37<00:00,  4.68s/it]RanPAC task 0 epoch 20/20 loss 2.106 acc 75.30: 100%|██████████| 20/20 [01:37<00:00,  4.89s/it]
+2026-08-11 10:05:02,538 [ranpac.py] => Initialized RanPAC random projection: 512 -> 10000
+2026-08-11 10:05:06,100 [ranpac.py] => RanPAC ridge parameter: 10000
+2026-08-11 10:05:08,728 [trainer.py] => CNN: {'total': 88.99, '00-09': 88.99, 'old': 0, 'new': 88.99, 'harmonic': 0.0}
+2026-08-11 10:05:08,728 [trainer.py] => CNN top1 curve: [88.99]
+2026-08-11 10:05:08,728 [trainer.py] => CNN top5 curve: [98.81]
+2026-08-11 10:05:08,729 [trainer.py] => Average Accuracy (CNN top1): 88.99
+2026-08-11 10:05:08,738 [ranpac.py] => Learning on 10-20
+2026-08-11 10:05:12,295 [ranpac.py] => RanPAC ridge parameter: 10000
+2026-08-11 10:05:15,215 [trainer.py] => CNN: {'total': 81.34, '00-09': 80.06, '10-19': 82.63, 'old': 80.06, 'new': 82.63, 'harmonic': 81.32}
+2026-08-11 10:05:15,216 [trainer.py] => CNN top1 curve: [88.99, 81.34]
+2026-08-11 10:05:15,216 [trainer.py] => CNN top5 curve: [98.81, 95.52]
+2026-08-11 10:05:15,216 [trainer.py] => Average Accuracy (CNN top1): 85.16499999999999
+2026-08-11 10:05:15,235 [ranpac.py] => Learning on 20-30
+2026-08-11 10:05:18,779 [ranpac.py] => RanPAC ridge parameter: 100000
+2026-08-11 10:05:22,582 [trainer.py] => CNN: {'total': 75.3, '00-09': 76.79, '10-19': 76.65, '20-29': 72.46, 'old': 76.72, 'new': 72.46, 'harmonic': 74.53}
+2026-08-11 10:05:22,582 [trainer.py] => CNN top1 curve: [88.99, 81.34, 75.3]
+2026-08-11 10:05:22,582 [trainer.py] => CNN top5 curve: [98.81, 95.52, 95.42]
+2026-08-11 10:05:22,582 [trainer.py] => Average Accuracy (CNN top1): 81.87666666666667
+2026-08-11 10:05:22,591 [ranpac.py] => Learning on 30-40
+2026-08-11 10:05:26,246 [ranpac.py] => RanPAC ridge parameter: 10000
+2026-08-11 10:05:31,018 [trainer.py] => CNN: {'total': 72.4, '00-09': 76.79, '10-19': 67.07, '20-29': 67.96, '30-39': 77.78, 'old': 70.62, 'new': 77.78, 'harmonic': 74.03}
+2026-08-11 10:05:31,019 [trainer.py] => CNN top1 curve: [88.99, 81.34, 75.3, 72.4]
+2026-08-11 10:05:31,019 [trainer.py] => CNN top5 curve: [98.81, 95.52, 95.42, 91.7]
+2026-08-11 10:05:31,019 [trainer.py] => Average Accuracy (CNN top1): 79.5075
+2026-08-11 10:05:31,038 [ranpac.py] => Learning on 40-50
+2026-08-11 10:05:34,776 [ranpac.py] => RanPAC ridge parameter: 10000
+2026-08-11 10:05:40,248 [trainer.py] => CNN: {'total': 71.06, '00-09': 74.4, '10-19': 66.17, '20-29': 61.68, '30-39': 76.58, '40-49': 76.51, 'old': 69.71, 'new': 76.51, 'harmonic': 72.95}
+2026-08-11 10:05:40,249 [trainer.py] => CNN top1 curve: [88.99, 81.34, 75.3, 72.4, 71.06]
+2026-08-11 10:05:40,249 [trainer.py] => CNN top5 curve: [98.81, 95.52, 95.42, 91.7, 90.35]
+2026-08-11 10:05:40,249 [trainer.py] => Average Accuracy (CNN top1): 77.818
+2026-08-11 10:05:40,279 [ranpac.py] => Learning on 50-60
+2026-08-11 10:05:44,373 [ranpac.py] => RanPAC ridge parameter: 10000
+2026-08-11 10:05:51,045 [trainer.py] => CNN: {'total': 70.36, '00-09': 72.32, '10-19': 64.37, '20-29': 60.18, '30-39': 75.98, '40-49': 76.2, '50-59': 73.13, 'old': 69.8, 'new': 73.13, 'harmonic': 71.43}
+2026-08-11 10:05:51,046 [trainer.py] => CNN top1 curve: [88.99, 81.34, 75.3, 72.4, 71.06, 70.36]
+2026-08-11 10:05:51,046 [trainer.py] => CNN top5 curve: [98.81, 95.52, 95.42, 91.7, 90.35, 89.22]
+2026-08-11 10:05:51,046 [trainer.py] => Average Accuracy (CNN top1): 76.575
+2026-08-11 10:05:51,064 [ranpac.py] => Learning on 60-70
+2026-08-11 10:05:55,019 [ranpac.py] => RanPAC ridge parameter: 100000
+2026-08-11 10:06:02,385 [trainer.py] => CNN: {'total': 64.21, '00-09': 64.58, '10-19': 59.88, '20-29': 60.18, '30-39': 71.47, '40-49': 71.99, '50-59': 71.34, '60-69': 50.0, 'old': 66.57, 'new': 50.0, 'harmonic': 57.11}
+2026-08-11 10:06:02,386 [trainer.py] => CNN top1 curve: [88.99, 81.34, 75.3, 72.4, 71.06, 70.36, 64.21]
+2026-08-11 10:06:02,386 [trainer.py] => CNN top5 curve: [98.81, 95.52, 95.42, 91.7, 90.35, 89.22, 87.46]
+2026-08-11 10:06:02,386 [trainer.py] => Average Accuracy (CNN top1): 74.80857142857143
+2026-08-11 10:06:02,406 [ranpac.py] => Learning on 70-80
+2026-08-11 10:06:06,276 [ranpac.py] => RanPAC ridge parameter: 100000
+2026-08-11 10:06:14,928 [trainer.py] => CNN: {'total': 60.72, '00-09': 63.39, '10-19': 58.38, '20-29': 55.99, '30-39': 65.17, '40-49': 71.08, '50-59': 70.75, '60-69': 48.19, '70-79': 52.71, 'old': 61.86, 'new': 52.71, 'harmonic': 56.92}
+2026-08-11 10:06:14,929 [trainer.py] => CNN top1 curve: [88.99, 81.34, 75.3, 72.4, 71.06, 70.36, 64.21, 60.72]
+2026-08-11 10:06:14,929 [trainer.py] => CNN top5 curve: [98.81, 95.52, 95.42, 91.7, 90.35, 89.22, 87.46, 84.9]
+2026-08-11 10:06:14,929 [trainer.py] => Average Accuracy (CNN top1): 73.0475
+2026-08-11 10:06:14,941 [ranpac.py] => Learning on 80-90
+2026-08-11 10:06:19,061 [ranpac.py] => RanPAC ridge parameter: 100000
+2026-08-11 10:06:28,490 [trainer.py] => CNN: {'total': 59.38, '00-09': 58.93, '10-19': 56.89, '20-29': 55.99, '30-39': 65.17, '40-49': 68.37, '50-59': 70.15, '60-69': 44.88, '70-79': 53.31, '80-89': 60.66, 'old': 59.22, 'new': 60.66, 'harmonic': 59.93}
+2026-08-11 10:06:28,491 [trainer.py] => CNN top1 curve: [88.99, 81.34, 75.3, 72.4, 71.06, 70.36, 64.21, 60.72, 59.38]
+2026-08-11 10:06:28,491 [trainer.py] => CNN top5 curve: [98.81, 95.52, 95.42, 91.7, 90.35, 89.22, 87.46, 84.9, 83.27]
+2026-08-11 10:06:28,491 [trainer.py] => Average Accuracy (CNN top1): 71.52888888888889
+2026-08-11 10:06:28,513 [ranpac.py] => Learning on 90-100
+2026-08-11 10:06:32,988 [ranpac.py] => RanPAC ridge parameter: 10000
+2026-08-11 10:07:13,802 [trainer.py] => CNN: {'total': 62.02, '00-09': 63.99, '10-19': 54.19, '20-29': 54.49, '30-39': 67.57, '40-49': 68.07, '50-59': 71.34, '60-69': 45.48, '70-79': 50.9, '80-89': 59.76, '90-99': 84.34, 'old': 59.55, 'new': 84.34, 'harmonic': 69.81}
+2026-08-11 10:07:13,802 [trainer.py] => CNN top1 curve: [88.99, 81.34, 75.3, 72.4, 71.06, 70.36, 64.21, 60.72, 59.38, 62.02]
+2026-08-11 10:07:13,802 [trainer.py] => CNN top5 curve: [98.81, 95.52, 95.42, 91.7, 90.35, 89.22, 87.46, 84.9, 83.27, 82.12]
+2026-08-11 10:07:13,802 [trainer.py] => Average Accuracy (CNN top1): 70.578
+
+========================================
+Finished aircraft_init10_inc10 seed=1993
+Backbone: OpenCLIP_LAION400M
+Average Accuracy (Top1): 70.58
+Last Accuracy: 62.02
+Average Accuracy (Top5): 89.88
+Last Top5: 82.12
+========================================
