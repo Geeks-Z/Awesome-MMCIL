@@ -31,3 +31,4 @@
 2026-08-11 08:17:03,006 [factory.py] => Loading pretrained ViT-B-16 weights (/home/team/zhaohongwei/.cache/clip/ViT-B-16.pt).
 2026-08-11 08:17:05,446 [ranpac.py] => Learning on 0-100
 2026-08-11 08:17:05,466 [ranpac.py] => RanPAC first-session trainable parameters: 1240832
+2026-08-11 09:43:42,577 [ranpac.py] => Initialized RanPAC random projection: 512 -> 10000
