@@ -1,0 +1,4 @@
+completed_at=2026-08-10T16:05:02+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/fecam/fecam_aircraft_B50_Inc10.json
+seed=0
+physical_gpu=1

@@ -1,0 +1,27 @@
+{
+  "prefix": "-",
+  "dataset": "sun",
+  "memory_size": 0,
+  "memory_per_class": 0,
+  "fixed_memory": false,
+  "shuffle": true,
+  "init_cls": 150,
+  "increment": 30,
+  "model_name": "fecam",
+  "backbone_type": "clip",
+  "clip_pretrained": "/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin",
+  "device": [1],
+  "seed": [0, 42, 1993],
+  "tuned_epoch": 20,
+  "init_lr": 0.01,
+  "batch_size": 48,
+  "weight_decay": 0.0005,
+  "min_lr": 0.0,
+  "ffn_num": 64,
+  "optimizer": "sgd",
+  "num_workers": 8,
+  "fecam_alpha": 100.0,
+  "maha_batch_size": 64,
+  "total_class_num": 300
+}
+

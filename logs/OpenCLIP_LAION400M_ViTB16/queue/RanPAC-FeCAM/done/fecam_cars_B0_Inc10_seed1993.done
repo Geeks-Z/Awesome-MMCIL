@@ -1,0 +1,4 @@
+completed_at=2026-08-10T16:10:00+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/fecam/fecam_cars_B0_Inc10.json
+seed=1993
+physical_gpu=4

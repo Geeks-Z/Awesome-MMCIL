@@ -1,0 +1,4 @@
+completed_at=2026-08-10T16:14:07+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/ranpac/ranpac_cars_B50_Inc10.json
+seed=0
+physical_gpu=5

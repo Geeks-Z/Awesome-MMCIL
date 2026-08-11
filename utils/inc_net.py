@@ -2194,7 +2194,10 @@ class TUNANet(nn.Module):
 #ranpac/adapter
 class AdapterVitNet(BaseNet):
     def __init__(self, args, pretrained=True):
-        super().__init__(args, pretrained)
+        # AdapterVitNet builds a vision-only OpenCLIP branch below.  Calling
+        # BaseNet.__init__ would also keep a second, unused full CLIP model in
+        # memory, which is especially costly for RanPAC's random projection.
+        nn.Module.__init__(self)
 
         self.W_rand = None
         self.RP_dim = None
@@ -2202,10 +2205,16 @@ class AdapterVitNet(BaseNet):
         self.args = args
         self._device = args["device"][0]
         import open_clip
-        basic_model, _, _ = open_clip.create_model_and_transforms("ViT-B-16", pretrained='laion400m_e32')
-
-        ckpt_path = args.get("clip_ckpt_path", "./c.pth")
-        basic_model.load_state_dict(torch.load(ckpt_path, map_location="cpu"), strict=True)
+        pretrained_source = os.environ.get(
+            "MMCL_CLIP_PRETRAINED",
+            args.get(
+                "clip_pretrained",
+                "/home/team/zhaohongwei/pretrained_models/open_clip_pytorch_model_laion400m_e32.bin",
+            ),
+        )
+        basic_model, _, _ = open_clip.create_model_and_transforms(
+            "ViT-B-16", pretrained=pretrained_source
+        )
         sd = basic_model.state_dict()
 
         vision_width = sd["visual.conv1.weight"].shape[0]  # 768

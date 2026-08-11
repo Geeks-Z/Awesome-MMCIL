@@ -1,0 +1,4 @@
+completed_at=2026-08-10T23:35:48+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/ranpac/ranpac_sun_B0_Inc30.json
+seed=1993
+physical_gpu=7

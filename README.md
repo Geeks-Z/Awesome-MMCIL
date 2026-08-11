@@ -29,6 +29,8 @@
 - `DualPrompt`: DualPrompt: Complementary Prompting for Rehearsal-free Continual Learning. **ECCV 2022** [[paper](https://arxiv.org/abs/2204.04799)]
 - `MEMO`: A Model or 603 Exemplars: Towards Memory-Efficient Class-Incremental Learning. **ICLR 2023 Spotlight** [[paper](https://openreview.net/forum?id=S07feAlQHgM)]
 - `CODA-Prompt`: CODA-Prompt: COntinual Decomposed Attention-based Prompting for Rehearsal-Free Continual Learning. **CVPR 2023** [[paper](https://arxiv.org/abs/2211.13218)]
+- `RanPAC`: Random Projections and Pre-trained Models for Continual Learning. **NeurIPS 2023**
+- `FeCAM`: Exploiting the Heterogeneity of Class Distributions in Exemplar-Free Continual Learning. **NeurIPS 2023**
 - `SimpleCIL`: Revisiting Class-Incremental Learning with Pre-Trained Models: Generalizability and Adaptivity are All You Need. **IJCV 2024** [[paper](https://arxiv.org/abs/2303.07338)]
 - `APER`: Revisiting Class-Incremental Learning with Pre-Trained Models: Generalizability and Adaptivity are All You Need. **IJCV 2024** [[paper](https://arxiv.org/abs/2303.07338)]
 - `RAPF`: Class-incremental learning with CLIP: adaptive representation adjustment and parameter fusion **ECCV 2024** [paper](https://link.springer.com/10.1007/978-3-031-72949-2_13) [code](https://github.com/linlany/RAPF) [reading notes](https://zhuanlan.zhihu.com/p/1959573948623725449)
@@ -77,7 +79,7 @@ The repository has a native MMCL framework and standalone reproductions. Use the
 
 #### Native MMCL framework
 
-`FineTune`, `ZS-CLIP`, `FOSTER`, `L2P`, `DualPrompt`, `MEMO`, `CODA-Prompt`, `SimpleCIL`, `APER`, `RAPF`, `TUNA`, `CLG-CBM`, `ENGINE`, `PROOF`, `BOFA`, and `AREA` use the root-level `main.py`, `configs/`, `models/`, and `scripts/` layout. Edit the target JSON configuration, then run a single configuration with:
+`FineTune`, `ZS-CLIP`, `FOSTER`, `L2P`, `DualPrompt`, `MEMO`, `CODA-Prompt`, `RanPAC`, `FeCAM`, `SimpleCIL`, `APER`, `RAPF`, `TUNA`, `CLG-CBM`, `ENGINE`, `PROOF`, `BOFA`, and `AREA` use the root-level `main.py`, `configs/`, `models/`, and `scripts/` layout. Edit the target JSON configuration, then run a single configuration with:
 
    ```bash
    python main.py --config=./configs/[METHOD]/[CONFIG].json
@@ -85,16 +87,22 @@ The repository has a native MMCL framework and standalone reproductions. Use the
 
 For a method's configured sequence, use its corresponding `scripts/run_[method].sh` launcher.
 
+RanPAC and FeCAM provide all nine datasets, both benchmark protocols, and seeds `0`, `42`, and `1993`. Their six-GPU resumable launcher defaults to physical GPUs `1 2 4 5 6 7`:
+
+   ```bash
+   bash scripts/launch_ranpac_fecam.sh
+   ```
+
 `hyper-parameters`
 
-   - **model_name**: Select one of the implemented methods: `finetune`, `zs_clip`, `foster`, `memo`, `simplecil`, `l2p`, `dualprompt`, `coda`, `aper`, `tuna`, `rapf`, `CLG-CBM`, `mg_clip`, `proof`, `engine`, `bofa` or `area`.
+   - **model_name**: Select one of the implemented methods: `finetune`, `zs_clip`, `foster`, `memo`, `simplecil`, `ranpac`, `fecam`, `l2p`, `dualprompt`, `coda`, `aper`, `tuna`, `rapf`, `CLG-CBM`, `mg_clip`, `proof`, `engine`, `bofa` or `area`.
    - **init_cls**: The number of classes in the initial incremental stage. As the configuration of CIL includes different settings with varying class numbers at the outset, our framework accommodates diverse options for defining the initial stage.
    - **increment**: The number of classes in each incremental stage $i$, $i$ > 1. By default, the number of classes is equal across all incremental stages.
    - **backbone_type**: The backbone network of the incremental model. It can be selected from a variety of pre-trained models available in the Timm library, such as **LAION-400M** and **OpenAI**,  for
      the CLIP with **ViT-B/16**.
    - **seed**: The random seed is utilized for shuffling the class order. It is set to 1993 by default, following the benchmark setting iCaRL.
    - **fixed_memory**: a Boolean parameter. When set to true, the model will maintain a fixed amount of memory per class. Alternatively, when set to false, the model will preserve dynamic memory allocation per class.
-   - **memory_size**: The total number of exemplars in the incremental learning process. If `fixed_memory` is set to false, assuming there are $K$ classes at the current stage, the model will preserve $\left[\frac{{memory-size}}{K}\right]$ exemplars for each class. **ZS-CLIP, SimpleCIL, TUNA, CLG-CBM, MG-CLIP, ENGINE, BOFA and AREA do not require exemplars.** Therefore, parameters related to exemplars are not used.
+   - **memory_size**: The total number of exemplars in the incremental learning process. If `fixed_memory` is set to false, assuming there are $K$ classes at the current stage, the model will preserve $\left[\frac{{memory-size}}{K}\right]$ exemplars for each class. **ZS-CLIP, SimpleCIL, RanPAC, FeCAM, TUNA, CLG-CBM, MG-CLIP, ENGINE, BOFA and AREA do not require exemplars.** Therefore, parameters related to exemplars are not used.
    - **memory_per_class**: If `fixed memory` is set to true, the model will preserve a fixed number of `memory_per_class` exemplars for each class.
 
 #### Standalone reproductions

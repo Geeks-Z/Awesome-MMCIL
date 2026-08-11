@@ -1,0 +1,4 @@
+completed_at=2026-08-11T00:26:12+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/fecam/fecam_sun_B0_Inc30.json
+seed=1993
+physical_gpu=4

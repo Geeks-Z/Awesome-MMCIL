@@ -9,6 +9,12 @@ def get_model(model_name, args):
     elif name == "simplecil":
         from models.simplecil import Learner
         return Learner(args)
+    elif name == "ranpac":
+        from models.ranpac import Learner
+        return Learner(args)
+    elif name == "fecam":
+        from models.fecam import Learner
+        return Learner(args)
     elif name =="zs_clip":
         from models.zs_clip import Learner
         return Learner(args)

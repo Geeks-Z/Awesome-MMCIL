@@ -40,11 +40,12 @@ def continual_clip(cfg: DictConfig) -> None:
         "cub200": "cub",
     }.get(cfg.dataset, str(cfg.dataset).lower())
     init_cls = 0 if cfg.initial_increment == cfg.increment else cfg.initial_increment
-    # This upstream implementation loads OpenAI CLIP directly.
-    log_dir = benchmark_root / "logs" / "OpenAI_CLIP_ViTB16" / "MoE-Adapters"
+    log_root_name = str(getattr(cfg, "log_root_name", "OpenAI_CLIP_ViTB16"))
+    log_backbone_token = str(getattr(cfg, "log_backbone_token", "openai_clip"))
+    log_dir = benchmark_root / "logs" / log_root_name / "MoE-Adapters"
     log_dir.mkdir(parents=True, exist_ok=True)
     log_path = log_dir / (
-        f"{dataset_name}_openai_clip_{init_cls}_{cfg.increment}_{seed}.log"
+        f"{dataset_name}_{log_backbone_token}_{init_cls}_{cfg.increment}_{seed}.log"
     )
     logging.basicConfig(
         level=logging.INFO,
@@ -122,7 +123,7 @@ def continual_clip(cfg: DictConfig) -> None:
             'avg': round(statistics.mean(acc_list), 2)
         }) + '\n')
 
-    clip_type = 'OpenAI CLIP'
+    clip_type = str(getattr(cfg, "backbone_label", "OpenAI CLIP ViT-B/16"))
     logging.info("CNN top1 curve: %s", [round(acc, 2) for acc in acc_list])
     logging.info(
         "Average Accuracy (CNN top1): %.2f", statistics.mean(acc_list)

@@ -1,0 +1,23 @@
+2026-08-04 21:15:10,080 [main.py] => Evaluation for task 0 has started.
+2026-08-04 21:19:23,204 [main.py] => CNN top1 curve: [89.88]
+2026-08-04 21:19:23,204 [main.py] => Average Accuracy (CNN top1): 89.88
+2026-08-04 21:19:23,208 [main.py] => Evaluation for task 1 has started.
+2026-08-04 21:20:45,050 [main.py] => CNN top1 curve: [89.88, 85.7]
+2026-08-04 21:20:45,050 [main.py] => Average Accuracy (CNN top1): 87.79
+2026-08-04 21:20:45,054 [main.py] => Evaluation for task 2 has started.
+2026-08-04 21:22:14,637 [main.py] => CNN top1 curve: [89.88, 85.7, 84.99]
+2026-08-04 21:22:14,638 [main.py] => Average Accuracy (CNN top1): 86.86
+2026-08-04 21:22:14,641 [main.py] => Evaluation for task 3 has started.
+2026-08-04 21:23:51,402 [main.py] => CNN top1 curve: [89.88, 85.7, 84.99, 83.56]
+2026-08-04 21:23:51,403 [main.py] => Average Accuracy (CNN top1): 86.03
+2026-08-04 21:23:51,407 [main.py] => Evaluation for task 4 has started.
+2026-08-04 21:25:34,349 [main.py] => CNN top1 curve: [89.88, 85.7, 84.99, 83.56, 81.04]
+2026-08-04 21:25:34,349 [main.py] => Average Accuracy (CNN top1): 85.03
+2026-08-04 21:25:34,354 [main.py] => Evaluation for task 5 has started.
+2026-08-04 21:27:29,002 [main.py] => CNN top1 curve: [89.88, 85.7, 84.99, 83.56, 81.04, 78.88]
+2026-08-04 21:27:29,002 [main.py] => Average Accuracy (CNN top1): 84.01
+2026-08-04 21:27:29,006 [main.py] => CNN top1 curve: [89.88, 85.7, 84.99, 83.56, 81.04, 78.88]
+2026-08-04 21:27:29,006 [main.py] => Average Accuracy (CNN top1): 84.01
+2026-08-04 21:27:29,006 [main.py] => Last Accuracy: 78.88
+2026-08-04 21:27:29,006 [main.py] => Finished cifar100_init50_inc10 seed=2026
+2026-08-04 21:27:29,006 [main.py] => Backbone: OpenCLIP ViT-B/16 LAION-400M laion400m_e32

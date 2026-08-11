@@ -1,0 +1,4 @@
+completed_at=2026-08-10T20:09:34+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/fecam/fecam_food_B50_Inc10.json
+seed=42
+physical_gpu=2

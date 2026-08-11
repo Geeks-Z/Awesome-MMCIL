@@ -16,6 +16,7 @@ from datetime import datetime
 import torch
 import torch.nn as nn
 import clip
+from clip.model import build_model
 from dataset import gen_dataset
 from continuum import ClassIncremental, rehearsal, ContinualScenario
 from timm.models import create_model
@@ -58,6 +59,8 @@ def set_log():
     output_parts = [
         args["file_root"], args["model_type"], args["dataset"], args["backbone"],
     ]
+    if args.get("experiment_tag"):
+        output_parts.append(args["experiment_tag"])
     # Keep the original B0 output location, while isolating B50/B100 runs.
     if base_classes:
         output_parts.append("base_{}_inc_{}".format(base_classes, increment))
@@ -66,15 +69,16 @@ def set_log():
     os.makedirs(args["output_folder"], exist_ok=True)
 
     benchmark_root = os.path.dirname(os.path.abspath(args["file_root"]))
-    # PromptFusion uses the upstream OpenAI ``clip.load`` implementation.
+    log_root_name = args.get("log_root_name", "OpenAI_CLIP_ViTB16")
+    log_backbone_token = args.get("log_backbone_token", "vit_b16")
     log_dir = os.path.join(
-        benchmark_root, "logs", "OpenAI_CLIP_ViTB16", "PromptFusion"
+        benchmark_root, "logs", log_root_name, "PromptFusion"
     )
     os.makedirs(log_dir, exist_ok=True)
     logfilename = os.path.join(
         log_dir,
-        "{}_vit_b16_{}_{}_{}.log".format(
-            dataset_name, base_classes, increment, args["seed"]
+        "{}_{}_{}_{}_{}.log".format(
+            dataset_name, log_backbone_token, base_classes, increment, args["seed"]
         ),
     )
 
@@ -89,14 +93,16 @@ def set_log():
 
 
 def get_clip_model(args):
-    # clip_model_path = args["file_root"] + '/' + args["backbone"] + '.pt'
-    #
-    # if os.path.exists(clip_model_path):
-    #     clip_model, _ = clip.load(args["backbone"], device=args["device"], model_path=clip_model_path)
-    # else:
-    #     raise Exception("Model doesn't exist! Please manually download it!")
-    # clip获取方式修改为直接下载
-    clip_model, _ = clip.load("ViT-B/16", device=args["device"])
+    clip_model_path = args.get("clip_model_path")
+    if clip_model_path:
+        if not os.path.isfile(clip_model_path):
+            raise FileNotFoundError("CLIP checkpoint does not exist: {}".format(clip_model_path))
+        state_dict = torch.load(clip_model_path, map_location="cpu")
+        if isinstance(state_dict, dict) and "state_dict" in state_dict:
+            state_dict = state_dict["state_dict"]
+        clip_model = build_model(state_dict).to(args["device"])
+    else:
+        clip_model, _ = clip.load("ViT-B/16", device=args["device"])
 
     utils.convert_models_to_fp32(clip_model)
 
@@ -212,7 +218,8 @@ def main(args):
         "Finished %s_base%s_inc%s seed=%s",
         args["dataset"], args["base_classes"], args["increment"], args["seed"],
     )
-    logging.info("Backbone: ViT-B/16")
+    backbone_label = args.get("backbone_label", "OpenAI CLIP ViT-B/16")
+    logging.info("Backbone: %s", backbone_label)
 
     print(f"\n{'=' * 40}")
     print(
@@ -221,7 +228,7 @@ def main(args):
             args["base_classes"], args["increment"], args["seed"]
         )
     )
-    print("Backbone: ViT-B/16")
+    print("Backbone: {}".format(backbone_label))
     print("Average Accuracy (Top1): {:.2f}".format(average_acc))
     print("Last Accuracy: {:.2f}".format(last_acc))
     print("Forgetting: {:.2f}".format(forgetting))
@@ -241,6 +248,11 @@ if __name__ == '__main__':
     parser.add_argument('--seed', type=int, default=0, help='Random seed for one benchmark run.')
     parser.add_argument('--data-root', type=str, default=None, help='Override the dataset root from the JSON config.')
     parser.add_argument('--file-root', type=str, default=None, help='Override the PromptFusion source root from the JSON config.')
+    parser.add_argument('--clip-model-path', type=str, default=None, help='Optional local CLIP-compatible checkpoint.')
+    parser.add_argument('--log-root-name', type=str, default=None, help='Top-level logs directory name.')
+    parser.add_argument('--log-backbone-token', type=str, default=None, help='Backbone token used in the log filename.')
+    parser.add_argument('--experiment-tag', type=str, default=None, help='Optional output-directory discriminator.')
+    parser.add_argument('--backbone-label', type=str, default=None, help='Human-readable backbone label for logs.')
     cli_args = parser.parse_args()
 
     param = load_json(cli_args.config)
@@ -252,6 +264,10 @@ if __name__ == '__main__':
         args["data_root"] = cli_args.data_root
     if cli_args.file_root is not None:
         args["file_root"] = cli_args.file_root
+    for key in ("clip_model_path", "log_root_name", "log_backbone_token", "experiment_tag", "backbone_label"):
+        value = getattr(cli_args, key)
+        if value is not None:
+            args[key] = value
 
     set_seed(args["seed"])
 
