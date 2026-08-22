@@ -1,0 +1,5 @@
+completed_at=2026-08-18T01:05:27+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/proof/proof_aircraft_B50_Inc10.json
+seed=0
+physical_gpu=5
+backbone=OpenAI_CLIP_ViTB16

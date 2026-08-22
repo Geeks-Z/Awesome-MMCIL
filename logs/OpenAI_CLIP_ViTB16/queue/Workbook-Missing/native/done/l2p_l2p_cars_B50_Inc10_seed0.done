@@ -1,0 +1,5 @@
+completed_at=2026-08-18T04:33:57+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/l2p/l2p_cars_B50_Inc10.json
+seed=0
+physical_gpu=7
+backbone=OpenAI_CLIP_ViTB16

@@ -1,0 +1,4 @@
+completed_at=2026-08-13T20:42:35+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/area/area_cub_B100_Inc20.json
+seed=42
+physical_gpu=6

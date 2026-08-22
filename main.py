@@ -23,6 +23,10 @@ def load_json(settings_path):
 
 def apply_runtime_overrides(param):
     """Allow launchers to select an idle GPU and a subset of configured seeds."""
+    sharing_strategy = os.environ.get("MMCL_TORCH_SHARING_STRATEGY")
+    if sharing_strategy:
+        torch.multiprocessing.set_sharing_strategy(sharing_strategy)
+
     device = os.environ.get("MMCL_DEVICE")
     if device:
         param["device"] = [int(value) for value in device.split(",")]

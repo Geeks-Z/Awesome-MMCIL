@@ -1,0 +1,5 @@
+completed_at=2026-08-18T12:11:48+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/fecam/fecam_cub_B0_Inc20.json
+seed=0
+physical_gpu=4
+backbone=OpenAI_CLIP_ViTB16

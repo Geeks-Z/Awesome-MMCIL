@@ -444,3 +444,163 @@ Training class stages: [100, 20, 20, 20, 20, 20]
 2026-08-11 08:17:05,466 [ranpac.py] => RanPAC first-session trainable parameters: 1240832
 RanPAC adapter tuning:   0%|          | 0/20 [00:00<?, ?it/s]RanPAC task 0 epoch 1/20 loss 4.573 acc 4.27:   0%|          | 0/20 [04:16<?, ?it/s]RanPAC task 0 epoch 1/20 loss 4.573 acc 4.27:   5%|▌         | 1/20 [04:16<1:21:22, 256.95s/it]RanPAC task 0 epoch 2/20 loss 4.510 acc 11.09:   5%|▌         | 1/20 [08:34<1:21:22, 256.95s/it]RanPAC task 0 epoch 2/20 loss 4.510 acc 11.09:  10%|█         | 2/20 [08:34<1:17:14, 257.45s/it]RanPAC task 0 epoch 3/20 loss 4.457 acc 14.71:  10%|█         | 2/20 [13:00<1:17:14, 257.45s/it]RanPAC task 0 epoch 3/20 loss 4.457 acc 14.71:  15%|█▌        | 3/20 [13:00<1:13:59, 261.17s/it]RanPAC task 0 epoch 4/20 loss 4.394 acc 22.49:  15%|█▌        | 3/20 [17:17<1:13:59, 261.17s/it]RanPAC task 0 epoch 4/20 loss 4.394 acc 22.49:  20%|██        | 4/20 [17:17<1:09:14, 259.65s/it]RanPAC task 0 epoch 5/20 loss 4.281 acc 39.18:  20%|██        | 4/20 [21:35<1:09:14, 259.65s/it]RanPAC task 0 epoch 5/20 loss 4.281 acc 39.18:  25%|██▌       | 5/20 [21:35<1:04:45, 259.03s/it]RanPAC task 0 epoch 6/20 loss 4.177 acc 50.09:  25%|██▌       | 5/20 [25:54<1:04:45, 259.03s/it]RanPAC task 0 epoch 6/20 loss 4.177 acc 50.09:  30%|███       | 6/20 [25:54<1:00:25, 258.99s/it]RanPAC task 0 epoch 7/20 loss 4.100 acc 55.90:  30%|███       | 6/20 [30:17<1:00:25, 258.99s/it]RanPAC task 0 epoch 7/20 loss 4.100 acc 55.90:  35%|███▌      | 7/20 [30:17<56:25, 260.44s/it]  RanPAC task 0 epoch 8/20 loss 4.052 acc 58.13:  35%|███▌      | 7/20 [34:35<56:25, 260.44s/it]RanPAC task 0 epoch 8/20 loss 4.052 acc 58.13:  40%|████      | 8/20 [34:35<51:54, 259.56s/it]RanPAC task 0 epoch 9/20 loss 4.021 acc 59.66:  40%|████      | 8/20 [38:55<51:54, 259.56s/it]RanPAC task 0 epoch 9/20 loss 4.021 acc 59.66:  45%|████▌     | 9/20 [38:55<47:36, 259.68s/it]RanPAC task 0 epoch 10/20 loss 4.000 acc 60.68:  45%|████▌     | 9/20 [43:13<47:36, 259.68s/it]RanPAC task 0 epoch 10/20 loss 4.000 acc 60.68:  50%|█████     | 10/20 [43:13<43:10, 259.08s/it]RanPAC task 0 epoch 11/20 loss 3.986 acc 61.33:  50%|█████     | 10/20 [47:29<43:10, 259.08s/it]RanPAC task 0 epoch 11/20 loss 3.986 acc 61.33:  55%|█████▌    | 11/20 [47:29<38:43, 258.15s/it]RanPAC task 0 epoch 12/20 loss 3.975 acc 61.78:  55%|█████▌    | 11/20 [51:52<38:43, 258.15s/it]RanPAC task 0 epoch 12/20 loss 3.975 acc 61.78:  60%|██████    | 12/20 [51:52<34:37, 259.72s/it]RanPAC task 0 epoch 13/20 loss 3.968 acc 61.92:  60%|██████    | 12/20 [56:11<34:37, 259.72s/it]RanPAC task 0 epoch 13/20 loss 3.968 acc 61.92:  65%|██████▌   | 13/20 [56:11<30:16, 259.49s/it]RanPAC task 0 epoch 14/20 loss 3.962 acc 61.93:  65%|██████▌   | 13/20 [1:00:30<30:16, 259.49s/it]RanPAC task 0 epoch 14/20 loss 3.962 acc 61.93:  70%|███████   | 14/20 [1:00:30<25:56, 259.39s/it]RanPAC task 0 epoch 15/20 loss 3.958 acc 61.98:  70%|███████   | 14/20 [1:04:50<25:56, 259.39s/it]RanPAC task 0 epoch 15/20 loss 3.958 acc 61.98:  75%|███████▌  | 15/20 [1:04:50<21:37, 259.52s/it]RanPAC task 0 epoch 16/20 loss 3.955 acc 62.02:  75%|███████▌  | 15/20 [1:09:11<21:37, 259.52s/it]RanPAC task 0 epoch 16/20 loss 3.955 acc 62.02:  80%|████████  | 16/20 [1:09:11<17:19, 259.91s/it]RanPAC task 0 epoch 17/20 loss 3.953 acc 62.01:  80%|████████  | 16/20 [1:13:35<17:19, 259.91s/it]RanPAC task 0 epoch 17/20 loss 3.953 acc 62.01:  85%|████████▌ | 17/20 [1:13:35<13:03, 261.30s/it]RanPAC task 0 epoch 18/20 loss 3.952 acc 61.91:  85%|████████▌ | 17/20 [1:18:00<13:03, 261.30s/it]RanPAC task 0 epoch 18/20 loss 3.952 acc 61.91:  90%|█████████ | 18/20 [1:18:00<08:44, 262.38s/it]RanPAC task 0 epoch 19/20 loss 3.951 acc 62.01:  90%|█████████ | 18/20 [1:22:18<08:44, 262.38s/it]RanPAC task 0 epoch 19/20 loss 3.951 acc 62.01:  95%|█████████▌| 19/20 [1:22:18<04:20, 260.88s/it]RanPAC task 0 epoch 20/20 loss 3.951 acc 62.05:  95%|█████████▌| 19/20 [1:26:37<04:20, 260.88s/it]RanPAC task 0 epoch 20/20 loss 3.951 acc 62.05: 100%|██████████| 20/20 [1:26:37<00:00, 260.28s/it]RanPAC task 0 epoch 20/20 loss 3.951 acc 62.05: 100%|██████████| 20/20 [1:26:37<00:00, 259.85s/it]
 2026-08-11 09:43:42,577 [ranpac.py] => Initialized RanPAC random projection: 512 -> 10000
+2026-08-11 09:48:01,591 [ranpac.py] => RanPAC ridge parameter: 10000
+2026-08-11 09:49:10,795 [trainer.py] => CNN: {'total': 72.14, '00-09': 73.82, '10-19': 74.48, '20-29': 67.08, '30-39': 79.81, '40-49': 72.48, '50-59': 73.53, '60-69': 65.66, '70-79': 67.37, '80-89': 66.67, '90-99': 79.88, 'old': 0, 'new': 72.14, 'harmonic': 0.0}
+2026-08-11 09:49:10,796 [trainer.py] => CNN top1 curve: [72.14]
+2026-08-11 09:49:10,796 [trainer.py] => CNN top5 curve: [90.4]
+2026-08-11 09:49:10,796 [trainer.py] => Average Accuracy (CNN top1): 72.14
+2026-08-11 09:49:10,822 [ranpac.py] => Learning on 100-120
+2026-08-11 09:50:06,774 [ranpac.py] => RanPAC ridge parameter: 10000
+2026-08-11 09:51:26,941 [trainer.py] => CNN: {'total': 69.55, '00-09': 72.41, '10-19': 73.78, '20-29': 65.53, '30-39': 73.82, '40-49': 71.25, '50-59': 71.24, '60-69': 66.21, '70-79': 65.26, '80-89': 62.75, '90-99': 76.63, '100-109': 65.57, '110-119': 68.63, 'old': 70.03, 'new': 67.26, 'harmonic': 68.62}
+2026-08-11 09:51:26,942 [trainer.py] => CNN top1 curve: [72.14, 69.55]
+2026-08-11 09:51:26,942 [trainer.py] => CNN top5 curve: [90.4, 89.41]
+2026-08-11 09:51:26,942 [trainer.py] => Average Accuracy (CNN top1): 70.845
+2026-08-11 09:51:26,966 [ranpac.py] => Learning on 120-140
+2026-08-11 09:52:22,663 [ranpac.py] => RanPAC ridge parameter: 10000
+2026-08-11 09:53:55,239 [trainer.py] => CNN: {'total': 67.18, '00-09': 71.23, '10-19': 69.93, '20-29': 63.04, '30-39': 72.56, '40-49': 71.25, '50-59': 71.24, '60-69': 65.66, '70-79': 63.14, '80-89': 60.78, '90-99': 75.74, '100-109': 65.57, '110-119': 65.15, '120-129': 61.11, '130-139': 62.54, 'old': 68.09, 'new': 61.8, 'harmonic': 64.79}
+2026-08-11 09:53:55,240 [trainer.py] => CNN top1 curve: [72.14, 69.55, 67.18]
+2026-08-11 09:53:55,240 [trainer.py] => CNN top5 curve: [90.4, 89.41, 87.58]
+2026-08-11 09:53:55,240 [trainer.py] => Average Accuracy (CNN top1): 69.62333333333333
+2026-08-11 09:53:55,269 [ranpac.py] => Learning on 140-160
+2026-08-11 09:54:54,463 [ranpac.py] => RanPAC ridge parameter: 10000
+2026-08-11 09:56:41,263 [trainer.py] => CNN: {'total': 65.22, '00-09': 70.28, '10-19': 68.18, '20-29': 62.73, '30-39': 70.03, '40-49': 68.5, '50-59': 65.36, '60-69': 63.19, '70-79': 61.33, '80-89': 59.61, '90-99': 74.85, '100-109': 64.59, '110-119': 64.34, '120-129': 60.53, '130-139': 61.61, '140-149': 62.47, '150-159': 64.36, 'old': 65.51, 'new': 63.4, 'harmonic': 64.44}
+2026-08-11 09:56:41,264 [trainer.py] => CNN top1 curve: [72.14, 69.55, 67.18, 65.22]
+2026-08-11 09:56:41,264 [trainer.py] => CNN top5 curve: [90.4, 89.41, 87.58, 86.41]
+2026-08-11 09:56:41,265 [trainer.py] => Average Accuracy (CNN top1): 68.52250000000001
+2026-08-11 09:56:41,290 [ranpac.py] => Learning on 160-180
+2026-08-11 09:57:35,823 [ranpac.py] => RanPAC ridge parameter: 10000
+2026-08-11 09:59:35,954 [trainer.py] => CNN: {'total': 63.58, '00-09': 68.4, '10-19': 68.18, '20-29': 60.25, '30-39': 69.72, '40-49': 67.58, '50-59': 63.07, '60-69': 62.64, '70-79': 61.33, '80-89': 58.43, '90-99': 74.85, '100-109': 63.28, '110-119': 63.0, '120-129': 59.94, '130-139': 60.06, '140-149': 59.79, '150-159': 63.81, '160-169': 60.18, '170-179': 58.0, 'old': 64.1, 'new': 59.14, 'harmonic': 61.52}
+2026-08-11 09:59:35,955 [trainer.py] => CNN top1 curve: [72.14, 69.55, 67.18, 65.22, 63.58]
+2026-08-11 09:59:35,955 [trainer.py] => CNN top5 curve: [90.4, 89.41, 87.58, 86.41, 85.06]
+2026-08-11 09:59:35,955 [trainer.py] => Average Accuracy (CNN top1): 67.534
+2026-08-11 09:59:35,998 [ranpac.py] => Learning on 180-200
+2026-08-11 10:00:30,362 [ranpac.py] => RanPAC ridge parameter: 10000
+2026-08-11 10:02:44,709 [trainer.py] => CNN: {'total': 61.53, '00-09': 68.16, '10-19': 67.13, '20-29': 60.56, '30-39': 70.03, '40-49': 67.28, '50-59': 61.11, '60-69': 62.09, '70-79': 60.12, '80-89': 58.43, '90-99': 73.08, '100-109': 59.67, '110-119': 60.86, '120-129': 57.89, '130-139': 59.44, '140-149': 57.37, '150-159': 63.54, '160-169': 57.14, '170-179': 57.33, '180-189': 59.23, '190-199': 49.18, 'old': 62.39, 'new': 53.61, 'harmonic': 57.67}
+2026-08-11 10:02:44,709 [trainer.py] => CNN top1 curve: [72.14, 69.55, 67.18, 65.22, 63.58, 61.53]
+2026-08-11 10:02:44,709 [trainer.py] => CNN top5 curve: [90.4, 89.41, 87.58, 86.41, 85.06, 83.89]
+2026-08-11 10:02:44,709 [trainer.py] => Average Accuracy (CNN top1): 66.53333333333335
+
+========================================
+Finished objectnet_init100_inc20 seed=1993
+Backbone: OpenAI CLIP
+Average Accuracy (Top1): 66.53
+Last Accuracy: 61.53
+Average Accuracy (Top5): 87.12
+Last Top5: 83.89
+========================================
+
+DONE ranpac ranpac_objectnet_B100_Inc20 backbone=openai_clip seed=1993 physical_gpu=5
+START ranpac ranpac_ucf_B0_Inc10 backbone=openai_clip seed=1993 physical_gpu=5 state=5, 10, 24576, 16
+2026-08-11 10:02:47,612 [trainer.py] => prefix: -
+2026-08-11 10:02:47,612 [trainer.py] => dataset: ucf101
+2026-08-11 10:02:47,612 [trainer.py] => memory_size: 0
+2026-08-11 10:02:47,612 [trainer.py] => memory_per_class: 0
+2026-08-11 10:02:47,612 [trainer.py] => fixed_memory: False
+2026-08-11 10:02:47,612 [trainer.py] => shuffle: True
+2026-08-11 10:02:47,612 [trainer.py] => init_cls: 10
+2026-08-11 10:02:47,612 [trainer.py] => increment: 10
+2026-08-11 10:02:47,612 [trainer.py] => model_name: ranpac
+2026-08-11 10:02:47,612 [trainer.py] => backbone_type: openai_clip
+2026-08-11 10:02:47,612 [trainer.py] => clip_pretrained: /home/team/zhaohongwei/.cache/clip/ViT-B-16.pt
+2026-08-11 10:02:47,612 [trainer.py] => device: [device(type='cuda', index=0)]
+2026-08-11 10:02:47,612 [trainer.py] => seed: 1993
+2026-08-11 10:02:47,612 [trainer.py] => tuned_epoch: 20
+2026-08-11 10:02:47,612 [trainer.py] => init_lr: 0.01
+2026-08-11 10:02:47,613 [trainer.py] => batch_size: 48
+2026-08-11 10:02:47,613 [trainer.py] => weight_decay: 0.0005
+2026-08-11 10:02:47,613 [trainer.py] => min_lr: 0.0
+2026-08-11 10:02:47,613 [trainer.py] => ffn_num: 64
+2026-08-11 10:02:47,613 [trainer.py] => optimizer: sgd
+2026-08-11 10:02:47,613 [trainer.py] => num_workers: 8
+2026-08-11 10:02:47,613 [trainer.py] => use_RP: True
+2026-08-11 10:02:47,613 [trainer.py] => M: 10000
+2026-08-11 10:02:47,613 [trainer.py] => ridge_sample_size: 1024
+2026-08-11 10:02:47,613 [trainer.py] => total_class_num: 100
+2026-08-11 10:02:47,613 [trainer.py] => config: /home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/ranpac/ranpac_ucf_B0_Inc10.json
+['Apply Eye Makeup', 'Apply Lipstick', 'Archery', 'Baby Crawling', 'Balance Beam', 'Band Marching', 'Baseball Pitch', 'Basketball', 'Basketball Dunk', 'Bench Press', 'Biking', 'Billiards', 'Blow Dry Hair', 'Blowing Candles', 'Body Weight Squats', 'Bowling', 'Boxing Punching Bag', 'Boxing Speed Bag', 'Breast Stroke', 'Brushing Teeth', 'Clean And Jerk', 'Cliff Diving', 'Cricket Bowling', 'Cricket Shot', 'Cutting In Kitchen', 'Diving', 'Drumming', 'Fencing', 'Field Hockey Penalty', 'Floor Gymnastics', 'Frisbee Catch', 'Front Crawl', 'Golf Swing', 'Haircut', 'Hammer Throw', 'Hammering', 'Hand Stand Pushups', 'Handstand Walking', 'Head Massage', 'High Jump', 'Horse Race', 'Horse Riding', 'Hula Hoop', 'Ice Dancing', 'Javelin Throw', 'Juggling Balls', 'Jump Rope', 'Jumping Jack', 'Kayaking', 'Knitting', 'Long Jump', 'Lunges', 'Military Parade', 'Mixing', 'Mopping Floor', 'Nunchucks', 'Parallel Bars', 'Pizza Tossing', 'Playing Cello', 'Playing Daf', 'Playing Dhol', 'Playing Flute', 'Playing Guitar', 'Playing Piano', 'Playing Sitar', 'Playing Tabla', 'Playing Violin', 'Pole Vault', 'Pommel Horse', 'Pull Ups', 'Punch', 'Push Ups', 'Rafting', 'Rock Climbing Indoor', 'Rope Climbing', 'Rowing', 'Salsa Spin', 'Shaving Beard', 'Shotput', 'Skate Boarding', 'Skiing', 'Skijet', 'Sky Diving', 'Soccer Juggling', 'Soccer Penalty', 'Still Rings', 'Sumo Wrestling', 'Surfing', 'Swing', 'Table Tennis Shot', 'Tai Chi', 'Tennis Swing', 'Throw Discus', 'Trampoline Jumping', 'Typing', 'Uneven Bars', 'Volleyball Spiking', 'Walking With Dog', 'Wall Pushups', 'Writing On Board']
+['a photo of a person {}.', 'a video of a person {}.', 'a example of a person {}.', 'a demonstration of a person {}.', 'a photo of the person {}.', 'a video of the person {}.', 'a example of the person {}.', 'a demonstration of the person {}.', 'a photo of a person using {}.', 'a video of a person using {}.', 'a example of a person using {}.', 'a demonstration of a person using {}.', 'a photo of the person using {}.', 'a video of the person using {}.', 'a example of the person using {}.', 'a demonstration of the person using {}.', 'a photo of a person doing {}.', 'a video of a person doing {}.', 'a example of a person doing {}.', 'a demonstration of a person doing {}.', 'a photo of the person doing {}.', 'a video of the person doing {}.', 'a example of the person doing {}.', 'a demonstration of the person doing {}.', 'a photo of a person during {}.', 'a video of a person during {}.', 'a example of a person during {}.', 'a demonstration of a person during {}.', 'a photo of the person during {}.', 'a video of the person during {}.', 'a example of the person during {}.', 'a demonstration of the person during {}.', 'a photo of a person performing {}.', 'a video of a person performing {}.', 'a example of a person performing {}.', 'a demonstration of a person performing {}.', 'a photo of the person performing {}.', 'a video of the person performing {}.', 'a example of the person performing {}.', 'a demonstration of the person performing {}.', 'a photo of a person practicing {}.', 'a video of a person practicing {}.', 'a example of a person practicing {}.', 'a demonstration of a person practicing {}.', 'a photo of the person practicing {}.', 'a video of the person practicing {}.', 'a example of the person practicing {}.', 'a demonstration of the person practicing {}.']
+{'Apply_Eye_Makeup': 0, 'Apply_Lipstick': 1, 'Archery': 2, 'Baby_Crawling': 3, 'Balance_Beam': 4, 'Band_Marching': 5, 'Baseball_Pitch': 6, 'Basketball': 7, 'Basketball_Dunk': 8, 'Bench_Press': 9, 'Biking': 10, 'Billiards': 11, 'Blow_Dry_Hair': 12, 'Blowing_Candles': 13, 'Body_Weight_Squats': 14, 'Bowling': 15, 'Boxing_Punching_Bag': 16, 'Boxing_Speed_Bag': 17, 'Breast_Stroke': 18, 'Brushing_Teeth': 19, 'Clean_And_Jerk': 20, 'Cliff_Diving': 21, 'Cricket_Bowling': 22, 'Cricket_Shot': 23, 'Cutting_In_Kitchen': 24, 'Diving': 25, 'Drumming': 26, 'Fencing': 27, 'Field_Hockey_Penalty': 28, 'Floor_Gymnastics': 29, 'Frisbee_Catch': 30, 'Front_Crawl': 31, 'Golf_Swing': 32, 'Haircut': 33, 'Hammer_Throw': 34, 'Hammering': 35, 'Handstand_Pushups': 36, 'Handstand_Walking': 37, 'Head_Massage': 38, 'High_Jump': 39, 'Horse_Race': 40, 'Horse_Riding': 41, 'Hula_Hoop': 42, 'Ice_Dancing': 43, 'Javelin_Throw': 44, 'Juggling_Balls': 45, 'Jump_Rope': 46, 'Jumping_Jack': 47, 'Kayaking': 48, 'Knitting': 49, 'Long_Jump': 50, 'Lunges': 51, 'Military_Parade': 52, 'Mixing': 53, 'Mopping_Floor': 54, 'Nunchucks': 55, 'Parallel_Bars': 56, 'Pizza_Tossing': 57, 'Playing_Cello': 58, 'Playing_Daf': 59, 'Playing_Dhol': 60, 'Playing_Flute': 61, 'Playing_Guitar': 62, 'Playing_Piano': 63, 'Playing_Sitar': 64, 'Playing_Tabla': 65, 'Playing_Violin': 66, 'Pole_Vault': 67, 'Pommel_Horse': 68, 'Pull_Ups': 69, 'Punch': 70, 'Push_Ups': 71, 'Rafting': 72, 'Rock_Climbing_Indoor': 73, 'Rope_Climbing': 74, 'Rowing': 75, 'Salsa_Spin': 76, 'Shaving_Beard': 77, 'Shotput': 78, 'Skate_Boarding': 79, 'Skiing': 80, 'Skijet': 81, 'Sky_Diving': 82, 'Soccer_Juggling': 83, 'Soccer_Penalty': 84, 'Still_Rings': 85, 'Sumo_Wrestling': 86, 'Surfing': 87, 'Swing': 88, 'Table_Tennis_Shot': 89, 'Tai_Chi': 90, 'Tennis_Swing': 91, 'Throw_Discus': 92, 'Trampoline_Jumping': 93, 'Typing': 94, 'Uneven_Bars': 95, 'Volleyball_Spiking': 96, 'Walking_With_Dog': 97, 'Wall_Pushups': 98, 'Writing_On_Board': 99}
+2026-08-11 10:02:47,734 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+After shuffle, class_to_label is:  ['Pommel Horse', 'Parallel Bars', 'Shotput', 'Basketball Dunk', 'Cricket Shot', 'Soccer Penalty', 'Tai Chi', 'Playing Tabla', 'Rope Climbing', 'Salsa Spin', 'Horse Race', 'Table Tennis Shot', 'Baby Crawling', 'Throw Discus', 'Nunchucks', 'Bench Press', 'Drumming', 'Skiing', 'Ice Dancing', 'Head Massage', 'Playing Cello', 'Punch', 'Shaving Beard', 'Apply Lipstick', 'Still Rings', 'Brushing Teeth', 'Boxing Speed Bag', 'Long Jump', 'Field Hockey Penalty', 'Mixing', 'Blowing Candles', 'Skijet', 'Juggling Balls', 'Sky Diving', 'Baseball Pitch', 'Playing Daf', 'Soccer Juggling', 'Boxing Punching Bag', 'Bowling', 'Javelin Throw', 'Tennis Swing', 'Horse Riding', 'Rafting', 'Playing Dhol', 'Skate Boarding', 'Military Parade', 'Clean And Jerk', 'Biking', 'Front Crawl', 'Mopping Floor', 'Handstand Walking', 'Uneven Bars', 'Body Weight Squats', 'Push Ups', 'Volleyball Spiking', 'Wall Pushups', 'Walking With Dog', 'Archery', 'Playing Sitar', 'Playing Violin', 'Hula Hoop', 'Cricket Bowling', 'Hammering', 'Sumo Wrestling', 'Cutting In Kitchen', 'Hammer Throw', 'Surfing', 'Cliff Diving', 'Writing On Board', 'Apply Eye Makeup', 'Swing', 'Fencing', 'Breast Stroke', 'Typing', 'Billiards', 'Blow Dry Hair', 'Jumping Jack', 'Diving', 'Frisbee Catch', 'Jump Rope', 'Playing Guitar', 'Pull Ups', 'Hand Stand Pushups', 'Playing Flute', 'Basketball', 'Playing Piano', 'Rowing', 'Band Marching', 'Golf Swing', 'Balance Beam', 'Lunges', 'Kayaking', 'Rock Climbing Indoor', 'Trampoline Jumping', 'High Jump', 'Pole Vault', 'Floor Gymnastics', 'Knitting', 'Pizza Tossing', 'Haircut']
+Training class stages: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+2026-08-11 10:02:48,914 [instantiator.py] => Created a temporary directory at /tmp/tmp0opw2lyy
+2026-08-11 10:02:48,915 [instantiator.py] => Writing /tmp/tmp0opw2lyy/_remote_module_non_scriptable.py
+2026-08-11 10:02:49,052 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-11 10:02:50,589 [factory.py] => Loading pretrained ViT-B-16 weights (/home/team/zhaohongwei/.cache/clip/ViT-B-16.pt).
+/home/team/zhaohongwei/anaconda3/envs/mmcl/lib/python3.10/site-packages/torch/serialization.py:799: UserWarning: 'torch.load' received a zip file that looks like a TorchScript archive dispatching to 'torch.jit.load' (call 'torch.jit.load' directly to silence this warning)
+  warnings.warn("'torch.load' received a zip file that looks like a TorchScript archive"
+2026-08-11 10:02:53,197 [ranpac.py] => Learning on 0-10
+2026-08-11 10:02:53,201 [ranpac.py] => RanPAC first-session trainable parameters: 1194752
+RanPAC adapter tuning:   0%|          | 0/20 [00:00<?, ?it/s]RanPAC task 0 epoch 1/20 loss 2.270 acc 25.73:   0%|          | 0/20 [00:07<?, ?it/s]RanPAC task 0 epoch 1/20 loss 2.270 acc 25.73:   5%|▌         | 1/20 [00:07<02:16,  7.19s/it]RanPAC task 0 epoch 2/20 loss 2.179 acc 54.78:   5%|▌         | 1/20 [00:14<02:16,  7.19s/it]RanPAC task 0 epoch 2/20 loss 2.179 acc 54.78:  10%|█         | 2/20 [00:14<02:08,  7.15s/it]RanPAC task 0 epoch 3/20 loss 2.098 acc 67.74:  10%|█         | 2/20 [00:21<02:08,  7.15s/it]RanPAC task 0 epoch 3/20 loss 2.098 acc 67.74:  15%|█▌        | 3/20 [00:21<02:02,  7.18s/it]RanPAC task 0 epoch 4/20 loss 2.037 acc 77.29:  15%|█▌        | 3/20 [00:28<02:02,  7.18s/it]RanPAC task 0 epoch 4/20 loss 2.037 acc 77.29:  20%|██        | 4/20 [00:28<01:55,  7.23s/it]RanPAC task 0 epoch 5/20 loss 1.997 acc 82.26:  20%|██        | 4/20 [00:36<01:55,  7.23s/it]RanPAC task 0 epoch 5/20 loss 1.997 acc 82.26:  25%|██▌       | 5/20 [00:36<01:49,  7.27s/it]RanPAC task 0 epoch 6/20 loss 1.968 acc 86.16:  25%|██▌       | 5/20 [00:43<01:49,  7.27s/it]RanPAC task 0 epoch 6/20 loss 1.968 acc 86.16:  30%|███       | 6/20 [00:43<01:42,  7.34s/it]RanPAC task 0 epoch 7/20 loss 1.949 acc 88.60:  30%|███       | 6/20 [00:51<01:42,  7.34s/it]RanPAC task 0 epoch 7/20 loss 1.949 acc 88.60:  35%|███▌      | 7/20 [00:51<01:35,  7.38s/it]RanPAC task 0 epoch 8/20 loss 1.935 acc 89.86:  35%|███▌      | 7/20 [00:58<01:35,  7.38s/it]RanPAC task 0 epoch 8/20 loss 1.935 acc 89.86:  40%|████      | 8/20 [00:58<01:29,  7.46s/it]RanPAC task 0 epoch 9/20 loss 1.924 acc 90.45:  40%|████      | 8/20 [01:06<01:29,  7.46s/it]RanPAC task 0 epoch 9/20 loss 1.924 acc 90.45:  45%|████▌     | 9/20 [01:06<01:21,  7.45s/it]RanPAC task 0 epoch 10/20 loss 1.916 acc 90.84:  45%|████▌     | 9/20 [01:13<01:21,  7.45s/it]RanPAC task 0 epoch 10/20 loss 1.916 acc 90.84:  50%|█████     | 10/20 [01:13<01:14,  7.46s/it]RanPAC task 0 epoch 11/20 loss 1.910 acc 91.13:  50%|█████     | 10/20 [01:21<01:14,  7.46s/it]RanPAC task 0 epoch 11/20 loss 1.910 acc 91.13:  55%|█████▌    | 11/20 [01:21<01:07,  7.54s/it]RanPAC task 0 epoch 12/20 loss 1.906 acc 91.52:  55%|█████▌    | 11/20 [01:28<01:07,  7.54s/it]RanPAC task 0 epoch 12/20 loss 1.906 acc 91.52:  60%|██████    | 12/20 [01:28<01:00,  7.52s/it]RanPAC task 0 epoch 13/20 loss 1.904 acc 91.72:  60%|██████    | 12/20 [01:36<01:00,  7.52s/it]RanPAC task 0 epoch 13/20 loss 1.904 acc 91.72:  65%|██████▌   | 13/20 [01:36<00:52,  7.52s/it]RanPAC task 0 epoch 14/20 loss 1.899 acc 92.20:  65%|██████▌   | 13/20 [01:43<00:52,  7.52s/it]RanPAC task 0 epoch 14/20 loss 1.899 acc 92.20:  70%|███████   | 14/20 [01:43<00:45,  7.50s/it]RanPAC task 0 epoch 15/20 loss 1.898 acc 92.20:  70%|███████   | 14/20 [01:51<00:45,  7.50s/it]RanPAC task 0 epoch 15/20 loss 1.898 acc 92.20:  75%|███████▌  | 15/20 [01:51<00:37,  7.53s/it]RanPAC task 0 epoch 16/20 loss 1.896 acc 92.20:  75%|███████▌  | 15/20 [01:58<00:37,  7.53s/it]RanPAC task 0 epoch 16/20 loss 1.896 acc 92.20:  80%|████████  | 16/20 [01:58<00:30,  7.52s/it]RanPAC task 0 epoch 17/20 loss 1.896 acc 92.50:  80%|████████  | 16/20 [02:06<00:30,  7.52s/it]RanPAC task 0 epoch 17/20 loss 1.896 acc 92.50:  85%|████████▌ | 17/20 [02:06<00:22,  7.50s/it]RanPAC task 0 epoch 18/20 loss 1.894 acc 92.40:  85%|████████▌ | 17/20 [02:13<00:22,  7.50s/it]RanPAC task 0 epoch 18/20 loss 1.894 acc 92.40:  90%|█████████ | 18/20 [02:13<00:15,  7.52s/it]RanPAC task 0 epoch 19/20 loss 1.893 acc 92.40:  90%|█████████ | 18/20 [02:21<00:15,  7.52s/it]RanPAC task 0 epoch 19/20 loss 1.893 acc 92.40:  95%|█████████▌| 19/20 [02:21<00:07,  7.52s/it]RanPAC task 0 epoch 20/20 loss 1.893 acc 92.40:  95%|█████████▌| 19/20 [02:28<00:07,  7.52s/it]RanPAC task 0 epoch 20/20 loss 1.893 acc 92.40: 100%|██████████| 20/20 [02:28<00:00,  7.50s/it]RanPAC task 0 epoch 20/20 loss 1.893 acc 92.40: 100%|██████████| 20/20 [02:28<00:00,  7.45s/it]
+2026-08-11 10:05:22,130 [ranpac.py] => Initialized RanPAC random projection: 512 -> 10000
+2026-08-11 10:05:25,815 [ranpac.py] => RanPAC ridge parameter: 1000
+2026-08-11 10:05:27,030 [trainer.py] => CNN: {'total': 99.6, '00-09': 99.6, 'old': 0, 'new': 99.6, 'harmonic': 0.0}
+2026-08-11 10:05:27,030 [trainer.py] => CNN top1 curve: [99.6]
+2026-08-11 10:05:27,030 [trainer.py] => CNN top5 curve: [100.0]
+2026-08-11 10:05:27,030 [trainer.py] => Average Accuracy (CNN top1): 99.6
+2026-08-11 10:05:27,038 [ranpac.py] => Learning on 10-20
+2026-08-11 10:05:31,196 [ranpac.py] => RanPAC ridge parameter: 1000
+2026-08-11 10:05:33,331 [trainer.py] => CNN: {'total': 99.61, '00-09': 99.21, '10-19': 100.0, 'old': 99.21, 'new': 100.0, 'harmonic': 99.6}
+2026-08-11 10:05:33,331 [trainer.py] => CNN top1 curve: [99.6, 99.61]
+2026-08-11 10:05:33,332 [trainer.py] => CNN top5 curve: [100.0, 100.0]
+2026-08-11 10:05:33,332 [trainer.py] => Average Accuracy (CNN top1): 99.60499999999999
+2026-08-11 10:05:33,347 [ranpac.py] => Learning on 20-30
+2026-08-11 10:05:37,366 [ranpac.py] => RanPAC ridge parameter: 100
+2026-08-11 10:05:40,474 [trainer.py] => CNN: {'total': 99.24, '00-09': 99.21, '10-19': 100.0, '20-29': 98.55, 'old': 99.61, 'new': 98.55, 'harmonic': 99.08}
+2026-08-11 10:05:40,475 [trainer.py] => CNN top1 curve: [99.6, 99.61, 99.24]
+2026-08-11 10:05:40,475 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0]
+2026-08-11 10:05:40,475 [trainer.py] => Average Accuracy (CNN top1): 99.48333333333333
+2026-08-11 10:05:40,502 [ranpac.py] => Learning on 30-40
+2026-08-11 10:05:44,301 [ranpac.py] => RanPAC ridge parameter: 1000
+2026-08-11 10:05:48,019 [trainer.py] => CNN: {'total': 99.13, '00-09': 98.81, '10-19': 99.62, '20-29': 98.18, '30-39': 100.0, 'old': 98.86, 'new': 100.0, 'harmonic': 99.43}
+2026-08-11 10:05:48,020 [trainer.py] => CNN top1 curve: [99.6, 99.61, 99.24, 99.13]
+2026-08-11 10:05:48,020 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0, 99.9]
+2026-08-11 10:05:48,020 [trainer.py] => Average Accuracy (CNN top1): 99.395
+2026-08-11 10:05:48,038 [ranpac.py] => Learning on 40-50
+2026-08-11 10:05:51,874 [ranpac.py] => RanPAC ridge parameter: 10000
+2026-08-11 10:05:56,674 [trainer.py] => CNN: {'total': 99.08, '00-09': 99.21, '10-19': 99.62, '20-29': 98.18, '30-39': 99.2, '40-49': 99.27, 'old': 99.04, 'new': 99.27, 'harmonic': 99.15}
+2026-08-11 10:05:56,675 [trainer.py] => CNN top1 curve: [99.6, 99.61, 99.24, 99.13, 99.08]
+2026-08-11 10:05:56,675 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0, 99.9, 100.0]
+2026-08-11 10:05:56,675 [trainer.py] => Average Accuracy (CNN top1): 99.332
+2026-08-11 10:05:56,689 [ranpac.py] => Learning on 50-60
+2026-08-11 10:06:00,385 [ranpac.py] => RanPAC ridge parameter: 1000
+2026-08-11 10:06:05,769 [trainer.py] => CNN: {'total': 98.9, '00-09': 97.63, '10-19': 99.62, '20-29': 98.55, '30-39': 99.2, '40-49': 99.27, '50-59': 99.17, 'old': 98.86, 'new': 99.17, 'harmonic': 99.01}
+2026-08-11 10:06:05,769 [trainer.py] => CNN top1 curve: [99.6, 99.61, 99.24, 99.13, 99.08, 98.9]
+2026-08-11 10:06:05,770 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0, 99.9, 100.0, 99.94]
+2026-08-11 10:06:05,770 [trainer.py] => Average Accuracy (CNN top1): 99.25999999999999
+2026-08-11 10:06:05,790 [ranpac.py] => Learning on 60-70
+2026-08-11 10:06:09,705 [ranpac.py] => RanPAC ridge parameter: 1000
+2026-08-11 10:06:16,065 [trainer.py] => CNN: {'total': 98.85, '00-09': 97.63, '10-19': 98.85, '20-29': 98.55, '30-39': 98.8, '40-49': 99.27, '50-59': 100.0, '60-69': 98.91, 'old': 98.84, 'new': 98.91, 'harmonic': 98.87}
+2026-08-11 10:06:16,066 [trainer.py] => CNN top1 curve: [99.6, 99.61, 99.24, 99.13, 99.08, 98.9, 98.85]
+2026-08-11 10:06:16,066 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0, 99.9, 100.0, 99.94, 99.89]
+2026-08-11 10:06:16,066 [trainer.py] => Average Accuracy (CNN top1): 99.20142857142856
+2026-08-11 10:06:16,086 [ranpac.py] => Learning on 70-80
+2026-08-11 10:06:20,073 [ranpac.py] => RanPAC ridge parameter: 1000
+2026-08-11 10:06:27,028 [trainer.py] => CNN: {'total': 98.85, '00-09': 97.63, '10-19': 98.85, '20-29': 98.55, '30-39': 99.2, '40-49': 98.54, '50-59': 99.59, '60-69': 98.54, '70-79': 100.0, 'old': 98.69, 'new': 100.0, 'harmonic': 99.34}
+2026-08-11 10:06:27,028 [trainer.py] => CNN top1 curve: [99.6, 99.61, 99.24, 99.13, 99.08, 98.9, 98.85, 98.85]
+2026-08-11 10:06:27,029 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0, 99.9, 100.0, 99.94, 99.89, 99.9]
+2026-08-11 10:06:27,029 [trainer.py] => Average Accuracy (CNN top1): 99.1575
+2026-08-11 10:06:27,047 [ranpac.py] => Learning on 80-90
+2026-08-11 10:06:30,978 [ranpac.py] => RanPAC ridge parameter: 1000
+2026-08-11 10:06:38,791 [trainer.py] => CNN: {'total': 98.53, '00-09': 97.63, '10-19': 98.46, '20-29': 98.55, '30-39': 98.8, '40-49': 98.18, '50-59': 98.76, '60-69': 98.91, '70-79': 100.0, '80-89': 97.64, 'old': 98.66, 'new': 97.64, 'harmonic': 98.15}
+2026-08-11 10:06:38,792 [trainer.py] => CNN top1 curve: [99.6, 99.61, 99.24, 99.13, 99.08, 98.9, 98.85, 98.85, 98.53]
+2026-08-11 10:06:38,792 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0, 99.9, 100.0, 99.94, 99.89, 99.9, 99.79]
+2026-08-11 10:06:38,792 [trainer.py] => Average Accuracy (CNN top1): 99.08777777777777
+2026-08-11 10:06:38,809 [ranpac.py] => Learning on 90-100
+2026-08-11 10:06:42,518 [ranpac.py] => RanPAC ridge parameter: 1000
+2026-08-11 10:06:51,745 [trainer.py] => CNN: {'total': 97.95, '00-09': 97.23, '10-19': 98.46, '20-29': 98.55, '30-39': 98.8, '40-49': 98.18, '50-59': 98.34, '60-69': 99.27, '70-79': 99.62, '80-89': 96.96, '90-99': 94.16, 'old': 98.36, 'new': 94.16, 'harmonic': 96.21}
+2026-08-11 10:06:51,746 [trainer.py] => CNN top1 curve: [99.6, 99.61, 99.24, 99.13, 99.08, 98.9, 98.85, 98.85, 98.53, 97.95]
+2026-08-11 10:06:51,746 [trainer.py] => CNN top5 curve: [100.0, 100.0, 100.0, 99.9, 100.0, 99.94, 99.89, 99.9, 99.79, 99.62]
+2026-08-11 10:06:51,746 [trainer.py] => Average Accuracy (CNN top1): 98.974
+
+========================================
+Finished ucf101_init10_inc10 seed=1993
+Backbone: OpenAI CLIP
+Average Accuracy (Top1): 98.97
+Last Accuracy: 97.95
+Average Accuracy (Top5): 99.9
+Last Top5: 99.62
+========================================
+
+DONE ranpac ranpac_ucf_B0_Inc10 backbone=openai_clip seed=1993 physical_gpu=5
+Shard 3/6 finished with 0 failures

@@ -1,0 +1,4 @@
+completed_at=2026-08-15T03:07:23+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/area/area_sun_B150_Inc30.json
+seed=2026
+physical_gpu=2

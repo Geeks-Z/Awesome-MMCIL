@@ -1,0 +1,5 @@
+completed_at=2026-08-18T10:22:13+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/ranpac/ranpac_aircraft_B0_Inc10.json
+seed=0
+physical_gpu=6
+backbone=OpenAI_CLIP_ViTB16

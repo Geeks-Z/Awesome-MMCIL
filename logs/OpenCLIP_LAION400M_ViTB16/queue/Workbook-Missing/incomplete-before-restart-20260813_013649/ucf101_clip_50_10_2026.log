@@ -1,0 +1,26 @@
+2026-08-06 16:25:58,826 [trainer.py] => config: /dev/stdin
+2026-08-06 16:25:58,826 [trainer.py] => dataset: ucf101
+2026-08-06 16:25:58,826 [trainer.py] => shuffle: True
+2026-08-06 16:25:58,826 [trainer.py] => init_cls: 50
+2026-08-06 16:25:58,826 [trainer.py] => increment: 10
+2026-08-06 16:25:58,826 [trainer.py] => model_name: area
+2026-08-06 16:25:58,826 [trainer.py] => backbone_type: clip
+2026-08-06 16:25:58,826 [trainer.py] => clip_pretrained: laion400m_e32
+2026-08-06 16:25:58,826 [trainer.py] => device: [device(type='cuda', index=5)]
+2026-08-06 16:25:58,826 [trainer.py] => seed: 2026
+2026-08-06 16:25:58,826 [trainer.py] => epochs: 20
+2026-08-06 16:25:58,826 [trainer.py] => milestones: [8, 15]
+2026-08-06 16:25:58,826 [trainer.py] => init_lr: 0.01
+2026-08-06 16:25:58,826 [trainer.py] => batch_size: 64
+2026-08-06 16:25:58,826 [trainer.py] => weight_decay: 0.05
+2026-08-06 16:25:58,826 [trainer.py] => optimizer: sgd
+2026-08-06 16:25:58,827 [trainer.py] => samples_per_class: 4
+2026-08-06 16:25:58,827 [trainer.py] => K: 8
+2026-08-06 16:25:58,827 [trainer.py] => vib_lambda: 1
+2026-08-06 16:25:58,827 [trainer.py] => precomputed_basis_path: ./precomputed_basis/area/ucf
+2026-08-06 16:25:58,827 [trainer.py] => g_lambda: 0.3
+2026-08-06 16:25:58,827 [trainer.py] => num_workers: 8
+2026-08-06 16:25:58,926 [data_manager.py] => [98, 10, 4, 18, 88, 13, 8, 84, 79, 21, 85, 96, 53, 42, 52, 97, 74, 5, 58, 23, 90, 59, 16, 72, 75, 30, 43, 99, 44, 41, 0, 46, 61, 80, 65, 39, 70, 87, 89, 91, 82, 14, 12, 71, 50, 11, 15, 57, 22, 67, 45, 32, 78, 63, 66, 55, 31, 62, 35, 34, 19, 49, 24, 9, 37, 36, 3, 64, 40, 86, 81, 93, 47, 73, 17, 60, 68, 25, 38, 48, 33, 20, 83, 7, 27, 94, 54, 2, 92, 76, 69, 51, 28, 29, 95, 77, 56, 26, 6, 1]
+2026-08-06 16:26:00,116 [instantiator.py] => Created a temporary directory at /tmp/tmpippq9w5h
+2026-08-06 16:26:00,116 [instantiator.py] => Writing /tmp/tmpippq9w5h/_remote_module_non_scriptable.py
+2026-08-06 16:26:00,257 [factory.py] => Loaded ViT-B-16 model config.

@@ -1,0 +1,4 @@
+completed_at=2026-08-14T21:29:07+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/area/area_ucf_B50_Inc10.json
+seed=2026
+physical_gpu=1

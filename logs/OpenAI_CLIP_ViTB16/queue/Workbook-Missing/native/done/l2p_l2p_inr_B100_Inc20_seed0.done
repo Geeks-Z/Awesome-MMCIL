@@ -1,0 +1,5 @@
+completed_at=2026-08-18T09:01:48+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/l2p/l2p_inr_B100_Inc20.json
+seed=0
+physical_gpu=5
+backbone=OpenAI_CLIP_ViTB16

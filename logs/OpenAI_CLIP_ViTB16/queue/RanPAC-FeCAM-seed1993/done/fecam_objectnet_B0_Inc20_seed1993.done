@@ -1,0 +1,6 @@
+completed_at=2026-08-11T10:12:13+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/fecam/fecam_objectnet_B0_Inc20.json
+backbone=openai_clip
+checkpoint=/home/team/zhaohongwei/.cache/clip/ViT-B-16.pt
+seed=1993
+physical_gpu=1

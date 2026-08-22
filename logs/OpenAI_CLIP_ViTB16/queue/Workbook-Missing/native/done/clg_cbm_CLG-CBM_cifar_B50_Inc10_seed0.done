@@ -1,0 +1,5 @@
+completed_at=2026-08-17T19:04:06+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/CLG-CBM/CLG-CBM_cifar_B50_Inc10.json
+seed=0
+physical_gpu=5
+backbone=OpenAI_CLIP_ViTB16

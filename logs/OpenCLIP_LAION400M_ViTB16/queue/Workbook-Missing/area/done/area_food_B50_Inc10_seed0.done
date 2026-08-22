@@ -1,0 +1,4 @@
+completed_at=2026-08-13T13:09:56+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/area/area_food_B50_Inc10.json
+seed=0
+physical_gpu=7

@@ -1,0 +1,4 @@
+completed_at=2026-08-12T18:22:57+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/ranpac/ranpac_ucf_B50_Inc10.json
+seed=2026
+physical_gpu=1

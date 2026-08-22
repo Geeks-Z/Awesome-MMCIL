@@ -1,0 +1,4 @@
+completed_at=2026-08-12T17:50:51+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/fecam/fecam_cub_B0_Inc20.json
+seed=2026
+physical_gpu=2

@@ -39,6 +39,17 @@ def main():
     params["seed"] = [args.seed]
     params["device"] = [args.device]
     params["config"] = str(args.config)
+    if params["model_name"] == "area" and params.get("precomputed_basis_path"):
+        # AREA's bases are image/text embeddings.  They cannot be shared with
+        # the LAION-400M experiments even though both ViT-B/16 variants have
+        # the same feature dimension.
+        params["precomputed_basis_path"] = str(
+            ROOT
+            / "precomputed_basis"
+            / "openai_clip_vitb16"
+            / "area"
+            / Path(params["precomputed_basis_path"]).name
+        )
     train(params)
 
 

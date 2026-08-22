@@ -1,0 +1,5 @@
+completed_at=2026-08-18T01:38:18+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/coda_prompt/coda_prompt_cifar_B50_Inc10.json
+seed=0
+physical_gpu=7
+backbone=OpenAI_CLIP_ViTB16

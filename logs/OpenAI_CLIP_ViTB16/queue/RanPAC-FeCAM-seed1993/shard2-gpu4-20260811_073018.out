@@ -433,4 +433,162 @@ Training class stages: [100, 20, 20, 20, 20, 20]
   warnings.warn("'torch.load' received a zip file that looks like a TorchScript archive"
 2026-08-11 08:26:12,237 [fecam.py] => Learning on 0-100
 2026-08-11 08:26:12,259 [fecam.py] => FeCAM first-session trainable parameters: 1240832
-FeCAM adapter tuning:   0%|          | 0/20 [00:00<?, ?it/s]FeCAM task 0 epoch 1/20 loss 4.573 acc 4.27:   0%|          | 0/20 [04:19<?, ?it/s]FeCAM task 0 epoch 1/20 loss 4.573 acc 4.27:   5%|▌         | 1/20 [04:19<1:22:10, 259.50s/it]FeCAM task 0 epoch 2/20 loss 4.510 acc 11.09:   5%|▌         | 1/20 [08:36<1:22:10, 259.50s/it]FeCAM task 0 epoch 2/20 loss 4.510 acc 11.09:  10%|█         | 2/20 [08:36<1:17:24, 258.02s/it]FeCAM task 0 epoch 3/20 loss 4.457 acc 14.71:  10%|█         | 2/20 [12:59<1:17:24, 258.02s/it]FeCAM task 0 epoch 3/20 loss 4.457 acc 14.71:  15%|█▌        | 3/20 [12:59<1:13:48, 260.48s/it]FeCAM task 0 epoch 4/20 loss 4.394 acc 22.49:  15%|█▌        | 3/20 [17:15<1:13:48, 260.48s/it]FeCAM task 0 epoch 4/20 loss 4.394 acc 22.49:  20%|██        | 4/20 [17:15<1:08:55, 258.47s/it]FeCAM task 0 epoch 5/20 loss 4.281 acc 39.18:  20%|██        | 4/20 [21:32<1:08:55, 258.47s/it]FeCAM task 0 epoch 5/20 loss 4.281 acc 39.18:  25%|██▌       | 5/20 [21:32<1:04:31, 258.09s/it]FeCAM task 0 epoch 6/20 loss 4.177 acc 50.09:  25%|██▌       | 5/20 [25:50<1:04:31, 258.09s/it]FeCAM task 0 epoch 6/20 loss 4.177 acc 50.09:  30%|███       | 6/20 [25:50<1:00:12, 258.01s/it]FeCAM task 0 epoch 7/20 loss 4.100 acc 55.90:  30%|███       | 6/20 [30:14<1:00:12, 258.01s/it]FeCAM task 0 epoch 7/20 loss 4.100 acc 55.90:  35%|███▌      | 7/20 [30:14<56:20, 260.00s/it]  FeCAM task 0 epoch 8/20 loss 4.052 acc 58.13:  35%|███▌      | 7/20 [34:33<56:20, 260.00s/it]FeCAM task 0 epoch 8/20 loss 4.052 acc 58.13:  40%|████      | 8/20 [34:33<51:54, 259.52s/it]FeCAM task 0 epoch 9/20 loss 4.021 acc 59.66:  40%|████      | 8/20 [38:52<51:54, 259.52s/it]FeCAM task 0 epoch 9/20 loss 4.021 acc 59.66:  45%|████▌     | 9/20 [38:52<47:34, 259.54s/it]FeCAM task 0 epoch 10/20 loss 4.000 acc 60.68:  45%|████▌     | 9/20 [43:11<47:34, 259.54s/it]FeCAM task 0 epoch 10/20 loss 4.000 acc 60.68:  50%|█████     | 10/20 [43:11<43:12, 259.25s/it]FeCAM task 0 epoch 11/20 loss 3.986 acc 61.33:  50%|█████     | 10/20 [47:27<43:12, 259.25s/it]FeCAM task 0 epoch 11/20 loss 3.986 acc 61.33:  55%|█████▌    | 11/20 [47:27<38:44, 258.32s/it]FeCAM task 0 epoch 12/20 loss 3.975 acc 61.78:  55%|█████▌    | 11/20 [51:52<38:44, 258.32s/it]FeCAM task 0 epoch 12/20 loss 3.975 acc 61.78:  60%|██████    | 12/20 [51:52<34:41, 260.19s/it]FeCAM task 0 epoch 13/20 loss 3.968 acc 61.92:  60%|██████    | 12/20 [56:11<34:41, 260.19s/it]FeCAM task 0 epoch 13/20 loss 3.968 acc 61.92:  65%|██████▌   | 13/20 [56:11<30:20, 260.12s/it]FeCAM task 0 epoch 14/20 loss 3.962 acc 61.93:  65%|██████▌   | 13/20 [1:00:31<30:20, 260.12s/it]FeCAM task 0 epoch 14/20 loss 3.962 acc 61.93:  70%|███████   | 14/20 [1:00:31<25:59, 259.99s/it]FeCAM task 0 epoch 15/20 loss 3.958 acc 61.98:  70%|███████   | 14/20 [1:04:50<25:59, 259.99s/it]FeCAM task 0 epoch 15/20 loss 3.958 acc 61.98:  75%|███████▌  | 15/20 [1:04:50<21:38, 259.72s/it]FeCAM task 0 epoch 16/20 loss 3.955 acc 62.02:  75%|███████▌  | 15/20 [1:09:13<21:38, 259.72s/it]FeCAM task 0 epoch 16/20 loss 3.955 acc 62.02:  80%|████████  | 16/20 [1:09:13<17:22, 260.69s/it]FeCAM task 0 epoch 17/20 loss 3.953 acc 62.01:  80%|████████  | 16/20 [1:13:36<17:22, 260.69s/it]FeCAM task 0 epoch 17/20 loss 3.953 acc 62.01:  85%|████████▌ | 17/20 [1:13:36<13:04, 261.47s/it]FeCAM task 0 epoch 18/20 loss 3.952 acc 61.91:  85%|████████▌ | 17/20 [1:18:04<13:04, 261.47s/it]FeCAM task 0 epoch 18/20 loss 3.952 acc 61.91:  90%|█████████ | 18/20 [1:18:04<08:46, 263.31s/it]
+FeCAM adapter tuning:   0%|          | 0/20 [00:00<?, ?it/s]FeCAM task 0 epoch 1/20 loss 4.573 acc 4.27:   0%|          | 0/20 [04:19<?, ?it/s]FeCAM task 0 epoch 1/20 loss 4.573 acc 4.27:   5%|▌         | 1/20 [04:19<1:22:10, 259.50s/it]FeCAM task 0 epoch 2/20 loss 4.510 acc 11.09:   5%|▌         | 1/20 [08:36<1:22:10, 259.50s/it]FeCAM task 0 epoch 2/20 loss 4.510 acc 11.09:  10%|█         | 2/20 [08:36<1:17:24, 258.02s/it]FeCAM task 0 epoch 3/20 loss 4.457 acc 14.71:  10%|█         | 2/20 [12:59<1:17:24, 258.02s/it]FeCAM task 0 epoch 3/20 loss 4.457 acc 14.71:  15%|█▌        | 3/20 [12:59<1:13:48, 260.48s/it]FeCAM task 0 epoch 4/20 loss 4.394 acc 22.49:  15%|█▌        | 3/20 [17:15<1:13:48, 260.48s/it]FeCAM task 0 epoch 4/20 loss 4.394 acc 22.49:  20%|██        | 4/20 [17:15<1:08:55, 258.47s/it]FeCAM task 0 epoch 5/20 loss 4.281 acc 39.18:  20%|██        | 4/20 [21:32<1:08:55, 258.47s/it]FeCAM task 0 epoch 5/20 loss 4.281 acc 39.18:  25%|██▌       | 5/20 [21:32<1:04:31, 258.09s/it]FeCAM task 0 epoch 6/20 loss 4.177 acc 50.09:  25%|██▌       | 5/20 [25:50<1:04:31, 258.09s/it]FeCAM task 0 epoch 6/20 loss 4.177 acc 50.09:  30%|███       | 6/20 [25:50<1:00:12, 258.01s/it]FeCAM task 0 epoch 7/20 loss 4.100 acc 55.90:  30%|███       | 6/20 [30:14<1:00:12, 258.01s/it]FeCAM task 0 epoch 7/20 loss 4.100 acc 55.90:  35%|███▌      | 7/20 [30:14<56:20, 260.00s/it]  FeCAM task 0 epoch 8/20 loss 4.052 acc 58.13:  35%|███▌      | 7/20 [34:33<56:20, 260.00s/it]FeCAM task 0 epoch 8/20 loss 4.052 acc 58.13:  40%|████      | 8/20 [34:33<51:54, 259.52s/it]FeCAM task 0 epoch 9/20 loss 4.021 acc 59.66:  40%|████      | 8/20 [38:52<51:54, 259.52s/it]FeCAM task 0 epoch 9/20 loss 4.021 acc 59.66:  45%|████▌     | 9/20 [38:52<47:34, 259.54s/it]FeCAM task 0 epoch 10/20 loss 4.000 acc 60.68:  45%|████▌     | 9/20 [43:11<47:34, 259.54s/it]FeCAM task 0 epoch 10/20 loss 4.000 acc 60.68:  50%|█████     | 10/20 [43:11<43:12, 259.25s/it]FeCAM task 0 epoch 11/20 loss 3.986 acc 61.33:  50%|█████     | 10/20 [47:27<43:12, 259.25s/it]FeCAM task 0 epoch 11/20 loss 3.986 acc 61.33:  55%|█████▌    | 11/20 [47:27<38:44, 258.32s/it]FeCAM task 0 epoch 12/20 loss 3.975 acc 61.78:  55%|█████▌    | 11/20 [51:52<38:44, 258.32s/it]FeCAM task 0 epoch 12/20 loss 3.975 acc 61.78:  60%|██████    | 12/20 [51:52<34:41, 260.19s/it]FeCAM task 0 epoch 13/20 loss 3.968 acc 61.92:  60%|██████    | 12/20 [56:11<34:41, 260.19s/it]FeCAM task 0 epoch 13/20 loss 3.968 acc 61.92:  65%|██████▌   | 13/20 [56:11<30:20, 260.12s/it]FeCAM task 0 epoch 14/20 loss 3.962 acc 61.93:  65%|██████▌   | 13/20 [1:00:31<30:20, 260.12s/it]FeCAM task 0 epoch 14/20 loss 3.962 acc 61.93:  70%|███████   | 14/20 [1:00:31<25:59, 259.99s/it]FeCAM task 0 epoch 15/20 loss 3.958 acc 61.98:  70%|███████   | 14/20 [1:04:50<25:59, 259.99s/it]FeCAM task 0 epoch 15/20 loss 3.958 acc 61.98:  75%|███████▌  | 15/20 [1:04:50<21:38, 259.72s/it]FeCAM task 0 epoch 16/20 loss 3.955 acc 62.02:  75%|███████▌  | 15/20 [1:09:13<21:38, 259.72s/it]FeCAM task 0 epoch 16/20 loss 3.955 acc 62.02:  80%|████████  | 16/20 [1:09:13<17:22, 260.69s/it]FeCAM task 0 epoch 17/20 loss 3.953 acc 62.01:  80%|████████  | 16/20 [1:13:36<17:22, 260.69s/it]FeCAM task 0 epoch 17/20 loss 3.953 acc 62.01:  85%|████████▌ | 17/20 [1:13:36<13:04, 261.47s/it]FeCAM task 0 epoch 18/20 loss 3.952 acc 61.91:  85%|████████▌ | 17/20 [1:18:04<13:04, 261.47s/it]FeCAM task 0 epoch 18/20 loss 3.952 acc 61.91:  90%|█████████ | 18/20 [1:18:04<08:46, 263.31s/it]FeCAM task 0 epoch 19/20 loss 3.951 acc 62.01:  90%|█████████ | 18/20 [1:22:23<08:46, 263.31s/it]FeCAM task 0 epoch 19/20 loss 3.951 acc 62.01:  95%|█████████▌| 19/20 [1:22:23<04:22, 262.01s/it]FeCAM task 0 epoch 20/20 loss 3.951 acc 62.05:  95%|█████████▌| 19/20 [1:26:42<04:22, 262.01s/it]FeCAM task 0 epoch 20/20 loss 3.951 acc 62.05: 100%|██████████| 20/20 [1:26:42<00:00, 261.05s/it]FeCAM task 0 epoch 20/20 loss 3.951 acc 62.05: 100%|██████████| 20/20 [1:26:42<00:00, 260.12s/it]
+2026-08-11 09:57:18,506 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 09:58:27,094 [trainer.py] => CNN: {'total': 61.87, '00-09': 62.5, '10-19': 65.73, '20-29': 51.86, '30-39': 74.45, '40-49': 59.33, '50-59': 61.76, '60-69': 58.24, '70-79': 61.03, '80-89': 56.86, '90-99': 66.57, 'old': 0, 'new': 61.87, 'harmonic': 0.0}
+2026-08-11 09:58:27,094 [trainer.py] => CNN top1 curve: [61.87]
+2026-08-11 09:58:27,094 [trainer.py] => CNN top5 curve: [85.99]
+2026-08-11 09:58:27,095 [trainer.py] => Average Accuracy (CNN top1): 61.87
+2026-08-11 09:58:27,096 [fecam.py] => Learning on 100-120
+2026-08-11 09:59:23,533 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:00:43,135 [trainer.py] => CNN: {'total': 59.4, '00-09': 61.08, '10-19': 63.29, '20-29': 51.24, '30-39': 70.35, '40-49': 58.41, '50-59': 59.15, '60-69': 56.04, '70-79': 59.21, '80-89': 52.94, '90-99': 63.31, '100-109': 55.74, '110-119': 60.59, 'old': 59.6, 'new': 58.41, 'harmonic': 59.0}
+2026-08-11 10:00:43,136 [trainer.py] => CNN top1 curve: [61.87, 59.4]
+2026-08-11 10:00:43,136 [trainer.py] => CNN top5 curve: [85.99, 84.14]
+2026-08-11 10:00:43,136 [trainer.py] => Average Accuracy (CNN top1): 60.635
+2026-08-11 10:00:43,137 [fecam.py] => Learning on 120-140
+2026-08-11 10:01:39,570 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:03:13,015 [trainer.py] => CNN: {'total': 56.1, '00-09': 59.67, '10-19': 58.39, '20-29': 50.31, '30-39': 66.56, '40-49': 57.8, '50-59': 58.17, '60-69': 55.49, '70-79': 53.78, '80-89': 51.76, '90-99': 61.24, '100-109': 54.43, '110-119': 52.82, '120-129': 49.71, '130-139': 54.49, 'old': 56.79, 'new': 52.03, 'harmonic': 54.31}
+2026-08-11 10:03:13,015 [trainer.py] => CNN top1 curve: [61.87, 59.4, 56.1]
+2026-08-11 10:03:13,015 [trainer.py] => CNN top5 curve: [85.99, 84.14, 82.25]
+2026-08-11 10:03:13,015 [trainer.py] => Average Accuracy (CNN top1): 59.123333333333335
+2026-08-11 10:03:13,017 [fecam.py] => Learning on 140-160
+2026-08-11 10:04:13,583 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:06:00,474 [trainer.py] => CNN: {'total': 53.83, '00-09': 57.78, '10-19': 55.94, '20-29': 49.69, '30-39': 65.62, '40-49': 56.57, '50-59': 52.94, '60-69': 53.02, '70-79': 51.96, '80-89': 50.98, '90-99': 60.06, '100-109': 53.77, '110-119': 50.94, '120-129': 48.83, '130-139': 53.56, '140-149': 48.26, '150-159': 51.66, 'old': 54.45, 'new': 49.93, 'harmonic': 52.09}
+2026-08-11 10:06:00,475 [trainer.py] => CNN top1 curve: [61.87, 59.4, 56.1, 53.83]
+2026-08-11 10:06:00,475 [trainer.py] => CNN top5 curve: [85.99, 84.14, 82.25, 80.48]
+2026-08-11 10:06:00,475 [trainer.py] => Average Accuracy (CNN top1): 57.8
+2026-08-11 10:06:00,476 [fecam.py] => Learning on 160-180
+2026-08-11 10:06:54,121 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:08:53,712 [trainer.py] => CNN: {'total': 52.07, '00-09': 55.9, '10-19': 55.59, '20-29': 47.52, '30-39': 65.3, '40-49': 55.35, '50-59': 50.0, '60-69': 51.37, '70-79': 50.76, '80-89': 50.59, '90-99': 59.47, '100-109': 53.44, '110-119': 50.4, '120-129': 48.25, '130-139': 52.32, '140-149': 45.84, '150-159': 51.1, '160-169': 48.02, '170-179': 46.0, 'old': 52.66, 'new': 47.06, 'harmonic': 49.7}
+2026-08-11 10:08:53,713 [trainer.py] => CNN top1 curve: [61.87, 59.4, 56.1, 53.83, 52.07]
+2026-08-11 10:08:53,713 [trainer.py] => CNN top5 curve: [85.99, 84.14, 82.25, 80.48, 78.63]
+2026-08-11 10:08:53,713 [trainer.py] => Average Accuracy (CNN top1): 56.653999999999996
+2026-08-11 10:08:53,714 [fecam.py] => Learning on 180-200
+2026-08-11 10:09:49,834 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:12:03,903 [trainer.py] => CNN: {'total': 49.79, '00-09': 55.66, '10-19': 54.9, '20-29': 46.89, '30-39': 64.98, '40-49': 55.05, '50-59': 48.69, '60-69': 50.55, '70-79': 49.55, '80-89': 50.59, '90-99': 58.88, '100-109': 52.79, '110-119': 49.06, '120-129': 47.66, '130-139': 52.01, '140-149': 44.5, '150-159': 49.17, '160-169': 44.68, '170-179': 43.67, '180-189': 46.69, '190-199': 31.32, 'old': 51.06, 'new': 38.1, 'harmonic': 43.64}
+2026-08-11 10:12:03,903 [trainer.py] => CNN top1 curve: [61.87, 59.4, 56.1, 53.83, 52.07, 49.79]
+2026-08-11 10:12:03,903 [trainer.py] => CNN top5 curve: [85.99, 84.14, 82.25, 80.48, 78.63, 76.64]
+2026-08-11 10:12:03,903 [trainer.py] => Average Accuracy (CNN top1): 55.51
+
+========================================
+Finished objectnet_init100_inc20 seed=1993
+Backbone: OpenAI CLIP
+Average Accuracy (Top1): 55.51
+Last Accuracy: 49.79
+Average Accuracy (Top5): 81.36
+Last Top5: 76.64
+========================================
+
+DONE fecam fecam_objectnet_B100_Inc20 backbone=openai_clip seed=1993 physical_gpu=4
+START fecam fecam_ucf_B0_Inc10 backbone=openai_clip seed=1993 physical_gpu=4 state=4, 10, 24576, 0
+2026-08-11 10:12:06,457 [trainer.py] => prefix: -
+2026-08-11 10:12:06,457 [trainer.py] => dataset: ucf101
+2026-08-11 10:12:06,457 [trainer.py] => memory_size: 0
+2026-08-11 10:12:06,457 [trainer.py] => memory_per_class: 0
+2026-08-11 10:12:06,457 [trainer.py] => fixed_memory: False
+2026-08-11 10:12:06,457 [trainer.py] => shuffle: True
+2026-08-11 10:12:06,457 [trainer.py] => init_cls: 10
+2026-08-11 10:12:06,457 [trainer.py] => increment: 10
+2026-08-11 10:12:06,457 [trainer.py] => model_name: fecam
+2026-08-11 10:12:06,457 [trainer.py] => backbone_type: openai_clip
+2026-08-11 10:12:06,457 [trainer.py] => clip_pretrained: /home/team/zhaohongwei/.cache/clip/ViT-B-16.pt
+2026-08-11 10:12:06,457 [trainer.py] => device: [device(type='cuda', index=0)]
+2026-08-11 10:12:06,457 [trainer.py] => seed: 1993
+2026-08-11 10:12:06,457 [trainer.py] => tuned_epoch: 20
+2026-08-11 10:12:06,458 [trainer.py] => init_lr: 0.01
+2026-08-11 10:12:06,458 [trainer.py] => batch_size: 48
+2026-08-11 10:12:06,458 [trainer.py] => weight_decay: 0.0005
+2026-08-11 10:12:06,458 [trainer.py] => min_lr: 0.0
+2026-08-11 10:12:06,458 [trainer.py] => ffn_num: 64
+2026-08-11 10:12:06,458 [trainer.py] => optimizer: sgd
+2026-08-11 10:12:06,458 [trainer.py] => num_workers: 8
+2026-08-11 10:12:06,458 [trainer.py] => fecam_alpha: 100.0
+2026-08-11 10:12:06,458 [trainer.py] => maha_batch_size: 64
+2026-08-11 10:12:06,458 [trainer.py] => total_class_num: 100
+2026-08-11 10:12:06,458 [trainer.py] => config: /home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/fecam/fecam_ucf_B0_Inc10.json
+['Apply Eye Makeup', 'Apply Lipstick', 'Archery', 'Baby Crawling', 'Balance Beam', 'Band Marching', 'Baseball Pitch', 'Basketball', 'Basketball Dunk', 'Bench Press', 'Biking', 'Billiards', 'Blow Dry Hair', 'Blowing Candles', 'Body Weight Squats', 'Bowling', 'Boxing Punching Bag', 'Boxing Speed Bag', 'Breast Stroke', 'Brushing Teeth', 'Clean And Jerk', 'Cliff Diving', 'Cricket Bowling', 'Cricket Shot', 'Cutting In Kitchen', 'Diving', 'Drumming', 'Fencing', 'Field Hockey Penalty', 'Floor Gymnastics', 'Frisbee Catch', 'Front Crawl', 'Golf Swing', 'Haircut', 'Hammer Throw', 'Hammering', 'Hand Stand Pushups', 'Handstand Walking', 'Head Massage', 'High Jump', 'Horse Race', 'Horse Riding', 'Hula Hoop', 'Ice Dancing', 'Javelin Throw', 'Juggling Balls', 'Jump Rope', 'Jumping Jack', 'Kayaking', 'Knitting', 'Long Jump', 'Lunges', 'Military Parade', 'Mixing', 'Mopping Floor', 'Nunchucks', 'Parallel Bars', 'Pizza Tossing', 'Playing Cello', 'Playing Daf', 'Playing Dhol', 'Playing Flute', 'Playing Guitar', 'Playing Piano', 'Playing Sitar', 'Playing Tabla', 'Playing Violin', 'Pole Vault', 'Pommel Horse', 'Pull Ups', 'Punch', 'Push Ups', 'Rafting', 'Rock Climbing Indoor', 'Rope Climbing', 'Rowing', 'Salsa Spin', 'Shaving Beard', 'Shotput', 'Skate Boarding', 'Skiing', 'Skijet', 'Sky Diving', 'Soccer Juggling', 'Soccer Penalty', 'Still Rings', 'Sumo Wrestling', 'Surfing', 'Swing', 'Table Tennis Shot', 'Tai Chi', 'Tennis Swing', 'Throw Discus', 'Trampoline Jumping', 'Typing', 'Uneven Bars', 'Volleyball Spiking', 'Walking With Dog', 'Wall Pushups', 'Writing On Board']
+['a photo of a person {}.', 'a video of a person {}.', 'a example of a person {}.', 'a demonstration of a person {}.', 'a photo of the person {}.', 'a video of the person {}.', 'a example of the person {}.', 'a demonstration of the person {}.', 'a photo of a person using {}.', 'a video of a person using {}.', 'a example of a person using {}.', 'a demonstration of a person using {}.', 'a photo of the person using {}.', 'a video of the person using {}.', 'a example of the person using {}.', 'a demonstration of the person using {}.', 'a photo of a person doing {}.', 'a video of a person doing {}.', 'a example of a person doing {}.', 'a demonstration of a person doing {}.', 'a photo of the person doing {}.', 'a video of the person doing {}.', 'a example of the person doing {}.', 'a demonstration of the person doing {}.', 'a photo of a person during {}.', 'a video of a person during {}.', 'a example of a person during {}.', 'a demonstration of a person during {}.', 'a photo of the person during {}.', 'a video of the person during {}.', 'a example of the person during {}.', 'a demonstration of the person during {}.', 'a photo of a person performing {}.', 'a video of a person performing {}.', 'a example of a person performing {}.', 'a demonstration of a person performing {}.', 'a photo of the person performing {}.', 'a video of the person performing {}.', 'a example of the person performing {}.', 'a demonstration of the person performing {}.', 'a photo of a person practicing {}.', 'a video of a person practicing {}.', 'a example of a person practicing {}.', 'a demonstration of a person practicing {}.', 'a photo of the person practicing {}.', 'a video of the person practicing {}.', 'a example of the person practicing {}.', 'a demonstration of the person practicing {}.']
+{'Apply_Eye_Makeup': 0, 'Apply_Lipstick': 1, 'Archery': 2, 'Baby_Crawling': 3, 'Balance_Beam': 4, 'Band_Marching': 5, 'Baseball_Pitch': 6, 'Basketball': 7, 'Basketball_Dunk': 8, 'Bench_Press': 9, 'Biking': 10, 'Billiards': 11, 'Blow_Dry_Hair': 12, 'Blowing_Candles': 13, 'Body_Weight_Squats': 14, 'Bowling': 15, 'Boxing_Punching_Bag': 16, 'Boxing_Speed_Bag': 17, 'Breast_Stroke': 18, 'Brushing_Teeth': 19, 'Clean_And_Jerk': 20, 'Cliff_Diving': 21, 'Cricket_Bowling': 22, 'Cricket_Shot': 23, 'Cutting_In_Kitchen': 24, 'Diving': 25, 'Drumming': 26, 'Fencing': 27, 'Field_Hockey_Penalty': 28, 'Floor_Gymnastics': 29, 'Frisbee_Catch': 30, 'Front_Crawl': 31, 'Golf_Swing': 32, 'Haircut': 33, 'Hammer_Throw': 34, 'Hammering': 35, 'Handstand_Pushups': 36, 'Handstand_Walking': 37, 'Head_Massage': 38, 'High_Jump': 39, 'Horse_Race': 40, 'Horse_Riding': 41, 'Hula_Hoop': 42, 'Ice_Dancing': 43, 'Javelin_Throw': 44, 'Juggling_Balls': 45, 'Jump_Rope': 46, 'Jumping_Jack': 47, 'Kayaking': 48, 'Knitting': 49, 'Long_Jump': 50, 'Lunges': 51, 'Military_Parade': 52, 'Mixing': 53, 'Mopping_Floor': 54, 'Nunchucks': 55, 'Parallel_Bars': 56, 'Pizza_Tossing': 57, 'Playing_Cello': 58, 'Playing_Daf': 59, 'Playing_Dhol': 60, 'Playing_Flute': 61, 'Playing_Guitar': 62, 'Playing_Piano': 63, 'Playing_Sitar': 64, 'Playing_Tabla': 65, 'Playing_Violin': 66, 'Pole_Vault': 67, 'Pommel_Horse': 68, 'Pull_Ups': 69, 'Punch': 70, 'Push_Ups': 71, 'Rafting': 72, 'Rock_Climbing_Indoor': 73, 'Rope_Climbing': 74, 'Rowing': 75, 'Salsa_Spin': 76, 'Shaving_Beard': 77, 'Shotput': 78, 'Skate_Boarding': 79, 'Skiing': 80, 'Skijet': 81, 'Sky_Diving': 82, 'Soccer_Juggling': 83, 'Soccer_Penalty': 84, 'Still_Rings': 85, 'Sumo_Wrestling': 86, 'Surfing': 87, 'Swing': 88, 'Table_Tennis_Shot': 89, 'Tai_Chi': 90, 'Tennis_Swing': 91, 'Throw_Discus': 92, 'Trampoline_Jumping': 93, 'Typing': 94, 'Uneven_Bars': 95, 'Volleyball_Spiking': 96, 'Walking_With_Dog': 97, 'Wall_Pushups': 98, 'Writing_On_Board': 99}
+2026-08-11 10:12:06,559 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+After shuffle, class_to_label is:  ['Pommel Horse', 'Parallel Bars', 'Shotput', 'Basketball Dunk', 'Cricket Shot', 'Soccer Penalty', 'Tai Chi', 'Playing Tabla', 'Rope Climbing', 'Salsa Spin', 'Horse Race', 'Table Tennis Shot', 'Baby Crawling', 'Throw Discus', 'Nunchucks', 'Bench Press', 'Drumming', 'Skiing', 'Ice Dancing', 'Head Massage', 'Playing Cello', 'Punch', 'Shaving Beard', 'Apply Lipstick', 'Still Rings', 'Brushing Teeth', 'Boxing Speed Bag', 'Long Jump', 'Field Hockey Penalty', 'Mixing', 'Blowing Candles', 'Skijet', 'Juggling Balls', 'Sky Diving', 'Baseball Pitch', 'Playing Daf', 'Soccer Juggling', 'Boxing Punching Bag', 'Bowling', 'Javelin Throw', 'Tennis Swing', 'Horse Riding', 'Rafting', 'Playing Dhol', 'Skate Boarding', 'Military Parade', 'Clean And Jerk', 'Biking', 'Front Crawl', 'Mopping Floor', 'Handstand Walking', 'Uneven Bars', 'Body Weight Squats', 'Push Ups', 'Volleyball Spiking', 'Wall Pushups', 'Walking With Dog', 'Archery', 'Playing Sitar', 'Playing Violin', 'Hula Hoop', 'Cricket Bowling', 'Hammering', 'Sumo Wrestling', 'Cutting In Kitchen', 'Hammer Throw', 'Surfing', 'Cliff Diving', 'Writing On Board', 'Apply Eye Makeup', 'Swing', 'Fencing', 'Breast Stroke', 'Typing', 'Billiards', 'Blow Dry Hair', 'Jumping Jack', 'Diving', 'Frisbee Catch', 'Jump Rope', 'Playing Guitar', 'Pull Ups', 'Hand Stand Pushups', 'Playing Flute', 'Basketball', 'Playing Piano', 'Rowing', 'Band Marching', 'Golf Swing', 'Balance Beam', 'Lunges', 'Kayaking', 'Rock Climbing Indoor', 'Trampoline Jumping', 'High Jump', 'Pole Vault', 'Floor Gymnastics', 'Knitting', 'Pizza Tossing', 'Haircut']
+Training class stages: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+2026-08-11 10:12:07,696 [instantiator.py] => Created a temporary directory at /tmp/tmp0goshvfd
+2026-08-11 10:12:07,696 [instantiator.py] => Writing /tmp/tmp0goshvfd/_remote_module_non_scriptable.py
+2026-08-11 10:12:07,829 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-11 10:12:09,229 [factory.py] => Loading pretrained ViT-B-16 weights (/home/team/zhaohongwei/.cache/clip/ViT-B-16.pt).
+/home/team/zhaohongwei/anaconda3/envs/mmcl/lib/python3.10/site-packages/torch/serialization.py:799: UserWarning: 'torch.load' received a zip file that looks like a TorchScript archive dispatching to 'torch.jit.load' (call 'torch.jit.load' directly to silence this warning)
+  warnings.warn("'torch.load' received a zip file that looks like a TorchScript archive"
+2026-08-11 10:12:11,420 [fecam.py] => Learning on 0-10
+2026-08-11 10:12:11,423 [fecam.py] => FeCAM first-session trainable parameters: 1194752
+FeCAM adapter tuning:   0%|          | 0/20 [00:00<?, ?it/s]FeCAM task 0 epoch 1/20 loss 2.270 acc 25.73:   0%|          | 0/20 [00:07<?, ?it/s]FeCAM task 0 epoch 1/20 loss 2.270 acc 25.73:   5%|▌         | 1/20 [00:07<02:31,  7.95s/it]FeCAM task 0 epoch 2/20 loss 2.179 acc 54.78:   5%|▌         | 1/20 [00:16<02:31,  7.95s/it]FeCAM task 0 epoch 2/20 loss 2.179 acc 54.78:  10%|█         | 2/20 [00:16<02:29,  8.28s/it]FeCAM task 0 epoch 3/20 loss 2.098 acc 67.74:  10%|█         | 2/20 [00:25<02:29,  8.28s/it]FeCAM task 0 epoch 3/20 loss 2.098 acc 67.74:  15%|█▌        | 3/20 [00:25<02:24,  8.49s/it]FeCAM task 0 epoch 4/20 loss 2.037 acc 77.29:  15%|█▌        | 3/20 [00:33<02:24,  8.49s/it]FeCAM task 0 epoch 4/20 loss 2.037 acc 77.29:  20%|██        | 4/20 [00:33<02:16,  8.51s/it]FeCAM task 0 epoch 5/20 loss 1.997 acc 82.26:  20%|██        | 4/20 [00:42<02:16,  8.51s/it]FeCAM task 0 epoch 5/20 loss 1.997 acc 82.26:  25%|██▌       | 5/20 [00:42<02:07,  8.50s/it]FeCAM task 0 epoch 6/20 loss 1.968 acc 86.16:  25%|██▌       | 5/20 [00:50<02:07,  8.50s/it]FeCAM task 0 epoch 6/20 loss 1.968 acc 86.16:  30%|███       | 6/20 [00:50<01:59,  8.54s/it]FeCAM task 0 epoch 7/20 loss 1.949 acc 88.60:  30%|███       | 6/20 [00:59<01:59,  8.54s/it]FeCAM task 0 epoch 7/20 loss 1.949 acc 88.60:  35%|███▌      | 7/20 [00:59<01:51,  8.58s/it]FeCAM task 0 epoch 8/20 loss 1.935 acc 89.86:  35%|███▌      | 7/20 [01:08<01:51,  8.58s/it]FeCAM task 0 epoch 8/20 loss 1.935 acc 89.86:  40%|████      | 8/20 [01:08<01:43,  8.66s/it]FeCAM task 0 epoch 9/20 loss 1.924 acc 90.45:  40%|████      | 8/20 [01:17<01:43,  8.66s/it]FeCAM task 0 epoch 9/20 loss 1.924 acc 90.45:  45%|████▌     | 9/20 [01:17<01:35,  8.68s/it]FeCAM task 0 epoch 10/20 loss 1.916 acc 90.84:  45%|████▌     | 9/20 [01:25<01:35,  8.68s/it]FeCAM task 0 epoch 10/20 loss 1.916 acc 90.84:  50%|█████     | 10/20 [01:25<01:26,  8.68s/it]FeCAM task 0 epoch 11/20 loss 1.910 acc 91.13:  50%|█████     | 10/20 [01:34<01:26,  8.68s/it]FeCAM task 0 epoch 11/20 loss 1.910 acc 91.13:  55%|█████▌    | 11/20 [01:34<01:18,  8.75s/it]FeCAM task 0 epoch 12/20 loss 1.906 acc 91.52:  55%|█████▌    | 11/20 [01:43<01:18,  8.75s/it]FeCAM task 0 epoch 12/20 loss 1.906 acc 91.52:  60%|██████    | 12/20 [01:43<01:09,  8.73s/it]FeCAM task 0 epoch 13/20 loss 1.904 acc 91.72:  60%|██████    | 12/20 [01:52<01:09,  8.73s/it]FeCAM task 0 epoch 13/20 loss 1.904 acc 91.72:  65%|██████▌   | 13/20 [01:52<01:01,  8.77s/it]FeCAM task 0 epoch 14/20 loss 1.899 acc 92.20:  65%|██████▌   | 13/20 [02:00<01:01,  8.77s/it]FeCAM task 0 epoch 14/20 loss 1.899 acc 92.20:  70%|███████   | 14/20 [02:00<00:52,  8.75s/it]FeCAM task 0 epoch 15/20 loss 1.898 acc 92.20:  70%|███████   | 14/20 [02:09<00:52,  8.75s/it]FeCAM task 0 epoch 15/20 loss 1.898 acc 92.20:  75%|███████▌  | 15/20 [02:09<00:43,  8.72s/it]FeCAM task 0 epoch 16/20 loss 1.896 acc 92.20:  75%|███████▌  | 15/20 [02:18<00:43,  8.72s/it]FeCAM task 0 epoch 16/20 loss 1.896 acc 92.20:  80%|████████  | 16/20 [02:18<00:35,  8.76s/it]FeCAM task 0 epoch 17/20 loss 1.896 acc 92.50:  80%|████████  | 16/20 [02:27<00:35,  8.76s/it]FeCAM task 0 epoch 17/20 loss 1.896 acc 92.50:  85%|████████▌ | 17/20 [02:27<00:26,  8.74s/it]FeCAM task 0 epoch 18/20 loss 1.894 acc 92.40:  85%|████████▌ | 17/20 [02:35<00:26,  8.74s/it]FeCAM task 0 epoch 18/20 loss 1.894 acc 92.40:  90%|█████████ | 18/20 [02:35<00:17,  8.74s/it]FeCAM task 0 epoch 19/20 loss 1.893 acc 92.40:  90%|█████████ | 18/20 [02:44<00:17,  8.74s/it]FeCAM task 0 epoch 19/20 loss 1.893 acc 92.40:  95%|█████████▌| 19/20 [02:44<00:08,  8.74s/it]FeCAM task 0 epoch 20/20 loss 1.893 acc 92.40:  95%|█████████▌| 19/20 [02:53<00:08,  8.74s/it]FeCAM task 0 epoch 20/20 loss 1.893 acc 92.40: 100%|██████████| 20/20 [02:53<00:00,  8.76s/it]FeCAM task 0 epoch 20/20 loss 1.893 acc 92.40: 100%|██████████| 20/20 [02:53<00:00,  8.67s/it]
+2026-08-11 10:15:09,717 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:15:11,081 [trainer.py] => CNN: {'total': 95.26, '00-09': 95.26, 'old': 0, 'new': 95.26, 'harmonic': 0.0}
+2026-08-11 10:15:11,081 [trainer.py] => CNN top1 curve: [95.26]
+2026-08-11 10:15:11,082 [trainer.py] => CNN top5 curve: [100.0]
+2026-08-11 10:15:11,082 [trainer.py] => Average Accuracy (CNN top1): 95.26
+2026-08-11 10:15:11,083 [fecam.py] => Learning on 10-20
+2026-08-11 10:15:16,288 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:15:18,838 [trainer.py] => CNN: {'total': 95.71, '00-09': 92.49, '10-19': 98.85, 'old': 92.49, 'new': 98.85, 'harmonic': 95.56}
+2026-08-11 10:15:18,839 [trainer.py] => CNN top1 curve: [95.26, 95.71]
+2026-08-11 10:15:18,839 [trainer.py] => CNN top5 curve: [100.0, 99.81]
+2026-08-11 10:15:18,839 [trainer.py] => Average Accuracy (CNN top1): 95.485
+2026-08-11 10:15:18,840 [fecam.py] => Learning on 20-30
+2026-08-11 10:15:23,733 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:15:27,401 [trainer.py] => CNN: {'total': 91.75, '00-09': 88.14, '10-19': 97.69, '20-29': 89.45, 'old': 92.98, 'new': 89.45, 'harmonic': 91.18}
+2026-08-11 10:15:27,402 [trainer.py] => CNN top1 curve: [95.26, 95.71, 91.75]
+2026-08-11 10:15:27,402 [trainer.py] => CNN top5 curve: [100.0, 99.81, 99.49]
+2026-08-11 10:15:27,402 [trainer.py] => Average Accuracy (CNN top1): 94.24000000000001
+2026-08-11 10:15:27,403 [fecam.py] => Learning on 30-40
+2026-08-11 10:15:32,165 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:15:36,762 [trainer.py] => CNN: {'total': 91.71, '00-09': 87.75, '10-19': 95.77, '20-29': 89.09, '30-39': 94.38, 'old': 90.86, 'new': 94.38, 'harmonic': 92.59}
+2026-08-11 10:15:36,762 [trainer.py] => CNN top1 curve: [95.26, 95.71, 91.75, 91.71]
+2026-08-11 10:15:36,762 [trainer.py] => CNN top5 curve: [100.0, 99.81, 99.49, 99.13]
+2026-08-11 10:15:36,762 [trainer.py] => Average Accuracy (CNN top1): 93.6075
+2026-08-11 10:15:36,764 [fecam.py] => Learning on 40-50
+2026-08-11 10:15:41,470 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:15:46,771 [trainer.py] => CNN: {'total': 91.61, '00-09': 86.96, '10-19': 95.77, '20-29': 89.09, '30-39': 93.98, '40-49': 92.34, 'old': 91.42, 'new': 92.34, 'harmonic': 91.88}
+2026-08-11 10:15:46,771 [trainer.py] => CNN top1 curve: [95.26, 95.71, 91.75, 91.71, 91.61]
+2026-08-11 10:15:46,771 [trainer.py] => CNN top5 curve: [100.0, 99.81, 99.49, 99.13, 99.01]
+2026-08-11 10:15:46,772 [trainer.py] => Average Accuracy (CNN top1): 93.208
+2026-08-11 10:15:46,773 [fecam.py] => Learning on 50-60
+2026-08-11 10:15:51,245 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:15:57,450 [trainer.py] => CNN: {'total': 90.34, '00-09': 85.77, '10-19': 93.08, '20-29': 88.73, '30-39': 93.17, '40-49': 91.61, '50-59': 89.63, 'old': 90.47, 'new': 89.63, 'harmonic': 90.05}
+2026-08-11 10:15:57,450 [trainer.py] => CNN top1 curve: [95.26, 95.71, 91.75, 91.71, 91.61, 90.34]
+2026-08-11 10:15:57,450 [trainer.py] => CNN top5 curve: [100.0, 99.81, 99.49, 99.13, 99.01, 98.71]
+2026-08-11 10:15:57,450 [trainer.py] => Average Accuracy (CNN top1): 92.73
+2026-08-11 10:15:57,452 [fecam.py] => Learning on 60-70
+2026-08-11 10:16:02,361 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:16:09,706 [trainer.py] => CNN: {'total': 89.1, '00-09': 81.82, '10-19': 91.92, '20-29': 87.64, '30-39': 92.37, '40-49': 91.24, '50-59': 89.63, '60-69': 89.05, 'old': 89.11, 'new': 89.05, 'harmonic': 89.08}
+2026-08-11 10:16:09,707 [trainer.py] => CNN top1 curve: [95.26, 95.71, 91.75, 91.71, 91.61, 90.34, 89.1]
+2026-08-11 10:16:09,707 [trainer.py] => CNN top5 curve: [100.0, 99.81, 99.49, 99.13, 99.01, 98.71, 98.52]
+2026-08-11 10:16:09,707 [trainer.py] => Average Accuracy (CNN top1): 92.21142857142857
+2026-08-11 10:16:09,708 [fecam.py] => Learning on 70-80
+2026-08-11 10:16:14,689 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:16:22,887 [trainer.py] => CNN: {'total': 88.4, '00-09': 81.82, '10-19': 91.15, '20-29': 86.91, '30-39': 91.97, '40-49': 89.05, '50-59': 89.21, '60-69': 87.96, '70-79': 89.23, 'old': 88.28, 'new': 89.23, 'harmonic': 88.75}
+2026-08-11 10:16:22,887 [trainer.py] => CNN top1 curve: [95.26, 95.71, 91.75, 91.71, 91.61, 90.34, 89.1, 88.4]
+2026-08-11 10:16:22,887 [trainer.py] => CNN top5 curve: [100.0, 99.81, 99.49, 99.13, 99.01, 98.71, 98.52, 98.42]
+2026-08-11 10:16:22,887 [trainer.py] => Average Accuracy (CNN top1): 91.735
+2026-08-11 10:16:22,888 [fecam.py] => Learning on 80-90
+2026-08-11 10:16:27,545 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:16:37,083 [trainer.py] => CNN: {'total': 88.25, '00-09': 81.42, '10-19': 91.15, '20-29': 86.55, '30-39': 91.57, '40-49': 88.69, '50-59': 88.38, '60-69': 87.96, '70-79': 89.23, '80-89': 89.19, 'old': 88.11, 'new': 89.19, 'harmonic': 88.65}
+2026-08-11 10:16:37,083 [trainer.py] => CNN top1 curve: [95.26, 95.71, 91.75, 91.71, 91.61, 90.34, 89.1, 88.4, 88.25]
+2026-08-11 10:16:37,083 [trainer.py] => CNN top5 curve: [100.0, 99.81, 99.49, 99.13, 99.01, 98.71, 98.52, 98.42, 98.24]
+2026-08-11 10:16:37,083 [trainer.py] => Average Accuracy (CNN top1): 91.34777777777778
+2026-08-11 10:16:37,084 [fecam.py] => Learning on 90-100
+2026-08-11 10:16:41,639 [fecam.py] => Using FeCAM Mahalanobis classifier
+2026-08-11 10:16:51,986 [trainer.py] => CNN: {'total': 86.28, '00-09': 81.03, '10-19': 90.38, '20-29': 85.09, '30-39': 90.36, '40-49': 87.59, '50-59': 87.97, '60-69': 87.23, '70-79': 86.92, '80-89': 88.51, '90-99': 77.43, 'old': 87.24, 'new': 77.43, 'harmonic': 82.04}
+2026-08-11 10:16:51,987 [trainer.py] => CNN top1 curve: [95.26, 95.71, 91.75, 91.71, 91.61, 90.34, 89.1, 88.4, 88.25, 86.28]
+2026-08-11 10:16:51,987 [trainer.py] => CNN top5 curve: [100.0, 99.81, 99.49, 99.13, 99.01, 98.71, 98.52, 98.42, 98.24, 97.8]
+2026-08-11 10:16:51,987 [trainer.py] => Average Accuracy (CNN top1): 90.841
+
+========================================
+Finished ucf101_init10_inc10 seed=1993
+Backbone: OpenAI CLIP
+Average Accuracy (Top1): 90.84
+Last Accuracy: 86.28
+Average Accuracy (Top5): 98.91
+Last Top5: 97.8
+========================================
+
+DONE fecam fecam_ucf_B0_Inc10 backbone=openai_clip seed=1993 physical_gpu=4
+Shard 2/6 finished with 0 failures

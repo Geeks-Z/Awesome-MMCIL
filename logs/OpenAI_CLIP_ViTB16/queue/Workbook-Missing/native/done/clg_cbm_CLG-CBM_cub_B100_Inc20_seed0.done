@@ -1,0 +1,5 @@
+completed_at=2026-08-18T11:11:18+08:00
+config=/home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/CLG-CBM/CLG-CBM_cub_B100_Inc20.json
+seed=0
+physical_gpu=7
+backbone=OpenAI_CLIP_ViTB16

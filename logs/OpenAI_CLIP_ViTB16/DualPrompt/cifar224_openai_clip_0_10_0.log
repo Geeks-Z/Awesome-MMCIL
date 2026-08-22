@@ -1,0 +1,125 @@
+2026-08-17 21:35:40,440 [trainer.py] => prefix: -
+2026-08-17 21:35:40,440 [trainer.py] => dataset: cifar224
+2026-08-17 21:35:40,440 [trainer.py] => memory_size: 0
+2026-08-17 21:35:40,440 [trainer.py] => memory_per_class: 0
+2026-08-17 21:35:40,440 [trainer.py] => fixed_memory: False
+2026-08-17 21:35:40,440 [trainer.py] => shuffle: True
+2026-08-17 21:35:40,440 [trainer.py] => init_cls: 10
+2026-08-17 21:35:40,440 [trainer.py] => increment: 10
+2026-08-17 21:35:40,440 [trainer.py] => model_name: dualprompt
+2026-08-17 21:35:40,440 [trainer.py] => backbone_type: openai_clip
+2026-08-17 21:35:40,440 [trainer.py] => get_original_backbone: True
+2026-08-17 21:35:40,440 [trainer.py] => device: [device(type='cuda', index=0)]
+2026-08-17 21:35:40,440 [trainer.py] => seed: 0
+2026-08-17 21:35:40,440 [trainer.py] => nb_classes: 100
+2026-08-17 21:35:40,440 [trainer.py] => tuned_epoch: 10
+2026-08-17 21:35:40,440 [trainer.py] => init_lr: 0.001
+2026-08-17 21:35:40,440 [trainer.py] => batch_size: 64
+2026-08-17 21:35:40,440 [trainer.py] => weight_decay: 0
+2026-08-17 21:35:40,440 [trainer.py] => min_lr: 1e-05
+2026-08-17 21:35:40,440 [trainer.py] => optimizer: adam
+2026-08-17 21:35:40,440 [trainer.py] => scheduler: constant
+2026-08-17 21:35:40,440 [trainer.py] => reinit_optimizer: True
+2026-08-17 21:35:40,440 [trainer.py] => global_pool: token
+2026-08-17 21:35:40,440 [trainer.py] => head_type: token
+2026-08-17 21:35:40,441 [trainer.py] => freeze: ['blocks', 'patch_embed', 'cls_token', 'norm', 'pos_embed']
+2026-08-17 21:35:40,441 [trainer.py] => pretrained: True
+2026-08-17 21:35:40,441 [trainer.py] => drop: 0.0
+2026-08-17 21:35:40,441 [trainer.py] => drop_path: 0.0
+2026-08-17 21:35:40,441 [trainer.py] => use_g_prompt: True
+2026-08-17 21:35:40,441 [trainer.py] => g_prompt_length: 5
+2026-08-17 21:35:40,441 [trainer.py] => g_prompt_layer_idx: [0, 1]
+2026-08-17 21:35:40,441 [trainer.py] => use_prefix_tune_for_g_prompt: True
+2026-08-17 21:35:40,441 [trainer.py] => use_e_prompt: True
+2026-08-17 21:35:40,441 [trainer.py] => e_prompt_layer_idx: [2, 3, 4]
+2026-08-17 21:35:40,441 [trainer.py] => use_prefix_tune_for_e_prompt: True
+2026-08-17 21:35:40,441 [trainer.py] => prompt_pool: True
+2026-08-17 21:35:40,441 [trainer.py] => size: 10
+2026-08-17 21:35:40,441 [trainer.py] => length: 5
+2026-08-17 21:35:40,441 [trainer.py] => top_k: 1
+2026-08-17 21:35:40,441 [trainer.py] => initializer: uniform
+2026-08-17 21:35:40,441 [trainer.py] => prompt_key: True
+2026-08-17 21:35:40,441 [trainer.py] => prompt_key_init: uniform
+2026-08-17 21:35:40,441 [trainer.py] => use_prompt_mask: True
+2026-08-17 21:35:40,441 [trainer.py] => shared_prompt_pool: True
+2026-08-17 21:35:40,441 [trainer.py] => shared_prompt_key: False
+2026-08-17 21:35:40,441 [trainer.py] => batchwise_prompt: True
+2026-08-17 21:35:40,441 [trainer.py] => embedding_key: cls
+2026-08-17 21:35:40,441 [trainer.py] => predefined_key: 
+2026-08-17 21:35:40,441 [trainer.py] => pull_constraint: True
+2026-08-17 21:35:40,441 [trainer.py] => pull_constraint_coeff: 0.1
+2026-08-17 21:35:40,441 [trainer.py] => same_key_value: False
+2026-08-17 21:35:40,441 [trainer.py] => total_class_num: 100
+2026-08-17 21:35:40,441 [trainer.py] => clip_pretrained: /home/team/zhaohongwei/.cache/clip/ViT-B-16.pt
+2026-08-17 21:35:40,441 [trainer.py] => config: /home/team/zhaohongwei/Code/Research/Awesome-MMCL/configs/dualprompt/dualprompt_cifar_B0_Inc10.json
+2026-08-17 21:35:41,590 [data_manager.py] => [26, 86, 2, 55, 75, 93, 16, 73, 54, 95, 53, 92, 78, 13, 7, 30, 22, 24, 33, 8, 43, 62, 3, 71, 45, 48, 6, 99, 82, 76, 60, 80, 90, 68, 51, 27, 18, 56, 63, 74, 1, 61, 42, 41, 4, 15, 17, 40, 38, 5, 91, 59, 0, 34, 28, 50, 11, 35, 23, 52, 10, 31, 66, 57, 79, 85, 32, 84, 14, 89, 19, 29, 49, 97, 98, 69, 20, 94, 72, 77, 25, 37, 81, 46, 39, 65, 58, 12, 88, 70, 87, 36, 21, 83, 9, 96, 67, 64, 47, 44]
+2026-08-17 21:35:42,896 [instantiator.py] => Created a temporary directory at /tmp/tmpon_y1hqw
+2026-08-17 21:35:42,896 [instantiator.py] => Writing /tmp/tmpon_y1hqw/_remote_module_non_scriptable.py
+2026-08-17 21:35:43,029 [factory.py] => Loaded ViT-B-16 model config.
+2026-08-17 21:35:44,598 [factory.py] => Loading pretrained ViT-B-16 weights (/home/team/zhaohongwei/.cache/clip/ViT-B-16.pt).
+2026-08-17 21:35:46,381 [dual_prompt.py] => 86,494,820 model total parameters.
+2026-08-17 21:35:46,382 [dual_prompt.py] => 286,820 model training parameters.
+2026-08-17 21:35:46,382 [dual_prompt.py] => e_prompt.prompt: 230400
+2026-08-17 21:35:46,382 [dual_prompt.py] => e_prompt.prompt_key: 5120
+2026-08-17 21:35:46,382 [dual_prompt.py] => head.weight: 51200
+2026-08-17 21:35:46,382 [dual_prompt.py] => head.bias: 100
+2026-08-17 21:35:46,382 [dual_prompt.py] => Learning on 0-10
+2026-08-17 21:45:57,829 [dual_prompt.py] => Task 0, Epoch 10/10 => Loss 0.092, Train_accy 95.70, Test_accy 93.40
+2026-08-17 21:46:05,584 [trainer.py] => CNN: {'total': 93.4, '00-09': 93.4, 'old': 0, 'new': 93.4, 'harmonic': 0.0}
+2026-08-17 21:46:05,584 [trainer.py] => CNN top1 curve: [93.4]
+2026-08-17 21:46:05,584 [trainer.py] => CNN top5 curve: [99.9]
+2026-08-17 21:46:05,585 [trainer.py] => Average Accuracy (CNN top1): 93.4
+2026-08-17 21:46:05,585 [dual_prompt.py] => Learning on 10-20
+2026-08-17 21:57:23,747 [dual_prompt.py] => Task 1, Epoch 10/10 => Loss 0.029, Train_accy 97.82, Test_accy 87.90
+2026-08-17 21:57:38,459 [trainer.py] => CNN: {'total': 87.9, '00-09': 87.4, '10-19': 88.4, 'old': 87.4, 'new': 88.4, 'harmonic': 87.9}
+2026-08-17 21:57:38,460 [trainer.py] => CNN top1 curve: [93.4, 87.9]
+2026-08-17 21:57:38,460 [trainer.py] => CNN top5 curve: [99.9, 99.4]
+2026-08-17 21:57:38,460 [trainer.py] => Average Accuracy (CNN top1): 90.65
+2026-08-17 21:57:38,461 [dual_prompt.py] => Learning on 20-30
+2026-08-17 22:10:04,305 [dual_prompt.py] => Task 2, Epoch 10/10 => Loss -0.004, Train_accy 98.94, Test_accy 84.93
+2026-08-17 22:10:26,937 [trainer.py] => CNN: {'total': 84.93, '00-09': 84.7, '10-19': 84.5, '20-29': 85.6, 'old': 84.6, 'new': 85.6, 'harmonic': 85.1}
+2026-08-17 22:10:26,938 [trainer.py] => CNN top1 curve: [93.4, 87.9, 84.93]
+2026-08-17 22:10:26,938 [trainer.py] => CNN top5 curve: [99.9, 99.4, 99.0]
+2026-08-17 22:10:26,938 [trainer.py] => Average Accuracy (CNN top1): 88.74333333333334
+2026-08-17 22:10:26,938 [dual_prompt.py] => Learning on 30-40
+2026-08-17 22:24:27,733 [dual_prompt.py] => Task 3, Epoch 10/10 => Loss 0.066, Train_accy 96.48, Test_accy 84.25
+2026-08-17 22:24:57,475 [trainer.py] => CNN: {'total': 84.25, '00-09': 85.7, '10-19': 82.5, '20-29': 86.5, '30-39': 82.3, 'old': 84.9, 'new': 82.3, 'harmonic': 83.58}
+2026-08-17 22:24:57,476 [trainer.py] => CNN top1 curve: [93.4, 87.9, 84.93, 84.25]
+2026-08-17 22:24:57,476 [trainer.py] => CNN top5 curve: [99.9, 99.4, 99.0, 98.5]
+2026-08-17 22:24:57,476 [trainer.py] => Average Accuracy (CNN top1): 87.62
+2026-08-17 22:24:57,476 [dual_prompt.py] => Learning on 40-50
+2026-08-17 22:39:59,203 [dual_prompt.py] => Task 4, Epoch 10/10 => Loss 0.018, Train_accy 98.22, Test_accy 83.34
+2026-08-17 22:40:37,306 [trainer.py] => CNN: {'total': 83.34, '00-09': 83.9, '10-19': 81.7, '20-29': 85.6, '30-39': 81.0, '40-49': 84.5, 'old': 83.05, 'new': 84.5, 'harmonic': 83.77}
+2026-08-17 22:40:37,307 [trainer.py] => CNN top1 curve: [93.4, 87.9, 84.93, 84.25, 83.34]
+2026-08-17 22:40:37,307 [trainer.py] => CNN top5 curve: [99.9, 99.4, 99.0, 98.5, 97.84]
+2026-08-17 22:40:37,307 [trainer.py] => Average Accuracy (CNN top1): 86.76400000000001
+2026-08-17 22:40:37,307 [dual_prompt.py] => Learning on 50-60
+2026-08-17 22:57:17,893 [dual_prompt.py] => Task 5, Epoch 10/10 => Loss 0.056, Train_accy 96.42, Test_accy 81.68
+2026-08-17 22:58:03,359 [trainer.py] => CNN: {'total': 81.68, '00-09': 82.7, '10-19': 81.5, '20-29': 84.9, '30-39': 75.4, '40-49': 83.3, '50-59': 82.3, 'old': 81.56, 'new': 82.3, 'harmonic': 81.93}
+2026-08-17 22:58:03,359 [trainer.py] => CNN top1 curve: [93.4, 87.9, 84.93, 84.25, 83.34, 81.68]
+2026-08-17 22:58:03,359 [trainer.py] => CNN top5 curve: [99.9, 99.4, 99.0, 98.5, 97.84, 97.57]
+2026-08-17 22:58:03,359 [trainer.py] => Average Accuracy (CNN top1): 85.91666666666667
+2026-08-17 22:58:03,360 [dual_prompt.py] => Learning on 60-70
+2026-08-17 23:15:46,951 [dual_prompt.py] => Task 6, Epoch 10/10 => Loss 0.038, Train_accy 98.24, Test_accy 80.53
+2026-08-17 23:16:38,638 [trainer.py] => CNN: {'total': 80.53, '00-09': 82.0, '10-19': 81.1, '20-29': 84.6, '30-39': 74.4, '40-49': 80.1, '50-59': 80.0, '60-69': 81.5, 'old': 80.37, 'new': 81.5, 'harmonic': 80.93}
+2026-08-17 23:16:38,639 [trainer.py] => CNN top1 curve: [93.4, 87.9, 84.93, 84.25, 83.34, 81.68, 80.53]
+2026-08-17 23:16:38,639 [trainer.py] => CNN top5 curve: [99.9, 99.4, 99.0, 98.5, 97.84, 97.57, 96.96]
+2026-08-17 23:16:38,639 [trainer.py] => Average Accuracy (CNN top1): 85.14714285714285
+2026-08-17 23:16:38,639 [dual_prompt.py] => Learning on 70-80
+2026-08-17 23:35:10,006 [dual_prompt.py] => Task 7, Epoch 10/10 => Loss -0.006, Train_accy 98.98, Test_accy 79.20
+2026-08-17 23:36:08,256 [trainer.py] => CNN: {'total': 79.2, '00-09': 79.7, '10-19': 80.3, '20-29': 83.8, '30-39': 73.8, '40-49': 79.5, '50-59': 77.8, '60-69': 80.7, '70-79': 78.0, 'old': 79.37, 'new': 78.0, 'harmonic': 78.68}
+2026-08-17 23:36:08,257 [trainer.py] => CNN top1 curve: [93.4, 87.9, 84.93, 84.25, 83.34, 81.68, 80.53, 79.2]
+2026-08-17 23:36:08,257 [trainer.py] => CNN top5 curve: [99.9, 99.4, 99.0, 98.5, 97.84, 97.57, 96.96, 96.59]
+2026-08-17 23:36:08,257 [trainer.py] => Average Accuracy (CNN top1): 84.40375
+2026-08-17 23:36:08,257 [dual_prompt.py] => Learning on 80-90
+2026-08-17 23:56:19,097 [dual_prompt.py] => Task 8, Epoch 10/10 => Loss -0.005, Train_accy 99.02, Test_accy 77.84
+2026-08-17 23:57:28,315 [trainer.py] => CNN: {'total': 77.84, '00-09': 78.8, '10-19': 79.3, '20-29': 83.5, '30-39': 72.8, '40-49': 77.4, '50-59': 75.4, '60-69': 80.0, '70-79': 74.9, '80-89': 78.5, 'old': 77.76, 'new': 78.5, 'harmonic': 78.13}
+2026-08-17 23:57:28,315 [trainer.py] => CNN top1 curve: [93.4, 87.9, 84.93, 84.25, 83.34, 81.68, 80.53, 79.2, 77.84]
+2026-08-17 23:57:28,315 [trainer.py] => CNN top5 curve: [99.9, 99.4, 99.0, 98.5, 97.84, 97.57, 96.96, 96.59, 96.36]
+2026-08-17 23:57:28,315 [trainer.py] => Average Accuracy (CNN top1): 83.67444444444445
+2026-08-17 23:57:28,315 [dual_prompt.py] => Learning on 90-100
+2026-08-18 00:18:45,032 [dual_prompt.py] => Task 9, Epoch 10/10 => Loss 0.058, Train_accy 96.70, Test_accy 75.74
+2026-08-18 00:19:59,244 [trainer.py] => CNN: {'total': 75.74, '00-09': 78.0, '10-19': 78.8, '20-29': 83.3, '30-39': 71.8, '40-49': 77.2, '50-59': 72.0, '60-69': 79.4, '70-79': 74.3, '80-89': 78.2, '90-99': 64.4, 'old': 77.0, 'new': 64.4, 'harmonic': 70.14}
+2026-08-18 00:19:59,244 [trainer.py] => CNN top1 curve: [93.4, 87.9, 84.93, 84.25, 83.34, 81.68, 80.53, 79.2, 77.84, 75.74]
+2026-08-18 00:19:59,244 [trainer.py] => CNN top5 curve: [99.9, 99.4, 99.0, 98.5, 97.84, 97.57, 96.96, 96.59, 96.36, 95.71]
+2026-08-18 00:19:59,244 [trainer.py] => Average Accuracy (CNN top1): 82.881
